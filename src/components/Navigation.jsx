@@ -45,7 +45,7 @@ export default function Navigation() {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center justify-center gap-10">
+          <div className="flex items-center justify-center gap-6">
             <Button
               variant="ghost"
               onClick={handleHomeClick}

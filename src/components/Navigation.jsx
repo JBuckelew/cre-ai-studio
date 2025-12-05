@@ -55,7 +55,7 @@ export default function Navigation() {
             </Button>
             <Button
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
+              className="bg-green-600 hover:bg-green-700 text-white font-medium"
             >
               Join Now
             </Button>
@@ -119,7 +119,7 @@ export default function Navigation() {
             <Button
               size="sm"
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs"
+              className="bg-green-600 hover:bg-green-700 text-white font-medium text-xs"
             >
               Join Now
             </Button>

@@ -37,12 +37,12 @@ export default function ArticlesPage() {
 
   const videos = [
     {
-      title: "AI in Commercial Real Estate",
+      title: "CRE Daily x CRE AI Studio - Practical AI Tools",
       description: "Learn how AI is transforming the commercial real estate industry.",
       youtubeId: "D9fRrm4Jt00"
     },
     {
-      title: "CRE AI Studio Overview",
+      title: "Crexi x CRE AI Studio - AI for Commercial Real Estate",
       description: "Discover what you'll learn inside the CRE AI Studio.",
       youtubeId: "Y18M6NAYGds"
     }

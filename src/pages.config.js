@@ -7,6 +7,7 @@ import cookiePolicy from './pages/Cookie-Policy';
 import Resources from './pages/Resources';
 import BlackFridayPayment from './pages/BlackFridayPayment';
 import FreeTrialPayment from './pages/FreeTrialPayment';
+import Articles from './pages/Articles';
 import __Layout from './Layout.jsx';
 
 
@@ -20,6 +21,7 @@ export const PAGES = {
     "Resources": Resources,
     "BlackFridayPayment": BlackFridayPayment,
     "FreeTrialPayment": FreeTrialPayment,
+    "Articles": Articles,
 }
 
 export const pagesConfig = {

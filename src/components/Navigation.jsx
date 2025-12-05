@@ -67,6 +67,13 @@ export default function Navigation() {
             >
               Guides
             </Button>
+            <Button
+              variant="ghost"
+              onClick={() => window.location.href = '/Articles'}
+              className="text-slate-700 hover:text-blue-600 font-medium"
+            >
+              Articles
+            </Button>
           </div>
 
           {/* Join Now and Log In Buttons */}
@@ -140,6 +147,14 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs"
             >
               Guides
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => window.location.href = '/Articles'}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
+            >
+              Articles
             </Button>
           </div>
         </div>

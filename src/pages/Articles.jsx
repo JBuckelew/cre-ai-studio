@@ -40,6 +40,11 @@ export default function ArticlesPage() {
       title: "AI in Commercial Real Estate",
       description: "Learn how AI is transforming the commercial real estate industry.",
       youtubeId: "D9fRrm4Jt00"
+    },
+    {
+      title: "CRE AI Studio Overview",
+      description: "Discover what you'll learn inside the CRE AI Studio.",
+      youtubeId: "Y18M6NAYGds"
     }
   ];
 

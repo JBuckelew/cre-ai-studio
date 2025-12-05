@@ -73,7 +73,7 @@ export default function Navigation() {
           <div className="justify-self-end flex items-center gap-3">
             <Button
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-              className="bg-green-600 hover:bg-green-700 text-white font-medium"
+              className="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-black font-semibold"
             >
               Join Now
             </Button>
@@ -101,7 +101,7 @@ export default function Navigation() {
               <Button
                 size="sm"
                 onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-                className="bg-green-600 hover:bg-green-700 text-white font-medium text-xs"
+                className="bg-gradient-to-r from-green-500 to-yellow-400 hover:from-green-600 hover:to-yellow-500 text-black font-semibold text-xs"
               >
                 Join Now
               </Button>

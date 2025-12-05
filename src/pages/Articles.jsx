@@ -37,16 +37,9 @@ export default function ArticlesPage() {
 
   const videos = [
     {
-      title: "Getting Started with AI in Commercial Real Estate",
-      description: "Learn the fundamentals of applying AI tools to your CRE workflows.",
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      duration: "12:34"
-    },
-    {
-      title: "Automating Deal Analysis with ChatGPT",
-      description: "Step-by-step guide to using AI for faster underwriting and analysis.",
-      thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      duration: "18:22"
+      title: "AI in Commercial Real Estate",
+      description: "Learn how AI is transforming the commercial real estate industry.",
+      youtubeId: "D9fRrm4Jt00"
     }
   ];
 
@@ -171,24 +164,18 @@ export default function ArticlesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group border-0 shadow-lg">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                  <div className="relative aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                      title={video.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
                     />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
-                        <Play className="w-8 h-8 text-blue-600 ml-1" />
-                      </div>
-                    </div>
-                    <div className="absolute bottom-4 right-4 bg-black/80 text-white text-sm px-2 py-1 rounded">
-                      {video.duration}
-                    </div>
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {video.title}
                     </h3>
                     <p className="text-gray-600">

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from '@/utils';
@@ -53,6 +52,12 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium"
             >
               Home
+            </Button>
+            <Button
+              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
+            >
+              Join Now
             </Button>
             <Button
               variant="ghost"
@@ -110,6 +115,13 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs"
             >
               Home
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs"
+            >
+              Join Now
             </Button>
             <Button
               variant="ghost"

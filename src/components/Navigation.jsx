@@ -54,12 +54,6 @@ export default function Navigation() {
               Home
             </Button>
             <Button
-              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-              className="bg-green-600 hover:bg-green-700 text-white font-medium"
-            >
-              Join Now
-            </Button>
-            <Button
               variant="ghost"
               onClick={handleWhatsIncludedClick}
               className="text-slate-700 hover:text-blue-600 font-medium"
@@ -75,8 +69,14 @@ export default function Navigation() {
             </Button>
           </div>
 
-          {/* Log In Button */}
-          <div className="justify-self-end">
+          {/* Join Now and Log In Buttons */}
+          <div className="justify-self-end flex items-center gap-3">
+            <Button
+              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+              className="bg-green-600 hover:bg-green-700 text-white font-medium"
+            >
+              Join Now
+            </Button>
             <Button
               onClick={handleLoginClick}
               className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
@@ -97,13 +97,22 @@ export default function Navigation() {
                 className="h-8"
               />
             </button>
-            <Button
-              onClick={handleLoginClick}
-              size="sm"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
-            >
-              Log In
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+                className="bg-green-600 hover:bg-green-700 text-white font-medium text-xs"
+              >
+                Join Now
+              </Button>
+              <Button
+                onClick={handleLoginClick}
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
+              >
+                Log In
+              </Button>
+            </div>
           </div>
 
           {/* Bottom row: Navigation Links */}
@@ -115,13 +124,6 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs"
             >
               Home
-            </Button>
-            <Button
-              size="sm"
-              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-              className="bg-green-600 hover:bg-green-700 text-white font-medium text-xs"
-            >
-              Join Now
             </Button>
             <Button
               variant="ghost"

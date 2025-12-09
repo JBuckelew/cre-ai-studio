@@ -10,21 +10,21 @@ export default function TestimonialsSection() {
       name: "Angelo Pavanello",
       role: "Vice President @ CBRE Canada",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/d02373aaf_Angelo.jpg",
-      content: "The CRE AI Studio team came in and trained over 50 of our brokers on Microsoft Co-Pilot in a single session. The content was practical, immediately applicable, and tailored specifically to how we work in commercial real estate. This is exactly the kind of AI training our industry needs. I'm also personally a member of the CRE AI Studio and can't recommend it enough.",
+      content: "The CRE AI Studio team came in and <strong>trained over 50 of our brokers</strong> on Microsoft Co-Pilot in a single session. The content was <strong>practical, immediately applicable, and tailored specifically</strong> to how we work in commercial real estate. This is exactly the kind of AI training our industry needs. I'm also personally a member of the CRE AI Studio and can't recommend it enough.",
       highlight: "trained over 50 of our brokers"
     },
     {
       name: "Sarra Hochberg",
       role: "Marketing Manager @ Coldwell Banker Commercial Atlantic",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/af83da311_sarah.jpg",
-      content: "Month 1 complete of the CRE AI Studio! So far, I've learned how to create custom GPT's for our Coldwell Banker Commercial Atlantic company marketing and brand consistency & building custom prompts for those GPT's. If you have not signed up for this course and you work in commercial real estate, you should!",
+      content: "Month 1 complete of the CRE AI Studio! So far, I've <strong>learned how to create custom GPT's</strong> for our Coldwell Banker Commercial Atlantic company marketing and brand consistency & <strong>building custom prompts</strong> for those GPT's. If you have not signed up for this course and you work in commercial real estate, <strong>you should!</strong>",
       highlight: "learned how to create custom GPT's"
     },
     {
       name: "Ben Nolte",
       role: "Senior Advisor @ NAI SunVista",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/6b5cee3a3_ben.jpg",
-      content: "1000% Share away! if it helps for me to like, share or comment please let me know. Honestly Jonathan, I have spent thousands dollars on AI Classes over the past three years, and this group is VASTLY underpriced for the value you are all bringing. Feel free to share or modify utilize that as well if you wish.",
+      content: "1000% Share away! if it helps for me to like, share or comment please let me know. Honestly Jonathan, I have <strong>spent thousands dollars on AI Classes</strong> over the past three years, and this group is <strong>VASTLY underpriced for the value</strong> you are all bringing. Feel free to share or modify utilize that as well if you wish.",
       highlight: "VASTLY underpriced for the value"
     }
   ];

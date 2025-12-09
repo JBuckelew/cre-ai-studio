@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
     },
     {
       name: "Ben Nolte",
-      role: "CRE Professional",
+      role: "Senior Advisor @ NAI SunVista",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/6b5cee3a3_ben.jpg",
       content: "1000% Share away! if it helps for me to like, share or comment please let me know. Honestly Jonathan, I have spent thousands dollars on AI Classes over the past three years, and this group is VASTLY underpriced for the value you are all bringing. Feel free to share or modify utilize that as well if you wish.",
       highlight: "VASTLY underpriced for the value"

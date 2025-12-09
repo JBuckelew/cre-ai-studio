@@ -69,9 +69,9 @@ export default function FreeTrialPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 md:p-4 pb-8"
           >
-            <div className="relative bg-black text-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden border-2 border-blue-500">
+            <div className="relative bg-black text-white rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full overflow-hidden border-2 border-blue-500">
               {/* Close button */}
               <button
                 onClick={handleClose}
@@ -85,7 +85,7 @@ export default function FreeTrialPopup() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl"></div>
 
               {/* Content */}
-              <div className="relative p-8 md:p-12">
+              <div className="relative p-6 md:p-12">
                 {!isSuccess ? (
                   <>
                     {/* Badge */}
@@ -94,16 +94,16 @@ export default function FreeTrialPopup() {
                     </div>
 
                     {/* Headline */}
-                    <h2 className="text-2xl md:text-3xl font-black mb-4 leading-tight">
+                    <h2 className="text-xl md:text-3xl font-black mb-3 leading-tight">
                       Try the <span className="bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent">CRE AI Studio</span> <span className="text-blue-400">FREE for 7 days</span>
                     </h2>
 
                     {/* Subheadline */}
-                    <p className="text-lg text-blue-100 mb-4">
+                    <p className="text-base md:text-lg text-blue-100 mb-3">
                       Master AI in Commercial Real Estate with weekly lessons, live Q&A sessions, and direct access to founders.
                     </p>
 
-                    <p className="text-sm text-gray-400 mb-6">
+                    <p className="text-xs md:text-sm text-gray-400 mb-4">
                       Cancel anytime during your trial — no commitment required.
                     </p>
 

@@ -87,7 +87,7 @@ export default function TestimonialsSection() {
                         {testimonial.role.includes('@') ? (
                           <>
                             {testimonial.role.split('@')[0].trim()} @{' '}
-                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent font-semibold">
                               {testimonial.role.split('@')[1].trim()}
                             </span>
                           </>

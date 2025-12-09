@@ -75,15 +75,26 @@ export default function TestimonialsSection() {
               <Card className="h-full hover:shadow-xl transition-shadow duration-300 border-2 border-slate-100 hover:border-blue-200">
                 <CardContent className="p-6">
                   {/* Author Info */}
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-4 mb-4">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-blue-200"
+                      className="w-16 h-16 rounded-full object-cover border-2 border-blue-200"
                     />
                     <div>
-                      <p className="font-bold text-slate-900 text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-slate-600">{testimonial.role}</p>
+                      <p className="font-bold text-slate-900 text-lg">{testimonial.name}</p>
+                      <p className="text-sm text-slate-600">
+                        {testimonial.role.includes('@') ? (
+                          <>
+                            {testimonial.role.split('@')[0].trim()} @{' '}
+                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                              {testimonial.role.split('@')[1].trim()}
+                            </span>
+                          </>
+                        ) : (
+                          testimonial.role
+                        )}
+                      </p>
                     </div>
                   </div>
 

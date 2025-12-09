@@ -73,38 +73,31 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <Card className="h-full hover:shadow-xl transition-shadow duration-300 border-2 border-slate-100 hover:border-blue-200">
-                <CardContent className="p-8">
-                  {/* Quote Icon */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                      <Quote className="w-6 h-6 text-white" />
+                <CardContent className="p-6">
+                  {/* Author Info */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-blue-200"
+                    />
+                    <div>
+                      <p className="font-bold text-slate-900 text-sm">{testimonial.name}</p>
+                      <p className="text-xs text-slate-600">{testimonial.role}</p>
                     </div>
                   </div>
 
                   {/* Stars */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
 
                   {/* Testimonial Content */}
-                  <p className="text-slate-700 text-lg leading-relaxed mb-6">
+                  <p className="text-slate-700 text-sm leading-relaxed">
                     "{testimonial.content}"
                   </p>
-
-                  {/* Author Info */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-slate-200">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-blue-200"
-                    />
-                    <div>
-                      <p className="font-bold text-slate-900">{testimonial.name}</p>
-                      <p className="text-sm text-slate-600">{testimonial.role}</p>
-                    </div>
-                  </div>
                 </CardContent>
               </Card>
             </motion.div>

@@ -31,7 +31,7 @@ export default function MissionSection() {
   ];
 
   const handleJoinClick = () => {
-    window.location.href = createPageUrl('Payment');
+    window.location.href = createPageUrl('FreeTrialPayment');
   };
 
   return (

@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
             Join hundreds of CRE professionals already transforming their business with AI
           </p>
           <button
-            onClick={() => window.location.href = '/Payment'}
+            onClick={() => window.location.href = '/FreeTrialPayment'}
             className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             Start Your Journey Today

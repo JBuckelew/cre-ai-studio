@@ -7,6 +7,13 @@ import { Badge } from "@/components/ui/badge";
 export default function TestimonialsSection() {
   const testimonials = [
     {
+      name: "Angelo Pavanello",
+      role: "Vice President @ CBRE Canada",
+      image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/d02373aaf_Angelo.jpg",
+      content: "The CRE AI Studio team came in and trained over 50 of our brokers on Microsoft Co-Pilot in a single session. The content was practical, immediately applicable, and tailored specifically to how we work in commercial real estate. This is exactly the kind of AI training our industry needs. I'm also personally a member of the CRE AI Studio and can't recommend it enough.",
+      highlight: "trained over 50 of our brokers"
+    },
+    {
       name: "Sarra Hochberg",
       role: "Marketing Manager @ Coldwell Banker Commercial Atlantic",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/af83da311_sarah.jpg",

@@ -365,6 +365,12 @@ export default function HeroSection() {
                   Crexi
                 </h3>
               </div>
+              <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+              <div className="text-center pb-2">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent leading-tight">
+                  CBRE
+                </h3>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -51,7 +51,7 @@ export default function ToolsSection() {
 
         {/* Lessons Grid */}
         <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-          {lessons.map((lesson, index) => (
+          {lessons.slice(0, -1).map((lesson, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -73,6 +73,20 @@ export default function ToolsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* "And so much more" - distinct style */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: lessons.length * 0.05 }}
+          className="mt-8 max-w-5xl mx-auto text-center"
+        >
+          <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-amber-500 rounded-full text-white font-bold text-lg shadow-lg">
+            <Sparkles className="w-5 h-5 animate-pulse" />
+            And so much more...
+          </div>
+        </motion.div>
       </div>
     </section>
   );

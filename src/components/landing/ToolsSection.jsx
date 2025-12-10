@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Quote, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Sparkles, CheckCircle } from "lucide-react";
 
 export default function ToolsSection() {
   const lessons = [
@@ -18,75 +17,12 @@ export default function ToolsSection() {
     "And so much more..."
   ];
 
-  const ArrowSvg = () => (
-    <svg
-      viewBox="0 0 800 400"
-      className="w-full max-w-4xl mx-auto"
-      style={{ minHeight: '200px' }}
-    >
-      <defs>
-        <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#3b82f6" />
-          <stop offset="100%" stopColor="#8b5cf6" />
-        </linearGradient>
-        <marker
-          id="arrowhead"
-          markerWidth="10"
-          markerHeight="10"
-          refX="9"
-          refY="3"
-          orient="auto"
-        >
-          <polygon points="0 0, 10 3, 0 6" fill="url(#arrowGradient)" />
-        </marker>
-      </defs>
-
-      {/* Multiple arrows emanating from center */}
-      {[...Array(5)].map((_, i) => {
-        const startX = 400;
-        const startY = 200;
-        const angle = (i - 2) * 20;
-        const endX = startX + Math.cos((angle * Math.PI) / 180) * 300;
-        const endY = startY + Math.sin((angle * Math.PI) / 180) * 150;
-
-        return (
-          <motion.path
-            key={i}
-            d={`M ${startX} ${startY} Q ${startX + (endX - startX) / 2} ${
-              startY + (endY - startY) / 2 - 30
-            } ${endX} ${endY}`}
-            stroke="url(#arrowGradient)"
-            strokeWidth="3"
-            fill="none"
-            markerEnd="url(#arrowhead)"
-            initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 0.6 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, delay: i * 0.2, ease: "easeOut" }}
-          />
-        );
-      })}
-
-      {/* Center circle */}
-      <motion.circle
-        cx="400"
-        cy="200"
-        r="8"
-        fill="url(#arrowGradient)"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      />
-    </svg>
-  );
-
   return (
     <section className="py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-gradient-to-bl from-amber-200/30 to-pink-200/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-gradient-to-bl from-amber-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -95,51 +31,57 @@ export default function ToolsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
+          <Badge className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 text-sm font-bold">
+            <Sparkles className="w-3 h-3 inline mr-1" />
+            LIVE CURRICULUM
+          </Badge>
           <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-none">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-amber-500 bg-clip-text text-transparent">
               What Our Members
             </span>{" "}
-            are Learning
+            are Learning Right Now
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Real lessons from the CRE AI Studio curriculum
+            These are actual lessons taught in the CRE AI Studio — <span className="font-bold text-slate-900">and we add new ones every week</span>
           </p>
         </motion.div>
 
         {/* Lessons Display */}
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto mb-16">
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           {lessons.map((lesson, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group"
             >
-              <div className="px-6 py-4 rounded-xl bg-white border-2 border-slate-200 shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex-shrink-0"></div>
-                  <span className="text-slate-800 font-semibold text-base">{lesson}</span>
+              <div className="px-6 py-4 rounded-xl bg-white border-2 border-slate-200 shadow-md hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:animate-shimmer"></div>
+                
+                <div className="flex items-center gap-3 relative z-10">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-slate-800 font-semibold text-base group-hover:text-blue-700 transition-colors">{lesson}</span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Arrow Visualization */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="mt-20"
-        >
-          <ArrowSvg />
-        </motion.div>
       </div>
+
+      <style jsx>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .animate-shimmer {
+          animation: shimmer 2s infinite;
+        }
+      `}</style>
     </section>
   );
 }

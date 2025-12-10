@@ -5,6 +5,7 @@ import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target } from "lucide-react";
 
 export default function ToolsSection() {
   const lessons = [
+    { text: "Using Google Gemini and Microsoft Co-Pilot Enterprise Tools", icon: Sparkles, color: "from-blue-600 to-purple-600" },
     { text: "Building CRE Custom GPTs", icon: Brain, color: "from-purple-500 to-pink-500" },
     { text: "CRE Prompt Frameworks", icon: Target, color: "from-blue-500 to-cyan-500" },
     { text: "How to turn ChatGPT into a CRE Automation Tool", icon: Zap, color: "from-yellow-500 to-orange-500" },

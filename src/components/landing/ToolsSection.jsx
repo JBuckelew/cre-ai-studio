@@ -82,8 +82,8 @@ export default function ToolsSection() {
           transition={{ duration: 0.5, delay: lessons.length * 0.05 }}
           className="mt-8 max-w-5xl mx-auto text-center"
         >
-          <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-amber-500 rounded-full text-white font-bold text-lg shadow-lg">
-            <Sparkles className="w-5 h-5 animate-pulse" />
+          <div className="inline-flex items-center gap-3 px-8 py-4 bg-slate-100 border-2 border-slate-300 rounded-full text-slate-700 font-bold text-lg">
+            <Sparkles className="w-5 h-5 text-slate-500" />
             And so much more...
           </div>
         </motion.div>

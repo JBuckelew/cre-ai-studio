@@ -1,87 +1,108 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, CheckCircle } from "lucide-react";
+import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target } from "lucide-react";
 
 export default function ToolsSection() {
   const lessons = [
-    "Building CRE Custom GPTs",
-    "CRE Prompt Frameworks",
-    "How to turn ChatGPT into a CRE Automation Tool",
-    "Getting the Most out of Deep Research using Claude, ChatGPT, and Perplexity",
-    "CRE AI Automations",
-    "AI Privacy",
-    "Building Investor Presentations using Genspark",
-    "How to prepare your systems for AI with Data Governance",
-    "Building Financial Models using Opus 4.5 in Claude",
-    "And so much more..."
+    { text: "Building CRE Custom GPTs", icon: Brain, color: "from-purple-500 to-pink-500" },
+    { text: "CRE Prompt Frameworks", icon: Target, color: "from-blue-500 to-cyan-500" },
+    { text: "How to turn ChatGPT into a CRE Automation Tool", icon: Zap, color: "from-yellow-500 to-orange-500" },
+    { text: "Getting the Most out of Deep Research using Claude, ChatGPT, and Perplexity", icon: Brain, color: "from-indigo-500 to-purple-500" },
+    { text: "CRE AI Automations", icon: Rocket, color: "from-green-500 to-emerald-500" },
+    { text: "AI Privacy", icon: Target, color: "from-red-500 to-pink-500" },
+    { text: "Building Investor Presentations using Genspark", icon: TrendingUp, color: "from-blue-500 to-indigo-500" },
+    { text: "How to prepare your systems for AI with Data Governance", icon: Brain, color: "from-teal-500 to-cyan-500" },
+    { text: "Building Financial Models using Opus 4.5 in Claude", icon: TrendingUp, color: "from-amber-500 to-orange-500" },
+    { text: "And so much more...", icon: Sparkles, color: "from-purple-500 to-blue-500" }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-      {/* Background decorative elements */}
+    <section className="py-24 bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-gradient-to-bl from-amber-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <Badge className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 text-sm font-bold">
-            <Sparkles className="w-3 h-3 inline mr-1" />
-            LIVE CURRICULUM
-          </Badge>
-          <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-none">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-amber-500 bg-clip-text text-transparent">
-              What Our Members
-            </span>{" "}
-            are Learning Right Now
+          <motion.div
+            animate={{ 
+              scale: [1, 1.05, 1],
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <Badge className="mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-2 text-base font-black shadow-lg">
+              <Sparkles className="w-4 h-4 inline mr-2 animate-spin" style={{ animationDuration: '3s' }} />
+              LIVE CURRICULUM - NEW LESSONS EVERY WEEK
+            </Badge>
+          </motion.div>
+          
+          <h2 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight leading-none">
+            <span className="text-white">What Our Members</span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+              Are Mastering Now
+            </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            These are actual lessons taught in the CRE AI Studio — <span className="font-bold text-slate-900">and we add new ones every week</span>
+          <p className="text-xl lg:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+            Real lessons from the CRE AI Studio. 
+            <span className="font-bold text-yellow-300"> Fresh content drops weekly.</span>
           </p>
         </motion.div>
 
-        {/* Lessons Display */}
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+        {/* Lessons Grid */}
+        <div className="grid md:grid-cols-2 gap-5 max-w-6xl mx-auto">
           {lessons.map((lesson, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group"
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              whileHover={{ scale: 1.03 }}
+              className="group cursor-pointer"
             >
-              <div className="px-6 py-4 rounded-xl bg-white border-2 border-slate-200 shadow-md hover:shadow-xl hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                {/* Shimmer effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:animate-shimmer"></div>
+              <div className={`relative p-6 rounded-2xl bg-gradient-to-br ${lesson.color} shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden`}>
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-300"></div>
                 
-                <div className="flex items-center gap-3 relative z-10">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-slate-800 font-semibold text-base group-hover:text-blue-700 transition-colors">{lesson}</span>
+                {/* Icon */}
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <lesson.icon className="w-6 h-6 text-white" />
                 </div>
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <span className="text-white font-bold text-lg leading-tight block">
+                    {lesson.text}
+                  </span>
+                </div>
+                
+                {/* Shimmer */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.6 }}
+                />
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-      `}</style>
     </section>
   );
 }

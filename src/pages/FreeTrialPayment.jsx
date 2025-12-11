@@ -43,7 +43,7 @@ export default function FreeTrialPaymentPage() {
       discountedPrice: 40,
       yearlyTotal: 480,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      stripe_url: "https://buy.stripe.com/5kQ9AU9Wf5qS1OF378cV207"
+      stripe_url: "https://buy.stripe.com/dRm5kE8Sbf1s8d3378cV20c"
     },
     {
       level: 2,

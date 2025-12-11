@@ -62,7 +62,7 @@ export default function FreeTrialPaymentPage() {
       yearlyTotal: 960,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      stripe_url: "https://buy.stripe.com/aFa3cwgkD06y78Z9vwcV209"
+      stripe_url: "https://buy.stripe.com/fZudRab0j9H8dxn6jkcV20e"
     },
   ];
 

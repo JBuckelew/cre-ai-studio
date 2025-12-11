@@ -14,7 +14,7 @@ Deno.serve(async (req) => {
     
     // Send email notification
     await base44.asServiceRole.integrations.Core.SendEmail({
-      to: 'jonathan.buckelew@gmail.com',
+      to: 'hello@creaistudio.com',
       subject: 'New Black Friday 2025 Signup',
       body: `New email signup: ${email}\n\nTimestamp: ${timestamp}`
     });

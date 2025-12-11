@@ -52,7 +52,7 @@ export default function FreeTrialPaymentPage() {
       discountedPrice: 60,
       yearlyTotal: 720,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      stripe_url: "https://buy.stripe.com/14AdRaecv5qS50R5fgcV208"
+      stripe_url: "https://buy.stripe.com/eVqdRa0lFdXoctj234cV20d"
     },
     {
       level: 3,

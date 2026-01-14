@@ -26,10 +26,6 @@ export default function HeroSection() {
         email: email,
         source: "hero_signup"
       });
-
-      // Add to Google Sheet
-      const result = await base44.functions.invoke('addEmailToGoogleSheet', { email });
-      console.log('Google Sheet result:', result);
       
       window.location.href = createPageUrl('Payment');
     } catch (error) {

@@ -38,10 +38,6 @@ export default function FreeTrialPopup() {
         source: "free_trial_signup"
       });
 
-      // Add to Google Sheet
-      const result = await base44.functions.invoke('addEmailToGoogleSheet', { email });
-      console.log('Google Sheet result:', result);
-
       // Redirect to Free Trial payment page
       window.location.href = '/FreeTrialPayment';
     } catch (error) {

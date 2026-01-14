@@ -21,16 +21,19 @@ export default function HeroSection() {
     setIsSubmitting(true);
     
     try {
+      // Save to database
       await base44.entities.EmailSignup.create({
         email: email,
         source: "hero_signup"
       });
 
       // Add to Google Sheet
-      await base44.functions.invoke('addEmailToGoogleSheet', { email });
+      const result = await base44.functions.invoke('addEmailToGoogleSheet', { email });
+      console.log('Google Sheet result:', result);
       
       window.location.href = createPageUrl('Payment');
     } catch (error) {
+      console.error('Hero signup error:', error);
       alert("There was an error saving your email. Please try again.");
       setIsSubmitting(false);
     }

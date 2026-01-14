@@ -1,4 +1,3 @@
-
 import React from "react";
 import { createPageUrl } from '@/utils';
 
@@ -43,6 +42,12 @@ export default function Footer() {
               className="text-slate-300 hover:text-white transition-colors duration-200"
             >
               Cookie Policy
+            </a>
+            <a 
+              href={createPageUrl('Admin')} 
+              className="text-slate-300 hover:text-white transition-colors duration-200"
+            >
+              Admin
             </a>
           </div>
         </div>

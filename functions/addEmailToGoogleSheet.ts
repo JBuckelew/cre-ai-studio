@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     });
 
     const sheets = google.sheets({ version: 'v4', auth });
-    const spreadsheetId = '1B3o0rUtiEvuVfrvQwAogp1jV2zh-k8nf';
+    const spreadsheetId = '1Fkwu108D-lrhogfNMBpCXM0vOkuH11UtIif4oZfoyqQ';
 
     // Get current timestamp
     const timestamp = new Date().toISOString();

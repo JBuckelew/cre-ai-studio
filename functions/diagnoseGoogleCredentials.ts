@@ -19,7 +19,8 @@ Deno.serve(async (req) => {
     return Response.json({ 
       service_account_email: credentials.client_email,
       project_id: credentials.project_id,
-      instructions: `Go to https://console.cloud.google.com/apis/library/sheets.googleapis.com?project=${credentials.project_id} and verify the Google Sheets API is ENABLED in THIS specific project.`
+      private_key_id: credentials.private_key_id,
+      link: `https://console.cloud.google.com/apis/library/sheets.googleapis.com?project=${credentials.project_id}`
     });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });

@@ -12,11 +12,10 @@ Deno.serve(async (req) => {
 
     const credentialsJson = Deno.env.get('GOOGLE_SHEETS_API_KEY');
     if (!credentialsJson) {
-      return Response.json({ error: 'GOOGLE_SHEETS_API_KEY not found' }, { status: 500 });
+      return Response.json({ error: 'Credentials not found' }, { status: 500 });
     }
 
     const credentials = JSON.parse(credentialsJson);
-
     const auth = new google.auth.GoogleAuth({
       credentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
@@ -25,12 +24,7 @@ Deno.serve(async (req) => {
     const sheets = google.sheets({ version: 'v4', auth });
     const spreadsheetId = '1B3o0rUtiEvuVfrvQwAogp1jV2zh-k8nf';
 
-    // Try to read the sheet metadata
-    const metadata = await sheets.spreadsheets.get({
-      spreadsheetId,
-    });
-
-    // Try to read existing data
+    const metadata = await sheets.spreadsheets.get({ spreadsheetId });
     const data = await sheets.spreadsheets.values.get({
       spreadsheetId,
       range: 'Sheet1!A:B',
@@ -38,16 +32,14 @@ Deno.serve(async (req) => {
 
     return Response.json({ 
       success: true,
-      service_account_email: credentials.client_email,
+      service_account: credentials.client_email,
       sheet_title: metadata.data.properties.title,
-      existing_rows: data.data.values?.length || 0,
-      message: 'Successfully connected to Google Sheet!'
+      rows: data.data.values?.length || 0
     });
   } catch (error) {
     return Response.json({ 
       error: error.message,
-      stack: error.stack,
-      code: error.code
+      details: error.toString()
     }, { status: 500 });
   }
 });

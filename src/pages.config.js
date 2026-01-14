@@ -1,27 +1,29 @@
+import Articles from './pages/Articles';
+import BlackFridayPayment from './pages/BlackFridayPayment';
+import cookiePolicy from './pages/Cookie-Policy';
+import Disclaimer from './pages/Disclaimer';
+import FreeTrialPayment from './pages/FreeTrialPayment';
 import Home from './pages/Home';
 import Payment from './pages/Payment';
-import Disclaimer from './pages/Disclaimer';
 import privacyPolicy from './pages/Privacy-Policy';
-import termsOfUse from './pages/Terms-of-Use';
-import cookiePolicy from './pages/Cookie-Policy';
 import Resources from './pages/Resources';
-import BlackFridayPayment from './pages/BlackFridayPayment';
-import FreeTrialPayment from './pages/FreeTrialPayment';
-import Articles from './pages/Articles';
+import termsOfUse from './pages/Terms-of-Use';
+import Admin from './pages/Admin';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
+    "Articles": Articles,
+    "BlackFridayPayment": BlackFridayPayment,
+    "Cookie-Policy": cookiePolicy,
+    "Disclaimer": Disclaimer,
+    "FreeTrialPayment": FreeTrialPayment,
     "Home": Home,
     "Payment": Payment,
-    "Disclaimer": Disclaimer,
     "Privacy-Policy": privacyPolicy,
-    "Terms-of-Use": termsOfUse,
-    "Cookie-Policy": cookiePolicy,
     "Resources": Resources,
-    "BlackFridayPayment": BlackFridayPayment,
-    "FreeTrialPayment": FreeTrialPayment,
-    "Articles": Articles,
+    "Terms-of-Use": termsOfUse,
+    "Admin": Admin,
 }
 
 export const pagesConfig = {

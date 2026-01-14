@@ -4,9 +4,9 @@ import { google } from 'npm:googleapis@144.0.0';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const { email, source } = await req.json();
+    const { email } = await req.json();
 
-    console.log('Received email:', email, 'source:', source);
+    console.log('Received email:', email);
 
     if (!email) {
       return Response.json({ error: 'Email is required' }, { status: 400 });
@@ -36,13 +36,13 @@ Deno.serve(async (req) => {
     const timestamp = new Date().toISOString();
 
     console.log('Appending to sheet...');
-    // Append the email to the sheet - using A:C range so it appends to the next available row
+    // Append the email to the sheet - using A:B range so it appends to the next available row
     const result = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:C',
+      range: 'Sheet1!A:B',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
-        values: [[email, timestamp, source || 'unknown']],
+        values: [[email, timestamp]],
       },
     });
 

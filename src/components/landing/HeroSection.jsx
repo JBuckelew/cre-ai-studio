@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { EmailSignup } from "@/entities/EmailSignup";
+import { base44 } from "@/api/base44Client";
 import { createPageUrl } from '@/utils';
 
 export default function HeroSection() {
@@ -21,10 +21,13 @@ export default function HeroSection() {
     setIsSubmitting(true);
     
     try {
-      await EmailSignup.create({
+      await base44.entities.EmailSignup.create({
         email: email,
         source: "hero_signup"
       });
+
+      // Add to Google Sheet
+      await base44.functions.invoke('addEmailToGoogleSheet', { email });
       
       window.location.href = createPageUrl('Payment');
     } catch (error) {

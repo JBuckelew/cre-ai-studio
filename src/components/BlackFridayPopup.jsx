@@ -39,7 +39,7 @@ export default function FreeTrialPopup() {
       });
 
       // Add to Google Sheet
-      const result = await base44.functions.invoke('addEmailToGoogleSheet', { email });
+      const result = await base44.functions.invoke('addEmailToGoogleSheet', { email, source: 'popup' });
       console.log('Google Sheet result:', result);
 
       // Redirect to Free Trial payment page

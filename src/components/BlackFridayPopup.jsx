@@ -38,7 +38,10 @@ export default function FreeTrialPopup() {
         source: "free_trial_signup"
       });
 
-      // Send email notification and wait for completion
+      // Add to Google Sheet
+      await base44.functions.invoke('addEmailToGoogleSheet', { email });
+
+      // Send email notification
       await base44.functions.invoke('addEmailToSheet', { email });
 
       // Redirect to Free Trial payment page

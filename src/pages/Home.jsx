@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
-      <ToolsSection />
       <ValuePropositionSection />
+      <ToolsSection />
       
       {/* Section Break */}
       <div className="max-w-7xl mx-auto px-6">

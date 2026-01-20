@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
+      <ToolsSection />
       <ValuePropositionSection />
       
       {/* Section Break */}
@@ -19,7 +20,6 @@ export default function Home() {
       </div>
       
       <TestimonialsSection />
-      <ToolsSection />
       <HowItWorksSection />
       <FoundersSection />
       <MissionSection />

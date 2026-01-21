@@ -15,14 +15,14 @@ export default function Home() {
       <WhyChooseSection />
       <ValuePropositionSection />
       <HowItWorksSection />
+      <TestimonialsSection />
       <ToolsSection />
-      
+
       {/* Section Break */}
       <div className="max-w-7xl mx-auto px-6">
         <div className="border-t border-slate-300"></div>
       </div>
-      
-      <TestimonialsSection />
+
       <FoundersSection />
       <MissionSection />
     </div>

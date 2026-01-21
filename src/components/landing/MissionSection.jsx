@@ -27,7 +27,7 @@ export default function MissionSection() {
       isImage: true
     },
     {
-      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/c2f1bf0cb_image.png",
+      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/3a8f06b36_image.png",
       title: "Generate Content & Media",
       description: "Create images, videos, documents, and presentations using tools like Genspark and Gamma",
       isImage: true
@@ -78,7 +78,7 @@ export default function MissionSection() {
                 <div className="flex items-start gap-4">
                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0 ${module.isImage ? 'bg-white' : 'bg-gradient-to-br from-blue-100 to-amber-100'}`}>
                     {module.isImage ? (
-                      <img src={module.icon} alt={module.title} className="w-12 h-12 object-contain rounded-xl" />
+                      <img src={module.icon} alt={module.title} className="w-14 h-14 object-contain rounded-xl" />
                     ) : (
                       <module.icon className="w-8 h-8 text-slate-700" />
                     )}

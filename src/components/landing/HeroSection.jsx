@@ -27,10 +27,22 @@ export default function HeroSection() {
         source: "hero_signup"
       });
       
-      window.location.href = createPageUrl('Payment');
+      // Download the AI Primer PDF
+      const pdfUrl = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/ec97862b9_CREAIStudio-AIPrimer.pdf";
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'CRE-AI-Studio-AI-Primer.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Show success message
+      alert("Success! Your free AI Primer guide is downloading now. Check your downloads folder.");
+      setEmail("");
+      setIsSubmitting(false);
     } catch (error) {
       console.error('Hero signup error:', error);
-      alert("There was an error saving your email. Please try again.");
+      alert("There was an error. Please try again.");
       setIsSubmitting(false);
     }
   };
@@ -337,7 +349,7 @@ export default function HeroSection() {
                       disabled={isSubmitting}
                       className="h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-8 transition-all duration-300 group disabled:opacity-50"
                     >
-                      {isSubmitting ? "Joining..." : "Claim Your Spot Now"}
+                      {isSubmitting ? "Sending..." : "Get Your Free Resource"}
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </form>

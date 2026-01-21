@@ -6,7 +6,7 @@ import { ArrowRight, Loader2, Star, CheckCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export default function FreeTrialPaymentPage() {
-  const [selectedLevel, setSelectedLevel] = useState(3);
+  const [selectedLevel, setSelectedLevel] = useState(2);
   const [isProcessing, setIsProcessing] = useState(false);
   const [billingCycle, setBillingCycle] = useState('monthly');
 
@@ -23,6 +23,7 @@ export default function FreeTrialPaymentPage() {
       name: "Level 2: The Achiever Plan",
       price: 75,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
+      popular: true,
       stripe_url: "https://buy.stripe.com/3cI4gA6K33iKbpfbDEcV206"
     },
     {
@@ -30,7 +31,6 @@ export default function FreeTrialPaymentPage() {
       name: "Level 3: The Super Growth Plan",
       price: 100,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
-      popular: true,
       stripe_url: "https://buy.stripe.com/7sYfZid8r6uW64V6jkcV20b"
     },
   ];
@@ -52,6 +52,7 @@ export default function FreeTrialPaymentPage() {
       discountedPrice: 60,
       yearlyTotal: 720,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
+      popular: true,
       stripe_url: "https://buy.stripe.com/cNi4gA6K35qSdxn6jkcV20g"
     },
     {
@@ -61,7 +62,6 @@ export default function FreeTrialPaymentPage() {
       discountedPrice: 80,
       yearlyTotal: 960,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
-      popular: true,
       stripe_url: "https://buy.stripe.com/bJedRa4BV06y78Z4bccV20f"
     },
   ];

@@ -287,6 +287,10 @@ export default function HeroSection() {
             0% { background-position: 0% 0%; }
             100% { background-position: 100% -100%; }
           }
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
         `}</style>
         
         <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-4 sm:px-6">
@@ -359,31 +363,29 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* As Featured In Section */}
+          {/* Organizations Represented Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="mt-20 pt-8 border-t-2 border-purple-500/30"
+            className="mt-20 pt-8 border-t-2 border-purple-500/30 w-full overflow-hidden"
           >
-            <p className="text-gray-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6">As Featured In</p>
-            <div className="flex justify-center items-center gap-8 md:gap-12">
-              <div className="text-center pb-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent leading-tight">
-                  CRE Daily
-                </h3>
-              </div>
-              <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
-              <div className="text-center pb-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent leading-tight">
-                  Crexi
-                </h3>
-              </div>
-              <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
-              <div className="text-center pb-2">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent leading-tight">
-                  CBRE
-                </h3>
+            <p className="text-gray-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
+            <div className="relative overflow-hidden">
+              <div className="animate-[scroll_30s_linear_infinite] flex gap-12 whitespace-nowrap">
+                {[...Array(2)].map((_, index) => (
+                  <div key={index} className="flex gap-12 items-center">
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">CBRE</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Newmark</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">MetLife</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Avison Young</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent">Colliers</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">Beacon Capital</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">Cushman & Wakefield</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">Savills</span>
+                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">Compass</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

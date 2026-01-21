@@ -48,7 +48,7 @@ export default function WhyChooseSection() {
               Why Choose Us
             </Badge>
             
-            <h3 className="text-4xl lg:text-5xl font-black mb-6 text-slate-900">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-slate-900">
               Why the <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">CRE AI Studio</span>
             </h3>
           </div>
@@ -93,11 +93,11 @@ export default function WhyChooseSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mt-20"
         >
-          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-12 shadow-2xl">
-            <h4 className="text-3xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-6 md:p-12 shadow-2xl">
+            <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Ready to Transform your CRE career?
             </h4>
-            <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
               Join our exclusive community and start learning from industry experts who are already using AI to revolutionize their work.
             </p>
             

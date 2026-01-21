@@ -38,12 +38,12 @@ export default function ToolsSection() {
             <Sparkles className="w-3 h-3 inline mr-1" />
             NEW LESSONS EVERY WEEK
           </Badge>
-          <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-none">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-none">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-amber-500 bg-clip-text text-transparent">
               What Our Members Are Already Learning
             </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
             Real lessons from the CRE AI Studio curriculum
           </p>
         </motion.div>

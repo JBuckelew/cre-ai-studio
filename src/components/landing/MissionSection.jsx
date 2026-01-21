@@ -56,10 +56,10 @@ export default function MissionSection() {
           <Badge variant="secondary" className="mb-4 bg-blue-100 text-blue-700 hover:bg-blue-200">
             What's Inside
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-8 tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-8 tracking-tight leading-tight">
             <span className="bg-gradient-to-r from-blue-600 to-amber-500 bg-clip-text text-transparent">What You'll Learn</span> by Joining
           </h2>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
             Comprehensive AI training designed specifically for CRE professionals, covering everything from basic tools to enterprise implementation.
           </p>
         </motion.div>
@@ -99,12 +99,12 @@ export default function MissionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="p-8 bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl text-white text-center"
+          className="p-6 md:p-8 bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl text-white text-center"
         >
-          <h4 className="text-2xl lg:text-3xl font-bold mb-4">
+          <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
             Become the best at AI in your company in 3 months
           </h4>
-          <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
             Stand out and get ahead by staying up to date on the latest AI tools, how to use them in CRE, and how to shine in front of your co-workers
           </p>
           <Button

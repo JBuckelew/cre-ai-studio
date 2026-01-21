@@ -59,13 +59,13 @@ export default function HowItWorksSection() {
                 What's Included
               </Badge>
               
-              <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight">
                 Inside the{" "}
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   CRE AI Studio
                 </span>
               </h2>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
                 Everything you need to master AI in commercial real estate
               </p>
             </motion.div>

@@ -46,10 +46,10 @@ export default function ValuePropositionSection() {
             Transform Your Workflow
           </Badge>
 
-          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
-            Stop spending hours on Commercial Real Estate tasks —<br />Learn how to supercharge your business with <span className="text-blue-600">AI and automations</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+            Stop spending hours on Commercial Real Estate tasks — Learn how to supercharge your business with <span className="text-blue-600">AI and automations</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Whether you're a broker marketing your business, an investor sourcing & analyzing deals, an asset manager or developer managing complex projects, 
             <span className="font-semibold text-slate-800"> Learn to automate your most time-consuming work using AI.</span>
           </p>
@@ -105,17 +105,17 @@ export default function ValuePropositionSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-3xl mx-auto"
         >
-            <div className="bg-slate-100 rounded-3xl p-10 shadow-lg border border-slate-200">
+            <div className="bg-slate-100 rounded-3xl p-6 md:p-10 shadow-lg border border-slate-200">
                 <div className="relative z-10 text-center">
                     <div className="flex justify-center mb-6">
                         <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg">
                             <Zap className="w-8 h-8" />
                         </div>
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
                         Don't know where to start with AI in CRE?
                     </h3>
-                    <p className="text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto">
                         We'll guide you from the beginning, from writing your prompts, to creating chatbots, to building our CRE automations.
                     </p>
                     <div className="mt-8">

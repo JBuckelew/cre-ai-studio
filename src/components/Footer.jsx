@@ -8,15 +8,6 @@ export default function Footer() {
     <footer className="bg-black text-white py-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
-          {/* Company Logo */}
-          <div className="flex items-center">
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/27cc41577_image.png"
-              alt="CRE AI Studio Logo"
-              className="h-12"
-            />
-          </div>
-
           {/* Legal Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             <a 

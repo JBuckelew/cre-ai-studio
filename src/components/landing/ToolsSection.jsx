@@ -5,7 +5,7 @@ import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target } from "lucide-react";
 
 export default function ToolsSection() {
   const lessons = [
-    { text: "Using Google Gemini and Microsoft Co-Pilot Enterprise Tools", icon: null, color: "from-blue-600 to-purple-600", customIcon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/0ccad1e24_copilot-icon.svg" },
+    { text: "Using Google Gemini and Microsoft Co-Pilot Enterprise Tools", icon: Sparkles, color: "from-blue-600 to-purple-600" },
     { text: "Building CRE Custom GPTs", icon: Brain, color: "from-purple-500 to-pink-500" },
     { text: "CRE Prompt Frameworks", icon: Target, color: "from-blue-500 to-cyan-500" },
     { text: "How to turn ChatGPT into a CRE Automation Tool", icon: Zap, color: "from-yellow-500 to-orange-500" },
@@ -62,15 +62,9 @@ export default function ToolsSection() {
             >
               <div className="relative p-5 rounded-xl bg-white border-2 border-slate-200 shadow-md hover:shadow-lg hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  {lesson.customIcon ? (
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <img src={lesson.customIcon} alt="" className="w-6 h-6" />
-                    </div>
-                  ) : (
-                    <div className={`w-10 h-10 bg-gradient-to-br ${lesson.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                      <lesson.icon className="w-5 h-5 text-white" />
-                    </div>
-                  )}
+                  <div className={`w-10 h-10 bg-gradient-to-br ${lesson.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                    <lesson.icon className="w-5 h-5 text-white" />
+                  </div>
                   <span className="text-slate-800 font-semibold text-base leading-snug">
                     {lesson.text}
                   </span>

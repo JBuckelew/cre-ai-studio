@@ -74,9 +74,9 @@ export default function MissionSection() {
             <Card key={module.title} className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-500 group">
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-amber-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0 ${module.isImage ? 'bg-white' : 'bg-gradient-to-br from-blue-100 to-amber-100'}`}>
                     {module.isImage ? (
-                      <img src={module.icon} alt={module.title} className="w-12 h-12 object-contain" style={{ mixBlendMode: 'multiply' }} />
+                      <img src={module.icon} alt={module.title} className="w-12 h-12 object-contain rounded-xl" />
                     ) : (
                       <module.icon className="w-8 h-8 text-slate-700" />
                     )}

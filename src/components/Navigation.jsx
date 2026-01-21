@@ -24,6 +24,10 @@ export default function Navigation() {
     window.location.href = createPageUrl('Resources');
   };
 
+  const handleTeachersClick = () => {
+    window.location.href = createPageUrl('MeetYourTeachers');
+  };
+
   const handleLoginClick = () => {
     window.open('https://cre-ai-studio.circle.so/getting-started', '_blank');
   };
@@ -66,6 +70,13 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium"
             >
               Free Resources
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={handleTeachersClick}
+              className="text-slate-700 hover:text-blue-600 font-medium"
+            >
+              Meet Your Teachers
             </Button>
           </div>
 
@@ -140,6 +151,14 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs"
             >
               Free Resources
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleTeachersClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
+            >
+              Meet Your Teachers
             </Button>
           </div>
         </div>

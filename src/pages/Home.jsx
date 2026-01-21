@@ -2,7 +2,6 @@ import React from "react";
 import HeroSection from "../components/landing/HeroSection";
 import ValuePropositionSection from "../components/landing/ValuePropositionSection";
 import ToolsSection from "../components/landing/ToolsSection";
-import FoundersSection from "../components/landing/FoundersSection";
 import HowItWorksSection from "../components/landing/HowItWorksSection";
 import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
@@ -18,13 +17,6 @@ export default function Home() {
       <ValuePropositionSection />
       <HowItWorksSection />
       <ToolsSection />
-
-      {/* Section Break */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="border-t border-slate-300"></div>
-      </div>
-
-      <FoundersSection />
     </div>
   );
 }

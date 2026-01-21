@@ -6,11 +6,13 @@ import FoundersSection from "../components/landing/FoundersSection";
 import HowItWorksSection from "../components/landing/HowItWorksSection";
 import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
+import WhyChooseSection from "../components/landing/WhyChooseSection";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
+      <WhyChooseSection />
       <ValuePropositionSection />
       <HowItWorksSection />
       <ToolsSection />

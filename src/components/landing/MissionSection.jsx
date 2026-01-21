@@ -9,9 +9,10 @@ import { createPageUrl } from '@/utils';
 export default function MissionSection() {
   const courseModules = [
     {
-      icon: Brain,
+      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/383e9fd9c_image.png",
       title: "Learn How to Use the LLMs",
-      description: "Master ChatGPT, Claude, & Gemini for daily Commercial Real Estate tasks and decision-making"
+      description: "Master ChatGPT, Claude, & Gemini for daily Commercial Real Estate tasks and decision-making",
+      isImage: true
     },
     {
       icon: Zap,
@@ -73,7 +74,11 @@ export default function MissionSection() {
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-amber-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                    <module.icon className="w-8 h-8 text-slate-700" />
+                    {module.isImage ? (
+                      <img src={module.icon} alt={module.title} className="w-8 h-8" />
+                    ) : (
+                      <module.icon className="w-8 h-8 text-slate-700" />
+                    )}
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">{module.title}</h3>

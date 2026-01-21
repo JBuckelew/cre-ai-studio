@@ -91,35 +91,32 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Layout */}
-        <div className="md:hidden">
-          {/* Top row: Logo and Log In */}
-          <div className="flex items-center justify-between h-16">
-            <div></div>
-            <div className="flex items-center gap-2">
-              <Button
-                size="sm"
-                onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-                className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs"
-              >
-                Join for Free
-              </Button>
-              <Button
-                onClick={handleLoginClick}
-                size="sm"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
-              >
-                Log In
-              </Button>
-            </div>
+        <div className="md:hidden py-3">
+          {/* Top row: Buttons */}
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Button
+              size="sm"
+              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+              className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs px-3"
+            >
+              Join for Free
+            </Button>
+            <Button
+              onClick={handleLoginClick}
+              size="sm"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs px-4"
+            >
+              Log In
+            </Button>
           </div>
 
           {/* Bottom row: Navigation Links */}
-          <div className="flex items-center justify-center gap-2 pb-3 border-t border-slate-200 pt-2">
+          <div className="flex items-center justify-center gap-1 flex-wrap">
             <Button
               variant="ghost"
               size="sm"
               onClick={handleHomeClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               Home
             </Button>
@@ -127,7 +124,7 @@ export default function Navigation() {
               variant="ghost"
               size="sm"
               onClick={handleWhatsIncludedClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               What's Included
             </Button>
@@ -135,7 +132,7 @@ export default function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => window.location.href = '/Articles'}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               Free Resources
             </Button>
@@ -143,9 +140,9 @@ export default function Navigation() {
               variant="ghost"
               size="sm"
               onClick={handleTeachersClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Meet Your Teachers
+              Meet Teachers
             </Button>
           </div>
         </div>

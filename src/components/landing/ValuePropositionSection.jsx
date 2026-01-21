@@ -124,7 +124,7 @@ export default function ValuePropositionSection() {
                             className="bg-gradient-to-r from-blue-600 to-amber-500 text-white hover:opacity-90 font-semibold rounded-full px-8 transition-all duration-300 group"
                             onClick={handleJoinClick}
                         >
-                            Join The Community
+                            Start Your 7-Day Free Trial
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </div>

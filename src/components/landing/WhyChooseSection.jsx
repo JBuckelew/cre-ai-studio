@@ -106,7 +106,7 @@ export default function WhyChooseSection() {
               className="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-8 transition-all duration-300 group"
               onClick={handleJoinClick}
             >
-              Join Now
+              Start Your 7-Day Free Trial
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>

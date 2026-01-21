@@ -15,14 +15,23 @@ export default function FreeTrialPaymentPage() {
       level: 1,
       name: "Level 1: The Basics Plan",
       price: 50,
-      description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
+      description: (
+        <ul className="list-disc list-inside text-left space-y-1">
+          <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
+        </ul>
+      ),
       stripe_url: "https://buy.stripe.com/6oU7sM4BV2eG64V7nocV20a"
     },
     {
       level: 2,
       name: "Level 2: The Achiever Plan",
       price: 75,
-      description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
+      description: (
+        <ul className="list-disc list-inside text-left space-y-1">
+          <li>Everything in Level 1</li>
+          <li><span className="text-purple-400">LIVE monthly VIP training sessions with Q&A</span></li>
+        </ul>
+      ),
       popular: true,
       stripe_url: "https://buy.stripe.com/3cI4gA6K33iKbpfbDEcV206"
     },
@@ -30,7 +39,13 @@ export default function FreeTrialPaymentPage() {
       level: 3,
       name: "Level 3: The Super Growth Plan",
       price: 100,
-      description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
+      description: (
+        <ul className="list-disc list-inside text-left space-y-1">
+          <li>Everything in Level 2</li>
+          <li><span className="text-amber-400">Direct access to founders</span> for unlimited Q&A via dedicated channel</li>
+          <li>Questions answered within 24 hours (your own personal AI consultants)</li>
+        </ul>
+      ),
       stripe_url: "https://buy.stripe.com/7sYfZid8r6uW64V6jkcV20b"
     },
   ];
@@ -42,7 +57,11 @@ export default function FreeTrialPaymentPage() {
       originalPrice: 50,
       discountedPrice: 40,
       yearlyTotal: 480,
-      description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
+      description: (
+        <ul className="list-disc list-inside text-left space-y-1">
+          <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
+        </ul>
+      ),
       stripe_url: "https://buy.stripe.com/dRm4gA7O77z0fFv7nocV20h"
     },
     {
@@ -51,7 +70,12 @@ export default function FreeTrialPaymentPage() {
       originalPrice: 75,
       discountedPrice: 60,
       yearlyTotal: 720,
-      description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
+      description: (
+        <ul className="list-disc list-inside text-left space-y-1">
+          <li>Everything in Level 1</li>
+          <li><span className="text-purple-400">LIVE monthly VIP training sessions with Q&A</span></li>
+        </ul>
+      ),
       popular: true,
       stripe_url: "https://buy.stripe.com/cNi4gA6K35qSdxn6jkcV20g"
     },
@@ -61,7 +85,13 @@ export default function FreeTrialPaymentPage() {
       originalPrice: 100,
       discountedPrice: 80,
       yearlyTotal: 960,
-      description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
+      description: (
+        <ul className="list-disc list-inside text-left space-y-1">
+          <li>Everything in Level 2</li>
+          <li><span className="text-amber-400">Direct access to founders</span> for unlimited Q&A via dedicated channel</li>
+          <li>Questions answered within 24 hours (your own personal AI consultants)</li>
+        </ul>
+      ),
       stripe_url: "https://buy.stripe.com/bJedRa4BV06y78Z4bccV20f"
     },
   ];

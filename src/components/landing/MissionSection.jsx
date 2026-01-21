@@ -21,9 +21,10 @@ export default function MissionSection() {
       isImage: true
     },
     {
-      icon: Building2,
+      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/b2980f48a_image.png",
       title: "Enterprise-Level AI",
-      description: "Learn how to implement and scale AI solutions at the organizational level"
+      description: "Learn how to implement and scale AI solutions at the organizational level",
+      isImage: true
     },
     {
       icon: Image,

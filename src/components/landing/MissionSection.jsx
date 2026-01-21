@@ -27,7 +27,7 @@ export default function MissionSection() {
       isImage: true
     },
     {
-      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/3a8f06b36_image.png",
+      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/259c1f34f_image.png",
       title: "Generate Content & Media",
       description: "Create images, videos, documents, and presentations using tools like Genspark and Gamma",
       isImage: true

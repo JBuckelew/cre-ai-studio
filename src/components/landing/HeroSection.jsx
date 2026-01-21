@@ -67,20 +67,6 @@ export default function HeroSection() {
   return (
     <section className="bg-slate-50 py-8 sm:py-12 lg:py-16">
       <div className="relative overflow-hidden bg-black text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white shadow-2xl shadow-blue-500/20">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="absolute top-8 right-8 z-20"
-        >
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/75a2876a5_image.png"
-            alt="CRE AI Studio Logo"
-            className="h-8 lg:h-16 filter invert"
-          />
-        </motion.div>
-
         {/* Enhanced Tech-Inspired Background with Camera Flashes */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Base Grid */}

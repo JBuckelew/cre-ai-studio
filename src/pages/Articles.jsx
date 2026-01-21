@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, BookOpen, Play } from 'lucide-react';
+import PromptLibrary from '../components/resources/PromptLibrary';
 
 export default function ArticlesPage() {
   const articles = [
@@ -140,6 +141,9 @@ export default function ArticlesPage() {
           </div>
         </div>
       </section>
+
+      {/* Prompt Library Section */}
+      <PromptLibrary />
 
       {/* Videos Section */}
       <section className="py-16 px-6 bg-white">

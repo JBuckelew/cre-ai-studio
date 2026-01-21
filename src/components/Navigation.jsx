@@ -62,13 +62,6 @@ export default function Navigation() {
             </Button>
             <Button
               variant="ghost"
-              onClick={handleResourcesClick}
-              className="text-slate-700 hover:text-blue-600 font-medium"
-            >
-              Guides
-            </Button>
-            <Button
-              variant="ghost"
               onClick={() => window.location.href = '/Articles'}
               className="text-slate-700 hover:text-blue-600 font-medium"
             >
@@ -139,14 +132,6 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs"
             >
               What's Included
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleResourcesClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs"
-            >
-              Guides
             </Button>
             <Button
               variant="ghost"

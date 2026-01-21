@@ -14,9 +14,9 @@ export default function Home() {
       <HeroSection />
       <WhyChooseSection />
       <MissionSection />
+      <TestimonialsSection />
       <ValuePropositionSection />
       <HowItWorksSection />
-      <TestimonialsSection />
       <ToolsSection />
 
       {/* Section Break */}

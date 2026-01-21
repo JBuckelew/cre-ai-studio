@@ -75,7 +75,7 @@ export default function MissionSection() {
                 <div className="flex items-start gap-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-amber-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                     {module.isImage ? (
-                      <img src={module.icon} alt={module.title} className="w-8 h-8" />
+                      <img src={module.icon} alt={module.title} className="w-12 h-12 object-contain" style={{ mixBlendMode: 'multiply' }} />
                     ) : (
                       <module.icon className="w-8 h-8 text-slate-700" />
                     )}

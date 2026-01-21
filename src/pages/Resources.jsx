@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Resource } from "@/entities/Resource";
 import { PdfPurchase } from "@/entities/PdfPurchase";
@@ -10,6 +9,7 @@ import { FileText, Filter, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import ResourceCard from "../components/resources/ResourceCard";
 import MemberLogin from "../components/resources/MemberLogin";
+import PromptLibrary from "../components/resources/PromptLibrary";
 
 export default function Resources() {
   const [resources, setResources] = useState([]);
@@ -123,7 +123,12 @@ export default function Resources() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 py-16">
+    <div className="min-h-screen bg-slate-50">
+      {/* Prompt Library Section */}
+      <PromptLibrary />
+      
+      {/* PDF Resources Section */}
+      <div className="py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -234,6 +239,7 @@ export default function Resources() {
             </p>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

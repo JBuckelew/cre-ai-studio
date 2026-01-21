@@ -15,9 +15,10 @@ export default function MissionSection() {
       isImage: true
     },
     {
-      icon: Zap,
+      icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/7c86f2176_image.png",
       title: "Build Automations",
-      description: "Create powerful workflows using Zapier, Make.com, Relay.app and n8n"
+      description: "Create powerful workflows using Zapier, Make.com, Relay.app and n8n",
+      isImage: true
     },
     {
       icon: Building2,

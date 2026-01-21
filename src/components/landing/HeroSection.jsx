@@ -5,16 +5,29 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { createPageUrl } from '@/utils';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function HeroSection() {
-  const [email, setEmail] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    company: ""
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleJoinCircle = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!email) {
-      alert("Please enter your email address");
+    if (!formData.first_name || !formData.last_name || !formData.email || !formData.company) {
+      alert("Please fill in all fields");
       return;
     }
 
@@ -22,8 +35,11 @@ export default function HeroSection() {
     
     try {
       // Save to database
-      await base44.entities.EmailSignup.create({
-        email: email,
+      await base44.entities.ContactSignup.create({
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        email: formData.email,
+        company: formData.company,
         source: "hero_signup"
       });
       
@@ -38,7 +54,8 @@ export default function HeroSection() {
       
       // Show success message
       alert("Success! Your free AI Primer guide is downloading now. Check your downloads folder.");
-      setEmail("");
+      setFormData({ first_name: "", last_name: "", email: "", company: "" });
+      setIsDialogOpen(false);
       setIsSubmitting(false);
     } catch (error) {
       console.error('Hero signup error:', error);
@@ -331,33 +348,84 @@ export default function HeroSection() {
                   Straight to the Point AI Lessons for Commercial Real Estate Professionals
                 </motion.p>
 
-                {/* Email Signup - Apple style */}
+                {/* CTA Button */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                   className="max-w-lg mx-auto"
                 >
-                  <form onSubmit={handleJoinCircle} className="flex flex-col sm:flex-row gap-4">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 h-12 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-gray-400 focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all backdrop-blur-sm"
-                      required
-                    />
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-8 transition-all duration-300 group disabled:opacity-50"
-                    >
-                      {isSubmitting ? "Sending..." : "Get The AI Guide"}
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </form>
+                  <Button
+                    size="lg"
+                    onClick={() => setIsDialogOpen(true)}
+                    className="h-14 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-10 text-lg transition-all duration-300 group"
+                  >
+                    Get The Free AI Guide
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
                 </motion.div>
+
+                {/* Popup Dialog */}
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogContent className="bg-slate-900 border-white/10 text-white">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-bold">Get Your Free AI Guide</DialogTitle>
+                      <DialogDescription className="text-slate-300">
+                        Fill in your details to download the CRE AI Primer
+                      </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                      <div>
+                        <Input
+                          type="text"
+                          placeholder="First Name"
+                          value={formData.first_name}
+                          onChange={(e) => setFormData({ ...formData, first_name: e.target.value })}
+                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="text"
+                          placeholder="Last Name"
+                          value={formData.last_name}
+                          onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
+                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="text"
+                          placeholder="Company"
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          required
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full transition-all duration-300 group disabled:opacity-50"
+                      >
+                        {isSubmitting ? "Processing..." : "Get The Free AI Guide"}
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </form>
+                  </DialogContent>
+                </Dialog>
                 
               </div>
             </div>

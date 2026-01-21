@@ -62,13 +62,15 @@ export default function ToolsSection() {
             >
               <div className="relative p-5 rounded-xl bg-white border-2 border-slate-200 shadow-md hover:shadow-lg hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className={`w-10 h-10 ${lesson.customIcon ? '' : 'bg-gradient-to-br ' + lesson.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                    {lesson.customIcon ? (
-                      <img src={lesson.customIcon} alt="" className="w-5 h-5" />
-                    ) : (
+                  {lesson.customIcon ? (
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <img src={lesson.customIcon} alt="" className="w-6 h-6" />
+                    </div>
+                  ) : (
+                    <div className={`w-10 h-10 bg-gradient-to-br ${lesson.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
                       <lesson.icon className="w-5 h-5 text-white" />
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <span className="text-slate-800 font-semibold text-base leading-snug">
                     {lesson.text}
                   </span>

@@ -39,13 +39,6 @@ export default function Navigation() {
         <div className="hidden md:grid md:grid-cols-3 items-center h-16">
           {/* Logo */}
           <div className="justify-self-start">
-            <button onClick={handleHomeClick} className="flex items-center">
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/75a2876a5_image.png"
-                alt="CRE AI Studio Logo"
-                className="h-8"
-              />
-            </button>
           </div>
 
           {/* Navigation Links */}
@@ -101,13 +94,7 @@ export default function Navigation() {
         <div className="md:hidden">
           {/* Top row: Logo and Log In */}
           <div className="flex items-center justify-between h-16">
-            <button onClick={handleHomeClick} className="flex items-center">
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/75a2876a5_image.png"
-                alt="CRE AI Studio Logo"
-                className="h-8"
-              />
-            </button>
+            <div></div>
             <div className="flex items-center gap-2">
               <Button
                 size="sm"

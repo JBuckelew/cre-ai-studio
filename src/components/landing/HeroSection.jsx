@@ -349,7 +349,7 @@ export default function HeroSection() {
                       disabled={isSubmitting}
                       className="h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-8 transition-all duration-300 group disabled:opacity-50"
                     >
-                      {isSubmitting ? "Sending..." : "Get Your Free Resource"}
+                      {isSubmitting ? "Sending..." : "Get The AI Guide"}
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </form>

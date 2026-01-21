@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -63,7 +62,7 @@ export default function FoundersSection() {
           className="text-center mb-16"
         >
           <Badge variant="secondary" className="mb-4 bg-slate-100 text-slate-700 hover:bg-slate-200">
-            Meet the Team
+            Meet Your Teachers
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-4 tracking-tight">
             Led by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">CRE AI Experts</span> Across Multiple Real Estate Fields

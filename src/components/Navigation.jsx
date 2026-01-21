@@ -65,7 +65,7 @@ export default function Navigation() {
               onClick={() => window.location.href = '/Articles'}
               className="text-slate-700 hover:text-blue-600 font-medium"
             >
-              Articles + Videos
+              Free Resources
             </Button>
           </div>
 
@@ -139,7 +139,7 @@ export default function Navigation() {
               onClick={() => window.location.href = '/Articles'}
               className="text-slate-700 hover:text-blue-600 font-medium text-xs"
             >
-              Articles + Videos
+              Free Resources
             </Button>
           </div>
         </div>

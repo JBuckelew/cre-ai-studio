@@ -346,7 +346,7 @@ export default function HeroSection() {
                     onClick={() => setIsDialogOpen(true)}
                     className="h-14 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-10 text-lg transition-all duration-300 group"
                   >
-                    Get The Free AI Guide
+                    Get The Free CRE AI Starter Guide
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
@@ -355,7 +355,7 @@ export default function HeroSection() {
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogContent className="bg-slate-900 border-white/10 text-white">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold">Get Your Free AI Guide</DialogTitle>
+                      <DialogTitle className="text-2xl font-bold">Get Your Free CRE AI Starter Guide</DialogTitle>
                       <DialogDescription className="text-slate-300">
                         Fill in your details to download the CRE AI Primer
                       </DialogDescription>

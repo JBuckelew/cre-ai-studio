@@ -296,17 +296,12 @@ export default function HeroSection() {
           }
         `}</style>
         
-        <div className="relative z-10 min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-4 sm:px-6 lg:px-12">
-          <div className="max-w-7xl mx-auto h-full flex items-center">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
-              
-              {/* Left Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-left"
-              >
+        <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-4 sm:px-6">
+          <div className="flex-1 flex items-center">
+            {/* Content Container with enhanced subtle border */}
+            <div className="relative">
+              <div className="relative bg-black/30 backdrop-blur-md rounded-3xl border border-white/10 p-6 md:p-12 lg:p-16 shadow-2xl shadow-blue-500/10">
+                
                 {/* Welcome Text */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -314,42 +309,27 @@ export default function HeroSection() {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="mb-4"
                 >
-                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-semibold">
+                  <p className="text-2xl lg:text-4xl text-gray-300 font-semibold max-w-2xl mx-auto lg:whitespace-nowrap">
                     Where Real Estate Professionals Master AI
                   </p>
                 </motion.div>
 
-                {/* Main Heading */}
+                {/* Main Heading - Apple style with gradient */}
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                  className="text-5xl md:text-7xl lg:text-9xl font-bold mb-6 tracking-tight leading-none bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent"
+                  className="text-5xl md:text-7xl lg:text-9xl font-bold mb-8 tracking-tight leading-none bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent"
                 >
                   CRE AI Studio
                 </motion.h1>
-
-                {/* Partnership Badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                  className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl px-6 py-3 mb-8"
-                >
-                  <span className="text-lg md:text-xl lg:text-2xl text-white font-semibold">In Partnership with</span>
-                  <img 
-                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/fa2fa3533_CREDailyLogo.png" 
-                    alt="CRE Daily" 
-                    className="h-8 md:h-10 lg:h-12 object-contain"
-                  />
-                </motion.div>
 
                 {/* Tagline */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                  className="text-lg md:text-xl lg:text-2xl text-gray-300 font-light mb-8"
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="text-xl lg:text-2xl text-gray-300 font-light mb-12 max-w-3xl mx-auto"
                 >
                   Straight to the Point AI Lessons for Commercial Real Estate Professionals
                 </motion.p>
@@ -359,6 +339,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                  className="max-w-lg mx-auto"
                 >
                   <Button
                     size="lg"
@@ -425,32 +406,14 @@ export default function HeroSection() {
                         disabled={isSubmitting}
                         className="w-full h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full transition-all duration-300 group disabled:opacity-50"
                       >
-                        {isSubmitting ? "Processing..." : "Get The Free CRE AI Starter Guide"}
+                        {isSubmitting ? "Processing..." : "Get The Free AI Guide"}
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </form>
                   </DialogContent>
                 </Dialog>
-              </motion.div>
-
-              {/* Right Content - Placeholder for future content */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="hidden lg:flex items-center justify-center"
-              >
-                <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-12 w-full h-[400px] lg:h-[500px] flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="text-6xl">🚀</div>
-                    <h3 className="text-2xl font-bold text-white">Transform Your CRE Workflow</h3>
-                    <p className="text-gray-300 text-lg max-w-md">
-                      Learn practical AI skills that save you hours every week—from automating market research to generating property analyses instantly.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
+                
+              </div>
             </div>
           </div>
 

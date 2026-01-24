@@ -312,13 +312,13 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 mb-6"
+                  className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl px-6 py-3 mb-8"
                 >
-                  <span className="text-sm text-gray-300 font-medium">In Partnership with</span>
+                  <span className="text-lg md:text-xl lg:text-2xl text-white font-semibold">In Partnership with</span>
                   <img 
                     src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/fa2fa3533_CREDailyLogo.png" 
                     alt="CRE Daily" 
-                    className="h-5 object-contain"
+                    className="h-8 md:h-10 lg:h-12 object-contain"
                   />
                 </motion.div>
 
@@ -339,7 +339,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                  className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 tracking-tight leading-none bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent"
+                  className="text-5xl md:text-7xl lg:text-9xl font-bold mb-8 tracking-tight leading-none bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent"
                 >
                   CRE AI Studio
                 </motion.h1>

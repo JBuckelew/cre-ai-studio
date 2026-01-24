@@ -91,9 +91,9 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Layout */}
-        <div className="md:hidden py-3">
+        <div className="md:hidden py-2">
           {/* Top row: Buttons */}
-          <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="flex items-center justify-center gap-2 mb-2 pb-2 border-b border-slate-200">
             <Button
               size="sm"
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
@@ -111,7 +111,7 @@ export default function Navigation() {
           </div>
 
           {/* Bottom row: Navigation Links */}
-          <div className="flex items-center justify-center gap-1 flex-wrap">
+          <div className="flex items-center justify-center gap-1 flex-wrap pt-1">
             <Button
               variant="ghost"
               size="sm"

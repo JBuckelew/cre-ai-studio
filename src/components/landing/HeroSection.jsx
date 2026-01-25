@@ -334,7 +334,8 @@ export default function HeroSection() {
                   >
                     AI training that{' '}
                     <span className="italic text-blue-400">transforms</span>
-                    {' '}your CRE{' '}
+                    {' '}your<br />
+                    CRE{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}
@@ -354,7 +355,8 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     className="text-base lg:text-lg text-gray-300 leading-relaxed mb-8"
                   >
-                    Learn to integrate AI tools into your daily CRE workflows through hands-on training, webinars, and a community of 200+ professionals.
+                    Learn to integrate AI tools into your daily CRE workflows through<br />
+                    hands-on training, webinars, and a community of 200+ professionals.
                   </motion.p>
 
                   {/* CTA Buttons */}

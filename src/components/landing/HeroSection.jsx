@@ -341,10 +341,10 @@ export default function HeroSection() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="inline-block"
+                      className="inline-block text-4xl lg:text-6xl bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
                     >
                       {words[currentWord]}
-                    </motion.span>.
+                    </motion.span>
                   </motion.h1>
 
                   {/* Description */}

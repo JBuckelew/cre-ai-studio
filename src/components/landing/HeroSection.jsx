@@ -307,11 +307,20 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="mb-6"
+                  className="mb-8"
                 >
-                  <p className="text-xl lg:text-2xl text-gray-300 font-semibold">
-                    In Partnership with CRE Daily
-                  </p>
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <div className="h-px w-16 bg-gradient-to-r from-transparent to-purple-500"></div>
+                    <p className="text-sm lg:text-base text-purple-400 font-semibold uppercase tracking-widest">
+                      In Partnership with
+                    </p>
+                    <div className="h-px w-16 bg-gradient-to-l from-transparent to-purple-500"></div>
+                  </div>
+                  <img 
+                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/a9023c60f_CREDailyLogo.png" 
+                    alt="CRE Daily" 
+                    className="h-16 lg:h-24 mx-auto"
+                  />
                 </motion.div>
 
                 {/* Description */}

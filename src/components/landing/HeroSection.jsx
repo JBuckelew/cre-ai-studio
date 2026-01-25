@@ -90,6 +90,26 @@ export default function HeroSection() {
         `}</style>
         
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-6 sm:px-12 lg:px-16">
+          {/* Partnership Badge - Centered at Top */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="w-full flex justify-center mb-12"
+          >
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-gray-200 rounded-full px-8 py-3 shadow-md">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                <span className="text-sm font-semibold text-gray-800 tracking-wide">
+                  In Partnership with
+                </span>
+              </div>
+              <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                CRE Daily
+              </span>
+            </div>
+          </motion.div>
+
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
             <div className="relative max-w-xl">
@@ -97,19 +117,7 @@ export default function HeroSection() {
 
                 {/* Left-Aligned Content */}
                 <div>
-                  {/* Partnership Badge */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="mb-6"
-                  >
-                    <p className="text-xs lg:text-sm text-gray-600 font-medium uppercase tracking-widest">
-                      In Partnership with CRE Daily
-                    </p>
-                  </motion.div>
-
-                  {/* Headline */}
+                {/* Headline */}
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

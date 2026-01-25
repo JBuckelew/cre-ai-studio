@@ -75,7 +75,7 @@ export default function HeroSection() {
 
   return (
     <section className="bg-slate-50 py-8 sm:py-12 lg:py-16">
-      <div className="relative overflow-hidden bg-white text-black rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-gray-200 shadow-2xl shadow-blue-500/20">
+      <div className="relative overflow-hidden bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white/10 shadow-2xl shadow-blue-500/20">
 
         
         <style>{`
@@ -90,44 +90,6 @@ export default function HeroSection() {
         `}</style>
         
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-6 sm:px-12 lg:px-16">
-          {/* Partnership Badge - Centered at Top */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full flex justify-center mb-16"
-          >
-            <div className="relative">
-              {/* Glow effect behind */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 blur-2xl rounded-full"></div>
-
-              {/* Main badge */}
-              <div className="relative bg-white border-2 border-gray-900 rounded-2xl px-10 py-5 shadow-xl">
-                <div className="flex items-center gap-6">
-                  {/* Logo/Icon placeholder */}
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl shadow-lg">
-                    <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-
-                  {/* Text */}
-                  <div className="flex flex-col">
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-0.5">
-                      In Partnership with
-                    </span>
-                    <span className="text-2xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent tracking-tight">
-                      CRE Daily
-                    </span>
-                  </div>
-                </div>
-
-                {/* Accent corner */}
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full animate-pulse"></div>
-              </div>
-            </div>
-          </motion.div>
-
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
             <div className="relative max-w-xl">
@@ -140,7 +102,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-3xl lg:text-5xl font-bold text-black leading-tight mb-6"
+                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6"
                   >
                     AI training that{' '}
                     <span className="italic text-blue-600">transforms</span>
@@ -163,7 +125,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-base lg:text-lg text-gray-700 leading-relaxed mb-8"
+                    className="text-base lg:text-lg text-slate-300 leading-relaxed mb-8"
                   >
                     Learn to integrate AI tools into your daily CRE workflows through<br />
                     hands-on training, webinars, and a community of 200+ professionals.
@@ -178,7 +140,7 @@ export default function HeroSection() {
                   >
                     <Button
                       onClick={() => setIsDialogOpen(true)}
-                      className="h-11 bg-black text-white hover:bg-gray-800 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
+                      className="h-11 bg-white text-black hover:bg-gray-100 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
                     >
                       Get Free AI Guide
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -263,22 +225,22 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="mt-20 pt-8 border-t-2 border-gray-300 w-full overflow-hidden"
+            className="mt-20 pt-8 border-t-2 border-white/10 w-full overflow-hidden"
           >
-            <p className="text-gray-600 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
+            <p className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
             <div className="relative overflow-hidden">
               <div className="animate-[scroll_30s_linear_infinite] flex gap-12 whitespace-nowrap">
                 {[...Array(2)].map((_, index) => (
                   <div key={index} className="flex gap-12 items-center">
-                    <span className="text-2xl md:text-3xl font-bold text-black">CBRE</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Newmark</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">MetLife</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Avison Young</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Colliers</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Beacon Capital</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Cushman & Wakefield</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Savills</span>
-                    <span className="text-2xl md:text-3xl font-bold text-black">Compass</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">CBRE</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Newmark</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">MetLife</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Avison Young</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Colliers</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Beacon Capital</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Cushman & Wakefield</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Savills</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">Compass</span>
                   </div>
                 ))}
               </div>

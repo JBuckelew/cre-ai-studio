@@ -296,11 +296,11 @@ export default function HeroSection() {
           }
         `}</style>
         
-        <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-4 sm:px-6">
-          <div className="flex-1 flex items-center justify-start">
+        <div className="relative z-10 flex flex-col items-start justify-start min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-6 sm:px-12 lg:px-16">
+          <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
-            <div className="relative max-w-xl lg:max-w-2xl">
-              <div className="relative p-6 md:p-8">
+            <div className="relative max-w-xl">
+              <div className="relative">
 
                 {/* Left-Aligned Content */}
                 <div>

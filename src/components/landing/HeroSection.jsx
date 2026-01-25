@@ -104,7 +104,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6"
                   >
-                    <span className="text-4xl lg:text-6xl bg-yellow-400 text-black px-2">AI Training</span> that{' '}
+                    <span className="text-4xl lg:text-6xl">AI Training</span> that{' '}
                     <span className="italic text-blue-600">transforms</span>
                     {' '}your<br />
                     <span className="text-4xl lg:text-6xl">Commercial Real Estate</span>{' '}

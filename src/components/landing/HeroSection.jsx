@@ -302,52 +302,49 @@ export default function HeroSection() {
             <div className="relative">
               <div className="relative bg-black/30 backdrop-blur-md rounded-3xl border border-white/10 p-6 md:p-12 lg:p-16 shadow-2xl shadow-blue-500/10">
                 
-                {/* Welcome Text */}
+                {/* Partnership Tagline */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="mb-4"
+                  className="mb-6"
                 >
-                  <p className="text-2xl lg:text-4xl text-gray-300 font-semibold max-w-2xl mx-auto lg:whitespace-nowrap">
-                    Where Real Estate Professionals Master AI
+                  <p className="text-xl lg:text-2xl text-gray-300 font-semibold">
+                    In Partnership with CRE Daily
                   </p>
                 </motion.div>
 
-                {/* Main Heading - Apple style with gradient */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                  className="text-5xl md:text-7xl lg:text-9xl font-bold mb-8 tracking-tight leading-none bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent"
-                >
-                  CRE AI Studio
-                </motion.h1>
-
-                {/* Tagline */}
+                {/* Description */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                  className="text-xl lg:text-2xl text-gray-300 font-light mb-12 max-w-3xl mx-auto"
+                  transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                  className="text-lg lg:text-xl text-gray-300 font-light mb-12 max-w-3xl mx-auto"
                 >
-                  Straight to the Point AI Lessons for Commercial Real Estate Professionals
+                  We developed an AI Training Program and Community for the Commercial Real Estate Industry
                 </motion.p>
 
-                {/* CTA Button */}
+                {/* CTA Buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                  className="max-w-lg mx-auto"
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-3xl mx-auto"
                 >
                   <Button
                     size="lg"
                     onClick={() => setIsDialogOpen(true)}
-                    className="h-14 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full px-10 text-lg transition-all duration-300 group"
+                    className="h-14 bg-white text-black hover:bg-gray-100 font-medium rounded-full px-10 text-lg transition-all duration-300 group w-full sm:w-auto"
                   >
-                    Get The Free CRE AI Starter Guide
+                    Get the Free CRE AI Tools + Prompts Guide
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+                    className="h-14 bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold rounded-full px-10 text-lg transition-all duration-300 w-full sm:w-auto"
+                  >
+                    Join for Free
                   </Button>
                 </motion.div>
 

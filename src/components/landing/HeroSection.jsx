@@ -142,7 +142,7 @@ export default function HeroSection() {
                       onClick={() => setIsDialogOpen(true)}
                       className="h-11 bg-white text-black hover:bg-gray-100 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
                     >
-                      Get Free AI Tools + Prompt Guide
+                      Get the Free AI Tools + Prompts Guide
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                     <Button
@@ -158,7 +158,7 @@ export default function HeroSection() {
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogContent className="bg-slate-900 border-white/10 text-white">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold">Get Your Free AI Tools + Prompt Guide</DialogTitle>
+                      <DialogTitle className="text-2xl font-bold">Get the Free AI Tools + Prompts Guide</DialogTitle>
                       <DialogDescription className="text-slate-300">
                         Fill in your details to download the CRE AI Primer
                       </DialogDescription>
@@ -209,7 +209,7 @@ export default function HeroSection() {
                         disabled={isSubmitting}
                         className="w-full h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full transition-all duration-300 group disabled:opacity-50"
                       >
-                        {isSubmitting ? "Processing..." : "Get Free AI Tools + Prompt Guide"}
+                        {isSubmitting ? "Processing..." : "Get the Free AI Tools + Prompts Guide"}
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </form>

@@ -45,48 +45,48 @@ export default function Navigation() {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-3">
             <Button
               variant="ghost"
               onClick={handleHomeClick}
-              className="text-slate-700 hover:text-blue-600 font-medium"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
               Home
             </Button>
             <Button
               variant="ghost"
               onClick={handleWhatsIncludedClick}
-              className="text-slate-700 hover:text-blue-600 font-medium"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
               What's Included
             </Button>
             <Button
               variant="ghost"
               onClick={handleTeachersClick}
-              className="text-slate-700 hover:text-blue-600 font-medium"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
-              Meet Your Teachers
+              Teachers
             </Button>
             <Button
               variant="ghost"
               onClick={() => window.location.href = '/Articles'}
-              className="text-slate-700 hover:text-blue-600 font-medium"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
-              Free Resources
+              Resources
             </Button>
           </div>
 
           {/* Join Now and Log In Buttons */}
-          <div className="justify-self-end flex items-center gap-3">
+          <div className="justify-self-end flex items-center gap-2">
             <Button
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-              className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold"
+              className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4"
             >
               Join for Free
             </Button>
             <Button
               onClick={handleLoginClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
             >
               Log In
             </Button>

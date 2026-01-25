@@ -304,23 +304,54 @@ export default function HeroSection() {
                 
                 {/* Partnership Tagline */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="mb-8"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="mb-10"
                 >
-                  <div className="flex items-center justify-center gap-4 mb-4">
-                    <div className="h-px w-16 bg-gradient-to-r from-transparent to-purple-500"></div>
-                    <p className="text-sm lg:text-base text-purple-400 font-semibold uppercase tracking-widest">
-                      In Partnership with
-                    </p>
-                    <div className="h-px w-16 bg-gradient-to-l from-transparent to-purple-500"></div>
+                  <div className="relative inline-block mx-auto">
+                    {/* Glowing background effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 via-blue-600/30 to-purple-600/30 blur-2xl animate-pulse"></div>
+                    
+                    {/* Main container */}
+                    <div className="relative bg-gradient-to-br from-purple-900/40 via-blue-900/40 to-purple-900/40 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border-2 border-purple-500/30 shadow-2xl shadow-purple-500/20">
+                      <div className="flex items-center justify-center gap-4 mb-6">
+                        <motion.div 
+                          className="h-0.5 w-12 lg:w-20 bg-gradient-to-r from-transparent via-yellow-400 to-purple-500"
+                          animate={{ scaleX: [0.8, 1.2, 0.8] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        ></motion.div>
+                        <p className="text-base lg:text-xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-purple-300 to-blue-300 font-bold uppercase tracking-[0.3em]">
+                          In Partnership with
+                        </p>
+                        <motion.div 
+                          className="h-0.5 w-12 lg:w-20 bg-gradient-to-l from-transparent via-yellow-400 to-purple-500"
+                          animate={{ scaleX: [0.8, 1.2, 0.8] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                        ></motion.div>
+                      </div>
+                      
+                      {/* CRE Daily Logo with glow */}
+                      <motion.div
+                        animate={{ 
+                          y: [0, -5, 0],
+                        }}
+                        transition={{ 
+                          duration: 4, 
+                          repeat: Infinity, 
+                          ease: "easeInOut" 
+                        }}
+                        className="relative"
+                      >
+                        <div className="absolute inset-0 bg-blue-500/20 blur-xl"></div>
+                        <img 
+                          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/a9023c60f_CREDailyLogo.png" 
+                          alt="CRE Daily" 
+                          className="relative h-20 lg:h-32 mx-auto drop-shadow-2xl"
+                        />
+                      </motion.div>
+                    </div>
                   </div>
-                  <img 
-                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/a9023c60f_CREDailyLogo.png" 
-                    alt="CRE Daily" 
-                    className="h-16 lg:h-24 mx-auto"
-                  />
                 </motion.div>
 
                 {/* Description */}

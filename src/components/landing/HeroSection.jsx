@@ -307,18 +307,23 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="mb-10 inline-block"
+                  className="mb-12"
                 >
-                  <div className="bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 backdrop-blur-md rounded-2xl px-8 lg:px-12 py-6 lg:py-8 border border-white/20 shadow-xl">
-                    <p className="text-sm lg:text-lg text-blue-300 font-semibold uppercase tracking-wider mb-4">
-                      Proudly In Partnership with
-                    </p>
-                    <img 
-                      src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/a9023c60f_CREDailyLogo.png" 
-                      alt="CRE Daily" 
-                      className="h-16 lg:h-28 mx-auto"
-                    />
-                  </div>
+                  <p className="text-sm lg:text-base text-gray-400 font-medium uppercase tracking-widest mb-6">
+                    Partner Network
+                  </p>
+                  <h2 className="text-3xl lg:text-5xl font-bold text-white mb-8 leading-tight">
+                    Developed in partnership with{' '}
+                    <span className="relative inline-block">
+                      <span className="relative z-10">CRE Daily</span>
+                      <span className="absolute inset-0 bg-yellow-400 -skew-y-1 z-0"></span>
+                    </span>
+                  </h2>
+                  <img 
+                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/a9023c60f_CREDailyLogo.png" 
+                    alt="CRE Daily" 
+                    className="h-12 lg:h-16 mx-auto opacity-90"
+                  />
                 </motion.div>
 
                 {/* Description */}

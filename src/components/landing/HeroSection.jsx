@@ -92,21 +92,39 @@ export default function HeroSection() {
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-6 sm:px-12 lg:px-16">
           {/* Partnership Badge - Centered at Top */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full flex justify-center mb-12"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full flex justify-center mb-16"
           >
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-gray-200 rounded-full px-8 py-3 shadow-md">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-                <span className="text-sm font-semibold text-gray-800 tracking-wide">
-                  In Partnership with
-                </span>
+            <div className="relative">
+              {/* Glow effect behind */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 blur-2xl rounded-full"></div>
+
+              {/* Main badge */}
+              <div className="relative bg-white border-2 border-gray-900 rounded-2xl px-10 py-5 shadow-xl">
+                <div className="flex items-center gap-6">
+                  {/* Logo/Icon placeholder */}
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl shadow-lg">
+                    <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-0.5">
+                      In Partnership with
+                    </span>
+                    <span className="text-2xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent tracking-tight">
+                      CRE Daily
+                    </span>
+                  </div>
+                </div>
+
+                {/* Accent corner */}
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full animate-pulse"></div>
               </div>
-              <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                CRE Daily
-              </span>
             </div>
           </motion.div>
 

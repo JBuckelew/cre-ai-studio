@@ -302,39 +302,48 @@ export default function HeroSection() {
             <div className="relative">
               <div className="relative bg-black/30 backdrop-blur-md rounded-3xl border border-white/10 p-6 md:p-12 lg:p-16 shadow-2xl shadow-blue-500/10">
                 
-                {/* Partnership Tagline */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="mb-12"
-                >
-                  <p className="text-sm lg:text-base text-gray-400 font-medium uppercase tracking-widest mb-6">
-                    Partner Network
-                  </p>
-                  <h2 className="text-3xl lg:text-5xl font-bold text-white mb-8 leading-tight">
-                    Developed in partnership with{' '}
-                    <span className="relative inline-block">
-                      <span className="relative z-10">CRE Daily</span>
-                      <span className="absolute inset-0 bg-yellow-400 -skew-y-1 z-0"></span>
-                    </span>
-                  </h2>
-                  <img 
-                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/a9023c60f_CREDailyLogo.png" 
-                    alt="CRE Daily" 
-                    className="h-12 lg:h-16 mx-auto opacity-90"
-                  />
-                </motion.div>
+                {/* Split Content Layout */}
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-6xl mx-auto mb-16">
+                  {/* Left: Headline */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="text-left"
+                  >
+                    <p className="text-sm lg:text-base text-gray-400 font-medium uppercase tracking-widest mb-6">
+                      In Partnership with CRE Daily
+                    </p>
+                    <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
+                      AI training that{' '}
+                      <span className="italic text-blue-400">transforms</span>
+                      {' '}your CRE workflow.
+                    </h1>
+                  </motion.div>
 
-                {/* Description */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                  className="text-lg lg:text-xl text-gray-300 font-light mb-12 max-w-3xl mx-auto"
-                >
-                  We developed an AI Training Program and Community for the Commercial Real Estate Industry
-                </motion.p>
+                  {/* Right: Description */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                    className="text-left space-y-6"
+                  >
+                    <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
+                      CRE AI Studio helps commercial real estate professionals and firms move from AI curiosity to practical implementation—showing you exactly how to use AI tools to automate analysis, improve decision-making, and increase efficiency in your day-to-day work.
+                    </p>
+                    
+                    <div className="space-y-4 text-sm lg:text-base text-gray-400">
+                      <div>
+                        <p className="font-semibold text-white mb-2">For CRE Professionals:</p>
+                        <p>Educational platform teaching AI integration • Ongoing webinars & training • Community of 200+ professionals • Regular AI insights newsletter</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-white mb-2">For Companies:</p>
+                        <p>Corporate workshops for firms like CBRE • Large-group training sessions • Sponsored content campaigns</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
 
                 {/* CTA Buttons */}
                 <motion.div

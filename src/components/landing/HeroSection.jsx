@@ -22,6 +22,15 @@ export default function HeroSection() {
     company: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentWord, setCurrentWord] = useState(0);
+  const words = ["Skills", "Company", "Future"];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -325,7 +334,17 @@ export default function HeroSection() {
                   >
                     AI training that{' '}
                     <span className="italic text-blue-400">transforms</span>
-                    {' '}your CRE workflow.
+                    {' '}your CRE{' '}
+                    <motion.span
+                      key={currentWord}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                      className="inline-block"
+                    >
+                      {words[currentWord]}
+                    </motion.span>.
                   </motion.h1>
 
                   {/* Description */}

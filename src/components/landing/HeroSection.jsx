@@ -298,76 +298,68 @@ export default function HeroSection() {
         
         <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-4 sm:px-6">
           <div className="flex-1 flex items-center">
-            {/* Content Container with enhanced subtle border */}
-            <div className="relative">
+            {/* Content Container - Left Aligned */}
+            <div className="relative w-full">
               <div className="relative bg-black/30 backdrop-blur-md rounded-3xl border border-white/10 p-6 md:p-12 lg:p-16 shadow-2xl shadow-blue-500/10">
-                
-                {/* Split Content Layout */}
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-6xl mx-auto mb-16">
-                  {/* Left: Headline */}
+
+                {/* Left-Aligned Content */}
+                <div className="max-w-2xl">
+                  {/* Partnership Badge */}
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="text-left"
+                    className="mb-6"
                   >
-                    <p className="text-sm lg:text-base text-gray-400 font-medium uppercase tracking-widest mb-6">
+                    <p className="text-xs lg:text-sm text-gray-400 font-medium uppercase tracking-widest">
                       In Partnership with CRE Daily
                     </p>
-                    <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-                      AI training that{' '}
-                      <span className="italic text-blue-400">transforms</span>
-                      {' '}your CRE workflow.
-                    </h1>
                   </motion.div>
 
-                  {/* Right: Description */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                  {/* Headline */}
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-left space-y-6"
+                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6"
                   >
-                    <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
-                      CRE AI Studio helps commercial real estate professionals and firms move from AI curiosity to practical implementation—showing you exactly how to use AI tools to automate analysis, improve decision-making, and increase efficiency in your day-to-day work.
-                    </p>
-                    
-                    <div className="space-y-4 text-sm lg:text-base text-gray-400">
-                      <div>
-                        <p className="font-semibold text-white mb-2">For CRE Professionals:</p>
-                        <p>Educational platform teaching AI integration • Ongoing webinars & training • Community of 200+ professionals • Regular AI insights newsletter</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-white mb-2">For Companies:</p>
-                        <p>Corporate workshops for firms like CBRE • Large-group training sessions • Sponsored content campaigns</p>
-                      </div>
-                    </div>
+                    AI training that{' '}
+                    <span className="italic text-blue-400">transforms</span>
+                    {' '}your CRE workflow.
+                  </motion.h1>
+
+                  {/* Description */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                    className="text-base lg:text-lg text-gray-300 leading-relaxed mb-8"
+                  >
+                    Learn to integrate AI tools into your daily CRE workflows through hands-on training, webinars, and a community of 200+ professionals.
+                  </motion.p>
+
+                  {/* CTA Buttons */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                    className="flex flex-col sm:flex-row gap-3"
+                  >
+                    <Button
+                      onClick={() => setIsDialogOpen(true)}
+                      className="h-11 bg-white text-black hover:bg-gray-100 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
+                    >
+                      Get Free AI Guide
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    <Button
+                      onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+                      className="h-11 bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold rounded-full px-6 text-sm transition-all duration-300"
+                    >
+                      Join for Free
+                    </Button>
                   </motion.div>
                 </div>
-
-                {/* CTA Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-3xl mx-auto"
-                >
-                  <Button
-                    size="lg"
-                    onClick={() => setIsDialogOpen(true)}
-                    className="h-14 bg-white text-black hover:bg-gray-100 font-medium rounded-full px-10 text-lg transition-all duration-300 group w-full sm:w-auto"
-                  >
-                    Get the Free CRE AI Tools + Prompts Guide
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button
-                    size="lg"
-                    onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-                    className="h-14 bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold rounded-full px-10 text-lg transition-all duration-300 w-full sm:w-auto"
-                  >
-                    Join for Free
-                  </Button>
-                </motion.div>
 
                 {/* Popup Dialog */}
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

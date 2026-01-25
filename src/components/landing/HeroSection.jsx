@@ -75,7 +75,7 @@ export default function HeroSection() {
 
   return (
     <section className="bg-slate-50 py-8 sm:py-12 lg:py-16">
-      <div className="relative overflow-hidden bg-black text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white shadow-2xl shadow-blue-500/20">
+      <div className="relative overflow-hidden bg-white text-black rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-gray-200 shadow-2xl shadow-blue-500/20">
         {/* Enhanced Tech-Inspired Background with Camera Flashes */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Base Grid */}
@@ -320,7 +320,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="mb-6"
                   >
-                    <p className="text-xs lg:text-sm text-gray-400 font-medium uppercase tracking-widest">
+                    <p className="text-xs lg:text-sm text-gray-600 font-medium uppercase tracking-widest">
                       In Partnership with CRE Daily
                     </p>
                   </motion.div>
@@ -330,10 +330,10 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6"
+                    className="text-3xl lg:text-5xl font-bold text-black leading-tight mb-6"
                   >
                     AI training that{' '}
-                    <span className="italic text-blue-400">transforms</span>
+                    <span className="italic text-blue-600">transforms</span>
                     {' '}your<br />
                     <span className="text-4xl lg:text-6xl">Commercial Real Estate</span>{' '}
                     <motion.span
@@ -342,7 +342,7 @@ export default function HeroSection() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="inline-block text-4xl lg:text-6xl bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
+                      className="inline-block text-4xl lg:text-6xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
                     >
                       {words[currentWord]}
                     </motion.span>
@@ -353,7 +353,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-base lg:text-lg text-gray-300 leading-relaxed mb-8"
+                    className="text-base lg:text-lg text-gray-700 leading-relaxed mb-8"
                   >
                     Learn to integrate AI tools into your daily CRE workflows through<br />
                     hands-on training, webinars, and a community of 200+ professionals.
@@ -368,14 +368,14 @@ export default function HeroSection() {
                   >
                     <Button
                       onClick={() => setIsDialogOpen(true)}
-                      className="h-11 bg-white text-black hover:bg-gray-100 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
+                      className="h-11 bg-black text-white hover:bg-gray-800 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
                     >
                       Get Free AI Guide
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                     <Button
                       onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-                      className="h-11 bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold rounded-full px-6 text-sm transition-all duration-300"
+                      className="h-11 bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-6 text-sm transition-all duration-300"
                     >
                       Join for Free
                     </Button>
@@ -453,22 +453,22 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="mt-20 pt-8 border-t-2 border-purple-500/30 w-full overflow-hidden"
+            className="mt-20 pt-8 border-t-2 border-gray-300 w-full overflow-hidden"
           >
-            <p className="text-gray-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
+            <p className="text-gray-600 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
             <div className="relative overflow-hidden">
               <div className="animate-[scroll_30s_linear_infinite] flex gap-12 whitespace-nowrap">
                 {[...Array(2)].map((_, index) => (
                   <div key={index} className="flex gap-12 items-center">
-                    <span className="text-2xl md:text-3xl font-bold text-white">CBRE</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Newmark</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">MetLife</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Avison Young</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Colliers</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Beacon Capital</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Cushman & Wakefield</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Savills</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Compass</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">CBRE</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Newmark</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">MetLife</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Avison Young</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Colliers</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Beacon Capital</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Cushman & Wakefield</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Savills</span>
+                    <span className="text-2xl md:text-3xl font-bold text-black">Compass</span>
                   </div>
                 ))}
               </div>

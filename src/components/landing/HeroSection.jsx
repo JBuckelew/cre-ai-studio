@@ -297,13 +297,13 @@ export default function HeroSection() {
         `}</style>
         
         <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-4 sm:px-6">
-          <div className="flex-1 flex items-center">
+          <div className="flex-1 flex items-center justify-start">
             {/* Content Container - Left Aligned */}
-            <div className="relative w-full">
-              <div className="relative bg-black/30 backdrop-blur-md rounded-3xl border border-white/10 p-6 md:p-12 lg:p-16 shadow-2xl shadow-blue-500/10">
+            <div className="relative max-w-xl lg:max-w-2xl">
+              <div className="relative p-6 md:p-8">
 
                 {/* Left-Aligned Content */}
-                <div className="max-w-2xl">
+                <div>
                   {/* Partnership Badge */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}

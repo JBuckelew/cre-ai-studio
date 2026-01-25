@@ -335,7 +335,7 @@ export default function HeroSection() {
                     AI training that{' '}
                     <span className="italic text-blue-400">transforms</span>
                     {' '}your<br />
-                    CRE{' '}
+                    <span className="text-4xl lg:text-6xl">Commercial Real Estate</span>{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}

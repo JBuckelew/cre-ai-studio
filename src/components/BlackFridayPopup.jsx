@@ -103,12 +103,8 @@ export default function FreeTrialPopup() {
                     </h2>
 
                     {/* Subheadline */}
-                    <p className="text-base md:text-lg text-blue-100 mb-3">
+                    <p className="text-base md:text-lg text-blue-100 mb-6">
                       Master AI in Commercial Real Estate with weekly lessons, live Q&A sessions, and direct access to founders.
-                    </p>
-
-                    <p className="text-xs md:text-sm text-gray-400 mb-4">
-                      Cancel anytime during your trial — no commitment required.
                     </p>
 
                     {/* Email form */}

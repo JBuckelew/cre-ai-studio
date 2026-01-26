@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target } from "lucide-react";
+import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target, ArrowRight } from "lucide-react";
 
 export default function ToolsSection() {
   const lessons = [
@@ -84,9 +84,10 @@ export default function ToolsSection() {
         >
           <Button
             onClick={() => window.location.href = '/FreeTrialPayment'}
-            className="bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-8 py-4 text-lg transition-all duration-300"
+            className="bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-12 py-4 text-lg transition-all duration-300 group"
           >
             Join for Free
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.div>
       </div>

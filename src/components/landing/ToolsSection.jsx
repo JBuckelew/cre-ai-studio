@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target } from "lucide-react";
 
 export default function ToolsSection() {
@@ -73,7 +74,7 @@ export default function ToolsSection() {
           ))}
         </div>
 
-        {/* "And so much more" - distinct style */}
+        {/* Join for Free button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,10 +82,12 @@ export default function ToolsSection() {
           transition={{ duration: 0.5, delay: lessons.length * 0.05 }}
           className="mt-8 max-w-5xl mx-auto text-center"
         >
-          <div className="inline-flex items-center gap-3 px-8 py-4 bg-slate-100 border-2 border-slate-300 rounded-full text-slate-700 font-bold text-lg">
-            <Sparkles className="w-5 h-5 text-slate-500" />
-            And so much more...
-          </div>
+          <Button
+            onClick={() => window.location.href = '/FreeTrialPayment'}
+            className="bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-8 py-4 text-lg transition-all duration-300"
+          >
+            Join for Free
+          </Button>
         </motion.div>
       </div>
     </section>

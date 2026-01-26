@@ -98,28 +98,10 @@ export default function HeroSection() {
                 {/* Left-Aligned Content */}
                 <div>
                 {/* Partnership Badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="relative inline-flex items-center gap-4 mb-10 px-6 py-3 rounded-xl overflow-hidden group cursor-default"
-                >
-                  {/* Animated gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-
-                  {/* Border glow */}
-                  <div className="absolute inset-0 rounded-xl border border-gradient-to-r from-blue-400/50 via-purple-400/50 to-pink-400/50" style={{border: '1px solid', borderImage: 'linear-gradient(90deg, rgba(96,165,250,0.5), rgba(192,132,252,0.5), rgba(244,114,182,0.5)) 1'}} />
-                  <div className="absolute inset-0 rounded-xl shadow-[0_0_20px_rgba(147,51,234,0.3)]" />
-
-                  <span className="relative text-white text-base font-semibold tracking-wide">In Partnership with</span>
-                  <div className="relative w-px h-6 bg-gradient-to-b from-blue-400/60 via-purple-400/60 to-pink-400/60"></div>
-                  <img
-                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png"
-                    alt="CRE Daily"
-                    className="relative h-8 object-contain"
-                  />
-                </motion.div>
+                <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm mb-10">
+                  <span className="text-white text-base font-medium">In Partnership with</span>
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="h-7 object-contain" />
+                </div>
 
                 {/* Headline */}
                   <motion.h1

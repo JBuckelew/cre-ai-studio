@@ -97,6 +97,21 @@ export default function HeroSection() {
 
                 {/* Left-Aligned Content */}
                 <div>
+                {/* Partnership Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="inline-flex items-center gap-3 mb-8 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+                >
+                  <span className="text-slate-300 text-sm font-medium tracking-wide">In Partnership with</span>
+                  <img
+                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png"
+                    alt="CRE Daily"
+                    className="h-5 object-contain"
+                  />
+                </motion.div>
+
                 {/* Headline */}
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}

@@ -14,7 +14,6 @@ export default function Home() {
       <WhyChooseSection />
       <MissionSection />
       <TestimonialsSection />
-      <HowItWorksSection />
       <ValuePropositionSection />
       <ToolsSection />
     </div>

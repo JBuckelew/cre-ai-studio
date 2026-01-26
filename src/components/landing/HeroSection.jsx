@@ -98,9 +98,11 @@ export default function HeroSection() {
                 {/* Left-Aligned Content */}
                 <div>
                 {/* Partnership Badge */}
-                <div className="inline-flex flex-col items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/20 backdrop-blur-sm mb-10">
-                  <span className="text-slate-400 text-xs font-medium uppercase tracking-widest">In Partnership with</span>
-                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="h-10 object-contain" />
+                <div className="relative inline-flex items-center gap-4 px-7 py-4 rounded-xl overflow-hidden mb-10">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30" />
+                  <div className="absolute inset-0 rounded-xl border-2 border-blue-400/50" />
+                  <span className="relative text-white text-lg font-bold">In Partnership with</span>
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="relative h-9 object-contain" />
                 </div>
 
                 {/* Headline */}

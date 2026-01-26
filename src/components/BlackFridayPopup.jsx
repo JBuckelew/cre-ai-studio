@@ -12,12 +12,19 @@ export default function FreeTrialPopup() {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    // Show popup after 3 seconds
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 3000);
+    // Check how many times popup has been shown
+    const popupCount = parseInt(localStorage.getItem('popupShownCount') || '0');
     
-    return () => clearTimeout(timer);
+    if (popupCount < 2) {
+      // Show popup after 3 seconds
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        // Increment the counter
+        localStorage.setItem('popupShownCount', String(popupCount + 1));
+      }, 3000);
+      
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleClose = () => {

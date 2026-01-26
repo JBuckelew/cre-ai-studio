@@ -98,7 +98,7 @@ export default function HeroSection() {
                 {/* Left-Aligned Content */}
                 <div>
                 {/* Partnership Badge */}
-                <div className="inline-flex items-center mb-10">
+                <div className="flex items-center justify-center mb-10">
                   <div className="w-1.5 h-16 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full mr-6"></div>
                   <div className="flex items-center gap-4">
                     <span className="text-slate-300 text-lg font-semibold">In Partnership with</span>

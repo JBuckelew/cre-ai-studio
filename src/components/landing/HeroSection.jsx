@@ -236,7 +236,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
             className="mt-20 pt-8 border-t-2 border-white/10 w-full overflow-hidden"
           >
-            <p className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
+            <p className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6 text-center">Organizations Represented by Our Members</p>
             <div className="relative overflow-hidden">
               <div className="animate-[scroll_20s_linear_infinite] flex gap-12 whitespace-nowrap">
                 {[...Array(2)].map((_, index) => (

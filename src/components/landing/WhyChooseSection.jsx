@@ -47,9 +47,12 @@ export default function WhyChooseSection() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-slate-900 leading-tight">
               AI is shaping the <span className="italic text-blue-600">future</span> of the CRE Industry.
             </h3>
-            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-8">
               So we developed an AI Training Program and Community specifically for the Commercial Real Estate Industry to drive meaningful change.
             </p>
+            <h4 className="text-2xl md:text-3xl font-bold text-slate-900 mt-12">
+              Inside the CRE AI Studio
+            </h4>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">

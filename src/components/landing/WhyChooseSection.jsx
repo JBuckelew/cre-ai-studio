@@ -43,14 +43,13 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4 bg-purple-100 text-purple-700">
-              Why Choose Us
-            </Badge>
-            
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-slate-900">
-              Why the <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">CRE AI Studio</span>
+          <div className="text-center mb-16 max-w-5xl mx-auto">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-slate-900 leading-tight">
+              AI is shaping the <span className="italic text-blue-600">future</span> of the CRE Industry.
             </h3>
+            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              So we developed an AI Training Program and Community specifically for the Commercial Real Estate Industry to drive meaningful change.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">

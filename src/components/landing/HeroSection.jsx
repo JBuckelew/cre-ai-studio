@@ -125,10 +125,10 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-base lg:text-lg text-slate-300 leading-relaxed mb-8"
+                    className="text-lg lg:text-xl text-slate-300 leading-relaxed mb-8"
                   >
                     Learn to integrate AI tools into your daily CRE workflows through<br />
-                    hands-on training, webinars, and a community of 200+ professionals.
+                    hands-on training, webinars, and a community of hundreds of CRE professionals.
                   </motion.p>
 
                   {/* CTA Buttons */}

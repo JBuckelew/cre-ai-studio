@@ -74,47 +74,42 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-slate-50 py-8 sm:py-12 lg:py-16">
-      <div className="relative overflow-hidden bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white/10 shadow-2xl shadow-blue-500/20">
-
+    <section className="bg-white py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-16">
         
         <style>{`
-          @keyframes pan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% -100%; }
-          }
           @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
         `}</style>
         
-        <div className="relative z-10 flex flex-col items-start justify-start min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-6 sm:px-12 lg:px-16">
+        <div className="flex flex-col items-start justify-start min-h-[70vh] py-10 sm:py-16">
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
-            <div className="relative max-w-xl">
+            <div className="relative max-w-2xl">
               <div className="relative">
 
                 {/* Left-Aligned Content */}
                 <div>
-                {/* Headline */}
+                  {/* Headline */}
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6"
+                    className="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6"
                   >
-                    <span className="text-4xl lg:text-6xl">AI Training</span> that{' '}
+                    <span className="text-5xl lg:text-7xl">AI Training</span> that{' '}
                     <span className="italic text-blue-600">transforms</span>
                     {' '}your<br />
-                    <span className="text-4xl lg:text-6xl">Commercial Real Estate</span>{' '}
+                    <span className="text-5xl lg:text-7xl">Commercial Real Estate</span>{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="inline-block text-4xl lg:text-6xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
+                      className="inline-block text-5xl lg:text-7xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
                     >
                       {words[currentWord]}
                     </motion.span>
@@ -125,7 +120,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-base lg:text-lg text-slate-300 leading-relaxed mb-8"
+                    className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-8"
                   >
                     Learn to integrate AI tools into your daily CRE workflows through<br />
                     hands-on training, webinars, and a community of 200+ professionals.
@@ -140,14 +135,14 @@ export default function HeroSection() {
                   >
                     <Button
                       onClick={() => setIsDialogOpen(true)}
-                      className="h-11 bg-gray-200 text-black hover:bg-gray-300 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
+                      className="h-12 bg-slate-900 text-white hover:bg-slate-800 font-medium rounded-lg px-8 text-base transition-all duration-300 group"
                     >
                       Get the Free AI Tools + Prompts Guide
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                     <Button
                       onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-                      className="h-11 bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-6 text-sm transition-all duration-300"
+                      className="h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-8 text-base transition-all duration-300"
                     >
                       Join for Free
                     </Button>
@@ -156,10 +151,10 @@ export default function HeroSection() {
 
                 {/* Popup Dialog */}
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogContent className="bg-slate-900 border-white/10 text-white">
+                  <DialogContent className="bg-white border-slate-200 text-slate-900">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold">Get the Free AI Tools + Prompts Guide</DialogTitle>
-                      <DialogDescription className="text-slate-300">
+                      <DialogTitle className="text-2xl font-bold text-slate-900">Get the Free AI Tools + Prompts Guide</DialogTitle>
+                      <DialogDescription className="text-slate-600">
                         Fill in your details to download the CRE AI Primer
                       </DialogDescription>
                     </DialogHeader>
@@ -170,7 +165,7 @@ export default function HeroSection() {
                           placeholder="First Name"
                           value={formData.first_name}
                           onChange={(e) => setFormData({ ...formData, first_name: e.target.value })}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          className="bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-500"
                           required
                         />
                       </div>
@@ -180,7 +175,7 @@ export default function HeroSection() {
                           placeholder="Last Name"
                           value={formData.last_name}
                           onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          className="bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-500"
                           required
                         />
                       </div>
@@ -190,7 +185,7 @@ export default function HeroSection() {
                           placeholder="Email"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          className="bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-500"
                           required
                         />
                       </div>
@@ -200,14 +195,14 @@ export default function HeroSection() {
                           placeholder="Company"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                          className="bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-500"
                           required
                         />
                       </div>
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-full transition-all duration-300 group disabled:opacity-50"
+                        className="w-full h-12 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-lg transition-all duration-300 group disabled:opacity-50"
                       >
                         {isSubmitting ? "Processing..." : "Get the Free AI Tools + Prompts Guide"}
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -225,22 +220,22 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="mt-20 pt-8 border-t-2 border-white/10 w-full overflow-hidden"
+            className="mt-20 pt-8 border-t border-slate-200 w-full overflow-hidden"
           >
-            <p className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6">Organizations Represented by Our Members</p>
+            <p className="text-slate-500 text-sm md:text-base font-medium uppercase tracking-wide mb-6">Organizations Represented by Our Members</p>
             <div className="relative overflow-hidden">
               <div className="animate-[scroll_30s_linear_infinite] flex gap-12 whitespace-nowrap">
                 {[...Array(2)].map((_, index) => (
                   <div key={index} className="flex gap-12 items-center">
-                    <span className="text-2xl md:text-3xl font-bold text-white">CBRE</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Newmark</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">MetLife</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Avison Young</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Colliers</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Beacon Capital</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Cushman & Wakefield</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Savills</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">Compass</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">CBRE</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Newmark</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">MetLife</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Avison Young</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Colliers</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Beacon Capital</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Cushman & Wakefield</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Savills</span>
+                    <span className="text-2xl md:text-3xl font-bold text-slate-800">Compass</span>
                   </div>
                 ))}
               </div>

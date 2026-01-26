@@ -59,7 +59,7 @@ export default function WhyChooseSection() {
           </div>
 
           {/* Inside the CRE AI Studio Section */}
-          <div className="border border-slate-200 rounded-3xl overflow-hidden shadow-xl mb-16">
+          <div className="border border-slate-200 rounded-3xl overflow-hidden shadow-xl mb-4">
             <div className="py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
               {/* Background Elements */}
               <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-purple-500/10 to-transparent rounded-full blur-3xl"></div>

@@ -149,7 +149,7 @@ export default function HeroSection() {
                   >
                     <Button
                       onClick={() => setIsDialogOpen(true)}
-                      className="h-11 bg-amber-200 text-black hover:bg-amber-300 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
+                      className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
                     >
                       Get the Free AI Tools + Prompts Guide
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

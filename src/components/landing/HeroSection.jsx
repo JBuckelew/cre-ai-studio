@@ -97,14 +97,21 @@ export default function HeroSection() {
 
                 {/* Left-Aligned Content */}
                 <div>
-                {/* Partnership Badge */}
-                <div className="inline-flex items-center mb-10">
-                  <div className="w-1.5 h-16 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full mr-6"></div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-slate-300 text-lg font-semibold">In Partnership with</span>
-                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="h-11 object-contain" />
+                {/* Partnership Badge - Design 5: Sleek Tag (Light Mode) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="inline-flex items-center mb-10"
+                >
+                  <div className="w-1 h-10 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full mr-4"></div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-slate-600 text-sm font-medium">In Partnership with</span>
+                    <div className="bg-slate-900 px-3 py-1.5 rounded-md">
+                      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="h-5 object-contain" />
+                    </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Headline */}
                   <motion.h1

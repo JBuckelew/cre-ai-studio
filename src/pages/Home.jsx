@@ -2,7 +2,6 @@ import React from "react";
 import HeroSection from "../components/landing/HeroSection";
 import ValuePropositionSection from "../components/landing/ValuePropositionSection";
 import ToolsSection from "../components/landing/ToolsSection";
-import HowItWorksSection from "../components/landing/HowItWorksSection";
 import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
 import WhyChooseSection from "../components/landing/WhyChooseSection";

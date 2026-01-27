@@ -140,12 +140,11 @@ export default function HeroSection() {
                     hands-on training, webinars, and a community of hundreds of CRE professionals.
                   </motion.p>
 
-                  {/* CTA Buttons */}
+                  {/* CTA Button */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                    className="flex flex-col sm:flex-row gap-3"
                   >
                     <Button
                       onClick={() => setIsDialogOpen(true)}
@@ -153,12 +152,6 @@ export default function HeroSection() {
                     >
                       Get the Free AI Tools + Prompts Guide
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                    <Button
-                      onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
-                      className="h-11 bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-6 text-sm transition-all duration-300"
-                    >
-                      Join for Free
                     </Button>
                   </motion.div>
                 </div>

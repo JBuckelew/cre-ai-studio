@@ -49,82 +49,32 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="mb-16 max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-slate-900 leading-tight">
-                AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry.
-              </h3>
-            </div>
+          <div className="text-center mb-16 max-w-5xl mx-auto">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-slate-900 leading-tight">
+              AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry.
+            </h3>
             
-            <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed mb-6">
+                So we developed an <span className="text-indigo-600 font-bold">AI Training Program and Community</span>
+              </p>
+              <p className="text-lg md:text-xl text-slate-500 mb-8">
+                specifically for
+              </p>
               
-              <div className="relative z-10">
-                <div className="text-center mb-10">
-                  <p className="text-2xl md:text-3xl lg:text-4xl text-white font-bold mb-3 leading-snug">
-                    So we developed an <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">AI Training Program and Community</span>
-                  </p>
-                  <p className="text-xl md:text-2xl text-blue-200">
-                    specifically for:
-                  </p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-blue-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                        <Briefcase className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-bold text-lg">Asset Managers</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-purple-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                        <Users className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-bold text-lg">Brokers</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-indigo-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                        <Zap className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-bold text-lg">Marketers</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-amber-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                        <Trophy className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-bold text-lg">Lawyers</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-teal-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                        <LineChart className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-bold text-lg">Analysts</p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                        <Clock className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-bold text-lg">And so many more</p>
-                    </div>
-                  </div>
+              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border-2 border-slate-200">
+                <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-slate-900">
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-blue-50 rounded-lg border border-blue-200">Commercial Real Estate Asset Managers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-purple-50 rounded-lg border border-purple-200">Brokers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-indigo-50 rounded-lg border border-indigo-200">Marketers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-amber-50 rounded-lg border border-amber-200">Lawyers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-teal-50 rounded-lg border border-teal-200">Analysts</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-rose-50 rounded-lg border border-rose-200">And so many more</span>
                 </div>
               </div>
             </div>

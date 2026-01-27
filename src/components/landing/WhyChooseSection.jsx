@@ -54,7 +54,7 @@ export default function WhyChooseSection() {
               AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry.
             </h3>
             <p className="text-xl md:text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed mb-8">
-              So we developed an <span className="text-indigo-600 font-semibold">AI Training Program and Community</span> specifically for Commercial Real Estate Asset Managers, Brokers, Marketers, Lawyers, Analysts and so many more.
+              So we developed an <span className="text-indigo-600 font-semibold">AI Training Program and Community</span> specifically for <span className="font-bold">Commercial Real Estate Asset Managers, Brokers, Marketers, Lawyers, Analysts and so many more.</span>
             </p>
           </div>
 

@@ -49,35 +49,70 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-center mb-16 max-w-5xl mx-auto">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-slate-900 leading-tight">
-              AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry.
-            </h3>
+          <div className="text-center mb-16 max-w-7xl mx-auto relative">
+            {/* Animated Background */}
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 blur-3xl rounded-full"></div>
             
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed mb-6">
-                So we developed an <span className="text-indigo-600 font-bold">AI Training Program and Community</span>
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <h3 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-slate-900 leading-tight">
+                AI is shaping the{" "}
+                <span className="relative inline-block">
+                  <span className="italic bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    future
+                  </span>
+                  <motion.div
+                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  />
+                </span>
+                <br />of the CRE Industry.
+              </h3>
+              
+              <p className="text-xl md:text-3xl text-slate-700 mb-4 font-semibold">
+                So we developed an <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">AI Training Program</span>
               </p>
-              <p className="text-lg md:text-xl text-slate-500 mb-8">
-                specifically for
+              <p className="text-lg md:text-2xl text-slate-500 mb-12 font-medium">
+                specifically for CRE professionals like you
               </p>
               
-              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border-2 border-slate-200">
-                <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-slate-900">
-                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-blue-50 rounded-lg border border-blue-200">Commercial Real Estate Asset Managers</span>
-                  <span className="text-xl md:text-3xl text-slate-300">•</span>
-                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-purple-50 rounded-lg border border-purple-200">Brokers</span>
-                  <span className="text-xl md:text-3xl text-slate-300">•</span>
-                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-indigo-50 rounded-lg border border-indigo-200">Marketers</span>
-                  <span className="text-xl md:text-3xl text-slate-300">•</span>
-                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-amber-50 rounded-lg border border-amber-200">Lawyers</span>
-                  <span className="text-xl md:text-3xl text-slate-300">•</span>
-                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-teal-50 rounded-lg border border-teal-200">Analysts</span>
-                  <span className="text-xl md:text-3xl text-slate-300">•</span>
-                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-rose-50 rounded-lg border border-rose-200">And so many more</span>
-                </div>
+              {/* Role Cards with Staggered Animation */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+                {[
+                  { name: "Asset Managers", gradient: "from-blue-500 to-blue-600", icon: "🏢" },
+                  { name: "Brokers", gradient: "from-purple-500 to-purple-600", icon: "🤝" },
+                  { name: "Marketers", gradient: "from-indigo-500 to-indigo-600", icon: "📢" },
+                  { name: "Lawyers", gradient: "from-amber-500 to-amber-600", icon: "⚖️" },
+                  { name: "Analysts", gradient: "from-teal-500 to-teal-600", icon: "📊" },
+                  { name: "And More", gradient: "from-rose-500 to-rose-600", icon: "✨" }
+                ].map((role, index) => (
+                  <motion.div
+                    key={role.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="relative group cursor-default"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity`}></div>
+                    <div className={`relative bg-gradient-to-br ${role.gradient} p-6 rounded-2xl shadow-lg border border-white/20 text-white overflow-hidden`}>
+                      <div className="absolute top-0 right-0 text-6xl opacity-10 -mr-4 -mt-2">{role.icon}</div>
+                      <div className="text-3xl mb-2 relative z-10">{role.icon}</div>
+                      <h4 className="text-base md:text-lg font-bold relative z-10">{role.name}</h4>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Inside the CRE AI Studio Section */}

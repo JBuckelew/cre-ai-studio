@@ -54,29 +54,27 @@ export default function WhyChooseSection() {
               AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry.
             </h3>
             
-            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-slate-200 max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8">
-                So we developed an <span className="text-indigo-600 font-semibold">AI Training Program and Community</span> specifically for:
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed mb-6">
+                So we developed an <span className="text-indigo-600 font-bold">AI Training Program and Community</span>
+              </p>
+              <p className="text-lg md:text-xl text-slate-500 mb-8">
+                specifically for
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-slate-900 text-base md:text-lg font-semibold">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
-                  Asset Managers
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
-                  Brokers
-                </div>
-                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-xl border border-indigo-200">
-                  Marketers
-                </div>
-                <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-xl border border-amber-200">
-                  Lawyers
-                </div>
-                <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-4 rounded-xl border border-teal-200">
-                  Analysts
-                </div>
-                <div className="bg-gradient-to-br from-rose-50 to-rose-100 p-4 rounded-xl border border-rose-200">
-                  And so many more
+              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border-2 border-slate-200">
+                <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-slate-900">
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-blue-50 rounded-lg border border-blue-200">Commercial Real Estate Asset Managers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-purple-50 rounded-lg border border-purple-200">Brokers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-indigo-50 rounded-lg border border-indigo-200">Marketers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-amber-50 rounded-lg border border-amber-200">Lawyers</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-teal-50 rounded-lg border border-teal-200">Analysts</span>
+                  <span className="text-xl md:text-3xl text-slate-300">•</span>
+                  <span className="text-lg md:text-2xl font-bold px-4 py-2 bg-rose-50 rounded-lg border border-rose-200">And so many more</span>
                 </div>
               </div>
             </div>

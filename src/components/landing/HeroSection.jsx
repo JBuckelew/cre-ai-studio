@@ -163,7 +163,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
-                            style={{ height: '56px', objectFit: 'contain' }}
+                            style={{ height: '100px', objectFit: 'contain' }}
                           />
                           <motion.div
                             initial={{ scaleX: 0 }}
@@ -192,12 +192,7 @@ export default function HeroSection() {
                           transition={{ duration: 0.6, delay: 0.5 }}
                           style={{ textAlign: 'center', lineHeight: '1.5' }}
                         >
-                          <p style={{ fontSize: '18px', fontWeight: '600', margin: 0 }}>
-                            <span className="brand-name-gradient" style={{ fontSize: '20px', fontWeight: '800' }}>CRE AI Studio</span>
-                            <span style={{ color: '#cbd5e1' }}> and </span>
-                            <span className="brand-name-gradient" style={{ fontSize: '20px', fontWeight: '800' }}>CRE Daily</span>
-                          </p>
-                          <p style={{ color: '#94a3b8', fontSize: '15px', fontWeight: '500', margin: '6px 0 0 0', letterSpacing: '0.02em' }}>
+                          <p style={{ color: '#94a3b8', fontSize: '15px', fontWeight: '500', margin: 0, letterSpacing: '0.02em' }}>
                             Partnered Together to Take the CRE Industry into the{' '}
                             <span className="future-text" style={{ fontWeight: '800', fontSize: '16px' }}>Future</span>
                           </p>
@@ -211,7 +206,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6"
+                    className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6"
                   >
                     <span className="text-5xl lg:text-7xl">AI Training</span> that{' '}
                     <span className="italic text-blue-600">transforms</span>

@@ -50,12 +50,36 @@ export default function WhyChooseSection() {
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-16 max-w-5xl mx-auto">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-slate-900 leading-tight">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-slate-900 leading-tight">
               AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry.
             </h3>
-            <p className="text-xl md:text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed mb-8">
-              So we developed an <span className="text-indigo-600 font-semibold">AI Training Program and Community</span> specifically for <span className="font-bold">Commercial Real Estate Asset Managers, Brokers, Marketers, Lawyers, Analysts and so many more.</span>
-            </p>
+            
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-slate-200 max-w-4xl mx-auto">
+              <p className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8">
+                So we developed an <span className="text-indigo-600 font-semibold">AI Training Program and Community</span> specifically for:
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-slate-900 text-base md:text-lg font-semibold">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
+                  Asset Managers
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
+                  Brokers
+                </div>
+                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-xl border border-indigo-200">
+                  Marketers
+                </div>
+                <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-xl border border-amber-200">
+                  Lawyers
+                </div>
+                <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-4 rounded-xl border border-teal-200">
+                  Analysts
+                </div>
+                <div className="bg-gradient-to-br from-rose-50 to-rose-100 p-4 rounded-xl border border-rose-200">
+                  And so many more
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Inside the CRE AI Studio Section */}

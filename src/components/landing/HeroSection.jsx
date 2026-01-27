@@ -101,7 +101,7 @@ export default function HeroSection() {
                 <div className="inline-flex items-center mb-10">
                   <div className="w-1.5 h-16 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full mr-6"></div>
                   <div className="flex items-center gap-3">
-                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/08b784b52_background_removalTUFHX0U1djZvcTAjMSM2Y2FmMjhhNTNhMzRiYzBiNTFlMTQ3ZGQxNmEyZTRmMCMxMDI0IyNUUkFOU0ZPUk1BVElPTl9SRVFVRVNU.png" alt="CRE AI Studio" className="h-12 object-contain" />
+                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/08b784b52_background_removalTUFHX0U1djZvcTAjMSM2Y2FmMjhhNTNhMzRiYzBiNTFlMTQ3ZGQxNmEyZTRmMCMxMDI0IyNUUkFOU0ZPUk1BVElPTl9SRVFVRVNU.png" alt="CRE AI Studio" className="h-24 object-contain" />
                     <span className="text-slate-300 text-lg font-semibold">In Partnership with</span>
                     <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="h-11 object-contain" />
                   </div>

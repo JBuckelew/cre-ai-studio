@@ -39,7 +39,7 @@ export default function Navigation() {
         <div className="hidden md:grid md:grid-cols-3 items-center h-16">
           {/* Logo */}
           <div className="justify-self-start">
-            <h1 className="text-lg font-bold bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent">
+            <h1 className="text-lg font-bold bg-gradient-to-r from-purple-600 via-yellow-500 to-green-600 bg-clip-text text-transparent">
               CRE AI Studio
             </h1>
           </div>

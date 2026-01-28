@@ -104,11 +104,9 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-8"
                   >
-                    <span className="text-4xl lg:text-6xl">AI Training</span> that{' '}
-                    <span className="italic text-blue-600">transforms</span>
-                    {' '}your
+                    <span className="text-4xl lg:text-6xl whitespace-nowrap">AI Training that <span className="italic text-blue-600">transforms</span> your</span>
                     <br />
-                    <span className="text-4xl lg:text-6xl">Commercial Real Estate{' '}
+                    <span className="text-4xl lg:text-6xl whitespace-nowrap">Commercial Real Estate{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}

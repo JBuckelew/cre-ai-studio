@@ -92,7 +92,7 @@ export default function HeroSection() {
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[60vh] sm:min-h-[70vh] py-10 sm:py-16 px-6 sm:px-12 lg:px-16">
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
-            <div className="relative max-w-xl">
+            <div className="relative max-w-full lg:max-w-xl">
               <div className="relative">
 
                 {/* Left-Aligned Content */}
@@ -102,11 +102,11 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-8"
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8"
                   >
-                    <span className="text-4xl lg:text-6xl whitespace-nowrap">AI Training that <span className="italic text-blue-600">transforms</span> your</span>
+                    <span className="text-3xl sm:text-5xl lg:text-6xl lg:whitespace-nowrap">AI Training that <span className="italic text-blue-600">transforms</span> your</span>
                     <br />
-                    <span className="text-4xl lg:text-6xl whitespace-nowrap">Commercial Real Estate{' '}
+                    <span className="text-3xl sm:text-5xl lg:text-6xl lg:whitespace-nowrap">Commercial Real Estate{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}
@@ -125,11 +125,11 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-xl lg:text-2xl text-slate-300 leading-relaxed mb-10"
+                    className="text-base sm:text-lg lg:text-2xl text-slate-300 leading-relaxed mb-8 sm:mb-10"
                   >
-                    <span className="whitespace-nowrap">Learn to integrate AI tools into your daily CRE workflows through</span><br />
-                    <span className="whitespace-nowrap">hands-on training, webinars, and a community of hundreds of</span><br />
-                    <span className="whitespace-nowrap">CRE professionals.</span>
+                    <span className="lg:whitespace-nowrap">Learn to integrate AI tools into your daily CRE workflows through</span><br className="hidden lg:block" />
+                    <span className="lg:whitespace-nowrap">hands-on training, webinars, and a community of hundreds of</span><br className="hidden lg:block" />
+                    <span className="lg:whitespace-nowrap">CRE professionals.</span>
                   </motion.p>
 
                   {/* CTA Button */}

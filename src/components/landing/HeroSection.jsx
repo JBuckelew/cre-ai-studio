@@ -128,7 +128,8 @@ export default function HeroSection() {
                     className="text-xl lg:text-2xl text-slate-300 leading-relaxed mb-10"
                   >
                     Learn to integrate AI tools into your daily CRE workflows through<br />
-                    hands-on training, webinars, and a community of hundreds of CRE professionals.
+                    hands-on training, webinars, and a community of hundreds of<br />
+                    CRE professionals.
                   </motion.p>
 
                   {/* CTA Button */}

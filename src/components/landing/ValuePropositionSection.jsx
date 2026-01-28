@@ -46,8 +46,8 @@ export default function ValuePropositionSection() {
             Transform Your Workflow
           </Badge>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
-            AI is shaping the future of the CRE Industry
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+            AI is shaping the <span className="text-blue-600">future</span> of the CRE Industry
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Whether you're a broker marketing your business, an investor sourcing & analyzing deals, an asset manager or developer managing complex projects, 

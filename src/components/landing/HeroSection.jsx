@@ -127,8 +127,8 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     className="text-base sm:text-lg lg:text-2xl text-slate-300 leading-relaxed mb-8 sm:mb-10"
                   >
-                    <span className="lg:whitespace-nowrap">Learn to integrate AI tools into your daily CRE workflows through</span><br className="hidden lg:block" />
-                    <span className="lg:whitespace-nowrap">hands-on training, webinars, and a community of hundreds</span><br className="hidden lg:block" />
+                    <span className="lg:whitespace-nowrap">Learn to integrate AI tools into your daily CRE workflows through</span><br className="hidden lg:block" />{' '}
+                    <span className="lg:whitespace-nowrap">hands-on training, webinars, and a community of hundreds</span><br className="hidden lg:block" />{' '}
                     <span className="lg:whitespace-nowrap">of CRE professionals.</span>
                   </motion.p>
 

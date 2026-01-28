@@ -223,7 +223,7 @@ export default function HeroSection() {
           >
             <p className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6 text-center">Organizations Represented by Our Members</p>
             <div className="relative overflow-hidden">
-              <div className="animate-[scroll_20s_linear_infinite] flex gap-12 whitespace-nowrap">
+              <div className="animate-[scroll_10s_linear_infinite] md:animate-[scroll_20s_linear_infinite] flex gap-12 whitespace-nowrap">
                 {[...Array(2)].map((_, index) => (
                   <div key={index} className="flex gap-12 items-center">
                     <span className="text-2xl md:text-3xl font-bold text-white">CBRE</span>

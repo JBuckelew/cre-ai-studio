@@ -16,12 +16,12 @@ export default function FreeTrialPopup() {
     const popupCount = parseInt(localStorage.getItem('popupShownCount') || '0');
     
     if (popupCount < 2) {
-      // Show popup after 3 seconds
+      // Show popup after 5 seconds
       const timer = setTimeout(() => {
         setIsOpen(true);
         // Increment the counter
         localStorage.setItem('popupShownCount', String(popupCount + 1));
-      }, 3000);
+      }, 5000);
       
       return () => clearTimeout(timer);
     }

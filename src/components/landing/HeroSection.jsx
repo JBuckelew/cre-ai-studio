@@ -102,13 +102,13 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-8"
+                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-8"
                   >
-                    <span className="text-5xl lg:text-7xl">AI Training</span> that{' '}
+                    <span className="text-4xl lg:text-6xl">AI Training</span> that{' '}
                     <span className="italic text-blue-600">transforms</span>
                     {' '}your
                     <br />
-                    <span className="text-5xl lg:text-7xl">Commercial Real Estate{' '}
+                    <span className="text-4xl lg:text-6xl">Commercial Real Estate{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}

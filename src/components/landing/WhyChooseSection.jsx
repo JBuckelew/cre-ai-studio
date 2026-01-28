@@ -58,57 +58,45 @@ export default function WhyChooseSection() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative text-center"
             >
-              <h3 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-slate-900 leading-tight">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-slate-900 leading-tight">
                 AI is shaping the{" "}
-                <span className="relative inline-block">
-                  <span className="italic bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    future
-                  </span>
-                  <motion.div
-                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  />
-                </span>
-                <br />of the CRE Industry.
+                <span className="italic bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  future
+                </span>{" "}
+                of the CRE Industry.
               </h3>
-              
-              <p className="text-xl md:text-3xl text-slate-700 mb-4 font-semibold">
-                So we developed an <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">AI Training Program</span>
+
+              <p className="text-lg md:text-xl text-slate-600 mb-4">
+                So we developed an <span className="font-semibold text-indigo-600">AI Training Program</span>
               </p>
-              <p className="text-lg md:text-2xl text-slate-500 mb-12 font-medium">
+              <p className="text-base md:text-lg text-slate-500 mb-12">
                 specifically for CRE professionals like you
               </p>
-              
-              {/* Role Cards with Staggered Animation */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+
+              {/* Role Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {[
-                  { name: "Asset Managers", gradient: "from-blue-500 to-blue-600", icon: "🏢" },
-                  { name: "Brokers", gradient: "from-purple-500 to-purple-600", icon: "🤝" },
-                  { name: "Marketers", gradient: "from-indigo-500 to-indigo-600", icon: "📢" },
-                  { name: "Lawyers", gradient: "from-amber-500 to-amber-600", icon: "⚖️" },
-                  { name: "Analysts", gradient: "from-teal-500 to-teal-600", icon: "📊" },
-                  { name: "And More", gradient: "from-rose-500 to-rose-600", icon: "✨" }
+                  { name: "Asset Managers", icon: "🏢", bgColor: "bg-blue-50", iconBg: "bg-blue-100" },
+                  { name: "Brokers", icon: "🤝", bgColor: "bg-purple-50", iconBg: "bg-purple-100" },
+                  { name: "Marketers", icon: "📢", bgColor: "bg-indigo-50", iconBg: "bg-indigo-100" },
+                  { name: "Lawyers", icon: "⚖️", bgColor: "bg-amber-50", iconBg: "bg-amber-100" },
+                  { name: "Analysts", icon: "📊", bgColor: "bg-teal-50", iconBg: "bg-teal-100" },
+                  { name: "And More", icon: "✨", bgColor: "bg-rose-50", iconBg: "bg-rose-100" }
                 ].map((role, index) => (
                   <motion.div
                     key={role.name}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="relative group cursor-default"
+                    className={`${role.bgColor} p-6 rounded-2xl border border-slate-200 hover:shadow-lg transition-all duration-300`}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity`}></div>
-                    <div className={`relative bg-gradient-to-br ${role.gradient} p-6 rounded-2xl shadow-lg border border-white/20 text-white overflow-hidden`}>
-                      <div className="absolute top-0 right-0 text-6xl opacity-10 -mr-4 -mt-2">{role.icon}</div>
-                      <div className="text-3xl mb-2 relative z-10">{role.icon}</div>
-                      <h4 className="text-base md:text-lg font-bold relative z-10">{role.name}</h4>
+                    <div className={`${role.iconBg} w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                      <span className="text-3xl">{role.icon}</span>
                     </div>
+                    <h4 className="text-base md:text-lg font-semibold text-slate-900">{role.name}</h4>
                   </motion.div>
                 ))}
               </div>

@@ -47,7 +47,7 @@ export default function ValuePropositionSection() {
           </Badge>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
-            Stop spending hours on Commercial Real Estate tasks — Learn how to supercharge your business with <span className="text-blue-600">AI and automations</span>
+            AI is shaping the future of the CRE Industry
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Whether you're a broker marketing your business, an investor sourcing & analyzing deals, an asset manager or developer managing complex projects, 

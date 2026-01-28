@@ -95,6 +95,13 @@ export default function Navigation() {
 
         {/* Mobile Layout */}
         <div className="md:hidden py-2">
+          {/* Logo */}
+          <div className="flex items-center justify-center mb-2">
+            <h1 className="text-base font-bold bg-gradient-to-r from-purple-600 via-yellow-500 to-green-600 bg-clip-text text-transparent">
+              CRE AI Studio
+            </h1>
+          </div>
+
           {/* Top row: Buttons */}
           <div className="flex items-center justify-center gap-2 mb-2 pb-2 border-b border-slate-200">
             <Button

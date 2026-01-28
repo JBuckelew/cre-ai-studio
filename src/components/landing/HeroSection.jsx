@@ -113,7 +113,7 @@ export default function HeroSection() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
+                      className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent pb-1"
                     >
                       {words[currentWord]}
                     </motion.span>

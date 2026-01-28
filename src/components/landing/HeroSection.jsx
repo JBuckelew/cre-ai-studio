@@ -89,7 +89,7 @@ export default function HeroSection() {
           }
         `}</style>
         
-        <div className="relative z-10 flex flex-col items-start justify-start min-h-[80vh] sm:min-h-[calc(100vh-10rem)] py-10 sm:py-20 px-6 sm:px-12 lg:px-16">
+        <div className="relative z-10 flex flex-col items-start justify-start min-h-[60vh] sm:min-h-[70vh] py-10 sm:py-16 px-6 sm:px-12 lg:px-16">
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
             <div className="relative max-w-xl">
@@ -97,33 +97,24 @@ export default function HeroSection() {
 
                 {/* Left-Aligned Content */}
                 <div>
-                {/* Partnership Badge */}
-                <div className="inline-flex items-center mb-10">
-                  <div className="w-1.5 h-16 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full mr-6"></div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-slate-300 text-lg font-semibold">In Partnership with</span>
-                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f61f154d1_cre-daily-logo.png" alt="CRE Daily" className="h-11 object-contain" />
-                  </div>
-                </div>
-
                 {/* Headline */}
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6"
+                    className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-8"
                   >
-                    <span className="text-4xl lg:text-6xl">AI Training</span> that{' '}
+                    <span className="text-5xl lg:text-7xl">AI Training</span> that{' '}
                     <span className="italic text-blue-600">transforms</span>
                     {' '}your<br />
-                    <span className="text-4xl lg:text-6xl">Commercial Real Estate</span>{' '}
+                    <span className="text-5xl lg:text-7xl">Commercial Real Estate</span>{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="inline-block text-4xl lg:text-6xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
+                      className="inline-block text-5xl lg:text-7xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
                     >
                       {words[currentWord]}
                     </motion.span>
@@ -134,7 +125,7 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg lg:text-xl text-slate-300 leading-relaxed mb-8"
+                    className="text-xl lg:text-2xl text-slate-300 leading-relaxed mb-10"
                   >
                     Learn to integrate AI tools into your daily CRE workflows through<br />
                     hands-on training, webinars, and a community of hundreds of CRE professionals.
@@ -148,10 +139,10 @@ export default function HeroSection() {
                   >
                     <Button
                       onClick={() => setIsDialogOpen(true)}
-                      className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-medium rounded-full px-6 text-sm transition-all duration-300 group"
+                      className="h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-8 text-base transition-all duration-300 group"
                     >
                       Get the Free AI Tools + Prompts Guide
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </motion.div>
                 </div>

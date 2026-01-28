@@ -39,9 +39,8 @@ export default function WhyChooseSection() {
   };
 
   return (
-    <section id="why-choose-us" className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#e2e8f0_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-30"></div>
-      
+    <section id="why-choose-us" className="py-20 lg:py-32 bg-white relative overflow-hidden">
+
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,9 +49,7 @@ export default function WhyChooseSection() {
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-16 max-w-7xl mx-auto relative">
-            {/* Animated Background */}
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 blur-3xl rounded-full"></div>
-            
+
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -78,12 +75,12 @@ export default function WhyChooseSection() {
               {/* Role Cards */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {[
-                  { name: "Asset Managers", icon: "🏢", bgColor: "bg-blue-50", iconBg: "bg-blue-100" },
-                  { name: "Brokers", icon: "🤝", bgColor: "bg-purple-50", iconBg: "bg-purple-100" },
-                  { name: "Marketers", icon: "📢", bgColor: "bg-indigo-50", iconBg: "bg-indigo-100" },
-                  { name: "Lawyers", icon: "⚖️", bgColor: "bg-amber-50", iconBg: "bg-amber-100" },
-                  { name: "Analysts", icon: "📊", bgColor: "bg-teal-50", iconBg: "bg-teal-100" },
-                  { name: "And More", icon: "✨", bgColor: "bg-rose-50", iconBg: "bg-rose-100" }
+                  { name: "Asset Managers", icon: "🏢" },
+                  { name: "Brokers", icon: "🤝" },
+                  { name: "Marketers", icon: "📢" },
+                  { name: "Lawyers", icon: "⚖️" },
+                  { name: "Analysts", icon: "📊" },
+                  { name: "And More", icon: "✨" }
                 ].map((role, index) => (
                   <motion.div
                     key={role.name}
@@ -91,12 +88,12 @@ export default function WhyChooseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`${role.bgColor} p-6 rounded-2xl border border-slate-200 hover:shadow-lg transition-all duration-300`}
+                    className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
                   >
-                    <div className={`${role.iconBg} w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                      <span className="text-3xl">{role.icon}</span>
+                    <div className="bg-slate-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <span className="text-4xl">{role.icon}</span>
                     </div>
-                    <h4 className="text-base md:text-lg font-semibold text-slate-900">{role.name}</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{role.name}</h4>
                   </motion.div>
                 ))}
               </div>

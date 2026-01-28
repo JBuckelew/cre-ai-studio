@@ -39,7 +39,7 @@ export default function WhyChooseSection() {
   };
 
   return (
-    <section id="why-choose-us" className="py-20 lg:py-32 bg-white relative overflow-hidden">
+    <section id="whats-included" className="py-20 lg:py-32 bg-white relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div

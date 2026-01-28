@@ -129,8 +129,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     className="text-xl lg:text-2xl text-slate-300 leading-relaxed mb-10"
                   >
-                    Learn to integrate AI tools into your daily CRE workflows through<br />
-                    hands-on training, webinars, and a community of hundreds of CRE professionals.
+                    AI is shaping the future of the CRE Industry
                   </motion.p>
 
                   {/* CTA Button */}

@@ -48,58 +48,6 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-center mb-16 max-w-7xl mx-auto relative">
-
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative text-center"
-            >
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-slate-900 leading-tight">
-                AI is shaping the{" "}
-                <span className="italic bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  future
-                </span>{" "}
-                of the CRE Industry.
-              </h3>
-
-              <p className="text-lg md:text-xl text-slate-600 mb-4">
-                So we developed an <span className="font-semibold text-indigo-600">AI Training Program</span>
-              </p>
-              <p className="text-base md:text-lg text-slate-500 mb-12">
-                specifically for CRE professionals like you
-              </p>
-
-              {/* Role Cards */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {[
-                  { name: "Asset Managers", icon: "🏢" },
-                  { name: "Brokers", icon: "🤝" },
-                  { name: "Marketers", icon: "📢" },
-                  { name: "Lawyers", icon: "⚖️" },
-                  { name: "Analysts", icon: "📊" },
-                  { name: "And More", icon: "✨" }
-                ].map((role, index) => (
-                  <motion.div
-                    key={role.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="bg-slate-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <span className="text-4xl">{role.icon}</span>
-                    </div>
-                    <h4 className="text-lg md:text-xl font-bold text-slate-900 mb-2">{role.name}</h4>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
           {/* Inside the CRE AI Studio Section */}
           <div className="border border-slate-200 rounded-3xl overflow-hidden shadow-xl mb-4">
             <div className="py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">

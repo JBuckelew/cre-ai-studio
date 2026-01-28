@@ -106,18 +106,20 @@ export default function HeroSection() {
                   >
                     <span className="text-5xl lg:text-7xl">AI Training</span> that{' '}
                     <span className="italic text-blue-600">transforms</span>
-                    {' '}your<br />
-                    <span className="text-5xl lg:text-7xl">Commercial Real Estate</span>{' '}
+                    {' '}your
+                    <br />
+                    <span className="text-5xl lg:text-7xl">Commercial Real Estate{' '}
                     <motion.span
                       key={currentWord}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="inline-block text-5xl lg:text-7xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
+                      className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent"
                     >
                       {words[currentWord]}
                     </motion.span>
+                    </span>
                   </motion.h1>
 
                   {/* Description */}

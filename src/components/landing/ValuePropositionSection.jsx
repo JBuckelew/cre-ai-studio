@@ -50,7 +50,7 @@ export default function ValuePropositionSection() {
             AI is shaping the <span className="italic text-blue-600">future</span> of the<br />CRE Industry
           </h2>
           <p className="text-xl md:text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed mb-4 font-semibold">
-            So we created an AI Training Program and Community, so our industry isn't left behind
+            That's why we created an AI Training Program and Community—so our industry isn't left behind.
           </p>
           <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Whether you're a broker marketing your business, an investor sourcing & analyzing deals, an asset manager or developer managing complex projects, 

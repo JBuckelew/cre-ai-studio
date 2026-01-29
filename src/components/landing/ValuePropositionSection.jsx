@@ -53,7 +53,7 @@ export default function ValuePropositionSection() {
             That's why we created an AI Training Program and Community to make sure our industry isn't left behind.
           </p>
           <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Whether you're a broker marketing your business, an investor sourcing & analyzing deals, an asset manager or developer managing complex projects, 
+            Whether you're a broker marketing your business, an investor sourcing & analyzing deals, or an asset manager or developer managing complex projects, 
             <span className="font-semibold text-slate-800"> Learn to automate your most time-consuming work using AI.</span>
           </p>
         </motion.div>

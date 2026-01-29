@@ -39,7 +39,7 @@ export default function Navigation() {
         <div className="hidden md:grid md:grid-cols-3 items-center h-16">
           {/* Logo */}
           <div className="justify-self-start">
-            <h1 className="text-lg font-bold bg-gradient-to-r from-purple-600 via-yellow-500 to-green-600 bg-clip-text text-transparent">
+            <h1 className="text-lg font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
               CRE AI Studio
             </h1>
           </div>
@@ -97,7 +97,7 @@ export default function Navigation() {
         <div className="md:hidden py-2">
           {/* Logo */}
           <div className="flex items-center justify-center mb-2">
-            <h1 className="text-base font-bold bg-gradient-to-r from-purple-600 via-yellow-500 to-green-600 bg-clip-text text-transparent">
+            <h1 className="text-base font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
               CRE AI Studio
             </h1>
           </div>

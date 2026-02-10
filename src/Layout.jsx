@@ -5,6 +5,12 @@ import FreeTrialPopup from "./components/BlackFridayPopup";
 
 export default function Layout({ children, currentPageName }) {
   useEffect(() => {
+    // Add Google Fonts link
+    const fontLink = document.createElement('link');
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap';
+    fontLink.rel = 'stylesheet';
+    document.head.appendChild(fontLink);
+
     // Add Google Analytics gtag script
     const script1 = document.createElement('script');
     script1.async = true;
@@ -227,6 +233,7 @@ export default function Layout({ children, currentPageName }) {
 
     // Cleanup function
     return () => {
+      document.head.removeChild(fontLink);
       document.head.removeChild(script1);
       document.head.removeChild(script2);
       document.head.removeChild(script3);

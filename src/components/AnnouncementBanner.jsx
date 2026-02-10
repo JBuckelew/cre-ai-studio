@@ -19,8 +19,9 @@ export default function AnnouncementBanner() {
           <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400 flex-shrink-0 animate-pulse" />
           
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
-            <span className="text-lg sm:text-2xl lg:text-3xl font-bold text-white">
-              CRE AI Studio has now partnered with
+            <span className="text-lg sm:text-2xl lg:text-3xl font-bold">
+              <span className="text-blue-500">CRE AI Studio</span>
+              <span className="text-white"> has now partnered with</span>
             </span>
             <img 
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f4c57dc82_cre-daily-logo.png"

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Loader2, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { base44 } from '@/api/base44Client';
 
 export default function PaymentPage() {
   const [selectedLevel, setSelectedLevel] = useState(3);
@@ -16,14 +17,14 @@ export default function PaymentPage() {
       name: "Level 1: The Basics Plan",
       price: 50,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      stripe_url: "https://buy.stripe.com/7sYcN62tN6uW1OF378cV200"
+      priceId: "price_1QdFrzBDCdIlSqxTfslADSXx"
     },
     {
       level: 2,
       name: "Level 2: The Achiever Plan",
       price: 75,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      stripe_url: "https://buy.stripe.com/bJe8wQ6K3f1salbcHIcV201"
+      priceId: "price_1QdFsJBDCdIlSqxTdJjuuOjy"
     },
     {
       level: 3,
@@ -31,7 +32,7 @@ export default function PaymentPage() {
       price: 100,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      stripe_url: "https://buy.stripe.com/dRm9AU9WfdXobpf4bccV202"
+      priceId: "price_1QdFsdBDCdIlSqxTgMFYfVs0"
     },
   ];
 
@@ -43,7 +44,7 @@ export default function PaymentPage() {
       discountedPrice: 40,
       yearlyTotal: 480,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      stripe_url: "https://buy.stripe.com/5kQ9AU9Wf5qS1OF378cV207"
+      priceId: "price_1QdFqUBDCdIlSqxTdJUKyHV6"
     },
     {
       level: 2,
@@ -52,7 +53,7 @@ export default function PaymentPage() {
       discountedPrice: 60,
       yearlyTotal: 720,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      stripe_url: "https://buy.stripe.com/14AdRaecv5qS50R5fgcV208"
+      priceId: "price_1QdFqlBDCdIlSqxTIBnJtONE"
     },
     {
       level: 3,
@@ -62,26 +63,37 @@ export default function PaymentPage() {
       yearlyTotal: 960,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      stripe_url: "https://buy.stripe.com/aFa3cwgkD06y78Z9vwcV209"
+      priceId: "price_1QdFr8BDCdIlSqxTeXAZiGAH"
     },
   ];
 
   const plans = billingCycle === 'monthly' ? monthlyPlans : annualPlans;
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     setIsProcessing(true);
     const plan = plans.find(p => p.level === selectedLevel);
 
-    if (plan && plan.stripe_url) {
-        // If a real Stripe link exists, redirect to it
-        window.location.href = plan.stripe_url;
-    } else {
-        // Otherwise, simulate payment for now (this path should ideally not be hit if all plans have stripe_url)
-        console.log(`Simulating payment for ${plan.name}`);
-        setTimeout(() => {
-          // On success, redirect to the community
-          window.location.href = "https://cre-ai-studio.circle.so/feed";
-        }, 2000);
+    try {
+      const response = await base44.functions.invoke('createCheckoutSession', {
+        priceId: plan.priceId,
+        successUrl: 'https://cre-ai-studio.circle.so/feed',
+        cancelUrl: window.location.href,
+        metadata: {
+          plan_name: plan.name,
+          plan_level: plan.level,
+          billing_cycle: billingCycle
+        }
+      });
+
+      if (response.data.url) {
+        window.location.href = response.data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('There was an error processing your payment. Please try again.');
+      setIsProcessing(false);
     }
   };
   

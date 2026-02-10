@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Loader2, Star, CheckCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { base44 } from '@/api/base44Client';
 
 export default function FreeTrialPaymentPage() {
   const [selectedLevel, setSelectedLevel] = useState(2);
@@ -20,7 +21,7 @@ export default function FreeTrialPaymentPage() {
           <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
         </ul>
       ),
-      stripe_url: "https://buy.stripe.com/6oU7sM4BV2eG64V7nocV20a"
+      priceId: "price_1QdFpPBDCdIlSqxTU7wCywWv"
     },
     {
       level: 2,
@@ -33,7 +34,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
-      stripe_url: "https://buy.stripe.com/3cI4gA6K33iKbpfbDEcV206"
+      priceId: "price_1QdFpmBDCdIlSqxTPNzQUomc"
     },
     {
       level: 3,
@@ -46,7 +47,7 @@ export default function FreeTrialPaymentPage() {
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>
       ),
-      stripe_url: "https://buy.stripe.com/7sYfZid8r6uW64V6jkcV20b"
+      priceId: "price_1QdFq7BDCdIlSqxTTQU8y5h4"
     },
   ];
 
@@ -62,7 +63,7 @@ export default function FreeTrialPaymentPage() {
           <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
         </ul>
       ),
-      stripe_url: "https://buy.stripe.com/dRm4gA7O77z0fFv7nocV20h"
+      priceId: "price_1QdFqUBDCdIlSqxTdJUKyHV6"
     },
     {
       level: 2,
@@ -77,7 +78,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
-      stripe_url: "https://buy.stripe.com/cNi4gA6K35qSdxn6jkcV20g"
+      priceId: "price_1QdFqlBDCdIlSqxTIBnJtONE"
     },
     {
       level: 3,
@@ -92,20 +93,36 @@ export default function FreeTrialPaymentPage() {
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>
       ),
-      stripe_url: "https://buy.stripe.com/bJedRa4BV06y78Z4bccV20f"
+      priceId: "price_1QdFr8BDCdIlSqxTeXAZiGAH"
     },
   ];
 
   const plans = billingCycle === 'monthly' ? monthlyPlans : annualPlans;
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     setIsProcessing(true);
     const plan = plans.find(p => p.level === selectedLevel);
 
-    if (plan && plan.stripe_url) {
-      window.location.href = plan.stripe_url;
-    } else {
-      alert("Payment link not configured yet");
+    try {
+      const response = await base44.functions.invoke('createCheckoutSession', {
+        priceId: plan.priceId,
+        successUrl: 'https://cre-ai-studio.circle.so/feed',
+        cancelUrl: window.location.href,
+        metadata: {
+          plan_name: plan.name,
+          plan_level: plan.level,
+          billing_cycle: billingCycle
+        }
+      });
+
+      if (response.data.url) {
+        window.location.href = response.data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('There was an error processing your payment. Please try again.');
       setIsProcessing(false);
     }
   };

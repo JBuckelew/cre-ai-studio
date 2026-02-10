@@ -12,6 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import AnnouncementBanner from "../AnnouncementBanner";
 
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -94,6 +95,9 @@ export default function HeroSection() {
             {/* Content Container - Left Aligned */}
             <div className="relative max-w-full lg:max-w-xl">
               <div className="relative">
+
+                {/* Announcement Banner */}
+                <AnnouncementBanner />
 
                 {/* Left-Aligned Content */}
                 <div>

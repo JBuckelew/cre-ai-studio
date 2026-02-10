@@ -17,14 +17,14 @@ export default function PaymentPage() {
       name: "Level 1: The Basics Plan",
       price: 50,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      priceId: "price_1QdFrzBDCdIlSqxTfslADSXx"
+      priceId: "price_1S0Al4KcHS9haN5EubcXEkJ1"
     },
     {
       level: 2,
       name: "Level 2: The Achiever Plan",
       price: 75,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      priceId: "price_1QdFsJBDCdIlSqxTdJjuuOjy"
+      priceId: "price_1S0AnxKcHS9haN5E3M8Dfk9o"
     },
     {
       level: 3,
@@ -32,7 +32,7 @@ export default function PaymentPage() {
       price: 100,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      priceId: "price_1QdFsdBDCdIlSqxTgMFYfVs0"
+      priceId: "price_1S0Aq7KcHS9haN5E0Mx1Hhi0"
     },
   ];
 

@@ -4,36 +4,30 @@ import { motion } from "framer-motion";
 export default function AnnouncementBanner() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mb-8 inline-flex items-center gap-3 px-5 py-2.5 rounded-full"
-      style={{
-        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(236, 72, 153, 0.08) 100%)',
-        border: '1px solid rgba(139, 92, 246, 0.3)',
-        boxShadow: '0 0 20px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
-      }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="flex justify-center mb-8 sm:mb-12"
     >
-      <span style={{
-        width: '6px',
-        height: '6px',
-        borderRadius: '50%',
-        background: 'linear-gradient(135deg, #a855f7, #ec4899)',
-        boxShadow: '0 0 8px rgba(168, 85, 247, 0.6)'
-      }} />
-      <span style={{
-        fontSize: '14px',
-        fontWeight: '500',
-        letterSpacing: '0.01em',
-        color: '#e2e8f0'
-      }}>
-        <span style={{ color: '#a5b4fc', fontWeight: '600' }}>CRE AI Studio</span>
-        {' '}has now partnered with{' '}
-        <span style={{ color: '#a5b4fc', fontWeight: '600' }}>CRE Daily!</span>
-      </span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a5b4fc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
+      <div className="relative group w-full max-w-4xl">
+        {/* Enhanced glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+        
+        {/* Banner content */}
+        <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-slate-800/80 via-slate-800/90 to-slate-800/80 backdrop-blur-md border-2 border-blue-400/40 rounded-3xl shadow-2xl">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
+            <span className="text-lg sm:text-2xl lg:text-3xl font-bold">
+              <span className="text-blue-500">CRE AI Studio</span>
+              <span className="text-white"> has now partnered with</span>
+            </span>
+            <img 
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/f4c57dc82_cre-daily-logo.png"
+              alt="CRE Daily"
+              className="h-8 sm:h-10 lg:h-12 w-auto"
+            />
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }

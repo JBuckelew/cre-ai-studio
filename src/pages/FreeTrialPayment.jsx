@@ -21,7 +21,7 @@ export default function FreeTrialPaymentPage() {
           <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
         </ul>
       ),
-      priceId: "price_1QdFpPBDCdIlSqxTU7wCywWv"
+      priceId: "price_1S0Al4KcHS9haN5EubcXEkJ1"
     },
     {
       level: 2,
@@ -34,7 +34,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
-      priceId: "price_1QdFpmBDCdIlSqxTPNzQUomc"
+      priceId: "price_1S0AnxKcHS9haN5E3M8Dfk9o"
     },
     {
       level: 3,
@@ -47,7 +47,7 @@ export default function FreeTrialPaymentPage() {
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>
       ),
-      priceId: "price_1QdFq7BDCdIlSqxTTQU8y5h4"
+      priceId: "price_1S0Aq7KcHS9haN5E0Mx1Hhi0"
     },
   ];
 
@@ -63,7 +63,7 @@ export default function FreeTrialPaymentPage() {
           <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
         </ul>
       ),
-      priceId: "price_1QdFqUBDCdIlSqxTdJUKyHV6"
+      priceId: "price_1Sel2zKcHS9haN5EkvgZmNOg"
     },
     {
       level: 2,
@@ -78,7 +78,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
-      priceId: "price_1QdFqlBDCdIlSqxTIBnJtONE"
+      priceId: "price_1SekySKcHS9haN5EdOpP2my4"
     },
     {
       level: 3,
@@ -93,7 +93,7 @@ export default function FreeTrialPaymentPage() {
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>
       ),
-      priceId: "price_1QdFr8BDCdIlSqxTeXAZiGAH"
+      priceId: "price_1SektSKcHS9haN5EgvEGrPsX"
     },
   ];
 

@@ -44,7 +44,7 @@ export default function PaymentPage() {
       discountedPrice: 40,
       yearlyTotal: 480,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      priceId: "price_1QdFqUBDCdIlSqxTdJUKyHV6"
+      priceId: "price_1Sel2zKcHS9haN5EkvgZmNOg"
     },
     {
       level: 2,
@@ -53,7 +53,7 @@ export default function PaymentPage() {
       discountedPrice: 60,
       yearlyTotal: 720,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      priceId: "price_1QdFqlBDCdIlSqxTIBnJtONE"
+      priceId: "price_1SekySKcHS9haN5EdOpP2my4"
     },
     {
       level: 3,
@@ -63,7 +63,7 @@ export default function PaymentPage() {
       yearlyTotal: 960,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      priceId: "price_1QdFr8BDCdIlSqxTeXAZiGAH"
+      priceId: "price_1SektSKcHS9haN5EgvEGrPsX"
     },
   ];
 

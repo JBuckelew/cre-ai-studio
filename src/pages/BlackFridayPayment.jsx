@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Loader2, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { base44 } from '@/api/base44Client';
 
 export default function BlackFridayPaymentPage() {
   const [selectedLevel, setSelectedLevel] = useState(3);
@@ -18,7 +17,7 @@ export default function BlackFridayPaymentPage() {
       discountedPrice: 35,
       yearlyTotal: 420,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      priceId: "price_1QdFt6BDCdIlSqxTp7k0Rpod"
+      stripe_url: "https://buy.stripe.com/5kQ9AU9Wf5qS1OF378cV207"
     },
     {
       level: 2,
@@ -27,7 +26,7 @@ export default function BlackFridayPaymentPage() {
       discountedPrice: 53,
       yearlyTotal: 636,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      priceId: "price_1QdFtQBDCdIlSqxTYrXlvYjN"
+      stripe_url: "https://buy.stripe.com/14AdRaecv5qS50R5fgcV208"
             },
             {
               level: 3,
@@ -37,34 +36,18 @@ export default function BlackFridayPaymentPage() {
       yearlyTotal: 840,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      priceId: "price_1QdFtkBDCdIlSqxTNz9swKdL"
+      stripe_url: "https://buy.stripe.com/aFa3cwgkD06y78Z9vwcV209"
     },
   ];
 
-  const handlePayment = async () => {
+  const handlePayment = () => {
     setIsProcessing(true);
     const plan = plans.find(p => p.level === selectedLevel);
 
-    try {
-      const response = await base44.functions.invoke('createCheckoutSession', {
-        priceId: plan.priceId,
-        successUrl: 'https://cre-ai-studio.circle.so/feed',
-        cancelUrl: window.location.href,
-        metadata: {
-          plan_name: plan.name,
-          plan_level: plan.level,
-          billing_cycle: 'annual'
-        }
-      });
-
-      if (response.data.url) {
-        window.location.href = response.data.url;
-      } else {
-        throw new Error('No checkout URL returned');
-      }
-    } catch (error) {
-      console.error('Payment error:', error);
-      alert('There was an error processing your payment. Please try again.');
+    if (plan && plan.stripe_url) {
+      window.location.href = plan.stripe_url;
+    } else {
+      alert("Payment link not configured yet");
       setIsProcessing(false);
     }
   };

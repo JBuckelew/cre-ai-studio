@@ -21,7 +21,7 @@ export default function FreeTrialPaymentPage() {
           <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
         </ul>
       ),
-      priceId: "price_1S0Al4KcHS9haN5EubcXEkJ1"
+      priceId: "price_1QdFrzBDCdIlSqxTfslADSXx"
     },
     {
       level: 2,
@@ -34,7 +34,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
-      priceId: "price_1S0AnxKcHS9haN5E3M8Dfk9o"
+      priceId: "price_1QdFsJBDCdIlSqxTdJjuuOjy"
     },
     {
       level: 3,
@@ -47,7 +47,7 @@ export default function FreeTrialPaymentPage() {
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>
       ),
-      priceId: "price_1S0Aq7KcHS9haN5E0Mx1Hhi0"
+      priceId: "price_1QdFsdBDCdIlSqxTgMFYfVs0"
     },
   ];
 

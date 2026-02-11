@@ -18,7 +18,7 @@ export default function BlackFridayPaymentPage() {
       discountedPrice: 35,
       yearlyTotal: 420,
       description: <><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation.</>,
-      priceId: "price_1Sel2zKcHS9haN5EkvgZmNOg"
+      priceId: "price_1QdFt6BDCdIlSqxTp7k0Rpod"
     },
     {
       level: 2,
@@ -27,7 +27,7 @@ export default function BlackFridayPaymentPage() {
       discountedPrice: 53,
       yearlyTotal: 636,
       description: <>Everything in Level 1 plus <span className="text-purple-400">LIVE monthly VIP training sessions with Q&A.</span></>,
-      priceId: "price_1SekySKcHS9haN5EdOpP2my4"
+      priceId: "price_1QdFtQBDCdIlSqxTYrXlvYjN"
             },
             {
               level: 3,
@@ -37,7 +37,7 @@ export default function BlackFridayPaymentPage() {
       yearlyTotal: 840,
       description: <>Everything in Level 2 plus <span className="text-amber-400">direct access to founders</span> for unlimited Q&A via a dedicated channel. Questions will be answered within 24 hours (your own personal AI consultants).</>,
       popular: true,
-      priceId: "price_1SektSKcHS9haN5EgvEGrPsX"
+      priceId: "price_1QdFtkBDCdIlSqxTNz9swKdL"
     },
   ];
 

@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Download, Mail, UserPlus, Loader2 } from 'lucide-react';
+import { Download, Mail, UserPlus, Loader2, CheckCircle, XCircle, Clock } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 
 export default function AdminPage() {
@@ -34,6 +34,15 @@ export default function AdminPage() {
     queryFn: () => base44.entities.EmailSignup.list(),
     enabled: !!user,
   });
+
+  const { data: affiliateApplications = [], isLoading: affiliatesLoading, refetch: refetchAffiliates } = useQuery({
+    queryKey: ['affiliateApplications'],
+    queryFn: () => base44.entities.AffiliateApplication.list('-created_date'),
+    enabled: !!user,
+  });
+
+  const [affiliateLink, setAffiliateLink] = useState('');
+  const [selectedAffiliate, setSelectedAffiliate] = useState(null);
 
   const handleExportCSV = () => {
     const csv = ['Email,Source,Date\n'];
@@ -67,6 +76,47 @@ export default function AdminPage() {
       setInviteMessage(`✗ Error: ${error.message}`);
     } finally {
       setIsInviting(false);
+    }
+  };
+
+  const handleApproveAffiliate = async (affiliate) => {
+    if (!affiliateLink.trim()) {
+      alert('Please enter a Rewardful affiliate link');
+      return;
+    }
+
+    try {
+      await base44.entities.AffiliateApplication.update(affiliate.id, {
+        status: 'approved',
+        rewardful_link: affiliateLink
+      });
+
+      await base44.integrations.Core.SendEmail({
+        to: affiliate.email,
+        subject: 'Your CRE AI Studio Affiliate Application is Approved!',
+        body: `Hi ${affiliate.name},\n\nGreat news! Your affiliate application has been approved.\n\nYour unique affiliate link: ${affiliateLink}\n\nStart sharing this link to earn commissions on every referral!\n\nBest regards,\nCRE AI Studio Team`
+      });
+
+      alert('Affiliate approved and email sent!');
+      setAffiliateLink('');
+      setSelectedAffiliate(null);
+      refetchAffiliates();
+    } catch (error) {
+      alert('Error approving affiliate: ' + error.message);
+    }
+  };
+
+  const handleRejectAffiliate = async (affiliate) => {
+    if (!confirm(`Reject application from ${affiliate.name}?`)) return;
+
+    try {
+      await base44.entities.AffiliateApplication.update(affiliate.id, {
+        status: 'rejected'
+      });
+      alert('Application rejected');
+      refetchAffiliates();
+    } catch (error) {
+      alert('Error rejecting affiliate: ' + error.message);
     }
   };
 
@@ -129,6 +179,113 @@ export default function AdminPage() {
               <p className={`mt-3 text-sm ${inviteMessage.startsWith('✓') ? 'text-green-600' : 'text-red-600'}`}>
                 {inviteMessage}
               </p>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Affiliate Applications */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <UserPlus className="w-5 h-5" />
+              Affiliate Applications
+            </CardTitle>
+            <CardDescription>
+              Total applications: {affiliateApplications.length}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {affiliatesLoading ? (
+              <div className="flex justify-center py-8">
+                <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
+              </div>
+            ) : affiliateApplications.length === 0 ? (
+              <p className="text-center py-8 text-slate-500">No affiliate applications yet</p>
+            ) : (
+              <div className="space-y-4">
+                {affiliateApplications.map((app) => (
+                  <div key={app.id} className="border rounded-lg p-4 hover:bg-gray-50">
+                    <div className="flex justify-between items-start">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <p className="font-semibold text-slate-900">{app.name}</p>
+                          <Badge 
+                            variant={app.status === 'approved' ? 'default' : app.status === 'rejected' ? 'destructive' : 'outline'}
+                            className={
+                              app.status === 'approved' ? 'bg-green-100 text-green-800' :
+                              app.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                              'bg-yellow-100 text-yellow-800'
+                            }
+                          >
+                            {app.status === 'approved' && <CheckCircle className="w-3 h-3 mr-1" />}
+                            {app.status === 'rejected' && <XCircle className="w-3 h-3 mr-1" />}
+                            {app.status === 'pending' && <Clock className="w-3 h-3 mr-1" />}
+                            {app.status.charAt(0).toUpperCase() + app.status.slice(1)}
+                          </Badge>
+                        </div>
+                        <p className="text-slate-600 text-sm">{app.email}</p>
+                        <p className="text-slate-500 text-xs mt-1">
+                          Applied: {new Date(app.created_date).toLocaleDateString()}
+                        </p>
+                        {app.rewardful_link && (
+                          <p className="text-blue-600 text-sm mt-2 break-all">
+                            Link: {app.rewardful_link}
+                          </p>
+                        )}
+                      </div>
+                      
+                      {app.status === 'pending' && (
+                        <div className="flex gap-2 ml-4">
+                          {selectedAffiliate?.id === app.id ? (
+                            <div className="flex gap-2 items-center">
+                              <Input
+                                placeholder="Paste Rewardful link"
+                                value={affiliateLink}
+                                onChange={(e) => setAffiliateLink(e.target.value)}
+                                className="w-64"
+                              />
+                              <Button
+                                size="sm"
+                                onClick={() => handleApproveAffiliate(app)}
+                                className="bg-green-600 hover:bg-green-700"
+                              >
+                                <CheckCircle className="w-4 h-4" />
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => {
+                                  setSelectedAffiliate(null);
+                                  setAffiliateLink('');
+                                }}
+                              >
+                                Cancel
+                              </Button>
+                            </div>
+                          ) : (
+                            <>
+                              <Button
+                                size="sm"
+                                onClick={() => setSelectedAffiliate(app)}
+                                className="bg-green-600 hover:bg-green-700"
+                              >
+                                Approve
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="destructive"
+                                onClick={() => handleRejectAffiliate(app)}
+                              >
+                                Reject
+                              </Button>
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
           </CardContent>
         </Card>

@@ -59,6 +59,7 @@ import Payment from './pages/Payment';
 import privacyPolicy from './pages/Privacy-Policy';
 import Resources from './pages/Resources';
 import termsOfUse from './pages/Terms-of-Use';
+import AffiliateSignup from './pages/AffiliateSignup';
 import __Layout from './Layout.jsx';
 
 
@@ -75,6 +76,7 @@ export const PAGES = {
     "Privacy-Policy": privacyPolicy,
     "Resources": Resources,
     "Terms-of-Use": termsOfUse,
+    "AffiliateSignup": AffiliateSignup,
 }
 
 export const pagesConfig = {

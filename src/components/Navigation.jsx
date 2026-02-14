@@ -79,7 +79,7 @@ export default function Navigation() {
               onClick={() => window.location.href = createPageUrl('AffiliateSignup')}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
-              Affiliates
+              Join Our Referral Program
             </Button>
           </div>
 
@@ -167,7 +167,7 @@ export default function Navigation() {
               onClick={() => window.location.href = createPageUrl('AffiliateSignup')}
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Affiliates
+              Join Our Referral Program
             </Button>
           </div>
         </div>

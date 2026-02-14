@@ -11,6 +11,13 @@ export default function Layout({ children, currentPageName }) {
     fontLink.rel = 'stylesheet';
     document.head.appendChild(fontLink);
 
+    // Add Rewardful tracking script
+    const rewardfulScript = document.createElement('script');
+    rewardfulScript.async = true;
+    rewardfulScript.src = 'https://r.wdfl.co/rw.js';
+    rewardfulScript.setAttribute('data-rewardful', '0b4b9e');
+    document.head.appendChild(rewardfulScript);
+
     // Add Google Analytics gtag script
     const script1 = document.createElement('script');
     script1.async = true;
@@ -234,6 +241,7 @@ export default function Layout({ children, currentPageName }) {
     // Cleanup function
     return () => {
       document.head.removeChild(fontLink);
+      document.head.removeChild(rewardfulScript);
       document.head.removeChild(script1);
       document.head.removeChild(script2);
       document.head.removeChild(script3);

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { base44 } from "@/api/base44Client";
-import { createAffiliate } from "@/functions/createAffiliate";
 import { CheckCircle2, DollarSign, TrendingUp, Gift, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -23,10 +22,20 @@ export default function AffiliateSignup() {
     setIsSubmitting(true);
     
     try {
-      await createAffiliate({
-        name: formData.name,
-        email: formData.email
+      const response = await fetch('/api/functions/createAffiliate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email
+        })
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to create affiliate');
+      }
       
       setSubmitted(true);
       setFormData({ name: "", email: "" });

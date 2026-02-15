@@ -57,10 +57,10 @@ import FreeTrialPayment from './pages/FreeTrialPayment';
 import Home from './pages/Home';
 import MeetYourTeachers from './pages/MeetYourTeachers';
 import Payment from './pages/Payment';
+import PaymentSuccess from './pages/PaymentSuccess';
 import privacyPolicy from './pages/Privacy-Policy';
 import Resources from './pages/Resources';
 import termsOfUse from './pages/Terms-of-Use';
-import PaymentSuccess from './pages/PaymentSuccess';
 import __Layout from './Layout.jsx';
 
 
@@ -75,10 +75,10 @@ export const PAGES = {
     "Home": Home,
     "MeetYourTeachers": MeetYourTeachers,
     "Payment": Payment,
+    "PaymentSuccess": PaymentSuccess,
     "Privacy-Policy": privacyPolicy,
     "Resources": Resources,
     "Terms-of-Use": termsOfUse,
-    "PaymentSuccess": PaymentSuccess,
 }
 
 export const pagesConfig = {

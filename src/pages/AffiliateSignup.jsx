@@ -93,10 +93,9 @@ export default function AffiliateSignup() {
                 </div>
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
                   className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base rounded-full transition-all duration-300 group"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Application"}
+                  Submit Application
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>

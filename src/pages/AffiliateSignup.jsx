@@ -8,8 +8,6 @@ import { motion } from "framer-motion";
 
 export default function AffiliateSignup() {
   const [formData, setFormData] = useState({ name: "", email: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

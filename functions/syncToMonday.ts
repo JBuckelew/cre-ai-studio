@@ -12,6 +12,37 @@ Deno.serve(async (req) => {
     const boardId = '18400181576';
     const apiKey = Deno.env.get('MONDAY_API_KEY');
 
+    // First, get the group ID for "Base44 Emails"
+    const groupQuery = `
+      query {
+        boards(ids: ${boardId}) {
+          groups {
+            id
+            title
+          }
+        }
+      }
+    `;
+
+    const groupResponse = await fetch('https://api.monday.com/v2', {
+      method: 'POST',
+      headers: {
+        'Authorization': apiKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ query: groupQuery })
+    });
+
+    const groupResult = await groupResponse.json();
+    const groups = groupResult.data?.boards?.[0]?.groups || [];
+    const base44Group = groups.find(g => g.title === 'Base44 Emails');
+    
+    if (!base44Group) {
+      return Response.json({ error: 'Base44 Emails group not found' }, { status: 404 });
+    }
+
+    const groupId = base44Group.id;
+
     // Build item name and column values based on entity type
     let itemName;
     let columnValues = {};
@@ -33,11 +64,12 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Unsupported entity type' }, { status: 400 });
     }
 
-    // Create item in Monday.com
+    // Create item in Monday.com in the Base44 Emails group
     const mutation = `
       mutation {
         create_item (
           board_id: ${boardId},
+          group_id: "${groupId}",
           item_name: "${itemName}",
           column_values: "${JSON.stringify(columnValues).replace(/"/g, '\\"')}"
         ) {

@@ -29,6 +29,7 @@ Deno.serve(async (req) => {
     if (!inviteResponse.ok) {
       const errorText = await inviteResponse.text();
       console.error('Rewardful invite error:', errorText);
+      console.error('Response status:', inviteResponse.status);
       
       // Check if affiliate already exists
       if (errorText.includes('Email has already been taken') || errorText.includes('already been taken')) {

@@ -113,10 +113,13 @@ Deno.serve(async (req) => {
 
     if (!resendResponse.ok) {
       console.error('Resend API error:', resendData);
+      // Don't fail the whole operation if email fails
       return Response.json({ 
-        error: 'Failed to send email',
-        details: resendData 
-      }, { status: 500 });
+        success: true, 
+        affiliateLink: affiliateLink,
+        emailSent: false,
+        emailError: resendData
+      });
     }
 
     return Response.json({ 

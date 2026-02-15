@@ -40,53 +40,6 @@ Deno.serve(async (req) => {
       rewardful_link: affiliateLink
     });
 
-    // Notify admins about new referral signup (includes applicant email in notification)
-    const adminNotification = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #1e40af;">New Referral Program Signup</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Referral Link:</strong> <a href="${affiliateLink}">${affiliateLink}</a></p>
-        <hr style="margin: 20px 0; border: none; border-top: 1px solid #e5e7eb;">
-        <h3 style="color: #1e40af;">Welcome Message for Affiliate</h3>
-        <p>Please forward the following to <strong>${email}</strong>:</p>
-        <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 10px;">
-          <h4 style="color: #1e40af;">Welcome to the CRE AI Studio Referral Program!</h4>
-          <p>We're so excited to have you on board. You already know firsthand how AI is transforming commercial real estate — and now you can share that with your network while earning $100 for every new member you refer.</p>
-          
-          <p><strong>Here's how it works:</strong></p>
-          <p>Share your unique referral link with colleagues, partners, or anyone in CRE who's ready to level up with AI. When they sign up and remain an active member for 60 days after their free trial ends, you'll earn $100. There's no cap — the more people you bring in, the more you earn.</p>
-          
-          <p>That's it.</p>
-          
-          <p>You're part of a community of hundreds of CRE professionals who are already ahead of the curve. Every referral you make strengthens that community and helps more people in our industry work smarter.</p>
-          
-          <p><strong>Your Referral Link:</strong> <a href="${affiliateLink}">${affiliateLink}</a></p>
-          
-          <p>If you have any questions, just reply to this email — we're here to help.</p>
-          
-          <p>Thank you for being part of CRE AI Studio and for helping us grow.</p>
-          
-          <p>The CRE AI Studio Team</p>
-        </div>
-      </div>
-    `;
-
-    await Promise.all([
-      base44.asServiceRole.integrations.Core.SendEmail({
-        to: "hello@creaistudio.com",
-        from_name: "CRE AI Studio",
-        subject: "New Referral Program Signup",
-        body: adminNotification
-      }),
-      base44.asServiceRole.integrations.Core.SendEmail({
-        to: "topher@creaistudio.com",
-        from_name: "CRE AI Studio",
-        subject: "New Referral Program Signup",
-        body: adminNotification
-      })
-    ]);
-
     return Response.json({ 
       success: true, 
       affiliateLink: affiliateLink 

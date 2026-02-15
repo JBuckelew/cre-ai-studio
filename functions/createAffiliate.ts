@@ -31,9 +31,9 @@ Deno.serve(async (req) => {
       console.error('Rewardful API error:', errorText);
       
       // Check if affiliate already exists
-      if (errorText.includes('Email has already been taken')) {
-        // Fetch existing affiliate by email
-        const getResponse = await fetch(`https://api.getrewardful.com/v1/affiliates?email=${encodeURIComponent(email)}`, {
+      if (errorText.includes('Email has already been taken') || errorText.includes('already been taken')) {
+        // Fetch all affiliates and find by email
+        const getResponse = await fetch('https://api.getrewardful.com/v1/affiliates', {
           headers: {
             'Authorization': `Bearer ${Deno.env.get('REWARDFUL_API_KEY')}`
           }
@@ -41,11 +41,15 @@ Deno.serve(async (req) => {
         
         if (getResponse.ok) {
           const affiliatesResponse = await getResponse.json();
-          console.log('Existing affiliate data:', JSON.stringify(affiliatesResponse));
-          if (affiliatesResponse.data && affiliatesResponse.data.length > 0) {
-            affiliateData = affiliatesResponse.data[0];
-            const token = affiliateData.token || affiliateData.id;
-            affiliateLink = affiliateData.links?.affiliate || `https://creai.studio/?via=${token}`;
+          console.log('All affiliates response:', JSON.stringify(affiliatesResponse));
+          
+          // Find affiliate by email
+          const affiliate = affiliatesResponse.data?.find(a => a.email === email);
+          if (affiliate) {
+            console.log('Found affiliate:', JSON.stringify(affiliate));
+            affiliateData = affiliate;
+            const token = affiliate.token || affiliate.id;
+            affiliateLink = affiliate.link || `https://creai.studio/?via=${token}`;
           }
         }
       }

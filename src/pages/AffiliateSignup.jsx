@@ -21,33 +21,6 @@ export default function AffiliateSignup() {
     window.location.href = 'https://cre-ai-studio.getrewardful.com/signup';
   };
 
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6">
-        <Card className="max-w-md w-full shadow-xl border-0">
-          <CardHeader className="text-center">
-            <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-10 h-10 text-green-600" />
-            </div>
-            <CardTitle className="text-3xl font-bold text-slate-900">You're All Set!</CardTitle>
-            <CardDescription className="text-base text-slate-600 mt-2">
-              Thank you for joining the CRE AI Studio referral program! Check your email for your unique referral link and start earning commissions today.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button
-              onClick={() => setSubmitted(false)}
-              variant="outline"
-              className="w-full"
-            >
-              Submit Another Application
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
   return (
     <section className="bg-slate-50 py-8 sm:py-12">
       <div className="relative overflow-hidden bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white/10 shadow-2xl shadow-blue-500/20">

@@ -23,14 +23,38 @@ Deno.serve(async (req) => {
       })
     });
 
-    if (!rewardfulResponse.ok) {
-      const errorData = await rewardfulResponse.text();
-      console.error('Rewardful API error:', errorData);
-      return Response.json({ error: 'Failed to create affiliate in Rewardful' }, { status: 500 });
-    }
+    let affiliateData;
+    let affiliateLink;
 
-    const affiliateData = await rewardfulResponse.json();
-    const affiliateLink = affiliateData.link || `https://creai.studio/?via=${affiliateData.token}`;
+    if (!rewardfulResponse.ok) {
+      const errorText = await rewardfulResponse.text();
+      console.error('Rewardful API error:', errorText);
+      
+      // Check if affiliate already exists
+      if (errorText.includes('Email has already been taken')) {
+        // Fetch existing affiliate by email
+        const getResponse = await fetch(`https://api.getrewardful.com/v1/affiliates?email=${encodeURIComponent(email)}`, {
+          headers: {
+            'Authorization': `Bearer ${Deno.env.get('REWARDFUL_API_KEY')}`
+          }
+        });
+        
+        if (getResponse.ok) {
+          const affiliates = await getResponse.json();
+          if (affiliates.data && affiliates.data.length > 0) {
+            affiliateData = affiliates.data[0];
+            affiliateLink = affiliateData.link || `https://creai.studio/?via=${affiliateData.token}`;
+          }
+        }
+      }
+      
+      if (!affiliateLink) {
+        return Response.json({ error: 'Failed to create affiliate in Rewardful' }, { status: 500 });
+      }
+    } else {
+      affiliateData = await rewardfulResponse.json();
+      affiliateLink = affiliateData.link || `https://creai.studio/?via=${affiliateData.token}`;
+    }
 
     // Save to database with approved status
     await base44.asServiceRole.entities.AffiliateApplication.create({

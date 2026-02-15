@@ -40,10 +40,12 @@ Deno.serve(async (req) => {
         });
         
         if (getResponse.ok) {
-          const affiliates = await getResponse.json();
-          if (affiliates.data && affiliates.data.length > 0) {
-            affiliateData = affiliates.data[0];
-            affiliateLink = affiliateData.link || `https://creai.studio/?via=${affiliateData.token}`;
+          const affiliatesResponse = await getResponse.json();
+          console.log('Existing affiliate data:', JSON.stringify(affiliatesResponse));
+          if (affiliatesResponse.data && affiliatesResponse.data.length > 0) {
+            affiliateData = affiliatesResponse.data[0];
+            const token = affiliateData.token || affiliateData.id;
+            affiliateLink = affiliateData.links?.affiliate || `https://creai.studio/?via=${token}`;
           }
         }
       }

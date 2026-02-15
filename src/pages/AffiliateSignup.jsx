@@ -71,25 +71,14 @@ export default function AffiliateSignup() {
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[50vh] py-10 sm:py-16 px-6 sm:px-12 lg:px-16">
           <div className="flex-1 flex items-center justify-start w-full">
             <div className="relative max-w-full lg:max-w-4xl mx-auto text-center">
-              <motion.div
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="mb-6"
-              >
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent mb-2" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                  CRE AI Studio
-                </h1>
-              </motion.div>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+                className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6"
               >
                 Join Our <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">Referral Program</span>
-              </motion.h2>
+              </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

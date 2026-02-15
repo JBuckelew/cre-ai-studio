@@ -3,9 +3,14 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const { entity_name, data } = await req.json();
+    const payload = await req.json();
+    
+    // Handle both direct calls and automation payloads
+    const entity_name = payload.entity_name || payload.event?.entity_name;
+    const data = payload.data;
 
     if (!entity_name || !data) {
+      console.error('Missing data:', { entity_name, data, payload });
       return Response.json({ error: 'Missing entity_name or data' }, { status: 400 });
     }
 

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { base44 } from "@/api/base44Client";
+import { createAffiliate } from "@/functions/createAffiliate";
 import { CheckCircle2, DollarSign, TrendingUp, Gift, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -22,10 +23,9 @@ export default function AffiliateSignup() {
     setIsSubmitting(true);
     
     try {
-      await base44.entities.AffiliateApplication.create({
+      await createAffiliate({
         name: formData.name,
-        email: formData.email,
-        status: "pending"
+        email: formData.email
       });
       
       setSubmitted(true);
@@ -46,9 +46,9 @@ export default function AffiliateSignup() {
             <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4">
               <CheckCircle2 className="w-10 h-10 text-green-600" />
             </div>
-            <CardTitle className="text-3xl font-bold text-slate-900">Application Submitted!</CardTitle>
+            <CardTitle className="text-3xl font-bold text-slate-900">You're All Set!</CardTitle>
             <CardDescription className="text-base text-slate-600 mt-2">
-              Thank you for your interest in becoming a CRE AI Studio referral partner. We'll review your application and send you your unique referral link once approved.
+              Thank you for joining the CRE AI Studio referral program! Check your email for your unique referral link and start earning commissions today.
             </CardDescription>
           </CardHeader>
           <CardContent>

@@ -58,9 +58,9 @@ export default function AffiliateSignup() {
         >
           <Card className="shadow-xl border-0">
             <CardHeader className="bg-slate-50 rounded-t-xl">
-              <CardTitle className="text-2xl text-slate-900">Apply for Referral Program</CardTitle>
+              <CardTitle className="text-2xl text-slate-900">Join the Referral Program</CardTitle>
               <CardDescription className="text-slate-600">
-                Fill out the form below and we'll review your application. Once approved, you'll receive your unique referral link and start earning!
+                Fill out the form below to join and you'll receive your unique referral link and start earning!
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
@@ -95,7 +95,7 @@ export default function AffiliateSignup() {
                   type="submit"
                   className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base rounded-full transition-all duration-300 group"
                 >
-                  Submit Application
+                  Join Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>

@@ -19,32 +19,8 @@ export default function AffiliateSignup() {
       return;
     }
 
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/api/functions/createAffiliate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to create affiliate');
-      }
-      
-      setSubmitted(true);
-      setFormData({ name: "", email: "" });
-    } catch (error) {
-      console.error('Affiliate application error:', error);
-      alert("There was an error submitting your application. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Redirect to Rewardful signup page
+    window.location.href = 'https://cre-ai-studio.getrewardful.com/signup';
   };
 
   if (submitted) {

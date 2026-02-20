@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Video, Users, FileText, Clock, Sparkles, Target, TrendingUp, Award } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ArrowRight, CheckCircle, Calendar, Users, Video, Award } from "lucide-react";
 import { createPageUrl } from '@/utils';
+import { base44 } from "@/api/base44Client";
 
 export default function Workshops() {
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
+
   const handleJoinClick = () => {
     window.location.href = createPageUrl('FreeTrialPayment');
   };
 
+  const handleWaitlistSubmit = async (e) => {
+    e.preventDefault();
+    if (!waitlistEmail) return;
+
+    await base44.entities.WorkshopWaitlist.create({
+      email: waitlistEmail
+    });
+
+    setWaitlistSubmitted(true);
+    setWaitlistEmail("");
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+      {/* SECTION 1 - HERO */}
+      <section className="relative min-h-[70vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -35,177 +53,230 @@ export default function Workshops() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/30 rounded-full px-6 py-3 mb-8"
+              className="inline-block bg-blue-500/10 border border-blue-400/30 rounded-full px-6 py-3 mb-8"
             >
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-sm font-semibold text-blue-300">Live AI Training for CRE Professionals</span>
+              <span className="text-sm font-semibold text-blue-300">Live Training</span>
             </motion.div>
             
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-[1.1]">
-              Master AI for{" "}
+              CRE AI Studio{" "}
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Commercial
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-                Real Estate
+                Workshops
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-light">
-              Weekly workshops, live coaching, and hands-on training designed to help you automate workflows, close deals faster, and stay ahead of the competition
+            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
+              Intensive, role-specific cohorts led by industry practitioners. Deep-dive training designed for how you actually work.
             </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-full px-10 py-6 text-lg shadow-2xl shadow-blue-500/50 transition-all duration-300 group"
-                onClick={handleJoinClick}
-              >
-                Start Your 7-Day Free Trial
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
-            >
-              {[
-                { label: "Active Members", value: "500+" },
-                { label: "Video Tutorials", value: "50+" },
-                { label: "Live Sessions", value: "Monthly" },
-                { label: "Success Rate", value: "94%" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-sm text-slate-400 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* What's Included */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <Badge variant="outline" className="mb-4 text-slate-600 font-medium">
-              What's Included
-            </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight">
-              Everything You Need to{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Transform Your Practice
-              </span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive training, expert support, and practical tools to master AI in CRE
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {[
-              {
-                icon: Video,
-                title: "Weekly Video Tutorials",
-                description: "New lessons every week covering the latest AI tools and techniques for CRE",
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                icon: FileText,
-                title: "Ready-to-Use Templates",
-                description: "Copy-paste prompts and workflows you can implement in your business today",
-                gradient: "from-purple-500 to-pink-500"
-              },
-              {
-                icon: Users,
-                title: "Monthly Live Q&A",
-                description: "Direct access to founders for personalized guidance and answers",
-                gradient: "from-orange-500 to-red-500"
-              },
-              {
-                icon: Clock,
-                title: "24/7 Community Access",
-                description: "Connect with hundreds of CRE professionals and get support anytime",
-                gradient: "from-green-500 to-teal-500"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 group hover:-translate-y-1 bg-white">
-                  <CardHeader className="pb-4">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <feature.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-xl font-bold text-slate-900 mb-3">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Specialized Tracks */}
+      {/* SECTION 2 - FEATURED WORKSHOP CARD */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 text-white"
           >
-            <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Specialized Learning Tracks
-              </h3>
-              <p className="text-slate-300 text-lg">
-                Training tailored to your role in commercial real estate
-              </p>
-            </div>
+            <Card className="relative overflow-hidden border-0 shadow-2xl">
+              {/* Badge */}
+              <div className="absolute top-6 left-6 z-10">
+                <Badge className="bg-blue-600 text-white font-bold px-4 py-2 text-sm">
+                  NOW ENROLLING
+                </Badge>
+              </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: Target, title: "Brokers & Investors", desc: "Marketing, sourcing & deal analysis" },
-                { icon: TrendingUp, title: "Asset Managers", desc: "Portfolio management & reporting" },
-                { icon: Award, title: "Developers", desc: "Project automation & feasibility" },
-                { icon: FileText, title: "Legal Teams", desc: "Document review & risk analysis" }
-              ].map((track, index) => (
-                <motion.div
-                  key={track.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300"
-                >
-                  <track.icon className="w-10 h-10 text-blue-400 mb-4" />
-                  <h4 className="font-bold text-lg mb-2">{track.title}</h4>
-                  <p className="text-slate-300 text-sm">{track.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+              <CardContent className="p-10 md:p-12">
+                <div className="mb-10">
+                  <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+                    AI for CRE Attorneys
+                  </h2>
+                  <p className="text-xl text-slate-600 leading-relaxed">
+                    A 6-week live cohort designed for transactional CRE attorneys. Ethics-first. Hands-on. Built around the documents you actually work with.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-12 mb-10">
+                  {/* LEFT COLUMN */}
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                      What You'll Learn
+                    </h3>
+                    <ul className="space-y-4">
+                      {[
+                        "AI foundations and ethics framework (ABA Rule 1.1)",
+                        "Document sanitization to protect client confidentiality",
+                        "AI-powered lease review and risk identification",
+                        "Clause drafting, markup, and negotiation techniques",
+                        "Build your AI toolkit: Claude Projects, NotebookLM, Microsoft Copilot",
+                        "AI usage policy development for your firm"
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <div className="w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></div>
+                          <span className="text-slate-700 leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* RIGHT COLUMN */}
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                      <Calendar className="w-6 h-6 text-blue-600" />
+                      Program Details
+                    </h3>
+                    <div className="space-y-5 bg-slate-50 rounded-2xl p-6">
+                      <div>
+                        <div className="text-sm font-semibold text-slate-500 mb-1">Starts</div>
+                        <div className="text-lg font-bold text-slate-900">March 11, 2026</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-500 mb-1">Format</div>
+                        <div className="text-lg font-bold text-slate-900">6 weekly live sessions, 60 minutes each</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-500 mb-1">Instructor</div>
+                        <div className="text-lg font-bold text-slate-900">Nadine Ezzie, Esq.</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-500 mb-1">Investment</div>
+                        <div className="text-lg font-bold text-slate-900">$1,295 per attorney</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-500 mb-1">Includes</div>
+                        <div className="text-lg font-bold text-slate-900">Studio membership, all recordings, async Q&A in Circle</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-500 mb-1">Seats</div>
+                        <div className="text-lg font-bold text-slate-900">Limited to 50 attorneys</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="flex justify-center">
+                  <Button
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                    onClick={() => window.open('https://buy.stripe.com/14k4jo1AI0vL8XC14o', '_blank')}
+                  >
+                    Reserve Your Seat
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* SECTION 3 - COMING SOON TEASER */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+              More Workshops Coming in 2026
+            </h2>
+            <p className="text-xl text-slate-600 mb-10 leading-relaxed">
+              We're building intensive workshops for every CRE role. Want to be the first to know when new cohorts open?
+            </p>
+
+            {!waitlistSubmitted ? (
+              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={waitlistEmail}
+                  onChange={(e) => setWaitlistEmail(e.target.value)}
+                  required
+                  className="h-14 px-6 text-lg bg-white border-slate-300"
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-full px-8 h-14 whitespace-nowrap"
+                >
+                  Get Notified
+                </Button>
+              </form>
+            ) : (
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-6 max-w-xl mx-auto">
+                <div className="flex items-center justify-center gap-3 text-green-700">
+                  <CheckCircle className="w-6 h-6" />
+                  <span className="font-semibold text-lg">Thanks! We'll notify you when new workshops launch.</span>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 4 - FAQ */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-12 text-center">
+              Workshop FAQ
+            </h2>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="border border-slate-200 rounded-2xl px-6 bg-slate-50">
+                <AccordionTrigger className="text-lg font-bold text-slate-900 hover:no-underline py-6">
+                  How are workshops different from the Studio membership?
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                  The Studio membership gives you access to weekly video lessons, monthly coaching calls, and our community. Workshops are intensive, multi-week live cohorts focused on a specific role or topic - like a deep-dive masterclass with hands-on exercises and direct instructor access.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border border-slate-200 rounded-2xl px-6 bg-slate-50">
+                <AccordionTrigger className="text-lg font-bold text-slate-900 hover:no-underline py-6">
+                  Do I need to be a Studio member to join a workshop?
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                  No - workshop registration includes a Studio membership. If you're already a member, you'll get credit toward your workshop investment.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border border-slate-200 rounded-2xl px-6 bg-slate-50">
+                <AccordionTrigger className="text-lg font-bold text-slate-900 hover:no-underline py-6">
+                  What if I can't attend a live session?
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                  All sessions are recorded and available in the Studio within 24 hours. You'll also have async Q&A access to the instructor through our Circle community.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border border-slate-200 rounded-2xl px-6 bg-slate-50">
+                <AccordionTrigger className="text-lg font-bold text-slate-900 hover:no-underline py-6">
+                  Will there be more workshops after the Lawyers Track?
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                  Yes. We're developing workshops for brokers, asset managers, and other CRE roles. Sign up for notifications above to be first to know.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 5 - BOTTOM CTA */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
@@ -220,39 +291,25 @@ export default function Workshops() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
             
             <div className="relative p-12 md:p-16 text-center text-white">
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+              <h3 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                Not ready for a workshop? Start with the Studio.
+              </h3>
+              <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
+                Join hundreds of CRE professionals already learning AI through weekly lessons, live Q&A, and 24/7 founder access.
+              </p>
+              
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-slate-100 font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                onClick={handleJoinClick}
               >
-                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Start Free for 7 Days</span>
-                </div>
+                Start Your 7-Day Free Trial
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
 
-                <h3 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                  Ready to Stay Ahead in CRE?
-                </h3>
-                <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-                  Join 500+ commercial real estate professionals already mastering AI
-                </p>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-white text-blue-600 hover:bg-slate-100 font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                    onClick={handleJoinClick}
-                  >
-                    Start Your Free Trial
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-
-                <p className="text-sm text-blue-200 mt-6">
-                  No credit card required • Cancel anytime • Full access to all workshops
-                </p>
-              </motion.div>
+              <p className="text-sm text-blue-200 mt-6">
+                No credit card required • Cancel anytime
+              </p>
             </div>
           </motion.div>
         </div>

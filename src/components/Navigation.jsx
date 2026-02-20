@@ -24,6 +24,10 @@ export default function Navigation() {
     window.location.href = createPageUrl('Resources');
   };
 
+  const handleWorkshopClick = () => {
+    window.location.href = createPageUrl('Workshop');
+  };
+
   const handleTeachersClick = () => {
     window.location.href = createPageUrl('MeetYourTeachers');
   };
@@ -59,6 +63,13 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
               What's Included
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={handleWorkshopClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+            >
+              Workshop
             </Button>
             <Button
               variant="ghost"
@@ -144,6 +155,14 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               What's Included
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleWorkshopClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
+            >
+              Workshop
             </Button>
             <Button
               variant="ghost"

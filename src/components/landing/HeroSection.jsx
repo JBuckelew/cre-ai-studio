@@ -100,9 +100,9 @@ export default function HeroSection() {
           >
             <a 
               href={createPageUrl('FreeTrialPayment')}
-              className="block w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 rounded-full py-3 px-6 transition-all duration-300 group"
+              className="block w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 rounded-full py-2 px-6 transition-all duration-300 group"
             >
-              <div className="flex items-center justify-center gap-2 text-white text-sm sm:text-base font-semibold">
+              <div className="flex items-center justify-center gap-2 text-white text-sm font-semibold">
                 <span className="bg-white/20 px-2 py-0.5 rounded text-xs font-bold">NEW</span>
                 <span>AI for CRE Attorneys — 6-Week Live Cohort Starts March 25</span>
                 <span className="hidden sm:inline">|</span>

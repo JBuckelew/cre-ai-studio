@@ -22,6 +22,11 @@ export default function ValuePropositionSection() {
       icon: Cuboid,
       title: "Analysts & Developers",
       description: "Put complex projects on autopilot.",
+    },
+    {
+      icon: Scale,
+      title: "Attorneys & Legal Teams",
+      description: "Review leases, draft clauses, and identify risk faster — with ethics-first AI training built for CRE legal practice.",
     }
   ];
 

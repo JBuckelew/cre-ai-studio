@@ -132,7 +132,7 @@ export default function Workshops() {
                     <div className="space-y-5 bg-slate-50 rounded-2xl p-6">
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Starts</div>
-                        <div className="text-lg font-bold text-slate-900">March 11, 2026</div>
+                        <div className="text-lg font-bold text-slate-900">March 25th, 2026</div>
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Format</div>
@@ -140,7 +140,7 @@ export default function Workshops() {
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Instructor</div>
-                        <div className="text-lg font-bold text-slate-900">Nadine Ezzie, Esq.</div>
+                        <div className="text-lg font-bold text-slate-900">Nadine Ezzie</div>
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Investment</div>

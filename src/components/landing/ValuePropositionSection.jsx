@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, LineChart, Cuboid, Zap, ArrowRight } from 'lucide-react';
+import { Briefcase, LineChart, Cuboid, Scale, Zap, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from '@/utils';
 

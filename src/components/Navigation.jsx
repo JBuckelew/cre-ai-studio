@@ -25,7 +25,7 @@ export default function Navigation() {
   };
 
   const handleWorkshopClick = () => {
-    window.location.href = createPageUrl('Workshop');
+    window.location.href = createPageUrl('Workshops');
   };
 
   const handleTeachersClick = () => {
@@ -69,7 +69,7 @@ export default function Navigation() {
               onClick={handleWorkshopClick}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
-              Workshop
+              Workshops
             </Button>
             <Button
               variant="ghost"
@@ -162,7 +162,7 @@ export default function Navigation() {
               onClick={handleWorkshopClick}
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Workshop
+              Workshops
             </Button>
             <Button
               variant="ghost"

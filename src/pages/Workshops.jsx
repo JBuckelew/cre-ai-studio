@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Video, Users, FileText, Clock } from "lucide-react";
 import { createPageUrl } from '@/utils';
 
-export default function Workshop() {
+export default function Workshops() {
   const handleJoinClick = () => {
     window.location.href = createPageUrl('FreeTrialPayment');
   };
@@ -26,7 +26,7 @@ export default function Workshop() {
             className="text-center"
           >
             <Badge variant="secondary" className="mb-6 bg-blue-100 text-blue-700">
-              Live Workshop
+              Live Workshops
             </Badge>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight">

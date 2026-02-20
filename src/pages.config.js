@@ -61,7 +61,7 @@ import PaymentSuccess from './pages/PaymentSuccess';
 import privacyPolicy from './pages/Privacy-Policy';
 import Resources from './pages/Resources';
 import termsOfUse from './pages/Terms-of-Use';
-import Workshop from './pages/Workshop';
+import Workshops from './pages/Workshops';
 import __Layout from './Layout.jsx';
 
 
@@ -80,7 +80,7 @@ export const PAGES = {
     "Privacy-Policy": privacyPolicy,
     "Resources": Resources,
     "Terms-of-Use": termsOfUse,
-    "Workshop": Workshop,
+    "Workshops": Workshops,
 }
 
 export const pagesConfig = {

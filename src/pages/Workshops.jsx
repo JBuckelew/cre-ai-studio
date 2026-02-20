@@ -152,7 +152,7 @@ export default function Workshops() {
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Seats</div>
-                        <div className="text-lg font-bold text-slate-900">Limited to 50 attorneys</div>
+                        <div className="text-lg font-bold text-slate-900">Limited to 35 attorneys</div>
                       </div>
                     </div>
                   </div>

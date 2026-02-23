@@ -62,7 +62,7 @@ export default function WorkshopPayment() {
                     <Award className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                     <div>
                       <div className="font-bold text-slate-900">Taught by Nadine Ezzie</div>
-                      <div className="text-sm text-slate-600">Former attorney, AI expert</div>
+                      <div className="text-sm text-slate-600">20-year CRE Attorney, AI Speaker</div>
                     </div>
                   </div>
                 </div>

@@ -72,7 +72,7 @@ export default function WorkshopPayment() {
                   <ul className="space-y-2">
                     {[
                       "6 live training sessions with recordings",
-                      "6 Month of Free Access to the CRE AI Studio",
+                      "6 Months of Free Access to the CRE AI Studio",
                       "Async Q&A access in Circle community",
                       "Ethics framework and usage policy templates",
                       "Document sanitization workflows",

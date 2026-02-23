@@ -90,7 +90,7 @@ export default function Workshops() {
               </div>
 
               <CardContent className="p-10 md:p-12">
-                <div className="mb-10">
+                <div className="mb-10 mt-8">
                   <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
                     AI for CRE Attorneys
                   </h2>

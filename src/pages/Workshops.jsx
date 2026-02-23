@@ -163,7 +163,7 @@ export default function Workshops() {
                   <Button
                     size="lg"
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                    onClick={() => window.open('https://buy.stripe.com/14k4jo1AI0vL8XC14o', '_blank')}
+                    onClick={() => window.location.href = createPageUrl('WorkshopPayment')}
                   >
                     Reserve Your Seat
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

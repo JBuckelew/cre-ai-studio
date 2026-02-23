@@ -6,7 +6,7 @@ import { CheckCircle, Calendar, Users, Award, ArrowRight } from "lucide-react";
 
 export default function WorkshopPayment() {
   const handlePayment = () => {
-    window.location.href = 'https://buy.stripe.com/14k4jo1AI0vL8XC14o';
+    window.location.href = 'https://buy.stripe.com/5kQeVe5FZdXo2SJ4bccV20i';
   };
 
   return (

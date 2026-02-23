@@ -108,16 +108,6 @@ export default function WorkshopPayment() {
                   <div className="text-slate-600">per attorney</div>
                 </div>
 
-                <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
-                  <div className="flex items-start gap-2 text-green-800">
-                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <div className="text-sm">
-                      <div className="font-bold">Studio Membership Included</div>
-                      <div>$249/year value - yours for life</div>
-                    </div>
-                  </div>
-                </div>
-
                 <Button
                   onClick={handlePayment}
                   className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group"

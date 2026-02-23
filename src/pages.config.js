@@ -61,9 +61,9 @@ import PaymentSuccess from './pages/PaymentSuccess';
 import privacyPolicy from './pages/Privacy-Policy';
 import Resources from './pages/Resources';
 import termsOfUse from './pages/Terms-of-Use';
-import Workshops from './pages/Workshops';
 import WorkshopPayment from './pages/WorkshopPayment';
 import WorkshopThankYou from './pages/WorkshopThankYou';
+import Workshops from './pages/Workshops';
 import __Layout from './Layout.jsx';
 
 
@@ -82,9 +82,9 @@ export const PAGES = {
     "Privacy-Policy": privacyPolicy,
     "Resources": Resources,
     "Terms-of-Use": termsOfUse,
-    "Workshops": Workshops,
     "WorkshopPayment": WorkshopPayment,
     "WorkshopThankYou": WorkshopThankYou,
+    "Workshops": Workshops,
 }
 
 export const pagesConfig = {

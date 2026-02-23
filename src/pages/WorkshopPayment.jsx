@@ -107,7 +107,7 @@ export default function WorkshopPayment() {
 
                 <div className="mt-6 text-center text-sm text-slate-600">
                   <p>Secure payment powered by Stripe</p>
-                  <p className="mt-2">Questions? Email info@creaistudio.com</p>
+                  <p className="mt-2">Questions? Email hello@creaistudio.com</p>
                 </div>
               </CardContent>
             </Card>

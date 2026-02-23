@@ -162,7 +162,7 @@ export default function Workshops() {
                 <div className="flex justify-center">
                   <Button
                     size="lg"
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                    className="bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
                     onClick={() => window.location.href = createPageUrl('WorkshopPayment')}
                   >
                     Reserve Your Seat

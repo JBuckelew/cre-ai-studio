@@ -96,18 +96,7 @@ export default function WorkshopPayment() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Card className="shadow-xl border-0 sticky top-8">
-              <CardHeader className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-t-xl">
-                <CardTitle className="text-2xl">Investment</CardTitle>
-                <CardDescription className="text-blue-100">
-                  One-time payment for the complete program
-                </CardDescription>
-              </CardHeader>
               <CardContent className="pt-8">
-                <div className="text-center mb-8">
-                  <div className="text-5xl font-black text-slate-900 mb-2">$1,295</div>
-                  <div className="text-slate-600">per attorney</div>
-                </div>
-
                 <Button
                   onClick={handlePayment}
                   className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group"

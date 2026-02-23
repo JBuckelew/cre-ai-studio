@@ -100,7 +100,7 @@ export default function HeroSection() {
           >
             <a 
               href={createPageUrl('Workshops')}
-              className="block w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 rounded-full py-2 px-6 transition-all duration-300 group"
+              className="block w-full bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 rounded-full py-2 px-6 transition-all duration-300 group"
             >
               <div className="flex items-center justify-center gap-2 text-white text-sm font-semibold">
                 <span className="bg-white/20 px-2 py-0.5 rounded text-xs font-bold">NEW</span>

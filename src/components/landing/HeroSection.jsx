@@ -99,7 +99,7 @@ export default function HeroSection() {
             className="w-full mb-8 sm:mb-10"
           >
             <a 
-              href={createPageUrl('FreeTrialPayment')}
+              href={createPageUrl('Workshops')}
               className="block w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 rounded-full py-2 px-6 transition-all duration-300 group"
             >
               <div className="flex items-center justify-center gap-2 text-white text-sm font-semibold">

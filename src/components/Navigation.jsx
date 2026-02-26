@@ -62,7 +62,7 @@ export default function Navigation() {
               onClick={handleWhatsIncludedClick}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
-              What's Included
+              Memberships
             </Button>
             <Button
               variant="ghost"
@@ -154,7 +154,7 @@ export default function Navigation() {
               onClick={handleWhatsIncludedClick}
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              What's Included
+              Memberships
             </Button>
             <Button
               variant="ghost"

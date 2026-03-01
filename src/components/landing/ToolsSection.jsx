@@ -2,23 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Zap, TrendingUp, Rocket, Brain, Target, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function ToolsSection() {
-  const lessons = [
-    { text: "Using Google Gemini and Microsoft Co-Pilot Enterprise Tools", icon: Sparkles, color: "from-blue-600 to-purple-600" },
-    { text: "Building CRE Custom GPTs", icon: Brain, color: "from-purple-500 to-pink-500" },
-    { text: "CRE Prompt Frameworks", icon: Target, color: "from-blue-500 to-cyan-500" },
-    { text: "How to turn ChatGPT into a CRE Automation Tool", icon: Zap, color: "from-yellow-500 to-orange-500" },
-    { text: "Getting the Most out of Deep Research using Claude, ChatGPT, and Perplexity", icon: Brain, color: "from-indigo-500 to-purple-500" },
-    { text: "CRE AI Automations", icon: Rocket, color: "from-green-500 to-emerald-500" },
-    { text: "AI Privacy", icon: Target, color: "from-red-500 to-pink-500" },
-    { text: "Building Investor Presentations using Genspark", icon: TrendingUp, color: "from-blue-500 to-indigo-500" },
-    { text: "How to prepare your systems for AI with Data Governance", icon: Brain, color: "from-teal-500 to-cyan-500" },
-    { text: "Building Financial Models using Opus 4.5 in Claude", icon: TrendingUp, color: "from-amber-500 to-orange-500" },
-    { text: "And so much more...", icon: Sparkles, color: "from-purple-500 to-blue-500" }
-  ];
-
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       {/* Subtle background */}
@@ -49,38 +35,30 @@ export default function ToolsSection() {
           </p>
         </motion.div>
 
-        {/* Lessons Grid */}
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-          {lessons.slice(0, -1).map((lesson, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group"
-            >
-              <div className="relative p-5 rounded-xl bg-white border-2 border-slate-200 shadow-md hover:shadow-lg hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className={`w-10 h-10 bg-gradient-to-br ${lesson.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                    <lesson.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-slate-800 font-semibold text-base leading-snug">
-                    {lesson.text}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Dashboard iframe */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200 mb-10"
+          style={{ height: '700px' }}
+        >
+          <iframe
+            src="https://cre-ai-report.base44.app"
+            className="w-full h-full"
+            style={{ border: 'none' }}
+            title="CRE AI Report Dashboard"
+          />
+        </motion.div>
 
         {/* Join for Free button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: lessons.length * 0.05 }}
-          className="mt-8 max-w-5xl mx-auto text-center"
+          transition={{ duration: 0.5 }}
+          className="text-center"
         >
           <Button
             onClick={() => window.location.href = '/FreeTrialPayment'}

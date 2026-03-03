@@ -256,6 +256,7 @@ export default function Layout({ children, currentPageName }) {
     return () => {
       document.head.removeChild(fontLink);
       document.head.removeChild(rewardfulScript);
+      document.head.removeChild(rewardfulPassthrough);
       document.head.removeChild(script1);
       document.head.removeChild(script2);
       document.head.removeChild(script3);

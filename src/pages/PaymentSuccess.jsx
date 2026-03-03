@@ -3,6 +3,7 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from '@/utils';
+import { getStripeSession } from "@/functions/getStripeSession";
 
 export default function PaymentSuccess() {
   const [loading, setLoading] = useState(true);

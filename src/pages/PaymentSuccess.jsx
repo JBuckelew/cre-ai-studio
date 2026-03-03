@@ -9,65 +9,44 @@ export default function PaymentSuccess() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get URL parameters from Stripe redirect
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('session_id');
 
-    // Simulate loading session data
-    // In production, you might fetch session details from Stripe
-    const session = {
-      id: sessionId,
-      customer_details: {
-        email: urlParams.get('email') || ''
-      },
-      amount_total: parseFloat(urlParams.get('amount') || '0') * 100,
-      metadata: {
-        plan: urlParams.get('plan') || 'Not specified'
-      }
-    };
-
-    // Track Rewardful conversion
-    const trackConversion = () => {
-      setTimeout(function() {
-        if (window.Rewardful) {
+    const trackConversion = (email, amountTotal) => {
+      // Wait for Rewardful to load, then fire convert
+      const attempt = (tries) => {
+        if (tries <= 0) return;
+        if (window.Rewardful && typeof window.Rewardful === 'function') {
           try {
-            window.Rewardful('convert', {
-              // Customer email (required)
-              email: session.customer_details.email,
-
-              // Order ID - using Stripe session ID
-              order_id: session.id,
-
-              // Amount - Stripe stores in cents, so divide by 100
-              amount: session.amount_total / 100,
-
-              // Track membership level purchased
-              metadata: {
-                membership_level: session.metadata.plan || 'Not specified',
-                membership_type: 'CRE AI Studio Community',
-                session_id: session.id
-              }
-            });
-
-            console.log('✅ Rewardful conversion tracked successfully!');
-            console.log('Email:', session.customer_details.email);
-            console.log('Amount:', session.amount_total / 100);
-            console.log('Plan:', session.metadata.plan);
-
-          } catch (error) {
-            console.error('❌ Error tracking Rewardful conversion:', error);
+            window.Rewardful('convert', { email });
+            console.log('✅ Rewardful conversion tracked for:', email);
+          } catch (e) {
+            console.error('❌ Rewardful convert error:', e);
           }
         } else {
-          console.error('❌ Rewardful not loaded - check base script installation');
+          setTimeout(() => attempt(tries - 1), 500);
         }
-      }, 500);
+      };
+      attempt(10);
     };
 
-    if (sessionId) {
-      trackConversion();
-    }
-    
-    setLoading(false);
+    const init = async () => {
+      if (sessionId) {
+        try {
+          const res = await getStripeSession({ session_id: sessionId });
+          const email = res.data?.email;
+          const amountTotal = res.data?.amount_total;
+          if (email) {
+            trackConversion(email, amountTotal);
+          }
+        } catch (e) {
+          console.error('Failed to fetch session:', e);
+        }
+      }
+      setLoading(false);
+    };
+
+    init();
   }, []);
 
   if (loading) {

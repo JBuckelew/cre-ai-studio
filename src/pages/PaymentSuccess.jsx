@@ -16,9 +16,9 @@ export default function PaymentSuccess() {
       // Wait for Rewardful to load, then fire convert
       const attempt = (tries) => {
         if (tries <= 0) return;
-        if (window.Rewardful && typeof window.Rewardful === 'function') {
+        if (window.rewardful && typeof window.rewardful === 'function') {
           try {
-            window.Rewardful('convert', { email });
+            window.rewardful('convert', { email });
             console.log('✅ Rewardful conversion tracked for:', email);
           } catch (e) {
             console.error('❌ Rewardful convert error:', e);

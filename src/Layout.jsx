@@ -21,14 +21,38 @@ export default function Layout({ children, currentPageName }) {
     // Add Rewardful referral ID passthrough to Stripe Payment Links
     const rewardfulPassthrough = document.createElement('script');
     rewardfulPassthrough.innerHTML = `
-      document.addEventListener('click', function(e) {
-        var link = e.target.closest('a[href*="buy.stripe.com"]');
-        if (link && window.Rewardful && Rewardful.referral) {
-          var url = new URL(link.href);
-          url.searchParams.set('client_reference_id', Rewardful.referral);
-          link.href = url.toString();
+      (function() {
+        function getReferral() {
+          try { return window.Rewardful && Rewardful.referral ? Rewardful.referral : null; }
+          catch(e) { return null; }
         }
-      }, true);
+
+        function fixUrl(url) {
+          var ref = getReferral();
+          if (!ref || !url || url.indexOf('buy.stripe.com') === -1 || url.indexOf('client_reference_id') !== -1) return url;
+          return url + (url.indexOf('?') !== -1 ? '&' : '?') + 'client_reference_id=' + encodeURIComponent(ref);
+        }
+
+        function fixLinks() {
+          document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a) { a.href = fixUrl(a.href); });
+        }
+
+        var obs = new MutationObserver(fixLinks);
+        document.addEventListener('DOMContentLoaded', function() { fixLinks(); obs.observe(document.body, {childList:true, subtree:true}); });
+
+        document.addEventListener('click', function(e) {
+          var a = e.target.closest('a');
+          if (a && a.href) a.href = fixUrl(a.href);
+        }, true);
+
+        var _open = window.open;
+        window.open = function(url) { arguments[0] = fixUrl(url); return _open.apply(this, arguments); };
+
+        var _assign = location.assign.bind(location);
+        var _replace = location.replace.bind(location);
+        location.assign = function(url) { return _assign(fixUrl(url)); };
+        location.replace = function(url) { return _replace(fixUrl(url)); };
+      })();
     `;
     document.head.appendChild(rewardfulPassthrough);
 

@@ -289,7 +289,7 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-                {currentPageName !== 'FreeTrialPayment' && currentPageName !== 'Payment' && currentPageName !== 'BlackFridayPayment' && <FreeTrialPopup />}
+                {currentPageName !== 'FreeTrialPayment' && currentPageName !== 'Payment' && currentPageName !== 'BlackFridayPayment' && currentPageName !== 'PaymentSuccess' && <FreeTrialPopup />}
                 <Navigation />
       <main className="flex-1">
         {children}

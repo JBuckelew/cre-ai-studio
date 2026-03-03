@@ -18,6 +18,20 @@ export default function Layout({ children, currentPageName }) {
     rewardfulScript.setAttribute('data-rewardful', '0b4b9e');
     document.head.appendChild(rewardfulScript);
 
+    // Add Rewardful referral ID passthrough to Stripe Payment Links
+    const rewardfulPassthrough = document.createElement('script');
+    rewardfulPassthrough.innerHTML = `
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href*="buy.stripe.com"]');
+        if (link && window.Rewardful && Rewardful.referral) {
+          var url = new URL(link.href);
+          url.searchParams.set('client_reference_id', Rewardful.referral);
+          link.href = url.toString();
+        }
+      }, true);
+    `;
+    document.head.appendChild(rewardfulPassthrough);
+
     // Add Google Analytics gtag script
     const script1 = document.createElement('script');
     script1.async = true;

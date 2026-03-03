@@ -6,14 +6,11 @@ import { createPageUrl } from '@/utils';
 import { getStripeSession } from "@/functions/getStripeSession";
 
 export default function PaymentSuccess() {
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('session_id');
 
-    const trackConversion = (email, amountTotal) => {
-      // Wait for Rewardful to load, then fire convert
+    const trackConversion = (email) => {
       const attempt = (tries) => {
         if (tries <= 0) return;
         if (window.rewardful && typeof window.rewardful === 'function') {
@@ -30,32 +27,16 @@ export default function PaymentSuccess() {
       attempt(10);
     };
 
-    const init = async () => {
-      if (sessionId) {
-        try {
-          const res = await getStripeSession({ session_id: sessionId });
+    // Run in background - don't block page render
+    if (sessionId) {
+      getStripeSession({ session_id: sessionId })
+        .then(res => {
           const email = res.data?.email;
-          const amountTotal = res.data?.amount_total;
-          if (email) {
-            trackConversion(email, amountTotal);
-          }
-        } catch (e) {
-          console.error('Failed to fetch session:', e);
-        }
-      }
-      setLoading(false);
-    };
-
-    init();
+          if (email) trackConversion(email);
+        })
+        .catch(e => console.error('Failed to fetch session:', e));
+    }
   }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-green-600" />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 flex items-center justify-center p-6">

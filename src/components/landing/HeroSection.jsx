@@ -104,7 +104,7 @@ export default function HeroSection() {
             >
               <div className="flex items-center justify-center gap-2 text-white text-sm font-semibold">
                 <span className="bg-white/20 px-2 py-0.5 rounded text-xs font-bold">NEW</span>
-                <span>AI for CRE Attorneys — 6-Week Live Cohort Starts March 25</span>
+                <span>AI for CRE Attorneys — 6-Week Live Cohort Starts April 17</span>
                 <span className="hidden sm:inline">|</span>
                 <span className="group-hover:translate-x-1 transition-transform">Reserve Your Seat →</span>
               </div>

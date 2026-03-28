@@ -160,10 +160,10 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
                     <Button
-                      onClick={() => setIsDialogOpen(true)}
+                      onClick={() => window.open('https://cre-ai-coach.onrender.com/', '_blank')}
                       className="h-10 sm:h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-4 sm:px-8 text-sm sm:text-base transition-all duration-300 group"
                     >
-                      Get the Free AI Tools + Prompts Guide
+                      Take the CRE AI Assessment
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </motion.div>

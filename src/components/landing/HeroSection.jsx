@@ -167,7 +167,7 @@ export default function HeroSection() {
                     <Button
                       onClick={() => window.open('https://cre-ai-coach.onrender.com/', '_blank')}
                       className="h-10 sm:h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-4 sm:px-8 text-sm sm:text-base transition-all duration-300 group"
-                      style={{ animation: 'flash 6s ease-in-out infinite' }}
+                      style={{ animation: 'flash 4s ease-in-out infinite' }}
                     >
                       Take the Free CRE AI Studio Assessment
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />

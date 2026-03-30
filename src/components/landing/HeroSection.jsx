@@ -87,6 +87,13 @@ export default function HeroSection() {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
+          @keyframes flash {
+            0%, 90%, 100% { opacity: 1; box-shadow: none; }
+            92% { opacity: 0.2; box-shadow: 0 0 30px 10px rgba(255,255,255,0.8); }
+            94% { opacity: 1; box-shadow: 0 0 20px 5px rgba(255,255,255,0.5); }
+            96% { opacity: 0.4; box-shadow: 0 0 25px 8px rgba(255,255,255,0.7); }
+            98% { opacity: 1; }
+          }
         `}</style>
         
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[60vh] sm:min-h-[70vh] py-10 sm:py-16 px-6 sm:px-12 lg:px-16">
@@ -162,6 +169,7 @@ export default function HeroSection() {
                     <Button
                       onClick={() => window.open('https://cre-ai-coach.onrender.com/', '_blank')}
                       className="h-10 sm:h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-4 sm:px-8 text-sm sm:text-base transition-all duration-300 group"
+                      style={{ animation: 'flash 4s ease-in-out infinite' }}
                     >
                       Take the Free CRE AI Studio Assessment
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />

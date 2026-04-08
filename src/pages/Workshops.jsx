@@ -132,7 +132,7 @@ export default function Workshops() {
                     <div className="space-y-5 bg-slate-50 rounded-2xl p-6">
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Starts</div>
-                        <div className="text-lg font-bold text-slate-900">April 8th, 2026</div>
+                        <div className="text-lg font-bold text-slate-900">April 9th, 2026</div>
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Format</div>

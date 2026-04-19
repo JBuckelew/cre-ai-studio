@@ -27,7 +27,7 @@ Deno.serve(async (req) => {
     const subject = `New Consulting Inquiry: ${application.first_name} ${application.last_name} (${application.company})`;
 
     const { data, error } = await resend.emails.send({
-      from: 'CRE AI Studio <no-reply@creaistudio.com>',
+      from: 'CRE AI Studio <no-reply@updates.creaistudio.com>',
       to: ['jonathan@creaistudio.com', 'topher@creaistudio.com', 'nadine@ezzieco.com'],
       subject,
       html,

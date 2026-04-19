@@ -114,47 +114,50 @@ export default function FreeTrialPaymentPage() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center p-4 py-16 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-purple-600/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-l from-blue-600/20 to-transparent rounded-full blur-3xl animate-pulse [animation-delay:2s]"></div>
+      {/* Background Elements - matching hero section */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full blur-3xl"></div>
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative z-10 w-full max-w-2xl"
       >
-        <Card className="bg-black/40 backdrop-blur-lg border border-white/10 shadow-2xl shadow-blue-500/10">
-          <CardHeader className="text-center">
+        <Card className="bg-slate-900/80 backdrop-blur-lg border border-white/10 shadow-2xl shadow-blue-500/10">
+          <CardHeader className="text-center pb-2">
             {/* Free Trial Badge */}
-            <div className="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 animate-pulse mx-auto">
+            <div className="inline-block bg-blue-500/10 border border-blue-400/30 text-blue-300 px-6 py-2 rounded-full text-sm font-semibold mb-6 mx-auto">
               7-DAY FREE TRIAL 🚀
             </div>
-            <CardTitle className="text-5xl font-bold mb-4 tracking-tight leading-none bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent">
+            <CardTitle className="text-5xl font-black mb-3 tracking-tight leading-none text-white">
               CRE AI Studio
             </CardTitle>
-            <CardDescription className="text-slate-300 text-xl">
+            <CardDescription className="text-slate-300 text-xl font-light">
                 Start Your Free Trial Today
               </CardDescription>
 
               {/* Billing Toggle */}
-              <div className="flex items-center justify-center gap-2 mt-6">
+              <div className="flex items-center justify-center gap-0 mt-6 border border-white/10 rounded-xl overflow-hidden w-fit mx-auto">
                 <button
                   onClick={() => setBillingCycle('monthly')}
-                  className={`px-4 py-2 rounded-l-xl font-semibold transition-all ${
+                  className={`px-5 py-2.5 font-semibold transition-all text-sm ${
                     billingCycle === 'monthly'
                       ? 'bg-blue-600 text-white'
-                      : 'bg-white/10 text-slate-400 hover:bg-white/20'
+                      : 'bg-white/5 text-slate-400 hover:bg-white/10'
                   }`}
                 >
                   Monthly
                 </button>
                 <button
                   onClick={() => setBillingCycle('annual')}
-                  className={`px-4 py-2 rounded-r-xl font-semibold transition-all flex items-center gap-2 ${
+                  className={`px-5 py-2.5 font-semibold transition-all flex items-center gap-2 text-sm ${
                     billingCycle === 'annual'
                       ? 'bg-yellow-500 text-black'
-                      : 'bg-white/10 text-slate-400 hover:bg-white/20'
+                      : 'bg-white/5 text-slate-400 hover:bg-white/10'
                   }`}
                 >
                   Annual
@@ -194,11 +197,11 @@ export default function FreeTrialPaymentPage() {
                 layout
                 transition={{ duration: 0.3, ease: 'easeOut' }}
                 onClick={() => setSelectedLevel(plan.level)}
-                className={`p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 relative ${
+                className={`p-6 rounded-2xl border cursor-pointer transition-all duration-300 relative ${
                     selectedLevel === plan.level
                       ? billingCycle === 'annual'
-                        ? 'border-yellow-400 bg-yellow-500/10 shadow-lg'
-                        : 'border-blue-500 bg-blue-500/10 shadow-lg'
+                        ? 'border-yellow-400/60 bg-yellow-500/10 shadow-lg shadow-yellow-500/10'
+                        : 'border-blue-500/60 bg-blue-500/10 shadow-lg shadow-blue-500/10'
                       : 'border-white/10 bg-white/5 hover:bg-white/10'
                   }`}
               >
@@ -242,10 +245,10 @@ export default function FreeTrialPaymentPage() {
                   >
                     <Button
                       size="lg"
-                      className={`w-full font-bold text-sm rounded-xl transition-all duration-300 group disabled:opacity-70 ${
+                      className={`w-full font-bold text-sm rounded-full transition-all duration-300 group disabled:opacity-70 ${
                         billingCycle === 'annual'
                           ? 'bg-yellow-500 text-black hover:bg-yellow-600'
-                          : 'bg-blue-600 text-white hover:bg-blue-700'
+                          : 'bg-gradient-to-r from-purple-600 via-blue-600 to-blue-500 text-white hover:opacity-90'
                       }`}
                       onClick={handlePayment}
                       disabled={isProcessing}
@@ -272,15 +275,15 @@ export default function FreeTrialPaymentPage() {
               </motion.div>
             ))}
           </CardContent>
-          <CardFooter className="px-8 pt-6">
+          <CardFooter className="px-8 pt-6 pb-8">
               {/* Desktop-only button */}
               <div className="hidden md:block w-full">
                 <Button
                   size="lg"
-                  className={`w-full font-bold text-lg rounded-xl transition-all duration-300 group disabled:opacity-70 ${
+                  className={`w-full font-bold text-lg rounded-full transition-all duration-300 group disabled:opacity-70 ${
                     billingCycle === 'annual'
                       ? 'bg-yellow-500 text-black hover:bg-yellow-600'
-                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'bg-gradient-to-r from-purple-600 via-blue-600 to-blue-500 text-white hover:opacity-90'
                   }`}
                   onClick={handlePayment}
                   disabled={isProcessing}

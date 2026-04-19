@@ -178,7 +178,7 @@ export default function Consulting() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl font-black text-white/10 mb-3">{item.step}</div>
+                <div className="text-5xl font-black text-blue-900 mb-3">{item.step}</div>
                 <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>

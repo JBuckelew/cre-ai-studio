@@ -1,0 +1,88 @@
+{
+  "name": "ConsultingApplication",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "description": "Applicant's first name"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Applicant's last name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Applicant's email"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "firm_type": {
+      "type": "string",
+      "enum": [
+        "Law Firm",
+        "Brokerage",
+        "Investment / PE",
+        "Asset Management",
+        "Developer",
+        "REIT",
+        "Other"
+      ],
+      "description": "Type of CRE firm"
+    },
+    "team_size": {
+      "type": "string",
+      "enum": [
+        "Just me",
+        "2\u20135",
+        "6\u201320",
+        "21\u201350",
+        "50+"
+      ],
+      "description": "Team size"
+    },
+    "timeline": {
+      "type": "string",
+      "enum": [
+        "Immediately",
+        "Within 3 months",
+        "3\u20136 months",
+        "Just exploring"
+      ],
+      "description": "AI implementation timeline"
+    },
+    "biggest_challenge": {
+      "type": "string",
+      "description": "Biggest workflow challenge"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "qualified",
+        "not_qualified"
+      ],
+      "default": "pending",
+      "description": "Review status"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "email",
+    "company",
+    "firm_type",
+    "team_size",
+    "timeline"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "write": {}
+  }
+}

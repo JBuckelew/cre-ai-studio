@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Brain, Bot, FileSearch, Presentation, Workflow, Building2, CheckCircle, Calendar } from "lucide-react";
+import ConsultingQualForm from "@/components/consulting/ConsultingQualForm";
 
 const CALENDLY_URL = "https://calendly.com/jonathan-creaistudio/30min";
 
@@ -101,10 +102,10 @@ export default function Consulting() {
             </p>
 
             <Button
-              onClick={openCalendly}
+              onClick={() => document.getElementById('apply-section')?.scrollIntoView({ behavior: 'smooth' })}
               className="h-14 px-10 bg-gradient-to-r from-purple-600 via-blue-600 to-blue-500 hover:opacity-90 text-white font-bold text-lg rounded-full shadow-xl transition-all duration-300 group"
             >
-              Schedule a Free Strategy Call
+              Apply for a Strategy Call
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
@@ -211,38 +212,30 @@ export default function Consulting() {
         </div>
       </section>
 
-      {/* BOTTOM CTA */}
-      <section className="py-24 relative overflow-hidden">
+      {/* APPLY SECTION */}
+      <section id="apply-section" className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <Calendar className="w-12 h-12 text-blue-400 mx-auto mb-6" />
-            <h2 className="text-4xl sm:text-5xl font-black mb-6 leading-tight">
-              Ready to See What AI Can Do for Your Firm?
-            </h2>
-            <p className="text-xl text-slate-300 mb-8 leading-relaxed font-light">
-              Book a free 30-minute strategy call. We'll identify your biggest workflow opportunities and show you exactly what's possible.
-            </p>
+            <div className="text-center mb-10">
+              <Calendar className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+              <h2 className="text-4xl sm:text-5xl font-black mb-4 leading-tight">
+                Apply for a Strategy Call
+              </h2>
+              <p className="text-slate-300 text-lg font-light leading-relaxed">
+                Tell us a bit about your firm. If it's a fit, we'll reach out to schedule a free 30-minute call.
+              </p>
+            </div>
 
-            <Button
-              onClick={openCalendly}
-              className="h-14 px-12 bg-gradient-to-r from-purple-600 via-blue-600 to-blue-500 hover:opacity-90 text-white font-bold text-lg rounded-full shadow-2xl transition-all duration-300 group"
-            >
-              Book Your Free Call
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-
-            <div className="flex items-center justify-center gap-6 mt-8 text-sm text-slate-400">
-              <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" /> No commitment</div>
-              <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" /> 30 minutes</div>
-              <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" /> Actionable takeaways</div>
+            <div className="bg-slate-900/80 border border-white/10 rounded-3xl p-8 shadow-2xl">
+              <ConsultingQualForm />
             </div>
           </motion.div>
         </div>

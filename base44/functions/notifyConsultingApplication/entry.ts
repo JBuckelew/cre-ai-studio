@@ -1,28 +1,8 @@
-const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
-
-async function sendEmail(to, subject, html) {
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${RESEND_API_KEY}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      from: 'CRE AI Studio <onboarding@resend.dev>',
-      to: [to],
-      subject,
-      html
-    })
-  });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(`Resend error for ${to}: ${JSON.stringify(data)}`);
-  }
-  return data;
-}
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 Deno.serve(async (req) => {
   try {
+    const base44 = createClientFromRequest(req);
     const body = await req.json();
     const { application } = body;
 
@@ -43,18 +23,17 @@ Deno.serve(async (req) => {
 
     const subject = `New Consulting Inquiry: ${application.first_name} ${application.last_name} (${application.company})`;
 
-    // Send sequentially so errors are visible per recipient
-    const emailResults = [];
     const recipients = [
       'jonathan@creaistudio.com',
       'topher@creaistudio.com',
       'nadine@ezzieco.com'
     ];
 
+    const emailResults = [];
     for (const to of recipients) {
       try {
-        const result = await sendEmail(to, subject, html);
-        emailResults.push({ to, status: 'sent', id: result.id });
+        await base44.asServiceRole.integrations.Core.SendEmail({ to, subject, body: html });
+        emailResults.push({ to, status: 'sent' });
       } catch (err) {
         emailResults.push({ to, status: 'failed', error: err.message });
       }

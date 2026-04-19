@@ -92,20 +92,17 @@ export default function FreeTrialPopup() {
               <div className="relative p-8 md:p-10">
                 {!isSuccess ? (
                   <>
-                    {/* Banner — matches hero announcement bar style */}
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-red-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">
-                      <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] font-bold">FREE</span>
-                      7-Day Trial — No Credit Card Required
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"></span>
+                      7-Day Free Trial — No Credit Card Required
                     </div>
 
                     {/* Headline */}
                     <h2 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
                       AI Training that{" "}
                       <span className="italic text-blue-400">transforms</span>{" "}
-                      your CRE{" "}
-                      <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                        Practice
-                      </span>
+                      your CRE Practice
                     </h2>
 
                     {/* Subheadline */}

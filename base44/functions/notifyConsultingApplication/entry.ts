@@ -1,5 +1,3 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
-
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 
 async function sendEmail(to, subject, html) {
@@ -10,17 +8,17 @@ async function sendEmail(to, subject, html) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: 'CRE AI Studio <no-reply@creaistudio.com>',
+      from: 'CRE AI Studio <onboarding@resend.dev>',
       to: [to],
       subject,
       html
     })
   });
+  const data = await res.json();
   if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Resend error for ${to}: ${err}`);
+    throw new Error(`Resend error for ${to}: ${JSON.stringify(data)}`);
   }
-  return res.json();
+  return data;
 }
 
 Deno.serve(async (req) => {
@@ -43,19 +41,27 @@ Deno.serve(async (req) => {
       <p style="margin-top:16px;color:#6b7280;font-size:13px;font-family:sans-serif;">Review this application in your admin dashboard.</p>
     `;
 
+    const subject = `New Consulting Inquiry: ${application.first_name} ${application.last_name} (${application.company})`;
+
+    // Send sequentially so errors are visible per recipient
+    const emailResults = [];
     const recipients = [
       'jonathan@creaistudio.com',
       'topher@creaistudio.com',
       'nadine@ezzieco.com'
     ];
 
-    const subject = `New Consulting Inquiry: ${application.first_name} ${application.last_name} (${application.company})`;
+    for (const to of recipients) {
+      try {
+        const result = await sendEmail(to, subject, html);
+        emailResults.push({ to, status: 'sent', id: result.id });
+      } catch (err) {
+        emailResults.push({ to, status: 'failed', error: err.message });
+      }
+    }
 
-    await Promise.allSettled(recipients.map(to => sendEmail(to, subject, html)));
-
-    return Response.json({ success: true });
+    return Response.json({ success: true, emailResults });
   } catch (error) {
-    console.error('Error sending notification:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });

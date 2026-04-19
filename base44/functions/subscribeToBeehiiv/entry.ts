@@ -26,6 +26,8 @@ Deno.serve(async (req) => {
         email,
         reactivate_existing: true,
         send_welcome_email: true,
+        utm_source: 'website',
+        utm_medium: 'organic',
       }),
     });
 

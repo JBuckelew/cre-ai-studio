@@ -43,20 +43,16 @@ export default function Navigation() {
         <div className="hidden md:grid md:grid-cols-3 items-center h-16">
           {/* Logo */}
           <div className="justify-self-start">
-            <h1 className="text-lg font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
+            <h1
+              className="text-lg font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent cursor-pointer"
+              onClick={handleHomeClick}
+            >
               CRE AI Studio
             </h1>
           </div>
 
           {/* Navigation Links */}
           <div className="flex items-center justify-center gap-3">
-            <Button
-              variant="ghost"
-              onClick={handleHomeClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
-            >
-              Home
-            </Button>
             <Button
               variant="ghost"
               onClick={handleWhatsIncludedClick}
@@ -115,7 +111,10 @@ export default function Navigation() {
         <div className="md:hidden py-2">
           {/* Logo */}
           <div className="flex items-center justify-center mb-2">
-            <h1 className="text-base font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent">
+            <h1
+              className="text-base font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent cursor-pointer"
+              onClick={handleHomeClick}
+            >
               CRE AI Studio
             </h1>
           </div>
@@ -140,14 +139,6 @@ export default function Navigation() {
 
           {/* Bottom row: Navigation Links */}
           <div className="flex items-center justify-center gap-1 flex-wrap pt-1">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleHomeClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
-            >
-              Home
-            </Button>
             <Button
               variant="ghost"
               size="sm"

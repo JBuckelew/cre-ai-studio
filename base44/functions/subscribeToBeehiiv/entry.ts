@@ -12,7 +12,11 @@ Deno.serve(async (req) => {
     const apiKey = Deno.env.get('BEEHIIV_API_KEY');
     const publicationId = Deno.env.get('BEEHIIV_PUBLICATION_ID');
 
-    const response = await fetch(`https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`, {
+    console.log('publicationId:', publicationId);
+    console.log('apiKey present:', !!apiKey);
+    console.log('email:', email);
+
+    const beehiivRes = await fetch(`https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,11 +29,11 @@ Deno.serve(async (req) => {
       }),
     });
 
-    const data = await response.json();
+    const data = await beehiivRes.json();
+    console.log('Beehiiv status:', beehiivRes.status, 'data:', JSON.stringify(data));
 
-    if (!response.ok) {
-      console.error('Beehiiv error:', JSON.stringify(data));
-      return Response.json({ error: data.message || data.errors || 'Beehiiv error', details: data }, { status: response.status });
+    if (!beehiivRes.ok) {
+      return Response.json({ error: data.errors || data.message || 'Beehiiv error', details: data }, { status: beehiivRes.status });
     }
 
     // Also save to our DB
@@ -39,8 +43,9 @@ Deno.serve(async (req) => {
       // ignore duplicate DB errors
     }
 
-    return Response.json({ success: true });
+    return Response.json({ success: true, data });
   } catch (error) {
+    console.error('Exception:', error.message);
     return Response.json({ error: error.message }, { status: 500 });
   }
 });

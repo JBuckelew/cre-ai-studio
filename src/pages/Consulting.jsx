@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Brain, Bot, FileSearch, Presentation, Workflow, Building2, CheckCircle, Calendar } from "lucide-react";
 
-const CALENDLY_URL = "https://calendly.com/YOUR_LINK_HERE";
+const CALENDLY_URL = "https://calendly.com/jonathan-creaistudio/30min";
 
 const services = [
   {

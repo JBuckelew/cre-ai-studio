@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { createPageUrl } from '@/utils';
+import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
 import {
   Dialog,
   DialogContent,
@@ -41,21 +42,12 @@ export default function HeroSection() {
     if (!newsletterEmail) return;
     setNewsletterSubmitting(true);
     try {
-      // POST to Beehiiv subscribe form endpoint
-      const formData = new FormData();
-      formData.append('email', newsletterEmail);
-      await fetch('https://app.beehiiv.com/subscribe/adb17b1c-7b95-4713-bd84-45c00b379882', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData,
-      });
-      // Save to our DB too
-      await base44.entities.EmailSignup.create({ email: newsletterEmail, source: 'hero_newsletter' });
+      await subscribeToBeehiiv({ email: newsletterEmail });
       setNewsletterSuccess(true);
       setNewsletterEmail("");
     } catch (err) {
-      // no-cors means we can't read the response, assume success
-      setNewsletterSuccess(true);
+      console.error('Newsletter signup error:', err);
+      setNewsletterSuccess(true); // still show success to user
       setNewsletterEmail("");
     }
     setNewsletterSubmitting(false);

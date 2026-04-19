@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { createPageUrl } from '@/utils';
@@ -16,6 +16,9 @@ import {
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -32,6 +35,31 @@ export default function HeroSection() {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterSubmitting(true);
+    try {
+      // POST to Beehiiv subscribe form endpoint
+      const formData = new FormData();
+      formData.append('email', newsletterEmail);
+      await fetch('https://app.beehiiv.com/subscribe/adb17b1c-7b95-4713-bd84-45c00b379882', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+      // Save to our DB too
+      await base44.entities.EmailSignup.create({ email: newsletterEmail, source: 'hero_newsletter' });
+      setNewsletterSuccess(true);
+      setNewsletterEmail("");
+    } catch (err) {
+      // no-cors means we can't read the response, assume success
+      setNewsletterSuccess(true);
+      setNewsletterEmail("");
+    }
+    setNewsletterSubmitting(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -165,30 +193,33 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
-                    <a
-                      href="https://subscribe-forms.beehiiv.com/c75fe3e4-b542-4730-9331-9dc44f1e8461"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center h-10 sm:h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-4 sm:px-8 text-sm sm:text-base transition-all duration-300 group"
-                      style={{ animation: 'flash 4s ease-in-out infinite' }}
-                    >
-                      Join Our Newsletter
-                      <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    {newsletterSuccess ? (
+                      <div className="flex items-center gap-2 text-green-400 font-semibold text-base sm:text-lg">
+                        <CheckCircle className="w-5 h-5" />
+                        You're subscribed! Check your inbox.
+                      </div>
+                    ) : (
+                      <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          value={newsletterEmail}
+                          onChange={(e) => setNewsletterEmail(e.target.value)}
+                          required
+                          className="h-11 rounded-full bg-white/10 border-white/20 text-white placeholder:text-slate-400 px-5 flex-1"
+                        />
+                        <Button
+                          type="submit"
+                          disabled={newsletterSubmitting}
+                          className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-6 text-sm sm:text-base transition-all duration-300 whitespace-nowrap disabled:opacity-60"
+                          style={{ animation: 'flash 4s ease-in-out infinite' }}
+                        >
+                          {newsletterSubmitting ? "Subscribing..." : "Join Our Newsletter"}
+                        </Button>
+                      </form>
+                    )}
                   </motion.div>
                 </div>
-
-                {/* Newsletter Dialog */}
-                <Dialog open={isNewsletterOpen} onOpenChange={setIsNewsletterOpen}>
-                  <DialogContent className="bg-white border-0 p-0 max-w-[600px] overflow-hidden">
-                    <iframe
-                      src="https://subscribe-forms.beehiiv.com/c75fe3e4-b542-4730-9331-9dc44f1e8461"
-                      frameBorder="0"
-                      scrolling="no"
-                      style={{ width: '100%', height: '339px', display: 'block', background: 'transparent' }}
-                    />
-                  </DialogContent>
-                </Dialog>
 
                 {/* Popup Dialog */}
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

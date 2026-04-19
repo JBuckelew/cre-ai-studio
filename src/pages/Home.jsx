@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
+      <TestimonialsSection />
       <ValuePropositionSection />
       <WhyChooseSection />
       <MissionSection />
-      <TestimonialsSection />
       <ToolsSection />
     </div>
   );

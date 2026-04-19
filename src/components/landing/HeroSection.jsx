@@ -166,7 +166,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
                     <Button
-                      onClick={() => setIsNewsletterOpen(true)}
+                      onClick={() => window.open('https://subscribe-forms.beehiiv.com/c75fe3e4-b542-4730-9331-9dc44f1e8461', '_blank')}
                       className="h-10 sm:h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-4 sm:px-8 text-sm sm:text-base transition-all duration-300 group"
                       style={{ animation: 'flash 4s ease-in-out infinite' }}
                     >

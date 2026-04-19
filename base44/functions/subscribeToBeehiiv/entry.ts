@@ -39,11 +39,11 @@ Deno.serve(async (req) => {
       return Response.json({ error: data.errors || data.message || 'Beehiiv error', details: data }, { status: beehiivRes.status });
     }
 
-    // Also save to our DB
+    // Also save to our DB (service role so no auth required)
     try {
       await base44.asServiceRole.entities.EmailSignup.create({ email, source: 'hero_newsletter' });
     } catch (_) {
-      // ignore duplicate DB errors
+      // ignore duplicate errors
     }
 
     return Response.json({ success: true, data });

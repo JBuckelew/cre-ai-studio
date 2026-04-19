@@ -15,6 +15,7 @@ import {
 
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -165,15 +166,27 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
                     <Button
-                      onClick={() => window.open('https://cre-ai-coach.onrender.com/', '_blank')}
+                      onClick={() => setIsNewsletterOpen(true)}
                       className="h-10 sm:h-12 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-4 sm:px-8 text-sm sm:text-base transition-all duration-300 group"
                       style={{ animation: 'flash 4s ease-in-out infinite' }}
                     >
-                      Take the Free CRE AI Studio Assessment
+                      Join Our Newsletter
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </motion.div>
                 </div>
+
+                {/* Newsletter Dialog */}
+                <Dialog open={isNewsletterOpen} onOpenChange={setIsNewsletterOpen}>
+                  <DialogContent className="bg-white border-0 p-0 max-w-[600px] overflow-hidden">
+                    <iframe
+                      src="https://subscribe-forms.beehiiv.com/c75fe3e4-b542-4730-9331-9dc44f1e8461"
+                      frameBorder="0"
+                      scrolling="no"
+                      style={{ width: '100%', height: '339px', display: 'block', background: 'transparent' }}
+                    />
+                  </DialogContent>
+                </Dialog>
 
                 {/* Popup Dialog */}
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

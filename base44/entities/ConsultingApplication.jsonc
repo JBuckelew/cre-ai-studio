@@ -19,6 +19,10 @@
       "type": "string",
       "description": "Company name"
     },
+    "website": {
+      "type": "string",
+      "description": "Company website URL"
+    },
     "firm_type": {
       "type": "string",
       "enum": [

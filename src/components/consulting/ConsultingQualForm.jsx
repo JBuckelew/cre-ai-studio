@@ -29,7 +29,7 @@ export default function ConsultingQualForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [form, setForm] = useState({
-    first_name: "", last_name: "", email: "", company: "",
+    first_name: "", last_name: "", email: "", company: "", website: "",
     firm_type: "", team_size: "", timeline: "", biggest_challenge: ""
   });
 
@@ -93,6 +93,8 @@ export default function ConsultingQualForm() {
               <Input placeholder="Work email" type="email" value={form.email} onChange={e => set("email", e.target.value)}
                 className="h-11 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-400" />
               <Input placeholder="Company name" value={form.company} onChange={e => set("company", e.target.value)}
+                className="h-11 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-400" />
+              <Input placeholder="Company website (e.g. acme.com)" value={form.website} onChange={e => set("website", e.target.value)}
                 className="h-11 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-blue-400" />
             </div>
           </motion.div>

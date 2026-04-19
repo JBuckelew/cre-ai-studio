@@ -6,8 +6,7 @@ import { BarChart3, ArrowRight } from "lucide-react";
 
 export default function AISurveySection() {
   const handleSurveyClick = () => {
-    // Replace this URL with your actual survey link
-    window.open("https://your-survey-url.com", "_blank");
+    window.open("https://cre-ai-coach.onrender.com", "_blank");
   };
 
   return (

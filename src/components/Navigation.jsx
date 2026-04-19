@@ -73,17 +73,17 @@ export default function Navigation() {
             </Button>
             <Button
               variant="ghost"
-              onClick={() => window.location.href = '/Articles'}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
-            >
-              Free Resources
-            </Button>
-            <Button
-              variant="ghost"
               onClick={() => window.location.href = '/Consulting'}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
               Consulting
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => window.location.href = '/Articles'}
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+            >
+              Free Resources
             </Button>
             <Button
               variant="ghost"
@@ -167,18 +167,18 @@ export default function Navigation() {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => window.location.href = '/Articles'}
-              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
-            >
-              Free Resources
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
               onClick={() => window.location.href = '/Consulting'}
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               Consulting
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => window.location.href = '/Articles'}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
+            >
+              Free Resources
             </Button>
             <Button
               variant="ghost"

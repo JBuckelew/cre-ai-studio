@@ -63,19 +63,19 @@ export default function FreeTrialPopup() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50"
             onClick={handleClose}
           />
 
           {/* Popup */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 md:p-4 pb-8"
+            className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 pb-8"
           >
-            <div className="relative bg-black text-white rounded-3xl shadow-2xl max-w-md md:max-w-lg w-full overflow-hidden border-2 border-blue-500">
+            <div className="relative bg-slate-900 text-white rounded-3xl shadow-2xl shadow-blue-500/20 max-w-md w-full overflow-hidden border border-white/10">
               {/* Close button */}
               <button
                 onClick={handleClose}
@@ -84,61 +84,67 @@ export default function FreeTrialPopup() {
                 <X className="w-4 h-4" />
               </button>
 
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl"></div>
+              {/* Decorative blobs matching hero */}
+              <div className="absolute top-0 right-0 w-56 h-56 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
               {/* Content */}
-              <div className="relative p-6 md:p-12">
+              <div className="relative p-8 md:p-10">
                 {!isSuccess ? (
                   <>
-                    {/* Badge */}
-                    <div className="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 animate-pulse">
-                      START FREE TODAY 🚀
+                    {/* Banner — matches hero announcement bar style */}
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-red-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">
+                      <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] font-bold">FREE</span>
+                      7-Day Trial — No Credit Card Required
                     </div>
 
                     {/* Headline */}
-                    <h2 className="text-xl md:text-3xl font-black mb-3 leading-tight">
-                      Try the <span className="bg-gradient-to-r from-purple-500 via-yellow-400 to-green-500 bg-clip-text text-transparent">CRE AI Studio</span> <span className="text-blue-400">FREE for 7 days</span>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                      AI Training that{" "}
+                      <span className="italic text-blue-400">transforms</span>{" "}
+                      your CRE{" "}
+                      <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                        Practice
+                      </span>
                     </h2>
 
                     {/* Subheadline */}
-                    <p className="text-base md:text-lg text-blue-100 mb-3">
-                      Master AI in Commercial Real Estate with weekly lessons, live Q&A sessions, and direct access to founders.
-                    </p>
-
-                    <p className="text-xs md:text-sm text-gray-400 mb-4">
-                      Cancel anytime during your trial.
+                    <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                      Weekly AI lessons, live Q&amp;A sessions, and a community of hundreds of CRE professionals — all in one place.
                     </p>
 
                     {/* Email form */}
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-3">
                       <Input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="Enter your work email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-yellow-400 rounded-xl"
+                        className="h-12 bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus:border-blue-400 rounded-full px-5"
                         required
                       />
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300"
+                        className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all duration-300"
                       >
-                        {isSubmitting ? "Starting..." : "Start My Free Trial"}
+                        {isSubmitting ? "Starting..." : "Start My Free Trial →"}
                       </Button>
                     </form>
-                    </>
-                    ) : (
+
+                    <p className="text-xs text-slate-500 mt-4 text-center">
+                      Cancel anytime. No commitment required.
+                    </p>
+                  </>
+                ) : (
                   <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">You're In! 🎉</h3>
-                    <p className="text-blue-100">Check your email for next steps.</p>
+                    <h3 className="text-2xl font-bold mb-2">You're In!</h3>
+                    <p className="text-slate-300 text-sm">Check your email for next steps.</p>
                   </div>
                 )}
               </div>

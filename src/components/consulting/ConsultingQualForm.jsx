@@ -45,7 +45,8 @@ export default function ConsultingQualForm() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     const application = await base44.entities.ConsultingApplication.create(form);
-    await notifyConsultingApplication({ application: { ...form, id: application.id } });
+    // Fire notification but don't block success on it
+    notifyConsultingApplication({ application: { ...form, id: application.id } }).catch(console.error);
     setIsSuccess(true);
     setIsSubmitting(false);
   };

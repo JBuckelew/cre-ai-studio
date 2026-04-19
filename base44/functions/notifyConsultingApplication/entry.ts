@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
 
     const subject = `New Consulting Inquiry: ${application.first_name} ${application.last_name} (${application.company})`;
 
-    await Promise.all(recipients.map(to => sendEmail(to, subject, html)));
+    await Promise.allSettled(recipients.map(to => sendEmail(to, subject, html)));
 
     return Response.json({ success: true });
   } catch (error) {

@@ -5,16 +5,17 @@ import ToolsSection from "../components/landing/ToolsSection";
 import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
 import WhyChooseSection from "../components/landing/WhyChooseSection";
+import AISurveySection from "../components/landing/AISurveySection";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
       <TestimonialsSection />
+      <AISurveySection />
       <ValuePropositionSection />
       <WhyChooseSection />
       <MissionSection />
-      <ToolsSection />
     </div>
   );
 }

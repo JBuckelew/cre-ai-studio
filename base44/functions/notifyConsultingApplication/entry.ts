@@ -1,4 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
+import { Resend } from 'npm:resend@4.0.0';
+
+const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
 
 Deno.serve(async (req) => {
   try {
@@ -23,23 +26,19 @@ Deno.serve(async (req) => {
 
     const subject = `New Consulting Inquiry: ${application.first_name} ${application.last_name} (${application.company})`;
 
-    const recipients = [
-      'jonathan@creaistudio.com',
-      'topher@creaistudio.com',
-      'nadine@ezzieco.com'
-    ];
+    const { data, error } = await resend.emails.send({
+      from: 'CRE AI Studio <no-reply@creaistudio.com>',
+      to: ['jonathan@creaistudio.com', 'topher@creaistudio.com', 'nadine@ezzieco.com'],
+      subject,
+      html,
+    });
 
-    const emailResults = [];
-    for (const to of recipients) {
-      try {
-        await base44.asServiceRole.integrations.Core.SendEmail({ to, subject, body: html });
-        emailResults.push({ to, status: 'sent' });
-      } catch (err) {
-        emailResults.push({ to, status: 'failed', error: err.message });
-      }
+    if (error) {
+      console.error('Resend error:', error);
+      return Response.json({ success: false, error }, { status: 500 });
     }
 
-    return Response.json({ success: true, emailResults });
+    return Response.json({ success: true, data });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }

@@ -25,11 +25,11 @@ export default function AISurveySection() {
           className="text-center mb-12"
         >
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-teal-700 to-emerald-900 text-white rounded-full flex items-center justify-center shadow-lg shadow-teal-900/20">
+            <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center shadow-lg shadow-black/20">
               <BarChart3 className="w-8 h-8" />
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-teal-900 mb-6 tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight leading-tight">
             Discover Your CRE AI Readiness
           </h2>
           <p className="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
@@ -58,19 +58,19 @@ export default function AISurveySection() {
 
                 <div className="space-y-3 pt-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Understand your firm's AI maturity level</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Get actionable insights for your role</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Discover next steps for your firm</p>

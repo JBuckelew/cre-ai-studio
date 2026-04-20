@@ -30,7 +30,7 @@ export default function AISurveySection() {
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-teal-900 mb-6 tracking-tight leading-tight">
-            Discover Your AI Readiness
+            Discover Your CRE AI Readiness
           </h2>
           <p className="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             Take our quick AI readiness assessment to identify where your firm stands and get personalized recommendations for AI adoption.
@@ -48,7 +48,7 @@ export default function AISurveySection() {
             <CardContent className="p-8 md:p-12">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-teal-900 mb-3">
+                  <h3 className="text-2xl font-bold text-black mb-3">
                     5-Minute AI Readiness Survey
                   </h3>
                   <p className="text-stone-600 text-lg leading-relaxed">
@@ -79,7 +79,7 @@ export default function AISurveySection() {
 
                 <Button
                   onClick={handleSurveyClick}
-                  className="w-full h-12 bg-gradient-to-r from-teal-700 to-emerald-800 hover:from-teal-600 hover:to-emerald-700 text-white font-bold rounded-full text-lg transition-all duration-300 group mt-8 shadow-lg shadow-teal-900/20"
+                  className="w-full h-12 bg-black hover:bg-neutral-800 text-white font-bold rounded-full text-lg transition-all duration-300 group mt-8 shadow-lg shadow-black/20"
                 >
                   Take the Survey
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

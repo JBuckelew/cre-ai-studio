@@ -95,7 +95,7 @@ export default function FreeTrialPopup() {
                     {/* Badge */}
                     <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 text-blue-300 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block"></span>
-                      7-Day Free Trial — No Credit Card Required
+                      7-Day Free Trial
                     </div>
 
                     {/* Headline */}

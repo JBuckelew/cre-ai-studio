@@ -49,7 +49,7 @@ export default function AISurveySection() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-black mb-3">
-                    5-Minute AI Readiness Survey
+                    5-Minute CRE AI Readiness Survey
                   </h3>
                   <p className="text-stone-600 text-lg leading-relaxed">
                     Answer a few quick questions about your firm's current use of AI, workflows, and goals. We'll provide instant insights and personalized recommendations.

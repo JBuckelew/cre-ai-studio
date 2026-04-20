@@ -10,10 +10,10 @@ export default function AISurveySection() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-br from-amber-50 via-stone-100 to-amber-100 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-stone-200 via-neutral-100 to-stone-300 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-gradient-to-l from-amber-200/50 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-stone-300/50 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-gradient-to-l from-stone-400/20 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-neutral-300/40 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,.03)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -25,7 +25,7 @@ export default function AISurveySection() {
           className="text-center mb-12"
         >
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-stone-700 text-white rounded-full flex items-center justify-center shadow-lg shadow-amber-700/20">
+            <div className="w-16 h-16 bg-gradient-to-br from-stone-600 to-stone-800 text-white rounded-full flex items-center justify-center shadow-lg shadow-stone-800/20">
               <BarChart3 className="w-8 h-8" />
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function AISurveySection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-2xl mx-auto"
         >
-          <Card className="border border-amber-200 shadow-2xl shadow-amber-900/10 bg-white/70 backdrop-blur-sm overflow-hidden">
+          <Card className="border border-stone-300 shadow-2xl shadow-stone-900/10 bg-white/80 backdrop-blur-sm overflow-hidden">
             <CardContent className="p-8 md:p-12">
               <div className="space-y-6">
                 <div>
@@ -58,19 +58,19 @@ export default function AISurveySection() {
 
                 <div className="space-y-3 pt-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-stone-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Understand your firm's AI maturity level</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-stone-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Get actionable insights for your role</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-stone-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Discover next steps for your firm</p>
@@ -79,7 +79,7 @@ export default function AISurveySection() {
 
                 <Button
                   onClick={handleSurveyClick}
-                  className="w-full h-12 bg-gradient-to-r from-amber-700 to-stone-700 hover:from-amber-600 hover:to-stone-600 text-white font-bold rounded-full text-lg transition-all duration-300 group mt-8 shadow-lg shadow-amber-900/20"
+                  className="w-full h-12 bg-gradient-to-r from-stone-700 to-stone-900 hover:from-stone-600 hover:to-stone-800 text-white font-bold rounded-full text-lg transition-all duration-300 group mt-8 shadow-lg shadow-stone-900/20"
                 >
                   Take the Survey
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

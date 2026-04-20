@@ -25,11 +25,11 @@ export default function AISurveySection() {
           className="text-center mb-12"
         >
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-stone-600 to-stone-800 text-white rounded-full flex items-center justify-center shadow-lg shadow-stone-800/20">
+            <div className="w-16 h-16 bg-gradient-to-br from-teal-700 to-emerald-900 text-white rounded-full flex items-center justify-center shadow-lg shadow-teal-900/20">
               <BarChart3 className="w-8 h-8" />
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-stone-800 mb-6 tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-teal-900 mb-6 tracking-tight leading-tight">
             Discover Your AI Readiness
           </h2>
           <p className="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
@@ -48,7 +48,7 @@ export default function AISurveySection() {
             <CardContent className="p-8 md:p-12">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-stone-800 mb-3">
+                  <h3 className="text-2xl font-bold text-teal-900 mb-3">
                     5-Minute AI Readiness Survey
                   </h3>
                   <p className="text-stone-600 text-lg leading-relaxed">
@@ -58,19 +58,19 @@ export default function AISurveySection() {
 
                 <div className="space-y-3 pt-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-stone-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Understand your firm's AI maturity level</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-stone-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Get actionable insights for your role</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-stone-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-6 h-6 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-sm font-bold">✓</span>
                     </div>
                     <p className="text-stone-700">Discover next steps for your firm</p>
@@ -79,7 +79,7 @@ export default function AISurveySection() {
 
                 <Button
                   onClick={handleSurveyClick}
-                  className="w-full h-12 bg-gradient-to-r from-stone-700 to-stone-900 hover:from-stone-600 hover:to-stone-800 text-white font-bold rounded-full text-lg transition-all duration-300 group mt-8 shadow-lg shadow-stone-900/20"
+                  className="w-full h-12 bg-gradient-to-r from-teal-700 to-emerald-800 hover:from-teal-600 hover:to-emerald-700 text-white font-bold rounded-full text-lg transition-all duration-300 group mt-8 shadow-lg shadow-teal-900/20"
                 >
                   Take the Survey
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

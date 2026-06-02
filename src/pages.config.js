@@ -63,6 +63,7 @@ import Resources from './pages/Resources';
 import termsOfUse from './pages/Terms-of-Use';
 import WorkshopPayment from './pages/WorkshopPayment';
 import WorkshopThankYou from './pages/WorkshopThankYou';
+import Consulting from './pages/Consulting';
 import Workshops from './pages/Workshops';
 import __Layout from './Layout.jsx';
 
@@ -84,6 +85,7 @@ export const PAGES = {
     "Terms-of-Use": termsOfUse,
     "WorkshopPayment": WorkshopPayment,
     "WorkshopThankYou": WorkshopThankYou,
+    "Consulting": Consulting,
     "Workshops": Workshops,
 }
 

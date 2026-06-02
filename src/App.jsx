@@ -1,5 +1,4 @@
 import './App.css'
-import Consulting from './pages/Consulting'
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
@@ -61,7 +60,6 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
-      <Route path="/Consulting" element={<LayoutWrapper currentPageName="Consulting"><Consulting /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

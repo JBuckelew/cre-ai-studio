@@ -1,0 +1,56 @@
+{
+  "name": "Resource",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the PDF resource"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of what the PDF contains"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price for non-members in USD"
+    },
+    "pdf_url": {
+      "type": "string",
+      "description": "URL to the PDF file"
+    },
+    "preview_image": {
+      "type": "string",
+      "description": "Preview image URL for the resource"
+    },
+    "stripe_payment_link": {
+      "type": "string",
+      "description": "Stripe payment link for this resource"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "automation",
+        "analysis",
+        "marketing",
+        "legal",
+        "general"
+      ],
+      "default": "general",
+      "description": "Category of the resource"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "price",
+    "pdf_url"
+  ],
+  "rls": {
+    "read": {},
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

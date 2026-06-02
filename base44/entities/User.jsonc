@@ -1,0 +1,23 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "is_circle_member": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether user is a paid Circle community member"
+    },
+    "circle_membership_level": {
+      "type": "string",
+      "enum": [
+        "level1",
+        "level2",
+        "level3"
+      ],
+      "description": "Circle membership tier"
+    }
+  },
+  "required": [
+    "circle_membership_level"
+  ]
+}

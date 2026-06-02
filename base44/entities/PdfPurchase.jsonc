@@ -1,0 +1,57 @@
+{
+  "name": "PdfPurchase",
+  "type": "object",
+  "properties": {
+    "resource_id": {
+      "type": "string",
+      "description": "ID of the purchased resource"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user who purchased"
+    },
+    "purchase_type": {
+      "type": "string",
+      "enum": [
+        "member_free",
+        "individual_purchase"
+      ],
+      "description": "How the user got access"
+    },
+    "stripe_session_id": {
+      "type": "string",
+      "description": "Stripe session ID for individual purchases"
+    }
+  },
+  "required": [
+    "resource_id",
+    "user_email",
+    "purchase_type"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "write": {
+      "$or": [
+        {
+          "user_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

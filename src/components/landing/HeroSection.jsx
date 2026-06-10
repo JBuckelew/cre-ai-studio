@@ -117,25 +117,7 @@ export default function HeroSection() {
         
         <div className="relative z-10 flex flex-col items-start justify-start min-h-[60vh] sm:min-h-[70vh] py-10 sm:py-16 px-6 sm:px-12 lg:px-16">
           
-          {/* Lawyers Track Banner */}
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full mb-8 sm:mb-10"
-          >
-            <a 
-              href={createPageUrl('Workshops')}
-              className="block w-full bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 rounded-full py-2 px-6 transition-all duration-300 group"
-            >
-              <div className="flex items-center justify-center gap-2 text-white text-sm font-semibold">
-                <span className="bg-white/20 px-2 py-0.5 rounded text-xs font-bold">NEW</span>
-                <span>AI for CRE Attorneys — 6-Week Live Cohort | Live Now</span>
-                <span className="hidden sm:inline">|</span>
-                <span className="group-hover:translate-x-1 transition-transform">Reserve Your Seat →</span>
-              </div>
-            </a>
-          </motion.div>
+
 
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}

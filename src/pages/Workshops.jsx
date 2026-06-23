@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, CheckCircle, Calendar, Users, Video, Award } from "lucide-react";
 import { createPageUrl } from '@/utils';
 import { base44 } from "@/api/base44Client";
+import ClaudeCohortCard from "@/components/workshops/ClaudeCohortCard";
 
 export default function Workshops() {
   const [waitlistEmail, setWaitlistEmail] = useState("");
@@ -174,6 +175,9 @@ export default function Workshops() {
           </motion.div>
         </div>
       </section>
+
+      {/* SECTION 2B - CLAUDE COHORT */}
+      <ClaudeCohortCard />
 
       {/* SECTION 3 - COMING SOON TEASER */}
       <section className="py-20 bg-slate-50">

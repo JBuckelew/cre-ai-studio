@@ -39,7 +39,7 @@ export default function ClaudeCohortCard() {
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                     <CheckCircle className="w-6 h-6 text-amber-600" />
-                    The Four-Week Blueprint
+                    The Four-Week Claude Class
                   </h3>
                   <ul className="space-y-4">
                     {[

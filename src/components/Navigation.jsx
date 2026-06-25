@@ -96,7 +96,7 @@ export default function Navigation() {
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4"
             >
-              Join for Free
+              Join the Group
             </Button>
             <Button
               onClick={handleLoginClick}
@@ -126,7 +126,7 @@ export default function Navigation() {
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs px-3"
             >
-              Join for Free
+              Join the Group
             </Button>
             <Button
               onClick={handleLoginClick}

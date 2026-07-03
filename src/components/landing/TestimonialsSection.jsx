@@ -33,6 +33,14 @@ export default function TestimonialsSection() {
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/00c9e3c24_1708544375717.jpg",
       content: "CRE AI Studio cuts through the noise. Instead of abstract AI talk, it delivers real, industry-specific workflows that actually work in production. As a proptech founder, this helped me sharpen our product thinking, move faster, and better understand how real estate teams are adopting AI today. Easily one of the most practical AI resources in CRE",
       highlight: "real, industry-specific workflows"
+    },
+    {
+      name: "Matt Cooper",
+      role: "Founder @ Stride CRE",
+      image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/d405e1942_IMG_7804.jpg",
+      imagePosition: "left top",
+      content: "The monthly cost is an absolute no-brainer for anyone trying to improve. That could be as an individual or a company, crazy value. Happy to be a cheerleader and appreciative of all the information you guys are compiling.",
+      highlight: "crazy value"
     }
   ];
 
@@ -87,6 +95,7 @@ export default function TestimonialsSection() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-16 h-16 rounded-full object-cover border-2 border-blue-200"
+                      style={testimonial.imagePosition ? { objectPosition: testimonial.imagePosition } : undefined}
                     />
                     <div>
                       <p className="font-bold text-slate-900 text-lg">{testimonial.name}</p>

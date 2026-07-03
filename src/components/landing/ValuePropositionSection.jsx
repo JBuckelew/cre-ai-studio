@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, LineChart, Cuboid, Scale, Zap, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from '@/utils';
+import TextTestimonials from "./TextTestimonials";
 
 export default function ValuePropositionSection() {
   const propositions = [
@@ -139,6 +140,8 @@ export default function ValuePropositionSection() {
                 </div>
             </div>
         </motion.div>
+
+        <TextTestimonials />
       </div>
     </section>
   );

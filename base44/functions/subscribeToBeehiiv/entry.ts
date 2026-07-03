@@ -3,7 +3,7 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const { email } = await req.json();
+    const { email, source } = await req.json();
 
     if (!email) {
       return Response.json({ error: 'Email is required' }, { status: 400 });
@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
 
     // Also save to our DB (service role so no auth required)
     try {
-      await base44.asServiceRole.entities.EmailSignup.create({ email, source: 'hero_newsletter' });
+      await base44.asServiceRole.entities.EmailSignup.create({ email, source: source || 'hero_newsletter' });
     } catch (_) {
       // ignore duplicate errors
     }

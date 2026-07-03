@@ -16,10 +16,8 @@ import {
 
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
-  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+  const [freeTrialEmail, setFreeTrialEmail] = useState("");
+  const [freeTrialSubmitting, setFreeTrialSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -37,20 +35,17 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleNewsletterSubmit = async (e) => {
+  const handleFreeTrialSubmit = async (e) => {
     e.preventDefault();
-    if (!newsletterEmail) return;
-    setNewsletterSubmitting(true);
+    if (!freeTrialEmail) return;
+    setFreeTrialSubmitting(true);
     try {
-      await subscribeToBeehiiv({ email: newsletterEmail });
-      setNewsletterSuccess(true);
-      setNewsletterEmail("");
+      await subscribeToBeehiiv({ email: freeTrialEmail, source: "free_trial" });
     } catch (err) {
-      console.error('Newsletter signup error:', err);
-      setNewsletterSuccess(true); // still show success to user
-      setNewsletterEmail("");
+      console.error('Free trial signup error:', err);
     }
-    setNewsletterSubmitting(false);
+    setFreeTrialSubmitting(false);
+    window.location.href = createPageUrl('FreeTrialPayment');
   };
 
   const handleSubmit = async (e) => {
@@ -167,31 +162,24 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
-                    {newsletterSuccess ? (
-                      <div className="flex items-center gap-2 text-green-400 font-semibold text-base sm:text-lg">
-                        <CheckCircle className="w-5 h-5" />
-                        You're subscribed! Check your inbox.
-                      </div>
-                    ) : (
-                      <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
-                        <Input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={newsletterEmail}
-                          onChange={(e) => setNewsletterEmail(e.target.value)}
-                          required
-                          className="h-11 rounded-full bg-white/10 border-white/20 text-white placeholder:text-slate-400 px-5 flex-1"
-                        />
-                        <Button
-                          type="submit"
-                          disabled={newsletterSubmitting}
-                          className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-6 text-sm sm:text-base transition-all duration-300 whitespace-nowrap disabled:opacity-60"
-                          style={{ animation: 'flash 4s ease-in-out infinite' }}
-                        >
-                          {newsletterSubmitting ? "Subscribing..." : "Join Our Newsletter"}
-                        </Button>
-                      </form>
-                    )}
+                    <form onSubmit={handleFreeTrialSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={freeTrialEmail}
+                      onChange={(e) => setFreeTrialEmail(e.target.value)}
+                      required
+                      className="h-11 rounded-full bg-white/10 border-white/20 text-white placeholder:text-slate-400 px-5 flex-1"
+                    />
+                    <Button
+                      type="submit"
+                      disabled={freeTrialSubmitting}
+                      className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-6 text-sm sm:text-base transition-all duration-300 whitespace-nowrap disabled:opacity-60"
+                      style={{ animation: 'flash 4s ease-in-out infinite' }}
+                    >
+                      {freeTrialSubmitting ? "Starting..." : "Start My Free Trial"}
+                    </Button>
+                  </form>
                   </motion.div>
                 </div>
 

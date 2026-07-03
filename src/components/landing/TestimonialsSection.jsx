@@ -7,6 +7,13 @@ import { Badge } from "@/components/ui/badge";
 export default function TestimonialsSection() {
   const testimonials = [
     {
+      name: "Ben Nolte",
+      role: "Senior Advisor @ NAI SunVista",
+      image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/6b5cee3a3_ben.jpg",
+      content: "Honestly Jonathan, I have spent thousands dollars on AI Classes over the past three years, and this group is VASTLY underpriced for the value you are all bringing. Feel free to share or modify utilize that as well if you wish.",
+      highlight: "VASTLY underpriced for the value"
+    },
+    {
       name: "Angelo Pavanello",
       role: "Vice President @ CBRE Canada",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/d02373aaf_Angelo.jpg",
@@ -19,13 +26,6 @@ export default function TestimonialsSection() {
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/af83da311_sarah.jpg",
       content: "Month 1 complete of the CRE AI Studio! So far, I've learned how to create custom GPT's for our Coldwell Banker Commercial Atlantic company marketing and brand consistency & building custom prompts for those GPT's. If you have not signed up for this course and you work in commercial real estate, you should!",
       highlight: "learned how to create custom GPT's"
-    },
-    {
-      name: "Ben Nolte",
-      role: "Senior Advisor @ NAI SunVista",
-      image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/6b5cee3a3_ben.jpg",
-      content: "1000% Share away! if it helps for me to like, share or comment please let me know. Honestly Jonathan, I have spent thousands dollars on AI Classes over the past three years, and this group is VASTLY underpriced for the value you are all bringing. Feel free to share or modify utilize that as well if you wish.",
-      highlight: "VASTLY underpriced for the value"
     },
     {
       name: "Isaac Herrera",

@@ -27,8 +27,20 @@ export default function PaymentSuccess() {
       attempt(10);
     };
 
-    // Run in background - don't block page render
+    // Fire conversion events once on mount when session_id exists
     if (sessionId) {
+      if (window.gtag) {
+        window.gtag('event', 'purchase', {
+          transaction_id: sessionId,
+          value: 50,
+          currency: 'USD'
+        });
+      }
+      if (window.fbq) {
+        window.fbq('track', 'Purchase', { value: 50, currency: 'USD' });
+      }
+
+      // Run in background - don't block page render
       getStripeSession({ session_id: sessionId })
         .then(res => {
           const email = res.data?.email;

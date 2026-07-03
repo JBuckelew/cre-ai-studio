@@ -1,6 +1,5 @@
 import React from "react";
 import HeroSection from "../components/landing/HeroSection";
-import NewsletterSection from "../components/landing/NewsletterSection";
 import ValuePropositionSection from "../components/landing/ValuePropositionSection";
 import ToolsSection from "../components/landing/ToolsSection";
 import MissionSection from "../components/landing/MissionSection";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
-      <NewsletterSection />
       <TestimonialsSection />
       <ValuePropositionSection />
       <WhyChooseSection />

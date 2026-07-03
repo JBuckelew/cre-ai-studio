@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { CheckCircle } from "lucide-react";
 import { createPageUrl } from '@/utils';
+import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export default function Navigation() {
   const handleHomeClick = () => {
@@ -34,6 +44,33 @@ export default function Navigation() {
 
   const handleLoginClick = () => {
     window.open('https://cre-ai-studio.circle.so/getting-started', '_blank');
+  };
+
+  const [newsletterOpen, setNewsletterOpen] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+
+  const openNewsletter = () => {
+    setNewsletterSuccess(false);
+    setNewsletterEmail("");
+    setNewsletterOpen(true);
+  };
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterSubmitting(true);
+    try {
+      await subscribeToBeehiiv({ email: newsletterEmail });
+      setNewsletterSuccess(true);
+      setNewsletterEmail("");
+    } catch (err) {
+      console.error('Newsletter signup error:', err);
+      setNewsletterSuccess(true);
+      setNewsletterEmail("");
+    }
+    setNewsletterSubmitting(false);
   };
 
   return (
@@ -81,6 +118,13 @@ export default function Navigation() {
             >
               Referral Program
             </Button>
+            <Button
+              variant="ghost"
+              onClick={handleLoginClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+            >
+              Login
+            </Button>
           </div>
 
           {/* Join Now and Log In Buttons */}
@@ -92,10 +136,10 @@ export default function Navigation() {
               Get My Free Trial
             </Button>
             <Button
-              onClick={handleLoginClick}
+              onClick={openNewsletter}
               className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
             >
-              Log In
+              Join the Newsletter
             </Button>
           </div>
         </div>
@@ -122,11 +166,11 @@ export default function Navigation() {
               Get My Free Trial
             </Button>
             <Button
-              onClick={handleLoginClick}
+              onClick={openNewsletter}
               size="sm"
               className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs px-4"
             >
-              Log In
+              Join the Newsletter
             </Button>
           </div>
 
@@ -164,9 +208,51 @@ export default function Navigation() {
             >
               Referral Program
             </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleLoginClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
+            >
+              Login
+            </Button>
           </div>
         </div>
       </div>
+      <Dialog open={newsletterOpen} onOpenChange={setNewsletterOpen}>
+        <DialogContent className="bg-white">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-slate-900">Join Our Newsletter</DialogTitle>
+            <DialogDescription className="text-slate-600">
+              Get the latest AI news and tips that matter in commercial real estate delivered to your inbox.
+            </DialogDescription>
+          </DialogHeader>
+          {newsletterSuccess ? (
+            <div className="flex items-center gap-2 text-green-600 font-semibold py-4">
+              <CheckCircle className="w-5 h-5" />
+              You're subscribed! Check your inbox.
+            </div>
+          ) : (
+            <form onSubmit={handleNewsletterSubmit} className="space-y-4 mt-4">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
+                className="h-11"
+              />
+              <Button
+                type="submit"
+                disabled={newsletterSubmitting}
+                className="w-full h-11 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full disabled:opacity-60"
+              >
+                {newsletterSubmitting ? "Subscribing..." : "Join Our Newsletter"}
+              </Button>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </nav>
   );
 }

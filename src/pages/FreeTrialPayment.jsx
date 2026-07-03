@@ -103,7 +103,14 @@ export default function FreeTrialPaymentPage() {
     const plan = plans.find(p => p.level === selectedLevel);
 
     if (plan && plan.stripe_url) {
-      window.location.href = plan.stripe_url;
+      const url = new URL(plan.stripe_url);
+      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+      const pageParams = new URLSearchParams(window.location.search);
+      utmKeys.forEach(key => {
+        const value = pageParams.get(key);
+        if (value) url.searchParams.set(key, value);
+      });
+      window.location.href = url.toString();
     } else {
       alert("Payment link not configured yet");
       setIsProcessing(false);

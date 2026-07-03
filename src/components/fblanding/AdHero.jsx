@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { Zap, BookOpen, MessageSquare, FileText, Workflow, ArrowDown } from "lucide-react";
 import CTAButton from "./CTAButton";
 
@@ -20,17 +19,6 @@ export default function AdHero() {
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto px-6 pt-16 pb-24 lg:pt-24 lg:pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mb-6"
-        >
-          <Badge className="bg-amber-100 text-amber-900 hover:bg-amber-200 border-0 px-4 py-1.5 text-sm font-semibold">
-            <Zap className="w-3.5 h-3.5 mr-1.5" /> No tech skills needed
-          </Badge>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

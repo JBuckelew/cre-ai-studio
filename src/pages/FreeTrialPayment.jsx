@@ -6,7 +6,7 @@ import { ArrowRight, Loader2, Star, CheckCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export default function FreeTrialPaymentPage() {
-  const [selectedLevel, setSelectedLevel] = useState(2);
+  const [selectedLevel, setSelectedLevel] = useState(1);
   const [isProcessing, setIsProcessing] = useState(false);
   const [billingCycle, setBillingCycle] = useState('monthly');
 
@@ -33,6 +33,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
+      full: true,
       stripe_url: "https://buy.stripe.com/3cI4gA6K33iKbpfbDEcV206"
     },
     {
@@ -77,6 +78,7 @@ export default function FreeTrialPaymentPage() {
         </ul>
       ),
       popular: true,
+      full: true,
       stripe_url: "https://buy.stripe.com/cNi4gA6K35qSdxn6jkcV20g"
     },
     {
@@ -102,7 +104,7 @@ export default function FreeTrialPaymentPage() {
     setIsProcessing(true);
     const plan = plans.find(p => p.level === selectedLevel);
 
-    if (plan && plan.stripe_url) {
+    if (plan && plan.stripe_url && !plan.full) {
       const url = new URL(plan.stripe_url);
       const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
       const pageParams = new URLSearchParams(window.location.search);
@@ -203,15 +205,24 @@ export default function FreeTrialPaymentPage() {
                 key={plan.level}
                 layout
                 transition={{ duration: 0.3, ease: 'easeOut' }}
-                onClick={() => setSelectedLevel(plan.level)}
-                className={`p-6 rounded-2xl border cursor-pointer transition-all duration-300 relative ${
-                    selectedLevel === plan.level
+                onClick={() => !plan.full && setSelectedLevel(plan.level)}
+                className={`p-6 rounded-2xl border transition-all duration-300 relative overflow-hidden ${
+                  plan.full
+                    ? 'border-red-500/40 bg-white/5 opacity-60 cursor-not-allowed'
+                    : selectedLevel === plan.level
                       ? billingCycle === 'annual'
-                        ? 'border-yellow-400/60 bg-yellow-500/10 shadow-lg shadow-yellow-500/10'
-                        : 'border-blue-500/60 bg-blue-500/10 shadow-lg shadow-blue-500/10'
-                      : 'border-white/10 bg-white/5 hover:bg-white/10'
+                        ? 'border-yellow-400/60 bg-yellow-500/10 shadow-lg shadow-yellow-500/10 cursor-pointer'
+                        : 'border-blue-500/60 bg-blue-500/10 shadow-lg shadow-blue-500/10 cursor-pointer'
+                      : 'border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer'
                   }`}
               >
+                {plan.full && (
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 z-20 pointer-events-none">
+                    <span className="bg-red-600 text-white text-3xl font-black px-8 py-1.5 rounded shadow-lg tracking-widest">
+                      FULL
+                    </span>
+                  </div>
+                )}
                 {plan.popular && (
                   <Badge className={`absolute -top-3 right-4 flex items-center gap-1 ${
                     billingCycle === 'annual' ? 'bg-yellow-500 text-black' : 'bg-blue-600 text-white'

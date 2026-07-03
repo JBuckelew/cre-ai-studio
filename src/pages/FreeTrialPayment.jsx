@@ -17,7 +17,12 @@ export default function FreeTrialPaymentPage() {
       price: 50,
       description: (
         <ul className="list-disc list-inside text-left space-y-1">
-          <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
+          <li>Weekly step-by-step video lessons on how to streamline your workflows with AI, or pre-packaged AI skills built for CRE</li>
+          <li>Live lessons and AI updates</li>
+          <li>Monthly Office Hours for basic questions</li>
+          <li>Access to our CRE Prompt Library</li>
+          <li>AI updates & prompting tips</li>
+          <li>+ Access to a community with hundreds of CRE pros learning to put AI to work</li>
         </ul>
       ),
       stripe_url: "https://buy.stripe.com/6oU7sM4BV2eG64V7nocV20a"
@@ -59,7 +64,12 @@ export default function FreeTrialPaymentPage() {
       yearlyTotal: 480,
       description: (
         <ul className="list-disc list-inside text-left space-y-1">
-          <li><span className="text-green-400">Weekly video step-by-step lessons</span> on how to streamline your workflows with AI and automation</li>
+          <li>Weekly step-by-step video lessons on how to streamline your workflows with AI, or pre-packaged AI skills built for CRE</li>
+          <li>Live lessons and AI updates</li>
+          <li>Monthly Office Hours for basic questions</li>
+          <li>Access to our CRE Prompt Library</li>
+          <li>AI updates & prompting tips</li>
+          <li>+ Access to a community with hundreds of CRE pros learning to put AI to work</li>
         </ul>
       ),
       stripe_url: "https://buy.stripe.com/dRm4gA7O77z0fFv7nocV20h"

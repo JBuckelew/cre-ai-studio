@@ -1,12 +1,33 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 const testimonials = [
-  "This helped me finally understand how to use AI in my brokerage workflow.",
-  "The CRE-specific examples are what make this different.",
-  "I stopped watching random AI videos and started using workflows I could actually apply.",
+  {
+    name: "Angelo Pavanello",
+    role: "VP @ CBRE Canada",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/d02373aaf_Angelo.jpg",
+    content: "The CRE AI Studio team came in and trained over 50 of our brokers on Microsoft Co-Pilot in a single session. The content was practical, immediately applicable, and tailored specifically to how we work in commercial real estate. This is exactly the kind of AI training our industry needs. I'm also personally a member of the CRE AI Studio and can't recommend it enough.",
+  },
+  {
+    name: "Sarra Hochberg",
+    role: "Marketing Manager @ Coldwell Banker Commercial Atlantic",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/af83da311_sarah.jpg",
+    content: "Month 1 complete of the CRE AI Studio! So far, I've learned how to create custom GPT's for our Coldwell Banker Commercial Atlantic company marketing and brand consistency & building custom prompts for those GPT's. If you have not signed up for this course and you work in commercial real estate, you should!",
+  },
+  {
+    name: "Ben Nolte",
+    role: "Senior Advisor @ NAI SunVista",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/6b5cee3a3_ben.jpg",
+    content: "1000% Share away! Honestly Jonathan, I have spent thousands of dollars on AI Classes over the past three years, and this group is VASTLY underpriced for the value you are all bringing.",
+  },
+  {
+    name: "Isaac Herrera",
+    role: "CEO @ Cobroker.AI",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/00c9e3c24_1708544375717.jpg",
+    content: "CRE AI Studio cuts through the noise. Instead of abstract AI talk, it delivers real, industry-specific workflows that actually work in production. Easily one of the most practical AI resources in CRE.",
+  },
 ];
 
 export default function AdProof() {
@@ -25,7 +46,7 @@ export default function AdProof() {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
@@ -34,24 +55,30 @@ export default function AdProof() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Card className="h-full border border-slate-200 shadow-sm bg-white">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <Quote className="w-8 h-8 text-blue-200 mb-3" />
-                  <p className="text-slate-700 text-base sm:text-lg leading-relaxed flex-1 italic">"{t}"</p>
-                  <div className="mt-5 pt-4 border-t border-slate-100">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-amber-100" />
-                    <p className="text-xs text-slate-400 mt-2 font-medium">Placeholder testimonial</p>
+              <Card className="h-full border border-slate-200 shadow-sm bg-white hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-5 flex flex-col h-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-blue-200 flex-shrink-0"
+                    />
+                    <div className="min-w-0">
+                      <p className="font-bold text-slate-900 text-sm leading-tight truncate">{t.name}</p>
+                      <p className="text-xs text-slate-500 leading-tight line-clamp-2">{t.role}</p>
+                    </div>
                   </div>
+                  <div className="flex gap-0.5 mb-2">
+                    {[...Array(5)].map((_, s) => (
+                      <Star key={s} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <Quote className="w-6 h-6 text-blue-200 mb-2" />
+                  <p className="text-slate-700 text-sm leading-relaxed flex-1 italic">"{t.content}"</p>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-10 max-w-2xl mx-auto rounded-xl bg-amber-50 border border-amber-200 px-5 py-4 text-center">
-          <p className="text-amber-900 text-sm font-medium">
-            ✏️ Editor note: Replace these placeholder testimonials with real testimonials before launch.
-          </p>
         </div>
       </div>
     </section>

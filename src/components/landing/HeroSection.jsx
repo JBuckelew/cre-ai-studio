@@ -180,6 +180,7 @@ export default function HeroSection() {
                       {freeTrialSubmitting ? "Starting..." : "Start My Free Trial"}
                     </Button>
                   </form>
+                  <p className="text-sm text-slate-400 mt-2">Cancel anytime. No commitment required.</p>
                   </motion.div>
                 </div>
 

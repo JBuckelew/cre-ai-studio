@@ -17,7 +17,7 @@ export default function FreeTrialPaymentPage() {
       price: 50,
       description: (
         <ul className="list-disc list-inside text-left space-y-1">
-          <li>Weekly step-by-step video lessons on how to streamline your workflows with AI, or pre-packaged AI skills built for CRE</li>
+          <li><span className="text-green-400">Weekly step-by-step video lessons</span> on how to streamline your workflows with AI, or pre-packaged <span className="text-green-400">AI skills built for CRE</span></li>
           <li>Live lessons and AI updates</li>
           <li>Monthly Office Hours for basic questions</li>
           <li>Access to our CRE Prompt Library</li>
@@ -64,7 +64,7 @@ export default function FreeTrialPaymentPage() {
       yearlyTotal: 480,
       description: (
         <ul className="list-disc list-inside text-left space-y-1">
-          <li>Weekly step-by-step video lessons on how to streamline your workflows with AI, or pre-packaged AI skills built for CRE</li>
+          <li><span className="text-green-400">Weekly step-by-step video lessons</span> on how to streamline your workflows with AI, or pre-packaged <span className="text-green-400">AI skills built for CRE</span></li>
           <li>Live lessons and AI updates</li>
           <li>Monthly Office Hours for basic questions</li>
           <li>Access to our CRE Prompt Library</li>

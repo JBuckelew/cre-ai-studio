@@ -46,7 +46,7 @@ export default function FreeTrialPaymentPage() {
       price: 100,
       description: (
         <ul className="list-disc list-inside text-left space-y-1">
-          <li>Everything in Level 2</li>
+          <li>Everything in Levels 1 & 2 +</li>
           <li><span className="text-amber-400">Direct access to founders</span> for unlimited Q&A via dedicated channel</li>
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>
@@ -97,7 +97,7 @@ export default function FreeTrialPaymentPage() {
       yearlyTotal: 960,
       description: (
         <ul className="list-disc list-inside text-left space-y-1">
-          <li>Everything in Level 2</li>
+          <li>Everything in Levels 1 & 2 +</li>
           <li><span className="text-amber-400">Direct access to founders</span> for unlimited Q&A via dedicated channel</li>
           <li>Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>

@@ -39,7 +39,7 @@ export default function WhyChooseSection() {
   };
 
   return (
-    <section id="whats-included" className="pt-8 lg:pt-10 pb-20 lg:pb-32 bg-white relative overflow-hidden">
+    <section id="whats-included" className="pt-16 lg:pt-20 pb-20 lg:pb-32 bg-white relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div

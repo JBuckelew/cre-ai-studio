@@ -19,7 +19,7 @@ const testimonials = [
 
 export default function TextTestimonials() {
   return (
-    <div className="mt-6">
+    <div className="mt-16 lg:mt-20">
       <h3 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-8">
         AI training &amp; resources that <span className="text-blue-600 italic">actually</span> save you time in CRE
       </h3>

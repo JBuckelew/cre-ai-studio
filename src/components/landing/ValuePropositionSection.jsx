@@ -36,7 +36,7 @@ export default function ValuePropositionSection() {
   };
 
   return (
-    <section id="value-prop" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section id="value-prop" className="pt-20 lg:pt-28 pb-0 bg-white relative overflow-hidden">
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#e2e8f0_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-30"></div>
 

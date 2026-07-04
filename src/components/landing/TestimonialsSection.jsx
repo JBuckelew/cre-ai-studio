@@ -14,6 +14,13 @@ export default function TestimonialsSection() {
       highlight: "VASTLY underpriced for the value"
     },
     {
+      name: "Matt Cooper",
+      role: "Founder @ Stride CRE",
+      image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/b428412eb_1776045540808.png",
+      content: "The monthly cost is an absolute no-brainer for anyone trying to improve. That could be as an individual or a company, crazy value.",
+      highlight: "crazy value"
+    },
+    {
       name: "Angelo Pavanello",
       role: "Vice President @ CBRE Canada",
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/d02373aaf_Angelo.jpg",
@@ -33,13 +40,6 @@ export default function TestimonialsSection() {
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/00c9e3c24_1708544375717.jpg",
       content: "CRE AI Studio cuts through the noise. Instead of abstract AI talk, it delivers real, industry-specific workflows that actually work in production. As a proptech founder, this helped me sharpen our product thinking, move faster, and better understand how real estate teams are adopting AI today. Easily one of the most practical AI resources in CRE",
       highlight: "real, industry-specific workflows"
-    },
-    {
-      name: "Matt Cooper",
-      role: "Founder @ Stride CRE",
-      image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/b428412eb_1776045540808.png",
-      content: "The monthly cost is an absolute no-brainer for anyone trying to improve. That could be as an individual or a company, crazy value.",
-      highlight: "crazy value"
     }
   ];
 

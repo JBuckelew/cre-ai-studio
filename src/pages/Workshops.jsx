@@ -9,8 +9,14 @@ import { ArrowRight, CheckCircle, Calendar, Users, Video, Award } from "lucide-r
 import { createPageUrl } from '@/utils';
 import { base44 } from "@/api/base44Client";
 import ClaudeCohortCard from "@/components/workshops/ClaudeCohortCard";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Workshops() {
+  usePageMeta({
+    title: "Workshops",
+    description: "Live AI workshop cohorts for commercial real estate professionals. Join the waitlist for upcoming CRE AI Studio training cohorts.",
+    path: "/Workshops",
+  });
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
 

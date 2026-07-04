@@ -1,4 +1,5 @@
 import React from 'react';
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,11 @@ import { ExternalLink, BookOpen, Play } from 'lucide-react';
 import PromptLibrary from '../components/resources/PromptLibrary';
 
 export default function ArticlesPage() {
+  usePageMeta({
+    title: "Articles",
+    description: "AI articles and videos for commercial real estate professionals — NotebookLM, Gemini vs. Copilot, and the top AI tools every CRE pro should know.",
+    path: "/Articles",
+  });
   const articles = [
     {
       title: "Why Your CRE Firm Needs NotebookLM",

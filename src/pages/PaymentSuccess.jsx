@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,12 @@ import { createPageUrl } from '@/utils';
 import { getStripeSession } from "@/functions/getStripeSession";
 
 export default function PaymentSuccess() {
+  usePageMeta({
+    title: "Welcome to CRE AI Studio",
+    description: "Your CRE AI Studio membership is active. Start learning practical AI workflows for commercial real estate.",
+    path: "/PaymentSuccess",
+    noindex: true,
+  });
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('session_id');

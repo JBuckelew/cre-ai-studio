@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,6 +9,7 @@ import { Download, Mail, UserPlus, Loader2, CheckCircle, XCircle, Clock } from '
 import { useQuery } from '@tanstack/react-query';
 
 export default function AdminPage() {
+  usePageMeta({ title: "Admin", path: "/Admin", noindex: true });
   const [user, setUser] = useState(null);
   const [inviteEmail, setInviteEmail] = useState('');
   const [isInviting, setIsInviting] = useState(false);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +8,11 @@ import { CheckCircle2, DollarSign, TrendingUp, Gift, ArrowRight } from "lucide-r
 import { motion } from "framer-motion";
 
 export default function AffiliateSignup() {
+  usePageMeta({
+    title: "Affiliate Program",
+    description: "Join the CRE AI Studio referral program and earn commissions sharing the premier AI training platform for commercial real estate.",
+    path: "/AffiliateSignup",
+  });
   const [formData, setFormData] = useState({ name: "", email: "" });
 
   const handleSubmit = async (e) => {

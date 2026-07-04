@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
@@ -6,6 +7,11 @@ import { ArrowRight, Loader2, Star, CheckCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export default function FreeTrialPaymentPage() {
+  usePageMeta({
+    title: "Free Trial",
+    description: "Start your 7-day free trial of CRE AI Studio. Choose the membership plan that fits your CRE practice — weekly AI tutorials, prompt library, live coaching, and community access.",
+    path: "/FreeTrialPayment",
+  });
   const [selectedLevel, setSelectedLevel] = useState(1);
   const [isProcessing, setIsProcessing] = useState(false);
   const [billingCycle, setBillingCycle] = useState('monthly');

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Resource } from "@/entities/Resource";
 import { PdfPurchase } from "@/entities/PdfPurchase";
 import { User } from "@/entities/User";
@@ -12,6 +13,11 @@ import MemberLogin from "../components/resources/MemberLogin";
 import PromptLibrary from "../components/resources/PromptLibrary";
 
 export default function Resources() {
+  usePageMeta({
+    title: "Resources",
+    description: "CRE AI Prompt Library — ready-to-use AI prompts, guides, and templates built for commercial real estate professionals.",
+    path: "/Resources",
+  });
   const [resources, setResources] = useState([]);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

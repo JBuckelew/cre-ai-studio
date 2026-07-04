@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
@@ -6,6 +7,11 @@ import { ArrowRight, Loader2, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export default function PaymentPage() {
+  usePageMeta({
+    title: "Membership Plans",
+    description: "Choose your CRE AI Studio membership plan — weekly AI tutorials, prompt library, live coaching, and community access for commercial real estate professionals.",
+    path: "/Payment",
+  });
   const [selectedLevel, setSelectedLevel] = useState(3);
   const [isProcessing, setIsProcessing] = useState(false);
   const [billingCycle, setBillingCycle] = useState('monthly');

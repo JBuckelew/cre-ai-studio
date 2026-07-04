@@ -1,7 +1,13 @@
 import React from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Disclaimer() {
+  usePageMeta({
+    title: "Disclaimer",
+    description: "Disclaimer for CRE AI Studio — educational content only; not legal, financial, or investment advice.",
+    path: "/Disclaimer",
+  });
   return (
     <div className="min-h-screen bg-slate-50 py-16">
       <div className="max-w-4xl mx-auto px-6">

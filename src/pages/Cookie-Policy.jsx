@@ -1,7 +1,13 @@
 import React from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function CookiePolicy() {
+  usePageMeta({
+    title: "Cookie Policy",
+    description: "Cookie policy for CRE AI Studio — how we use cookies and similar technologies to improve functionality and analyze usage.",
+    path: "/Cookie-Policy",
+  });
   return (
     <div className="min-h-screen bg-slate-50 py-16">
       <div className="max-w-4xl mx-auto px-6">

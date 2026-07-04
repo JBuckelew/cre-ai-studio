@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +8,12 @@ import { createPageUrl } from '@/utils';
 import confetti from 'canvas-confetti';
 
 export default function WorkshopThankYou() {
+  usePageMeta({
+    title: "You're Registered",
+    description: "You're registered for the CRE AI Studio workshop. Here's what to expect next.",
+    path: "/WorkshopThankYou",
+    noindex: true,
+  });
   useEffect(() => {
     // Trigger confetti animation on page load
     const duration = 3 * 1000;

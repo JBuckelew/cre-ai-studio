@@ -1,7 +1,13 @@
 import React from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function PrivacyPolicy() {
+  usePageMeta({
+    title: "Privacy Policy",
+    description: "Privacy policy for CRE AI Studio, operated by BES.AI, LLC — how we collect, use, and protect your information.",
+    path: "/Privacy-Policy",
+  });
   return (
     <div className="min-h-screen bg-slate-50 py-16">
       <div className="max-w-4xl mx-auto px-6">

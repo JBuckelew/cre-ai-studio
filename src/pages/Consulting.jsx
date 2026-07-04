@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Brain, Bot, FileSearch, Presentation, Workflow, Building2, CheckCircle, Calendar } from "lucide-react";
 import ConsultingQualForm from "@/components/consulting/ConsultingQualForm";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const CALENDLY_URL = "https://calendly.com/jonathan-creaistudio/30min";
 
@@ -67,6 +68,11 @@ const processSteps = [
 ];
 
 export default function Consulting() {
+  usePageMeta({
+    title: "Consulting",
+    description: "Custom AI consulting for CRE firms — Claude skills & agents, document intelligence, workflow automation, and AI strategy roadmapping.",
+    path: "/Consulting",
+  });
   const openCalendly = () => {
     window.open(CALENDLY_URL, "_blank");
   };

@@ -1,10 +1,16 @@
 import React from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { CheckCircle, Calendar, Users, Award, ArrowRight } from "lucide-react";
 
 export default function WorkshopPayment() {
+  usePageMeta({
+    title: "Workshop Registration",
+    description: "Reserve your seat in an upcoming CRE AI Studio live workshop cohort for commercial real estate professionals.",
+    path: "/WorkshopPayment",
+  });
   const handlePayment = () => {
     window.location.href = 'https://buy.stripe.com/5kQeVe5FZdXo2SJ4bccV20i';
   };

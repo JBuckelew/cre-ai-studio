@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import AdHero from "@/components/fblanding/AdHero";
 import AdProblem from "@/components/fblanding/AdProblem";
 import AdOutcome from "@/components/fblanding/AdOutcome";
@@ -13,19 +14,11 @@ import CTAButton from "@/components/fblanding/CTAButton";
 import StickyMobileCTA from "@/components/fblanding/StickyMobileCTA";
 
 export default function FacebookAdLanding() {
-  useEffect(() => {
-    document.title = "CRE AI Studio | 7-Day Free Trial";
-    const setMeta = (name, content) => {
-      let el = document.querySelector(`meta[name="${name}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("name", name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    setMeta("description", "Join CRE AI Studio free for 7 days and learn practical AI workflows, prompts, templates, and tutorials built specifically for commercial real estate professionals.");
-  }, []);
+  usePageMeta({
+    title: "7-Day Free Trial",
+    description: "Join CRE AI Studio free for 7 days and learn practical AI workflows, prompts, templates, and tutorials built specifically for commercial real estate professionals.",
+    path: "/FacebookAdLanding",
+  });
 
   return (
     <div className="min-h-screen bg-white pb-16 lg:pb-0">

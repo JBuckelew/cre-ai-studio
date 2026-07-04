@@ -1,7 +1,13 @@
 import React from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function TermsOfUse() {
+  usePageMeta({
+    title: "Terms of Use",
+    description: "Terms of Use governing access to the CRE AI Studio platform, community, courses, and related services.",
+    path: "/Terms-of-Use",
+  });
   return (
     <div className="min-h-screen bg-slate-50 py-16">
       <div className="max-w-4xl mx-auto px-6">

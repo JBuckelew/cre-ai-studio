@@ -19,7 +19,7 @@ const testimonials = [
 
 export default function TextTestimonials() {
   return (
-    <div className="grid md:grid-cols-2 gap-6 mt-10">
+    <div className="grid grid-cols-1 gap-6 mt-6">
       {testimonials.map((t, index) => (
         <motion.div
           key={index}

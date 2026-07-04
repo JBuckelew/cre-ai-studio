@@ -35,9 +35,9 @@ function upsertLink(rel) {
  * @param {string} [opts.type="website"] - og:type.
  * @param {boolean} [opts.noindex=false] - If true, sets noindex,nofollow.
  */
-export function usePageMeta({ title, description, path, image, type = "website", noindex = false } = {}) {
+export function usePageMeta({ title, description, path, image, type = "website", noindex = false, appendSiteName = true } = {}) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+    const fullTitle = title ? (appendSiteName ? `${title} | ${SITE_NAME}` : title) : SITE_NAME;
     document.title = fullTitle;
 
     if (description) {
@@ -72,5 +72,5 @@ export function usePageMeta({ title, description, path, image, type = "website",
 
     // Robots
     upsertMeta('meta[name="robots"]', "name", "robots").setAttribute("content", noindex ? "noindex, nofollow" : "index, follow");
-  }, [title, description, path, image, type, noindex]);
+  }, [title, description, path, image, type, noindex, appendSiteName]);
 }

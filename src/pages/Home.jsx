@@ -10,9 +10,10 @@ import AISurveySection from "../components/landing/AISurveySection";
 
 export default function Home() {
   usePageMeta({
-    title: "",
-    description: "The CRE AI Course + Community Access. Weekly, step-by-step AI tutorials showing you how to execute specific Commercial Real Estate tasks with specific AI tools.",
+    title: "CRE AI Studio | Learn to Use AI for Commercial Real Estate",
+    description: "AI training for commercial real estate pros. Weekly hands-on tutorials & templates, live Q&A, and community of hundreds of CRE pros. Start your 7-day free trial, cancel anytime.",
     path: "/",
+    appendSiteName: false,
   });
   return (
     <div className="min-h-screen bg-slate-50">

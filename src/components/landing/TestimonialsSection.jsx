@@ -37,9 +37,8 @@ export default function TestimonialsSection() {
     {
       name: "Matt Cooper",
       role: "Founder @ Stride CRE",
-      image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/d405e1942_IMG_7804.jpg",
-      imagePosition: "left top",
-      content: "The monthly cost is an absolute no-brainer for anyone trying to improve. That could be as an individual or a company, crazy value. Happy to be a cheerleader and appreciative of all the information you guys are compiling.",
+      image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/b428412eb_1776045540808.png",
+      content: "The monthly cost is an absolute no-brainer for anyone trying to improve. That could be as an individual or a company, crazy value.",
       highlight: "crazy value"
     }
   ];

@@ -8,9 +8,10 @@ import { Badge } from '@/components/ui/badge';
 
 export default function PaymentPage() {
   usePageMeta({
-    title: "Membership Plans",
-    description: "Choose your CRE AI Studio membership plan — weekly AI tutorials, prompt library, live coaching, and community access for commercial real estate professionals.",
+    title: "Pricing | AI Training for Commercial Real Estate",
+    description: "Memberships from $50/mo: weekly AI tutorials, live VIP training, & access to our community. 7 days free, cancel anytime.",
     path: "/Payment",
+    appendSiteName: false,
   });
   const [selectedLevel, setSelectedLevel] = useState(3);
   const [isProcessing, setIsProcessing] = useState(false);

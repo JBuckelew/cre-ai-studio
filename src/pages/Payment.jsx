@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function PaymentPage() {
   usePageMeta({
-    title: "Pricing | AI Training for Commercial Real Estate",
+    title: "Pricing: CRE AI Studio Memberships | AI Training for Commercial Real Estate",
     description: "Memberships from $50/mo: weekly AI tutorials, live VIP training, & access to our community. 7 days free, cancel anytime.",
     path: "/Payment",
     appendSiteName: false,

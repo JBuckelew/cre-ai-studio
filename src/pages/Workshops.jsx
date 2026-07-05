@@ -13,9 +13,10 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Workshops() {
   usePageMeta({
-    title: "Workshops",
-    description: "Live AI workshop cohorts for commercial real estate professionals. Join the waitlist for upcoming CRE AI Studio training cohorts.",
+    title: "Live AI Trainings & Workshops for Commercial Real Estate | CRE AI Studio",
+    description: "Live AI trainings for commercial real estate. Learn to put AI to work across real CRE workflows. See our upcoming public workshops.",
     path: "/Workshops",
+    appendSiteName: false,
   });
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);

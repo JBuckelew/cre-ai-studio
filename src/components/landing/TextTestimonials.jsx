@@ -11,6 +11,12 @@ const testimonials = [
   },
   {
     content:
+      "I ran your Prospecting Pipeline Claude skill against one I built myself. Yours was much better!",
+    name: "Sam Harrell",
+    role: "Industrial Broker",
+  },
+  {
+    content:
       "Their property ownership research skill worked like a dream!",
     name: "Arik Roshanzamir",
     role: "Founder, Bond Street Properties",

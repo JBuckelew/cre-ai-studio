@@ -11,40 +11,53 @@ function PhoneMockup() {
       <div className="relative rounded-[2.5rem] bg-slate-900 p-3 shadow-2xl border-[6px] border-slate-800">
         <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-slate-900 rounded-b-2xl z-20" />
         <div className="relative rounded-[2rem] bg-white overflow-hidden h-[560px] flex flex-col">
-          <div className="bg-slate-50 px-4 py-2 flex items-center justify-between text-[10px] text-slate-500 border-b border-slate-100">
+          <div className="bg-slate-50 px-4 py-1.5 flex items-center justify-between text-[10px] text-slate-500 border-b border-slate-100">
             <span>9:41</span>
             <span>● ● ●</span>
           </div>
-          <div className="px-4 py-3 border-b border-slate-100">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Inbox</p>
+          <div className="px-4 py-3 flex items-center justify-between border-b border-slate-100">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-[9px] font-bold">AI</div>
+              <span className="text-sm font-bold text-slate-900">CRE AI Studio</span>
+            </div>
+            <div className="text-right">
+              <p className="text-[9px] text-slate-400">The Newsletter</p>
+              <p className="text-[9px] text-slate-400">11 Jul</p>
+            </div>
           </div>
-          <div className="flex-1 overflow-hidden">
-            <div className="px-4 py-4 border-b border-slate-100 bg-blue-50/50">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">AI</div>
-                <div>
-                  <p className="text-xs font-semibold text-slate-900">CRE AI Studio</p>
-                  <p className="text-[10px] text-slate-400">Weekly · AI for CRE</p>
-                </div>
+          <div className="flex-1 overflow-hidden px-4 py-4 space-y-4">
+            <div>
+              <p className="text-xs text-slate-900 leading-relaxed">
+                <span className="font-bold">Good morning.</span> Welcome back to CRE AI Studio!
+              </p>
+              <div className="mt-2 space-y-1.5">
+                <div className="h-2 bg-slate-200 rounded w-full" />
+                <div className="h-2 bg-slate-200 rounded w-3/4" />
               </div>
-              <p className="text-sm font-bold text-slate-900 leading-snug mb-1">
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-purple-600 mb-1.5">Tutorial of the Week</p>
+              <p className="text-sm font-bold text-slate-900 leading-snug mb-3">
                 Build a Prospecting Pipeline with Claude in 10 Minutes
               </p>
-              <p className="text-[11px] text-slate-500 leading-relaxed">
+              <div className="flex justify-center py-2">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-2xl font-bold">AI</div>
+              </div>
+              <p className="text-[11px] text-slate-700 leading-relaxed mt-3">
                 This week: a step-by-step workflow to turn a target list into a tailored outreach campaign — prompts included.
               </p>
+              <div className="mt-2 space-y-1.5">
+                <div className="h-2 bg-slate-200 rounded w-5/6" />
+                <div className="h-2 bg-slate-200 rounded w-2/3" />
+              </div>
             </div>
-            <div className="px-4 py-3 border-b border-slate-100">
-              <p className="text-xs font-semibold text-slate-700 truncate">Arik R. — re: workshop</p>
-              <p className="text-[10px] text-slate-400 truncate">Thanks for the prompt library...</p>
-            </div>
-            <div className="px-4 py-3 border-b border-slate-100">
-              <p className="text-xs font-semibold text-slate-700 truncate">JLL Research</p>
-              <p className="text-[10px] text-slate-400 truncate">Q2 office market report...</p>
-            </div>
-            <div className="px-4 py-3">
-              <p className="text-xs font-semibold text-slate-700 truncate">Colliers — new listing</p>
-              <p className="text-[10px] text-slate-400 truncate">Industrial asset, 120k sf...</p>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-purple-600 mb-1.5">The Takeaway</p>
+              <div className="space-y-1.5">
+                <div className="h-2 bg-slate-200 rounded w-full" />
+                <div className="h-2 bg-slate-200 rounded w-full" />
+                <div className="h-2 bg-slate-200 rounded w-4/5" />
+              </div>
             </div>
           </div>
         </div>

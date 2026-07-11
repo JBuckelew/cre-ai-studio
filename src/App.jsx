@@ -10,6 +10,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import FacebookAdLanding from './pages/FacebookAdLanding';
+import Newsletter from './pages/Newsletter';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -46,6 +47,7 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route path="/FacebookAdLanding" element={<FacebookAdLanding />} />
+      <Route path="/Newsletter" element={<Newsletter />} />
       <Route path="/" element={
         <LayoutWrapper currentPageName={mainPageKey}>
           <MainPage />

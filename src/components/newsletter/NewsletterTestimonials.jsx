@@ -1,4 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TESTIMONIALS = [
@@ -34,30 +39,8 @@ const TESTIMONIALS = [
   },
 ];
 
-function usePerPage() {
-  const [perPage, setPerPage] = useState(3);
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      if (w < 640) setPerPage(1);
-      else if (w < 1024) setPerPage(2);
-      else setPerPage(3);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-  return perPage;
-}
-
 export default function NewsletterTestimonials() {
-  const perPage = usePerPage();
-  const [start, setStart] = useState(0);
-  const len = TESTIMONIALS.length;
-
-  const shift = (dir) =>
-    setStart((s) => (((s + dir * perPage) % len) + len) % len);
-  const visible = Array.from({ length: perPage }, (_, i) => TESTIMONIALS[(start + i) % len]);
+  const [api, setApi] = useState(null);
 
   return (
     <section className="bg-[#1a1a2e] py-20 px-6">
@@ -80,36 +63,44 @@ export default function NewsletterTestimonials() {
             </p>
             <div className="flex items-center gap-3">
               <button
-                onClick={() => shift(-1)}
+                onClick={() => api?.scrollPrev()}
                 aria-label="Previous testimonials"
-                className="w-10 h-10 rounded-full bg-[#252545] text-purple-400 hover:bg-purple-700 hover:text-white transition-colors flex items-center justify-center"
+                className="w-9 h-9 rounded-full bg-[#252545] text-purple-400 hover:bg-purple-700 hover:text-white transition-colors flex items-center justify-center"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
-                onClick={() => shift(1)}
+                onClick={() => api?.scrollNext()}
                 aria-label="Next testimonials"
-                className="w-10 h-10 rounded-full bg-[#252545] text-purple-400 hover:bg-purple-700 hover:text-white transition-colors flex items-center justify-center"
+                className="w-9 h-9 rounded-full bg-[#252545] text-purple-400 hover:bg-purple-700 hover:text-white transition-colors flex items-center justify-center"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {visible.map((t, i) => (
-              <div
-                key={`${start}-${i}`}
-                className="bg-[#252545] rounded-2xl p-6 flex flex-col gap-4 min-h-[220px]"
-              >
-                <p className="text-slate-200 text-base leading-relaxed flex-1">{t.content}</p>
-                <div>
-                  <p className="font-bold text-white">{t.name}</p>
-                  <p className="text-sm text-slate-400">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Carousel
+            opts={{ align: "start", loop: true, dragFree: false }}
+            setApi={setApi}
+            className="w-full"
+          >
+            <CarouselContent>
+              {TESTIMONIALS.map((t, i) => (
+                <CarouselItem
+                  key={i}
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="bg-[#252545] rounded-2xl p-6 flex flex-col gap-4 h-full">
+                    <p className="text-slate-200 text-base leading-relaxed flex-1">{t.content}</p>
+                    <div>
+                      <p className="font-bold text-white">{t.name}</p>
+                      <p className="text-sm text-slate-400">{t.role}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </section>

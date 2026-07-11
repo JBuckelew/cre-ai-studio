@@ -84,14 +84,14 @@ export default function NewsletterTestimonials() {
             setApi={setApi}
             className="w-full"
           >
-            <CarouselContent>
+            <CarouselContent className="items-start">
               {TESTIMONIALS.map((t, i) => (
                 <CarouselItem
                   key={i}
                   className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="bg-[#252545] rounded-2xl p-6 flex flex-col gap-4 h-full">
-                    <p className="text-slate-200 text-base leading-relaxed flex-1">{t.content}</p>
+                  <div className="bg-[#252545] rounded-2xl p-6 flex flex-col gap-3 min-h-[140px]">
+                    <p className="text-slate-200 text-base leading-relaxed">{t.content}</p>
                     <div>
                       <p className="font-bold text-white">{t.name}</p>
                       <p className="text-sm text-slate-400">{t.role}</p>

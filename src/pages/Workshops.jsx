@@ -14,7 +14,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 export default function Workshops() {
   usePageMeta({
     title: "Claude Cohort — Live AI Training for Commercial Real Estate | CRE AI Studio",
-    description: "The Claude Cohort is a four-week live training program built specifically for CRE professionals. Learn to set up Claude, make it sound like you, and turn it into a powerful agent.",
+    description: "The Claude Cohort is a six-week live training program built specifically for CRE professionals. Learn to set up Claude, make it sound like you, and turn it into a powerful agent.",
     path: "/Workshops",
     appendSiteName: false,
   });
@@ -74,7 +74,7 @@ export default function Workshops() {
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
-              A four-week live training program built specifically for CRE professionals. Set up Claude properly, make it know you and sound like you, and turn it into a powerful agent.
+              A six-week live training program built specifically for CRE professionals. Set up Claude properly, make it know you and sound like you, and turn it into a powerful agent.
             </p>
           </motion.div>
         </div>

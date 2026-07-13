@@ -30,7 +30,7 @@ export default function ClaudeCohortCard() {
                   Claude Cohort for CRE Professionals
                 </h2>
                 <p className="text-xl text-slate-600 leading-relaxed">
-                  A four-week live training program built specifically for Commercial Real Estate professionals. Learn what Claude is, how to set it up properly, how to get Claude to both know you and sound like you, and turn it into a powerful agent.
+                  A six-week live training program built specifically for Commercial Real Estate professionals. Learn what Claude is, how to set it up properly, how to get Claude to both know you and sound like you, and turn it into a powerful agent.
                 </p>
               </div>
 
@@ -39,14 +39,16 @@ export default function ClaudeCohortCard() {
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                     <CheckCircle className="w-6 h-6 text-amber-600" />
-                    The Four-Week Claude Class
+                    The Six-Week Claude Class
                   </h3>
                   <ul className="space-y-4">
                     {[
                       "Week 1: Foundations of Claude — setup, models, and your first CRE-specific prompts",
                       "Week 2: Get Claude to know you and sound like you with custom instructions and knowledge bases",
                       "Week 3: Build skills and plugins for repetitive CRE work — tone cloning and brand voice",
-                      "Week 4: Turn Claude into an autonomous agent for lease analysis, underwriting, and market research"
+                      "Week 4: Advanced prompting techniques and multi-step CRE workflows",
+                      "Week 5: Turn Claude into an autonomous agent for lease analysis and underwriting",
+                      "Week 6: Market research, deal pipelines, and putting it all together"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-amber-600 mt-2 flex-shrink-0"></div>
@@ -65,11 +67,11 @@ export default function ClaudeCohortCard() {
                   <div className="space-y-5 bg-slate-50 rounded-2xl p-6">
                     <div>
                       <div className="text-sm font-semibold text-slate-500 mb-1">Starts</div>
-                      <div className="text-lg font-bold text-slate-900">July 13th, 2026</div>
+                      <div className="text-lg font-bold text-slate-900">August 13th, 2026</div>
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-slate-500 mb-1">Format</div>
-                      <div className="text-lg font-bold text-slate-900">4 weekly live lessons, 2 hours each</div>
+                      <div className="text-lg font-bold text-slate-900">6 weekly live lessons, 1 hour each</div>
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-slate-500 mb-1">Level</div>

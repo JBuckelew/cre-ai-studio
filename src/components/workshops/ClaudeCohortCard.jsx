@@ -43,12 +43,12 @@ export default function ClaudeCohortCard() {
                   </h3>
                   <ul className="space-y-4">
                     {[
-                      "Week 1: Foundations of Claude — setup, models, and your first CRE-specific prompts",
-                      "Week 2: Get Claude to know you and sound like you with custom instructions and knowledge bases",
-                      "Week 3: Build skills and plugins for repetitive CRE work — tone cloning and brand voice",
-                      "Week 4: Advanced prompting techniques and multi-step CRE workflows",
-                      "Week 5: Turn Claude into an autonomous agent for lease analysis and underwriting",
-                      "Week 6: Market research, deal pipelines, and putting it all together"
+                      "Week 1: Foundations of Claude — what Claude is, account setup, models, and your first CRE-specific prompts",
+                      "Week 2: Setting Up Claude — get Claude to know you and sound like you with custom instructions, knowledge bases, and project organization",
+                      "Week 3: Building Skills and Plugins — tone cloning, brand voice calibration, and generating emails, memos, and reports that sound human",
+                      "Week 4: Building CRE AI Agents — autonomous workflows, lease analysis, deal underwriting, and connecting Claude to your CRE tools",
+                      "Week 5: AI-Powered Deal Analysis — lease abstracting, underwriting, market research at scale, and investment memo generation",
+                      "Week 6: Claude Design — build, refine, and deploy custom CRE workflows tailored to your business and team"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-amber-600 mt-2 flex-shrink-0"></div>

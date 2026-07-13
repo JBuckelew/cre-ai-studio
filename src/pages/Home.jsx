@@ -7,6 +7,7 @@ import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
 import WhyChooseSection from "../components/landing/WhyChooseSection";
 import AISurveySection from "../components/landing/AISurveySection";
+import ClaudeCohortBanner from "../components/landing/ClaudeCohortBanner";
 
 export default function Home() {
   usePageMeta({
@@ -17,6 +18,9 @@ export default function Home() {
   });
   return (
     <div className="min-h-screen bg-slate-50">
+      <div className="pt-4">
+        <ClaudeCohortBanner />
+      </div>
       <HeroSection />
       <TestimonialsSection />
       <ValuePropositionSection />

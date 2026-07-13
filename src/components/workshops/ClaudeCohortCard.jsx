@@ -84,7 +84,7 @@ export default function ClaudeCohortCard() {
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-slate-500 mb-1">Includes</div>
-                      <div className="text-lg font-bold text-slate-900">Live + recorded sessions, founder access, CRE community</div>
+                      <div className="text-lg font-bold text-slate-900">Live + recorded sessions, 3 months free access to the CRE AI Studio</div>
                     </div>
                   </div>
                 </div>

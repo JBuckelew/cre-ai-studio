@@ -99,6 +99,13 @@ export default function Navigation() {
             </Button>
             <Button
               variant="ghost"
+              onClick={handleWorkshopClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+            >
+              Workshops
+            </Button>
+            <Button
+              variant="ghost"
               onClick={() => window.location.href = '/Consulting'}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
@@ -183,6 +190,14 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               Memberships
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleWorkshopClick}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
+            >
+              Workshops
             </Button>
             <Button
               variant="ghost"

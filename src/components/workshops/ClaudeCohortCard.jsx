@@ -79,7 +79,7 @@ export default function ClaudeCohortCard() {
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-slate-500 mb-1">Investment</div>
-                      <div className="text-lg font-bold text-slate-900">$480 early bird — $600 regular</div>
+                      <div className="text-lg font-bold text-slate-900">$480 early bird — $599 regular</div>
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-slate-500 mb-1">Includes</div>

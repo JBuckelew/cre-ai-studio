@@ -102,7 +102,7 @@ export default function Navigation() {
               onClick={handleWorkshopClick}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
             >
-              Workshops
+              Claude Cohort
             </Button>
             <Button
               variant="ghost"
@@ -197,7 +197,7 @@ export default function Navigation() {
               onClick={handleWorkshopClick}
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Workshops
+              Claude Cohort
             </Button>
             <Button
               variant="ghost"

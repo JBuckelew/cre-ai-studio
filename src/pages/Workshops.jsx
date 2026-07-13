@@ -13,8 +13,8 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Workshops() {
   usePageMeta({
-    title: "Live AI Trainings & Workshops for Commercial Real Estate | CRE AI Studio",
-    description: "Live AI trainings for commercial real estate. Learn to put AI to work across real CRE workflows. See our upcoming public workshops.",
+    title: "Claude Cohort — Live AI Training for Commercial Real Estate | CRE AI Studio",
+    description: "The Claude Cohort is a four-week live training program built specifically for CRE professionals. Learn to set up Claude, make it sound like you, and turn it into a powerful agent.",
     path: "/Workshops",
     appendSiteName: false,
   });
@@ -63,18 +63,18 @@ export default function Workshops() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-block bg-blue-500/10 border border-blue-400/30 rounded-full px-6 py-3 mb-8"
             >
-              <span className="text-sm font-semibold text-blue-300">Live Training</span>
+              <span className="text-sm font-semibold text-blue-300">Now Enrolling</span>
             </motion.div>
             
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-[1.1]">
-              CRE AI Studio{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Workshops
+              The{" "}
+              <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-pink-400 bg-clip-text text-transparent">
+                Claude Cohort
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
-              Intensive, role-specific cohorts led by industry practitioners. Deep-dive training designed for how you actually work.
+              A four-week live training program built specifically for CRE professionals. Set up Claude properly, make it know you and sound like you, and turn it into a powerful agent.
             </p>
           </motion.div>
         </div>

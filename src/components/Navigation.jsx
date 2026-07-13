@@ -89,46 +89,46 @@ export default function Navigation() {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-1">
             <Button
               variant="ghost"
               onClick={handleWhatsIncludedClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
               Memberships
             </Button>
             <Button
               variant="ghost"
               onClick={handleWorkshopClick}
-              className="text-orange-600 hover:text-orange-700 font-bold text-sm px-3"
+              className="text-orange-600 hover:text-orange-700 font-bold text-sm px-2"
             >
               Claude Cohort
             </Button>
             <Button
               variant="ghost"
               onClick={() => window.location.href = '/Consulting'}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
               Consulting
             </Button>
             <Button
               variant="ghost"
               onClick={() => window.location.href = '/Articles'}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
               Free Resources
             </Button>
             <Button
               variant="ghost"
               onClick={() => window.location.href = createPageUrl('AffiliateSignup')}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
               Referral Program
             </Button>
             <Button
               variant="ghost"
               onClick={handleLoginClick}
-              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-3"
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
               Login
             </Button>

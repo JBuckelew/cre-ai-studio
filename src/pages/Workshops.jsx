@@ -15,7 +15,7 @@ export default function Workshops() {
   usePageMeta({
     title: "Claude Cohort — Live AI Training for Commercial Real Estate | CRE AI Studio",
     description: "The Claude Cohort is a six-week live training program built specifically for CRE professionals. Learn to set up Claude, make it sound like you, and turn it into a powerful agent.",
-    path: "/Workshops",
+    path: "/ClaudeCohort",
     appendSiteName: false,
   });
   const [waitlistEmail, setWaitlistEmail] = useState("");

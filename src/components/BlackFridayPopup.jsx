@@ -15,11 +15,11 @@ export default function FreeTrialPopup() {
     // Check how many times popup has been shown this session
     const popupCount = parseInt(sessionStorage.getItem('popupShownCount') || '0');
     
-    if (popupCount < 2) {
+    if (popupCount < 1) {
       // Show popup after 5 seconds
       const timer = setTimeout(() => {
         setIsOpen(true);
-        // Increment the counter
+        // Mark as shown so it doesn't appear again this visit
         sessionStorage.setItem('popupShownCount', String(popupCount + 1));
       }, 5000);
       

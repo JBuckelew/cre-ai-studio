@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -85,6 +85,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]"
             >
               <Card className="h-full hover:shadow-xl transition-shadow duration-300 border-2 border-slate-100 hover:border-blue-200">
                 <CardContent className="p-6">

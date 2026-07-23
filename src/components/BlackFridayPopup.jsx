@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
+import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
 
 export default function FreeTrialPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +45,13 @@ export default function FreeTrialPopup() {
         email: email,
         source: "free_trial_signup"
       });
+
+      // Subscribe to the Beehiiv newsletter
+      try {
+        await subscribeToBeehiiv({ email });
+      } catch (newsletterError) {
+        console.error('Beehiiv subscribe error:', newsletterError);
+      }
 
       // Redirect to Free Trial payment page
       window.location.href = '/FreeTrialPayment';

@@ -77,7 +77,7 @@ export default function Navigation() {
     <nav className="bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-3 items-center h-16">
+        <div className="hidden md:grid md:grid-cols-[auto_1fr_auto] items-center h-16 gap-4">
           {/* Logo */}
           <div className="justify-self-start">
             <h1

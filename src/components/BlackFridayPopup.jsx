@@ -40,17 +40,21 @@ export default function FreeTrialPopup() {
     setIsSubmitting(true);
 
     try {
-      // Save to database
-      await base44.entities.EmailSignup.create({
-        email: email,
-        source: "free_trial_signup"
-      });
-
-      // Subscribe to the Beehiiv newsletter
+      // Subscribe to the Beehiiv newsletter (primary action)
       try {
-        await subscribeToBeehiiv({ email });
+        await subscribeToBeehiiv({ email, source: "free_trial_signup" });
       } catch (newsletterError) {
         console.error('Beehiiv subscribe error:', newsletterError);
+      }
+
+      // Save to database (best-effort)
+      try {
+        await base44.entities.EmailSignup.create({
+          email: email,
+          source: "free_trial_signup"
+        });
+      } catch (dbError) {
+        console.error('EmailSignup save error:', dbError);
       }
 
       // Redirect to Free Trial payment page

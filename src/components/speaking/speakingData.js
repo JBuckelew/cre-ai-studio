@@ -144,6 +144,6 @@ export const PODCASTS = [
     show: "Commercial Real Estate School Podcast",
     title: "Deep Research, Skills, and the AI Stack for Brokers",
     url: "https://podcasts.apple.com/us/podcast/deep-research-skills-and-the-ai-stack-for-brokers/id1632649892?i=1000767272351",
-    image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/68a4654ef_Screenshot2026-07-29at42130PM.png",
+    image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/8b2632180_podcast-3-thumb.jpg",
   },
 ];

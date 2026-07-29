@@ -1,6 +1,6 @@
 export const SCARCITY = {
-  badgeText: "Now booking Q4 2026 · 3 of 5 slots remaining",
-  formLine: "To keep every session custom-built, Topher takes a maximum of 5 engagements per quarter. Q3 is fully booked. Now booking Q4, 3 slots remaining. After that, the next open dates are Q1 2027.",
+  badgeText: "Now booking Q4 2026 · 2 of 5 slots remaining",
+  formLine: "To keep every session custom-built, Topher takes a maximum of 5 engagements per quarter. Q3 is fully booked. Now booking Q4, 2 slots remaining. After that, the next open dates are Q1 2027.",
 };
 
 export const VIDEO = {

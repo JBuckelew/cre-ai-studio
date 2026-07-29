@@ -95,7 +95,7 @@ export default function BookingForm({ scarcity, selectedFormat, formImage }) {
               <img
                 src={formImage}
                 alt="Topher Stephenson, co-founder of CRE AI Studio"
-                className="w-48 h-48 rounded-full object-cover object-top border-4 border-slate-100 shadow-sm"
+                className="w-56 h-56 rounded-full object-cover object-top border-4 border-slate-100 shadow-sm"
                 loading="lazy"
               />
             </div>

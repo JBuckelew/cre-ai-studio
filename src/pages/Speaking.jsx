@@ -64,76 +64,62 @@ export default function Speaking() {
     document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div
-      className="relative min-h-screen overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #1A1A2F, #151528)" }}
-    >
-      <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none"
-        style={{ background: "rgba(99,102,241,0.18)" }}
+    <div className="min-h-screen bg-slate-50">
+      <SpeakingHero
+        scarcity={SCARCITY}
+        onBookClick={scrollToForm}
+        onSeeTestimonials={scrollToTestimonials}
+        heroImage={IMAGES.heroStage}
       />
-      <div
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none"
-        style={{ background: "rgba(232,115,90,0.14)" }}
-      />
-
-      <div className="relative z-10">
-        <SpeakingHero
+      <EngagementsMarquee />
+      <FormatsSection onRequestFormat={handleRequestFormat} />
+      <WhyTopher portraitImage={IMAGES.speakerPortrait} />
+      <SpeakingTestimonials bannerImage={IMAGES.audienceHero} />
+      <SpeakingFAQ faqs={FAQS} />
+      <div id="booking">
+        <BookingForm
           scarcity={SCARCITY}
-          onBookClick={scrollToForm}
-          onSeeTestimonials={scrollToTestimonials}
-          heroImage={IMAGES.heroStage}
+          selectedFormat={selectedFormat}
+          formImage={IMAGES.speakerPortrait}
         />
-        <EngagementsMarquee />
-        <FormatsSection onRequestFormat={handleRequestFormat} />
-        <WhyTopher portraitImage={IMAGES.speakerPortrait} />
-        <SpeakingTestimonials bannerImage={IMAGES.audienceHero} />
-        <SpeakingFAQ faqs={FAQS} />
-        <div id="booking">
-          <BookingForm
-            scarcity={SCARCITY}
-            selectedFormat={selectedFormat}
-            formImage={IMAGES.speakerPortrait}
-          />
-        </div>
-        <RecentAppearances />
-        <StudioBridge />
-
-        <section className="border-t border-[#3F3F5A] py-10">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-[#9CA3AF] text-sm mb-3">
-              Topher Stephenson. Co-founder of CRE AI Studio. AI speaker and trainer for commercial real estate.
-            </p>
-            <div className="flex justify-center gap-6 text-sm">
-              <a
-                href="https://www.linkedin.com/in/topherstephenson/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#9CA3AF] hover:text-white transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://x.com/TopherNow"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#9CA3AF] hover:text-white transition-colors"
-              >
-                @TopherNow on X
-              </a>
-              <a
-                href="https://creaistudio.beehiiv.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#9CA3AF] hover:text-white transition-colors"
-              >
-                Newsletter
-              </a>
-            </div>
-            <p className="text-[#9CA3AF] text-sm mt-3">topher@creaistudio.com · 484-695-6902</p>
-          </div>
-        </section>
       </div>
+      <RecentAppearances />
+      <StudioBridge />
+
+      <section className="bg-slate-900 text-white py-10 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <p className="text-slate-300 text-sm mb-3">
+            Topher Stephenson. Co-founder of CRE AI Studio. AI speaker and trainer for commercial real estate.
+          </p>
+          <div className="flex justify-center gap-6 text-sm">
+            <a
+              href="https://www.linkedin.com/in/topherstephenson/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://x.com/TopherNow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              @TopherNow on X
+            </a>
+            <a
+              href="https://creaistudio.beehiiv.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              Newsletter
+            </a>
+          </div>
+          <p className="text-slate-400 text-sm mt-3">topher@creaistudio.com · 484-695-6902</p>
+        </div>
+      </section>
 
       <script
         type="application/ld+json"

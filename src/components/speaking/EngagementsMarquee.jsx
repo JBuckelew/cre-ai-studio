@@ -4,9 +4,9 @@ import { ENGAGEMENTS } from "./speakingData";
 export default function EngagementsMarquee() {
   const items = [...ENGAGEMENTS, ...ENGAGEMENTS];
   return (
-    <section className="border-y border-[#3F3F5A] py-10 overflow-hidden">
+    <section className="bg-white border-y border-slate-200 py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9CA3AF] text-center">
+        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 text-center">
           Recent Engagements
         </p>
       </div>
@@ -17,8 +17,8 @@ export default function EngagementsMarquee() {
         >
           {items.map((name, i) => (
             <React.Fragment key={i}>
-              <span className="shrink-0 text-[#9CA3AF] text-sm md:text-base px-6">{name}</span>
-              <span className="shrink-0 text-[#3F3F5A] text-sm md:text-base flex items-center">·</span>
+              <span className="shrink-0 text-slate-400 text-sm md:text-base font-semibold px-6">{name}</span>
+              <span className="shrink-0 text-slate-300 text-sm md:text-base flex items-center">·</span>
             </React.Fragment>
           ))}
         </div>

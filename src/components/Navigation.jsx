@@ -141,7 +141,7 @@ export default function Navigation() {
             {isSpeakingPage && (
               <Button
                 onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-[#6366F1] to-[#E8735A] hover:opacity-90 text-white font-semibold text-sm px-4 rounded-full"
+                className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4 rounded-full"
               >
                 Book Topher
               </Button>
@@ -179,7 +179,7 @@ export default function Navigation() {
               <Button
                 size="sm"
                 onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-[#6366F1] to-[#E8735A] hover:opacity-90 text-white font-semibold text-xs px-3 rounded-full"
+                className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs px-3 rounded-full"
               >
                 Book Topher
               </Button>

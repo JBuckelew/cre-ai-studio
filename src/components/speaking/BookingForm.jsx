@@ -90,15 +90,14 @@ export default function BookingForm({ scarcity, selectedFormat, formImage }) {
             <p className="text-slate-600 leading-relaxed mb-6">
               Tell me about your event: format, audience, and what you want them to walk away with. I'll respond within one business day.
             </p>
-            <div className="rounded-2xl overflow-hidden border-2 border-slate-100 shadow-sm mb-4">
+            <div className="mb-4">
               <img
                 src={formImage}
-                alt="Topher Stephenson speaking at the CCIM SWFL Outlook Conference 2026 in Bonita Springs, FL"
-                className="w-full h-64 object-cover"
+                alt="Topher Stephenson, co-founder of CRE AI Studio"
+                className="w-40 h-40 rounded-full object-cover object-top border-4 border-slate-100 shadow-sm"
                 loading="lazy"
               />
             </div>
-            <p className="text-sm text-slate-500 mb-4">CCIM SWFL Outlook Conference 2026, Bonita Springs, FL</p>
             <p className="text-sm text-slate-600">
               Prefer email?{" "}
               <a href="mailto:topher@creaistudio.com" className="text-blue-600 hover:text-blue-700 font-medium">

@@ -11,7 +11,7 @@ export const IMAGES = {
   heroStage: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/cc4e958e5_ccim-stage-cropped.jpg",
   audienceHero: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/57fad5733_audience-hero.jpg",
   speakerPortrait: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/e056079e2_speaker-portrait.jpg",
-  headshot: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/e15d7f8c5_headshot.jpg",
+  headshot: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/214bf6295_headshot.jpg",
 };
 
 export const ENGAGEMENTS = [

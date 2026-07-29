@@ -79,7 +79,7 @@ export default function Speaking() {
         <BookingForm
           scarcity={SCARCITY}
           selectedFormat={selectedFormat}
-          formImage={IMAGES.heroStage}
+          formImage={IMAGES.headshot}
         />
       </div>
       <RecentAppearances />

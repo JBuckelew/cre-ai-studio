@@ -46,6 +46,8 @@ export default function Navigation() {
     window.open('https://cre-ai-studio.circle.so/getting-started', '_blank');
   };
 
+  const isSpeakingPage = window.location.pathname === '/speaking';
+
   const [newsletterOpen, setNewsletterOpen] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
@@ -136,6 +138,14 @@ export default function Navigation() {
 
           {/* Join Now and Log In Buttons */}
           <div className="justify-self-end flex items-center gap-2">
+            {isSpeakingPage && (
+              <Button
+                onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-gradient-to-r from-[#6366F1] to-[#E8735A] hover:opacity-90 text-white font-semibold text-sm px-4 rounded-full"
+              >
+                Book Topher
+              </Button>
+            )}
             <Button
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4"
@@ -165,6 +175,15 @@ export default function Navigation() {
 
           {/* Top row: Buttons */}
           <div className="flex items-center justify-center gap-2 mb-2 pb-2 border-b border-slate-200">
+            {isSpeakingPage && (
+              <Button
+                size="sm"
+                onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-gradient-to-r from-[#6366F1] to-[#E8735A] hover:opacity-90 text-white font-semibold text-xs px-3 rounded-full"
+              >
+                Book Topher
+              </Button>
+            )}
             <Button
               size="sm"
               onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}

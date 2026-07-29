@@ -156,3 +156,8 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes speaking-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

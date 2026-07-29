@@ -91,6 +91,12 @@ export default function Footer() {
             >
               Admin
             </a>
+            <a 
+              href="/speaking" 
+              className="text-slate-300 hover:text-white transition-colors duration-200"
+            >
+              Speaking
+            </a>
             <button
               onClick={() => setIsContactDialogOpen(true)}
               className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-1"

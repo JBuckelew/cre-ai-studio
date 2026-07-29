@@ -35,18 +35,20 @@ export default function SpeakingTestimonials({ bannerImage }) {
             <p className="text-lg text-slate-600">Real feedback from the people who hire him.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <div
-                key={i}
-                className="rounded-2xl bg-white border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 p-6 flex flex-col"
-              >
-                <p className="text-slate-700 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
-                <div>
-                  <p className="text-slate-900 text-sm font-semibold">{t.author}</p>
-                  <p className="text-xs text-slate-500">{t.role}</p>
-                </div>
+          {TESTIMONIALS.map((t, i) => (
+            <div
+              key={i}
+              className="relative rounded-2xl bg-white border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 p-6 flex flex-col overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-400"></div>
+              <Quote className="w-8 h-8 text-orange-300 mb-3" />
+              <p className="text-slate-700 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
+              <div className="border-t border-slate-100 pt-4">
+                <p className="text-slate-900 text-sm font-semibold">{t.author}</p>
+                <p className="text-xs text-slate-500">{t.role}</p>
               </div>
-            ))}
+            </div>
+          ))}
           </div>
         </div>
       </section>
@@ -55,7 +57,7 @@ export default function SpeakingTestimonials({ bannerImage }) {
         <img
           src={bannerImage}
           alt="Topher Stephenson speaking to a large audience at a commercial real estate conference"
-          className="w-full h-[400px] object-cover"
+          className="w-full h-[560px] object-cover object-center"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-slate-900/80"></div>

@@ -23,7 +23,7 @@ export default function RecentAppearances() {
             >
               <div className="h-40 overflow-hidden">
                 {pod.image ? (
-                  <img src={pod.image} alt={pod.show} className="w-full h-full object-cover object-bottom" loading="lazy" />
+                  <img src={pod.image} alt={pod.show} className="w-full h-full object-cover object-top" loading="lazy" />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
                     <Podcast className="w-12 h-12 text-blue-600" />

@@ -6,7 +6,6 @@ const FORMAT_OPTIONS = [
   "Not sure yet",
   "60-Minute Conference Keynote",
   "Hands-On Workshop (2-4 hours)",
-  "Live Webinars",
   "Custom or Other",
 ];
 

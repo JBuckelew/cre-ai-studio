@@ -16,7 +16,7 @@ export default function FormatsSection({ onRequestFormat }) {
             Three formats. One promise: every attendee leaves with tools they'll use this week.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {FORMATS.map((fmt, i) => {
             const Icon = ICONS[fmt.icon];
             return (

@@ -3,6 +3,10 @@ export const SCARCITY = {
   formLine: "To keep every session custom-built, Topher takes a maximum of 5 engagements per quarter. Q3 is fully booked. Now booking Q4, 3 slots remaining. After that, the next open dates are Q1 2027.",
 };
 
+export const VIDEO = {
+  heroVertical: "https://media.base44.com/videos/public/68a7d83d574299e5af5ccbd3/3e2fc7d01_hero-svn-vertical.mp4",
+};
+
 export const IMAGES = {
   heroStage: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/cc4e958e5_ccim-stage-cropped.jpg",
   audienceHero: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/57fad5733_audience-hero.jpg",
@@ -42,18 +46,6 @@ export const FORMATS = [
       "Longer engagements available through CRE AI Studio",
     ],
     selectValue: "Hands-On Workshop (2-4 hours)",
-  },
-  {
-    icon: "Monitor",
-    duration: "Custom length",
-    title: "Live Webinars",
-    paragraph: "Online AI presentations delivered directly to your team. See what's actually possible with AI in CRE, then walk through specific tools your people can put to work tomorrow.",
-    bullets: [
-      "Hands-on use case walk-throughs, not theoretical AI overviews",
-      "Department-specific sessions for leasing, acquisitions, marketing, or PM",
-      "Add a quarterly update program to keep your team current",
-    ],
-    selectValue: "Live Webinars",
   },
 ];
 
@@ -116,7 +108,7 @@ export const FAQS = [
   },
   {
     q: "What formats does Topher offer?",
-    a: "Three: a 60-minute conference keynote, a 2-4 hour hands-on workshop, and live webinars (one-time, quarterly, or custom series). Larger corporate training engagements run through CRE AI Studio.",
+    a: "Two: a 60-minute conference keynote and a 2-4 hour hands-on workshop. Live webinars and larger corporate training engagements run through CRE AI Studio.",
   },
   {
     q: "Who is the audience for these sessions?",

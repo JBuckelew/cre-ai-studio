@@ -9,7 +9,7 @@ import SpeakingFAQ from "@/components/speaking/SpeakingFAQ";
 import BookingForm from "@/components/speaking/BookingForm";
 import RecentAppearances from "@/components/speaking/RecentAppearances";
 import StudioBridge from "@/components/speaking/StudioBridge";
-import { SCARCITY, IMAGES, FAQS } from "@/components/speaking/speakingData";
+import { SCARCITY, IMAGES, VIDEO, FAQS } from "@/components/speaking/speakingData";
 
 const OG_IMAGE = IMAGES.heroStage;
 
@@ -69,21 +69,21 @@ export default function Speaking() {
         scarcity={SCARCITY}
         onBookClick={scrollToForm}
         onSeeTestimonials={scrollToTestimonials}
-        heroImage={IMAGES.heroStage}
+        videoUrl={VIDEO.heroVertical}
       />
       <EngagementsMarquee />
       <FormatsSection onRequestFormat={handleRequestFormat} />
       <WhyTopher portraitImage={IMAGES.speakerPortrait} />
       <SpeakingTestimonials bannerImage={IMAGES.audienceHero} />
-      <SpeakingFAQ faqs={FAQS} />
       <div id="booking">
         <BookingForm
           scarcity={SCARCITY}
           selectedFormat={selectedFormat}
-          formImage={IMAGES.speakerPortrait}
+          formImage={IMAGES.heroStage}
         />
       </div>
       <RecentAppearances />
+      <SpeakingFAQ faqs={FAQS} />
       <StudioBridge />
 
       <section className="bg-slate-900 text-white py-10 border-t border-white/10">

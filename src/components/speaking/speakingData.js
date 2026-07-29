@@ -57,6 +57,7 @@ export const STATS = [
 ];
 
 export const SPOTLIGHT_TESTIMONIAL = {
+  image: "https://www.booktopher.com/web/tim-murphy.jpg",
   quote: "He doesn't just explain what's possible. He shows how to take these tools from idea to implementation across our diverse departments.",
   author: "Tim Murphy",
   title: "Senior Director, Marketing & Technology, NewMark Merrill Companies",
@@ -75,11 +76,13 @@ export const TESTIMONIALS = [
   },
   {
     quote: "He taught the entire team how to build customized versions of AI tools for their specific use-cases. His experience in the industry enables him to break down complex topics in a way that resonated with our audience.",
+    image: "https://www.booktopher.com/web/jenna-hille.jpg",
     author: "Jenna Hille",
     role: "M.S., National Director of Strategy & Operations, Coldwell Banker Commercial",
   },
   {
     quote: "His speaking style made complex AI concepts accessible and relevant to real estate professionals. I would recommend Topher as a speaker for organizations looking to understand how AI can benefit their real estate business.",
+    image: "https://www.booktopher.com/web/adam-palmer.jpg",
     author: "Adam Palmer",
     role: "Mgr, Commercial Outreach, National Association of REALTORS",
   },
@@ -108,7 +111,7 @@ export const FAQS = [
   },
   {
     q: "What formats does Topher offer?",
-    a: "Two: a 60-minute conference keynote and a 2-4 hour hands-on workshop. Live webinars and larger corporate training engagements run through CRE AI Studio.",
+    a: "Two core formats: a 60-minute conference keynote and a 2-4 hour hands-on workshop. Webinars and larger corporate training programs run through CRE AI Studio.",
   },
   {
     q: "Who is the audience for these sessions?",
@@ -128,16 +131,18 @@ export const PODCASTS = [
   {
     show: "Ascendix Technologies Podcast",
     title: "Why 99% Are Using AI WRONG | Tools, Tips & New POVs on the Adoption Gap",
-    url: "https://www.google.com/search?q=Ascendix+Technologies+Podcast+Why+99%25+Are+Using+AI+WRONG",
+    url: "https://www.youtube.com/watch?v=ChDw8nYpwEI",
+    image: "https://www.booktopher.com/web/podcast-1-thumb.jpg",
   },
   {
     show: "CompStak, The Not Podcast Podcast (Ep. 11)",
     title: "AI in Brokerage: What Actually Works (And What Doesn't)",
-    url: "https://www.google.com/search?q=CompStak+Not+Podcast+AI+in+Brokerage+What+Actually+Works",
+    url: "https://www.youtube.com/watch?v=0sX-sa_4KlI",
+    image: "https://www.booktopher.com/web/podcast-2-thumb.jpg",
   },
   {
     show: "Commercial Real Estate School Podcast",
     title: "Deep Research, Skills, and the AI Stack for Brokers",
-    url: "https://www.google.com/search?q=Commercial+Real+Estate+School+Podcast+Deep+Research+Skills+AI+Stack",
+    url: "https://podcasts.apple.com/us/podcast/deep-research-skills-and-the-ai-stack-for-brokers/id1632649892?i=1000767272351",
   },
 ];

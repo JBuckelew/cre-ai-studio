@@ -6,6 +6,7 @@ const FORMAT_OPTIONS = [
   "Not sure yet",
   "60-Minute Conference Keynote",
   "Hands-On Workshop (2-4 hours)",
+  "Live Webinars",
   "Custom or Other",
 ];
 
@@ -90,11 +91,11 @@ export default function BookingForm({ scarcity, selectedFormat, formImage }) {
             <p className="text-slate-600 leading-relaxed mb-6">
               Tell me about your event: format, audience, and what you want them to walk away with. I'll respond within one business day.
             </p>
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <img
                 src={formImage}
                 alt="Topher Stephenson, co-founder of CRE AI Studio"
-                className="w-40 h-40 rounded-full object-cover object-top border-4 border-slate-100 shadow-sm"
+                className="w-48 h-48 rounded-full object-cover object-top border-4 border-slate-100 shadow-sm"
                 loading="lazy"
               />
             </div>

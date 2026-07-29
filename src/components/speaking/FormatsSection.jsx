@@ -13,16 +13,16 @@ export default function FormatsSection({ onRequestFormat }) {
             How Topher works with you
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Three formats. One promise: every attendee leaves with tools they'll use this week.
+            Two formats. One promise: every attendee leaves with tools they'll use this week.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
           {FORMATS.map((fmt, i) => {
             const Icon = ICONS[fmt.icon];
             return (
               <div
                 key={i}
-                className="rounded-2xl bg-white border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 p-7 flex flex-col"
+                className="rounded-2xl bg-white border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 p-8 flex flex-col"
               >
                 <div className="flex items-center justify-between mb-5">
                   {Icon && (

@@ -21,8 +21,14 @@ export default function RecentAppearances() {
               rel="noopener noreferrer"
               className="rounded-2xl bg-white border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden group"
             >
-              <div className="h-40 bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
-                <Podcast className="w-12 h-12 text-blue-600" />
+              <div className="h-40 overflow-hidden">
+                {pod.image ? (
+                  <img src={pod.image} alt={pod.show} className="w-full h-full object-cover" loading="lazy" />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
+                    <Podcast className="w-12 h-12 text-blue-600" />
+                  </div>
+                )}
               </div>
               <div className="p-5">
                 <p className="text-sm text-blue-600 font-medium mb-2">{pod.show}</p>

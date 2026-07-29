@@ -15,14 +15,6 @@ export default function SpeakingTestimonials({ bannerImage }) {
           <blockquote className="text-2xl md:text-3xl font-medium text-slate-900 leading-relaxed mb-6">
             "{SPOTLIGHT_TESTIMONIAL.quote}"
           </blockquote>
-          {SPOTLIGHT_TESTIMONIAL.image && (
-            <img
-              src={SPOTLIGHT_TESTIMONIAL.image}
-              alt={SPOTLIGHT_TESTIMONIAL.author}
-              className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-blue-200"
-              loading="lazy"
-            />
-          )}
           <p className="text-slate-700 font-medium">{SPOTLIGHT_TESTIMONIAL.author}</p>
           <p className="text-sm text-slate-500 mt-1">{SPOTLIGHT_TESTIMONIAL.title}</p>
         </div>
@@ -49,23 +41,9 @@ export default function SpeakingTestimonials({ bannerImage }) {
                 className="rounded-2xl bg-white border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 p-6 flex flex-col"
               >
                 <p className="text-slate-700 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
-                <div className="flex items-center gap-3">
-                  {t.image ? (
-                    <img
-                      src={t.image}
-                      alt={t.author}
-                      className="w-10 h-10 rounded-full object-cover shrink-0 border-2 border-blue-200"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white text-sm font-semibold shrink-0">
-                      {getInitials(t.author)}
-                    </div>
-                  )}
-                  <div>
-                    <p className="text-slate-900 text-sm font-semibold">{t.author}</p>
-                    <p className="text-xs text-slate-500">{t.role}</p>
-                  </div>
+                <div>
+                  <p className="text-slate-900 text-sm font-semibold">{t.author}</p>
+                  <p className="text-xs text-slate-500">{t.role}</p>
                 </div>
               </div>
             ))}

@@ -1,5 +1,5 @@
 import React from "react";
-import { STATS } from "./speakingData";
+
 
 export default function WhyTopher({ portraitImage }) {
   return (
@@ -25,16 +25,6 @@ export default function WhyTopher({ portraitImage }) {
               Topher specializes in the practical application of AI & technology and shares his insights on the CRE AI Studio learning platform, in their weekly newsletter, and through in-person presentations at CRE conferences & team meetings across the country.
             </p>
           </div>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {STATS.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-slate-600">{stat.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

@@ -19,10 +19,10 @@ export default function WhyTopher({ portraitImage }) {
               A practitioner, not a futurist
             </h2>
             <p className="text-slate-600 leading-relaxed mb-4">
-              Most AI keynote speakers cover real estate as one vertical among twenty. Topher spent 11 years inside commercial real estate operations before going full-time on AI education, including running operations for a brokerage. He builds the tools he demos.
+              Most AI keynote speakers cover real estate as one vertical among twenty. Topher spent 11 years inside commercial real estate, leveraging technology across marketing, leasing, operations & brokerage management before going full-time on AI training, consulting, and workshops built for the CRE industry.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              As co-founder of CRE AI Studio, he teaches AI to CRE professionals every week: live lessons, a member community, and a newsletter read by 5,100+ CRE professionals. Your event gets the same material that's working for brokers, marketers, and operations teams right now, not recycled futurism.
+              Topher specializes in the practical application of AI & technology and shares his insights on the CRE AI Studio learning platform, in their weekly newsletter, and through in-person presentations at CRE conferences & team meetings across the country.
             </p>
           </div>
         </div>

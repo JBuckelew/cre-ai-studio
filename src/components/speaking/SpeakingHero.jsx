@@ -16,7 +16,7 @@ export default function SpeakingHero({ scarcity, onBookClick, onSeeTestimonials,
               <span className="italic text-blue-600">actually use it</span>.
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-5 max-w-xl">
-              Topher Stephenson, co-founder of CRE AI Studio, delivers practical AI keynotes, workshops, and webinar series for CRE conferences, associations, and brokerage teams. Specific tools and tactics your audience will put to work Monday morning.
+              Topher Stephenson, co-founder of CRE AI Studio, delivers practical AI keynotes &amp; workshops for CRE conferences, associations, and companies. Specific tools and tactics your audience will put to work Monday morning.
             </p>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 mb-8">
               <span className="w-2 h-2 rounded-full bg-amber-500"></span>

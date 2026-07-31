@@ -27,10 +27,10 @@ export const FORMATS = [
     icon: "Mic",
     duration: "60 minutes",
     title: "60-Minute Conference Keynote",
-    paragraph: "Live demonstrations of how to put AI to work in commercial real estate, plus generous Q&A. Built to engage day-one CRE professionals and 30-year veterans in the same room.",
+    paragraph: "Real-world demonstrations of how to put AI to work in commercial real estate, plus generous Q&A. Built to engage day-one CRE professionals and 30-year veterans in the same room.",
     bullets: [
       "Industry conferences and state, regional, or national association events",
-      "Live demos in real time, not theoretical slides",
+      "Video walk-throughs of real workflows, not theoretical slides",
       "Generous Q&A built into every session",
     ],
     selectValue: "60-Minute Conference Keynote",

@@ -5,11 +5,10 @@ import EngagementsMarquee from "@/components/speaking/EngagementsMarquee";
 import FormatsSection from "@/components/speaking/FormatsSection";
 import WhyTopher from "@/components/speaking/WhyTopher";
 import SpeakingTestimonials from "@/components/speaking/SpeakingTestimonials";
-import SpeakingFAQ from "@/components/speaking/SpeakingFAQ";
 import BookingForm from "@/components/speaking/BookingForm";
 import RecentAppearances from "@/components/speaking/RecentAppearances";
 import StudioBridge from "@/components/speaking/StudioBridge";
-import { SCARCITY, IMAGES, VIDEO, FAQS } from "@/components/speaking/speakingData";
+import { SCARCITY, IMAGES, VIDEO } from "@/components/speaking/speakingData";
 
 const OG_IMAGE = IMAGES.heroStage;
 
@@ -27,16 +26,6 @@ const serviceSchema = {
   "@type": "Service",
   serviceType: "AI keynote speaking and training for commercial real estate",
   provider: { "@type": "Person", name: "Topher Stephenson" },
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
 };
 
 export default function Speaking() {
@@ -83,7 +72,6 @@ export default function Speaking() {
         />
       </div>
       <RecentAppearances />
-      <SpeakingFAQ faqs={FAQS} />
       <StudioBridge />
 
       <section className="bg-slate-900 text-white py-10 border-t border-white/10">
@@ -128,10 +116,6 @@ export default function Speaking() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

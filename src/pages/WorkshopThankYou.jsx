@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Calendar, Mail, MessageCircle, ArrowRight } from "lucide-react";
 import { createPageUrl } from '@/utils';
 import confetti from 'canvas-confetti';
+import { trackCheckoutConversion } from "@/lib/checkoutTracking";
 
 export default function WorkshopThankYou() {
   usePageMeta({
@@ -46,6 +47,12 @@ export default function WorkshopThankYou() {
     }, 250);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+    trackCheckoutConversion(sessionId);
   }, []);
 
   return (

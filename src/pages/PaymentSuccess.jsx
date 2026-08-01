@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from '@/utils';
 import { getStripeSession } from "@/functions/getStripeSession";
+import { trackCheckoutConversion } from "@/lib/checkoutTracking";
 
 export default function PaymentSuccess() {
   usePageMeta({
@@ -36,40 +37,7 @@ export default function PaymentSuccess() {
 
     // Fire conversion events once on mount when session_id exists
     if (sessionId) {
-      const dedupeKey = `purchase_fired_${sessionId}`;
-      if (!localStorage.getItem(dedupeKey)) {
-        const pollFor = (isReady, fire) => {
-          const attempt = (tries) => {
-            if (tries <= 0) return;
-            if (isReady()) {
-              try {
-                fire();
-              } catch (e) {
-                console.error('Tracking fire error:', e);
-              }
-            } else {
-              setTimeout(() => attempt(tries - 1), 300);
-            }
-          };
-          attempt(15);
-        };
-
-        pollFor(
-          () => typeof window.gtag === 'function',
-          () => window.gtag('event', 'purchase', {
-            transaction_id: sessionId,
-            value: 50,
-            currency: 'USD'
-          })
-        );
-
-        pollFor(
-          () => typeof window.fbq === 'function',
-          () => window.fbq('track', 'Purchase', { value: 50, currency: 'USD' })
-        );
-
-        localStorage.setItem(dedupeKey, '1');
-      }
+      trackCheckoutConversion(sessionId);
 
       // Run in background - don't block page render
       getStripeSession({ session_id: sessionId })

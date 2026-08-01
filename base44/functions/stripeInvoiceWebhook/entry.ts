@@ -2,7 +2,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
   try {
     const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
-    const gaApiSecret = Deno.env.get("GA4_API_SECRET");
+    const gaApiSecret = Deno.env.get("GA4_API_SECRET") ?? Deno.env.get("GA44_API_SECRET") ?? Deno.env.get("GA44-API-SECRET");
 
     if (!webhookSecret) {
       console.log("webhook secret not configured");

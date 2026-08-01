@@ -85,6 +85,23 @@ Deno.serve(async (req: Request): Promise<Response> => {
       return new Response("ok", { status: 200 });
     }
 
+    // Determine if this is the first paid invoice (new customer) vs a renewal
+    let newCustomer = true;
+    try {
+      const invoicesRes = await fetch(
+        `https://api.stripe.com/v1/invoices?subscription=${encodeURIComponent(subscriptionId)}&limit=100`,
+        { headers: { Authorization: `Bearer ${stripeKey}` } }
+      );
+      if (invoicesRes.ok) {
+        const invoicesData = await invoicesRes.json();
+        const allInvoices = invoicesData.data || [];
+        const firstPaid = allInvoices.find((inv: any) => inv.amount_paid > 0);
+        newCustomer = !firstPaid || firstPaid.id === invoice.id;
+      }
+    } catch (e) {
+      console.log("failed to list invoices:", e.message);
+    }
+
     // Find the GA client id from the originating Checkout Session
     let clientId: string | null = null;
     try {
@@ -129,6 +146,8 @@ Deno.serve(async (req: Request): Promise<Response> => {
                   value: invoice.amount_paid / 100,
                   currency: (invoice.currency || "usd").toUpperCase(),
                   transaction_id: invoice.id,
+                  new_customer: newCustomer,
+                  billing_reason: invoice.billing_reason,
                 },
               },
             ],

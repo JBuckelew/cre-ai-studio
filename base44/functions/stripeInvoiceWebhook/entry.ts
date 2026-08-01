@@ -85,25 +85,6 @@ Deno.serve(async (req: Request): Promise<Response> => {
       return new Response("ok", { status: 200 });
     }
 
-    // Retrieve all invoices for this subscription to check if this is the first paid one
-    const invoicesRes = await fetch(
-      `https://api.stripe.com/v1/invoices?subscription=${encodeURIComponent(subscriptionId)}&limit=100`,
-      { headers: { Authorization: `Bearer ${stripeKey}` } }
-    );
-    if (!invoicesRes.ok) {
-      console.log("failed to list invoices:", invoicesRes.status);
-      return new Response("ok", { status: 200 });
-    }
-    const invoicesData = await invoicesRes.json();
-    const allInvoices = invoicesData.data || [];
-
-    // Find the first invoice with amount_paid > 0
-    const firstPaid = allInvoices.find((inv: any) => inv.amount_paid > 0);
-    if (!firstPaid || firstPaid.id !== invoice.id) {
-      // Not the first paid invoice — skip renewals
-      return new Response("ok", { status: 200 });
-    }
-
     // Find the GA client id from the originating Checkout Session
     let clientId: string | null = null;
     try {

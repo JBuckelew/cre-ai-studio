@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Loader2, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { enhanceStripeUrl } from '@/lib/stripeAttribution';
 
 export default function BlackFridayPaymentPage() {
   usePageMeta({
@@ -51,7 +52,7 @@ export default function BlackFridayPaymentPage() {
     const plan = plans.find(p => p.level === selectedLevel);
 
     if (plan && plan.stripe_url) {
-      window.location.href = plan.stripe_url;
+      window.location.href = enhanceStripeUrl(plan.stripe_url);
     } else {
       alert("Payment link not configured yet");
       setIsProcessing(false);

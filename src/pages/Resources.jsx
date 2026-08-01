@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import ResourceCard from "../components/resources/ResourceCard";
 import MemberLogin from "../components/resources/MemberLogin";
 import PromptLibrary from "../components/resources/PromptLibrary";
+import { enhanceStripeUrl } from "@/lib/stripeAttribution";
 
 export default function Resources() {
   usePageMeta({
@@ -77,9 +78,9 @@ export default function Resources() {
   const handlePurchase = async (resource) => {
     // For AI Primer, redirect to stripe payment link
     if (resource.id === 'ai-primer') {
-      window.location.href = 'https://buy.stripe.com/8x214oecvf1sbpf8rscV203';
+      window.location.href = enhanceStripeUrl('https://buy.stripe.com/8x214oecvf1sbpf8rscV203');
     } else if (resource.stripe_payment_link) {
-      window.location.href = resource.stripe_payment_link;
+      window.location.href = enhanceStripeUrl(resource.stripe_payment_link);
     } else {
       alert("Payment link not available for this resource");
     }

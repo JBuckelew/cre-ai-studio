@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { CheckCircle, Calendar, Users, Award, ArrowRight } from "lucide-react";
+import { enhanceStripeUrl } from "@/lib/stripeAttribution";
 
 export default function WorkshopPayment() {
   usePageMeta({
@@ -12,7 +13,7 @@ export default function WorkshopPayment() {
     path: "/WorkshopPayment",
   });
   const handlePayment = () => {
-    window.location.href = 'https://buy.stripe.com/5kQeVe5FZdXo2SJ4bccV20i';
+    window.location.href = enhanceStripeUrl('https://buy.stripe.com/5kQeVe5FZdXo2SJ4bccV20i');
   };
 
   return (

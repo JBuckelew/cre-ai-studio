@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Loader2, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { enhanceStripeUrl } from '@/lib/stripeAttribution';
 
 export default function PaymentPage() {
   usePageMeta({
@@ -81,7 +82,7 @@ export default function PaymentPage() {
 
     if (plan && plan.stripe_url) {
         // If a real Stripe link exists, redirect to it
-        window.location.href = plan.stripe_url;
+        window.location.href = enhanceStripeUrl(plan.stripe_url);
     } else {
         // Otherwise, simulate payment for now (this path should ideally not be hit if all plans have stripe_url)
         console.log(`Simulating payment for ${plan.name}`);

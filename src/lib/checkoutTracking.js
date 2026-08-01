@@ -27,7 +27,7 @@ export function trackCheckoutConversion(sessionId) {
         attempt(15);
       };
 
-      if (data.amount_total === 0) {
+      if (data.mode === "subscription") {
         pollFor(
           () => typeof window.gtag === "function",
           () => window.gtag("event", "sign_up", { method: "stripe_checkout" })
@@ -37,7 +37,7 @@ export function trackCheckoutConversion(sessionId) {
           () => window.fbq("track", "StartTrial", { value: 0, currency: "USD" })
         );
         localStorage.setItem(dedupeKey, "1");
-      } else if (data.amount_total > 0) {
+      } else if (data.mode === "payment") {
         const value = data.amount_total / 100;
         const currency = (data.currency || "usd").toUpperCase();
         pollFor(

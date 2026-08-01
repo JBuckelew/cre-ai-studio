@@ -1,6 +1,6 @@
 Deno.serve(async (req: Request): Promise<Response> => {
   try {
-    const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");
+    const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET") ?? Deno.env.get("STRIPE-WEBHOOK-SECRET");
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
     const gaApiSecret = Deno.env.get("GA4_API_SECRET") ?? Deno.env.get("GA44_API_SECRET") ?? Deno.env.get("GA44-API-SECRET");
 

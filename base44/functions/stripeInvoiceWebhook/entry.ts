@@ -131,6 +131,11 @@ Deno.serve(async (req: Request): Promise<Response> => {
       return new Response("ok", { status: 200 });
     }
 
+    // Build items array from the invoice's first line item
+    const lineItem = invoice.lines?.data?.[0];
+    const itemName = lineItem?.description || lineItem?.price?.nickname || "Subscription";
+    const items = [{ item_name: itemName, price: invoice.amount_paid / 100, quantity: 1 }];
+
     try {
       const gaRes = await fetch(
         `https://www.google-analytics.com/mp/collect?measurement_id=G-V6HYB523GP&api_secret=${gaApiSecret}`,
@@ -148,6 +153,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
                   transaction_id: invoice.id,
                   new_customer: newCustomer,
                   billing_reason: invoice.billing_reason,
+                  items,
                 },
               },
             ],

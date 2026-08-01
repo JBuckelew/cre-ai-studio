@@ -1,0 +1,37 @@
+{
+  "name": "MetaLead",
+  "type": "object",
+  "properties": {
+    "lead_id": {
+      "type": "string",
+      "description": "Meta lead ID from the Facebook Lead Ads API"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email extracted from the lead's field_data"
+    },
+    "created_time": {
+      "type": "string",
+      "description": "ISO timestamp of when the lead was created"
+    },
+    "form_id": {
+      "type": "string",
+      "description": "Facebook lead form ID"
+    }
+  },
+  "required": [
+    "lead_id"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

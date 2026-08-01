@@ -70,13 +70,70 @@ Deno.serve(async (req: Request): Promise<Response> => {
       return new Response("ok", { status: 200 });
     }
 
-    // Ignore zero-amount invoices
-    if (invoice.amount_paid === 0) {
+    const subscriptionId = invoice.subscription;
+    if (!subscriptionId) {
       return new Response("ok", { status: 200 });
     }
 
-    const subscriptionId = invoice.subscription;
-    if (!subscriptionId) {
+    // For the first invoice of a subscription (trial-start or first paid),
+    // subscribe the customer to the beehiiv newsletter.
+    if (invoice.billing_reason === "subscription_create") {
+      try {
+        const beehiivApiKey = Deno.env.get("BEEHIIV_API_KEY");
+        const beehiivPublicationId = Deno.env.get("BEEHIIV_PUBLICATION_ID");
+        if (beehiivApiKey && beehiivPublicationId) {
+          let customerEmail = invoice.customer_email;
+          if (!customerEmail && invoice.customer && stripeKey) {
+            try {
+              const custRes = await fetch(
+                `https://api.stripe.com/v1/customers/${encodeURIComponent(invoice.customer)}`,
+                { headers: { Authorization: `Bearer ${stripeKey}` } }
+              );
+              if (custRes.ok) {
+                const custData = await custRes.json();
+                customerEmail = custData.email;
+              }
+            } catch (e) {
+              console.log("failed to fetch customer for beehiiv:", e.message);
+            }
+          }
+          if (customerEmail) {
+            try {
+              const beehiivRes = await fetch(
+                `https://api.beehiiv.com/v2/publications/${beehiivPublicationId}/subscriptions`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${beehiivApiKey}`,
+                  },
+                  body: JSON.stringify({
+                    email: customerEmail,
+                    reactivate_existing: false,
+                    send_welcome_email: false,
+                    status: "active",
+                    utm_source: "stripe",
+                    utm_medium: "trial_signup",
+                  }),
+                }
+              );
+              console.log("Beehiiv subscribe status:", beehiivRes.status);
+            } catch (e) {
+              console.log("Beehiiv subscribe error:", e.message);
+            }
+          } else {
+            console.log("No customer email available for beehiiv subscribe");
+          }
+        } else {
+          console.log("Beehiiv secrets not configured — skipping subscribe");
+        }
+      } catch (e) {
+        console.log("Beehiiv bridge error:", e.message);
+      }
+    }
+
+    // Ignore zero-amount invoices (e.g. $0 trial-start) after beehiiv subscribe
+    if (invoice.amount_paid === 0) {
       return new Response("ok", { status: 200 });
     }
 

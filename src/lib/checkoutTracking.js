@@ -34,7 +34,18 @@ export function trackCheckoutConversion(sessionId) {
         );
         pollFor(
           () => typeof window.fbq === "function",
-          () => window.fbq("track", "StartTrial", { value: 0, currency: "USD" })
+          () => {
+            window.fbq("track", "StartTrial", { value: 0, currency: "USD" });
+            // Purchase also fires on trial start: the Free Trial ad set's conversion
+            // event is locked to Purchase and needs the signal. Value stays 0 because
+            // revenue truth lives in Stripe and GA4, not Meta.
+            window.fbq(
+              "track",
+              "Purchase",
+              { value: 0, currency: "USD" },
+              { eventID: data.session_id }
+            );
+          }
         );
         localStorage.setItem(dedupeKey, "1");
       } else if (data.mode === "payment") {

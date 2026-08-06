@@ -28,8 +28,21 @@ export function captureFirstTouchAttribution() {
     medium = utmMedium || "";
   } else if (referrer) {
     try {
-      source = new URL(referrer).hostname.replace(/^www\./, "");
-      medium = "referral";
+      const refHost = new URL(referrer).hostname.replace(/^www\./, "");
+      const siteHost = window.location.hostname.replace(/^www\./, "");
+      const isSelfReferral =
+        refHost === siteHost ||
+        refHost === "creaistudio.com" ||
+        refHost.endsWith(".creaistudio.com") ||
+        refHost.endsWith(".base44.app") ||
+        refHost === "buy.stripe.com";
+      if (isSelfReferral) {
+        source = "direct";
+        medium = "none";
+      } else {
+        source = refHost;
+        medium = "referral";
+      }
     } catch {
       source = "direct";
       medium = "none";

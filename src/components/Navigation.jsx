@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle } from "lucide-react";
 import { createPageUrl } from '@/utils';
-import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
+import { base44 } from "@/api/base44Client";
 import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
 import {
   Dialog,
@@ -68,7 +68,7 @@ export default function Navigation() {
     setNewsletterSubmitting(true);
     try {
       const attr = getAttribution();
-      await subscribeToBeehiiv({
+      await base44.functions.invoke("subscribeToBeehiiv", {
         email: newsletterEmail,
         utm_source: attr?.utm_source,
         utm_medium: attr?.utm_medium,

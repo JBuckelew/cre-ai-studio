@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
-import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
+import { base44 } from "@/api/base44Client";
 import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
 
 const ORGS = ["CBRE", "Newmark", "Colliers", "Cushman & Wakefield", "JLL", "Savills"];
@@ -85,7 +85,7 @@ export default function NewsletterHero() {
     setErrorMsg("");
     try {
       const attr = getAttribution();
-      await subscribeToBeehiiv({
+      await base44.functions.invoke("subscribeToBeehiiv", {
         email,
         source: "newsletter_landing",
         utm_source: attr?.utm_source,

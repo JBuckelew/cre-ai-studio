@@ -3,7 +3,7 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const { email, source } = await req.json();
+    const { email, source, utm_source, utm_medium, utm_campaign, utm_term, utm_content, referring_site } = await req.json();
 
     if (!email) {
       return Response.json({ error: 'Email is required' }, { status: 400 });
@@ -27,8 +27,12 @@ Deno.serve(async (req) => {
         reactivate_existing: true,
         send_welcome_email: true,
         status: 'active',
-        utm_source: 'website',
-        utm_medium: 'organic',
+        utm_source: utm_source || 'website',
+        utm_medium: utm_medium || 'organic',
+        ...(utm_campaign ? { utm_campaign } : {}),
+        ...(utm_term ? { utm_term } : {}),
+        ...(utm_content ? { utm_content } : {}),
+        ...(referring_site ? { referring_site } : {}),
       }),
     });
 

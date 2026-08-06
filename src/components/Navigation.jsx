@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle } from "lucide-react";
 import { createPageUrl } from '@/utils';
 import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
+import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
 import {
   Dialog,
   DialogContent,
@@ -52,10 +53,12 @@ export default function Navigation() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
   const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+  const gaFiredRef = useRef(false);
 
   const openNewsletter = () => {
     setNewsletterSuccess(false);
     setNewsletterEmail("");
+    gaFiredRef.current = false;
     setNewsletterOpen(true);
   };
 
@@ -64,7 +67,23 @@ export default function Navigation() {
     if (!newsletterEmail) return;
     setNewsletterSubmitting(true);
     try {
-      await subscribeToBeehiiv({ email: newsletterEmail });
+      const attr = getAttribution();
+      await subscribeToBeehiiv({
+        email: newsletterEmail,
+        utm_source: attr?.utm_source,
+        utm_medium: attr?.utm_medium,
+        utm_campaign: attr?.utm_campaign,
+        utm_term: attr?.utm_term,
+        utm_content: attr?.utm_content,
+        referring_site: attr?.referrer,
+      });
+      if (!gaFiredRef.current && typeof window.gtag === "function") {
+        window.gtag("event", "newsletter_signup", {
+          method: "site_modal",
+          signup_page: window.location.pathname,
+        });
+        gaFiredRef.current = true;
+      }
       setNewsletterSuccess(true);
       setNewsletterEmail("");
     } catch (err) {

@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import FreeTrialPopup from "./components/BlackFridayPopup";
+import { captureFirstTouchAttribution } from "./lib/attribution";
 
 export default function Layout({ children, currentPageName }) {
   useEffect(() => {
+    captureFirstTouchAttribution();
+
     // Add Google Fonts link
     const fontLink = document.createElement('link');
     fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap';

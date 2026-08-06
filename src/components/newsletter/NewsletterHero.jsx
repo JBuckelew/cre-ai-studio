@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
 import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
+import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
 
 const ORGS = ["CBRE", "Newmark", "Colliers", "Cushman & Wakefield", "JLL", "Savills"];
 
@@ -71,6 +72,11 @@ export default function NewsletterHero() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const gaFiredRef = useRef(false);
+
+  useEffect(() => {
+    captureFirstTouchAttribution();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +84,24 @@ export default function NewsletterHero() {
     setStatus("submitting");
     setErrorMsg("");
     try {
-      await subscribeToBeehiiv({ email, source: "newsletter_landing" });
+      const attr = getAttribution();
+      await subscribeToBeehiiv({
+        email,
+        source: "newsletter_landing",
+        utm_source: attr?.utm_source,
+        utm_medium: attr?.utm_medium,
+        utm_campaign: attr?.utm_campaign,
+        utm_term: attr?.utm_term,
+        utm_content: attr?.utm_content,
+        referring_site: attr?.referrer,
+      });
+      if (!gaFiredRef.current && typeof window.gtag === "function") {
+        window.gtag("event", "newsletter_signup", {
+          method: "newsletter_landing",
+          signup_page: window.location.pathname,
+        });
+        gaFiredRef.current = true;
+      }
       setStatus("success");
       setEmail("");
     } catch (err) {

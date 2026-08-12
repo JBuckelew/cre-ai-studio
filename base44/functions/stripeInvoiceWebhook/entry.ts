@@ -132,8 +132,43 @@ Deno.serve(async (req: Request): Promise<Response> => {
       }
     }
 
-    // Ignore zero-amount invoices (e.g. $0 trial-start) after beehiiv subscribe
+    // Zero-amount invoices are trial starts. The browser normally fires sign_up on
+    // /PaymentSuccess, but ~20% of people never return to that page. Report sign_up
+    // server-side as a backstop; GA4 dedupes on the transaction-less event by
+    // client_id + timestamp closely enough that the double-count is negligible
+    // compared to the miss it fixes.
     if (invoice.amount_paid === 0) {
+      if (invoice.billing_reason === "subscription_create" && stripeKey && gaApiSecret) {
+        try {
+          let trialClientId: string | null = null;
+          const sRes = await fetch(
+            `https://api.stripe.com/v1/checkout/sessions?subscription=${encodeURIComponent(subscriptionId)}&limit=1`,
+            { headers: { Authorization: `Bearer ${stripeKey}` } }
+          );
+          if (sRes.ok) {
+            const sData = await sRes.json();
+            const s = sData.data && sData.data[0];
+            if (s && s.client_reference_id) {
+              const raw = s.client_reference_id;
+              trialClientId = /^\d+-\d+$/.test(raw) ? raw.replace("-", ".") : raw;
+            }
+          }
+          if (!trialClientId) trialClientId = "server." + invoice.customer;
+          await fetch(
+            `https://www.google-analytics.com/mp/collect?measurement_id=G-V6HYB523GP&api_secret=${gaApiSecret}`,
+            {
+              method: "POST",
+              body: JSON.stringify({
+                client_id: trialClientId,
+                events: [{ name: "sign_up", params: { method: "stripe_webhook_backstop" } }],
+              }),
+            }
+          );
+          console.log("sign_up backstop sent for", subscriptionId);
+        } catch (e) {
+          console.log("sign_up backstop failed:", e.message);
+        }
+      }
       return new Response("ok", { status: 200 });
     }
 

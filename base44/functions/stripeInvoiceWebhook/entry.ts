@@ -170,7 +170,11 @@ Deno.serve(async (req: Request): Promise<Response> => {
         const sessionsData = await sessionsRes.json();
         const session = sessionsData.data && sessionsData.data[0];
         if (session && session.client_reference_id) {
-          clientId = session.client_reference_id;
+          // Stripe silently drops client_reference_id values containing a period,
+          // so the site sends the GA client id as "digits-digits". Convert back to
+          // the real GA client id ("digits.digits") before reporting to GA4.
+          const raw = session.client_reference_id;
+          clientId = /^\d+-\d+$/.test(raw) ? raw.replace("-", ".") : raw;
         }
       }
     } catch (e) {

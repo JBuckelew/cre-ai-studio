@@ -132,11 +132,12 @@ Deno.serve(async (req: Request): Promise<Response> => {
       }
     }
 
-    // Zero-amount invoices are trial starts. The browser normally fires sign_up on
-    // /PaymentSuccess, but ~20% of people never return to that page. Report sign_up
-    // server-side as a backstop; GA4 dedupes on the transaction-less event by
-    // client_id + timestamp closely enough that the double-count is negligible
-    // compared to the miss it fixes.
+    // Zero-amount invoices are trial starts. The browser fires sign_up on
+    // /PaymentSuccess, but ~20% of people never return to that page, so sign_up
+    // undercounts. Fire a SEPARATE server-side event, trial_started, which sees
+    // 100% of trials. Deliberately not named sign_up: GA4 does not dedupe these,
+    // so reusing the name would double-count everyone who does reach the page.
+    // sign_up = browser-observed. trial_started = authoritative count.
     if (invoice.amount_paid === 0) {
       if (invoice.billing_reason === "subscription_create" && stripeKey && gaApiSecret) {
         try {
@@ -160,13 +161,13 @@ Deno.serve(async (req: Request): Promise<Response> => {
               method: "POST",
               body: JSON.stringify({
                 client_id: trialClientId,
-                events: [{ name: "sign_up", params: { method: "stripe_webhook_backstop" } }],
+                events: [{ name: "trial_started", params: { method: "stripe_webhook" } }],
               }),
             }
           );
-          console.log("sign_up backstop sent for", subscriptionId);
+          console.log("trial_started sent for", subscriptionId);
         } catch (e) {
-          console.log("sign_up backstop failed:", e.message);
+          console.log("trial_started failed:", e.message);
         }
       }
       return new Response("ok", { status: 200 });

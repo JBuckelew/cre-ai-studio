@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Loader2, Star, CheckCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { getGAClientId } from '@/lib/stripeAttribution';
+import { getStripeSafeClientId } from '@/lib/stripeAttribution';
 
 export default function FreeTrialPaymentPage() {
   usePageMeta({
@@ -127,7 +127,7 @@ export default function FreeTrialPaymentPage() {
         const value = pageParams.get(key);
         if (value) url.searchParams.set(key, value);
       });
-      const gaClientId = getGAClientId();
+      const gaClientId = getStripeSafeClientId();
       if (gaClientId) url.searchParams.set('client_reference_id', gaClientId);
       window.location.href = url.toString();
     } else {

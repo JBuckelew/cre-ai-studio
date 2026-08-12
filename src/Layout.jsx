@@ -200,9 +200,12 @@ export default function Layout({ children, currentPageName }) {
                       return url;
                   }
 
+                  // Stripe silently drops client_reference_id values containing a
+                  // period, so send the GA client id as "digits-digits".
+                  // stripeInvoiceWebhook converts it back before reporting to GA4.
                   var clientId = getGAClientId();
                   if (clientId) {
-                      urlObj.searchParams.set('client_reference_id', clientId);
+                      urlObj.searchParams.set('client_reference_id', clientId.replace('.', '-'));
                   }
 
                   var utmParams = getUTMParams();

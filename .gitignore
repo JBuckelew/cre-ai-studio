@@ -29,3 +29,6 @@ dist-ssr
 
 .env
 base44/.app.jsonc
+
+# gstack is installed globally (~/.claude/skills/gstack), never vendored here
+.claude/skills/gstack/

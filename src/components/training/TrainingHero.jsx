@@ -81,11 +81,13 @@ export default function TrainingHero({ onRequestClick, onTestimonialsClick }) {
               </div>
             </div>
 
-            {/* 16:9 image placeholder for Jonathan presenting */}
-            <div className="rounded-2xl bg-slate-100 border border-slate-200 w-full max-w-lg overflow-hidden">
-              <div className="aspect-video flex items-center justify-center text-slate-400 text-sm">
-                Jonathan presenting (image coming next)
-              </div>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 w-full max-w-lg">
+              <img
+                src="https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/08fbba5dd_jonathan-podium.jpg"
+                alt="Jonathan Buckelew delivering an AI training session for a commercial real estate team"
+                className="w-full aspect-video object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const JENNA = "https://www.booktopher.com/web/jenna-hille.jpg";
@@ -89,12 +88,8 @@ export default function TrainingTestimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
               className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-lg hover:border-blue-100 transition-all duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -110,7 +105,7 @@ export default function TrainingTestimonials() {
                 ))}
               </div>
               <p className="text-slate-600 leading-relaxed text-sm">{t.quote}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
 

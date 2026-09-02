@@ -3,17 +3,37 @@ import { Star } from "lucide-react";
 
 const JENNA = "https://www.booktopher.com/web/jenna-hille.jpg";
 const TIM = "https://www.booktopher.com/web/tim-murphy.jpg";
-const ADAM = "https://www.booktopher.com/web/adam-palmer.jpg";
 const AUDIENCE =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/57fad5733_audience-hero.jpg";
 
 const testimonials = [
   {
+    name: "David Knight",
+    role: "Partner, Sitings Realty Ltd",
+    initials: "DK",
+    quote:
+      "We brought Topher in to help our team get a better handle on how to use AI in commercial real estate. He showed us how to use AI to move faster on marketing, and explored in detail how to build custom AI bots that can handle repetitive tasks in our business.",
+  },
+  {
+    name: "David Murphy",
+    role: "Vice Chairman, CBRE Central Florida",
+    initials: "DM",
+    quote:
+      'Instead of vague "use AI for everything" advice, we got concrete guidance on what to focus on. We left the sessions with a detailed outline of what we\'re doing now, and an executive summary on what to do next.',
+  },
+  {
+    name: "Allison Weiss",
+    role: "Executive Vice President, Sunstone Commercial",
+    initials: "AW",
+    quote:
+      "He worked alongside the team to map existing processes, find efficiencies, and revise our various tools and systems to make our lives easier while providing greater insight than ever before. He's helped us to creatively solve business challenges using a variety of AI tools, and has made our entire team more technologically savvy and confident through our work together.",
+  },
+  {
     name: "Jenna Hille, M.S.",
     role: "National Director of Strategy & Operations, Coldwell Banker Commercial",
     image: JENNA,
     quote:
-      "He taught the entire team how to build customized versions of AI tools for their specific use-cases. His experience in the industry enables him to break down complex topics in a way that resonated with our audience.",
+      "Topher put on an informative and engaging AI training for our Women of Coldwell Banker Commercial Quarterly Event. He taught the entire team how to build customized versions of AI tools for their specific use-cases. His experience in the industry enables him to break down complex topics in a way that resonated with our audience.",
   },
   {
     name: "Tim Murphy",
@@ -28,27 +48,6 @@ const testimonials = [
     initials: "TO",
     quote:
       "What sets Topher apart is his ability to distill complex industry trends and tools into practical, real-world applications. Something incredibly rare in a space often full of buzzwords.",
-  },
-  {
-    name: "Sarah Vincent",
-    role: "EVP Operations, SVN International",
-    initials: "SV",
-    quote:
-      "A unique ability to translate complex concepts into practical, relevant insights for commercial real estate professionals at all levels. The feedback from our Advisors was overwhelmingly positive.",
-  },
-  {
-    name: "Eric Edwards, CCIM",
-    role: "2026 Florida CCIM SW District President",
-    initials: "EE",
-    quote:
-      "Topher has a talent for making AI accessible and relevant to commercial real estate professionals. Based on the survey responses, it was one of the most well-received sessions of the day.",
-  },
-  {
-    name: "Adam Palmer",
-    role: "Mgr, Commercial Outreach, National Association of REALTORS",
-    image: ADAM,
-    quote:
-      "His speaking style made complex AI concepts accessible and relevant to real estate professionals. I would recommend Topher for organizations looking to understand how AI can benefit their real estate business.",
   },
 ];
 

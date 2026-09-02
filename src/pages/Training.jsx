@@ -2,6 +2,7 @@ import React from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import TrainingHero from "@/components/training/TrainingHero";
 import TrainingTestimonials from "@/components/training/TrainingTestimonials";
+import TrainingForm from "@/components/training/TrainingForm";
 
 export default function Training() {
   usePageMeta({
@@ -24,6 +25,7 @@ export default function Training() {
         onTestimonialsClick={scrollToTestimonials}
       />
       <TrainingTestimonials />
+      <TrainingForm />
     </div>
   );
 }

@@ -1,0 +1,63 @@
+{
+  "name": "TrainingInquiry",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Inquirer's full name"
+    },
+    "organization": {
+      "type": "string",
+      "description": "Organization or company"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Inquirer's email"
+    },
+    "team_size": {
+      "type": "string",
+      "description": "Number of people to train"
+    },
+    "platform": {
+      "type": "string",
+      "description": "AI platform the team uses"
+    },
+    "format": {
+      "type": "string",
+      "description": "Requested training format"
+    },
+    "timeline": {
+      "type": "string",
+      "description": "When the team is thinking of training"
+    },
+    "message": {
+      "type": "string",
+      "description": "What they want attendees doing differently afterward"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "contacted",
+        "booked"
+      ],
+      "default": "pending",
+      "description": "Inquiry status"
+    }
+  },
+  "required": [
+    "name",
+    "organization",
+    "email",
+    "message"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "write": {}
+  }
+}

@@ -144,6 +144,15 @@ export default function TrainingForm() {
               </ul>
             </div>
 
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
+              <img
+                src="https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/08fbba5dd_jonathan-podium.jpg"
+                alt="Jonathan Buckelew delivering an AI training session for a commercial real estate team"
+                className="w-full aspect-video object-cover"
+                loading="lazy"
+              />
+            </div>
+
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
                 <img

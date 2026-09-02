@@ -3,7 +3,6 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import TrainingHero from "@/components/training/TrainingHero";
 import TrainingTestimonials from "@/components/training/TrainingTestimonials";
 import TrainingForm from "@/components/training/TrainingForm";
-import TrainingFAQ, { TRAINING_FAQS } from "@/components/training/TrainingFAQ";
 import TrainingBridge from "@/components/training/TrainingBridge";
 
 const serviceSchema = {
@@ -17,19 +16,6 @@ const serviceSchema = {
     url: "https://creaistudio.com",
   },
   areaServed: "US",
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: TRAINING_FAQS.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.a,
-    },
-  })),
 };
 
 export default function Training() {
@@ -55,16 +41,11 @@ export default function Training() {
       />
       <TrainingTestimonials />
       <TrainingForm />
-      <TrainingFAQ />
       <TrainingBridge />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

@@ -97,6 +97,12 @@ export default function Footer() {
             >
               Speaking
             </a>
+            <a 
+              href="/training" 
+              className="text-slate-300 hover:text-white transition-colors duration-200"
+            >
+              Training
+            </a>
             <button
               onClick={() => setIsContactDialogOpen(true)}
               className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-1"

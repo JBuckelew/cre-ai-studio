@@ -141,6 +141,13 @@ export default function Navigation() {
             </Button>
             <Button
               variant="ghost"
+              onClick={() => window.location.href = '/training'}
+              className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
+            >
+              Training
+            </Button>
+            <Button
+              variant="ghost"
               onClick={() => window.location.href = '/Articles'}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
@@ -235,6 +242,14 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               Speaking
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => window.location.href = '/training'}
+              className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
+            >
+              Training
             </Button>
             <Button
               variant="ghost"

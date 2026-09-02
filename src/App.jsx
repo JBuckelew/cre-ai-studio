@@ -12,6 +12,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import FacebookAdLanding from './pages/FacebookAdLanding';
 import Newsletter from './pages/Newsletter';
 import Speaking from './pages/Speaking';
+import Training from './pages/Training';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -52,6 +53,11 @@ const AuthenticatedApp = () => {
       <Route path="/speaking" element={
         <LayoutWrapper currentPageName="Speaking">
           <Speaking />
+        </LayoutWrapper>
+      } />
+      <Route path="/training" element={
+        <LayoutWrapper currentPageName="Training">
+          <Training />
         </LayoutWrapper>
       } />
       <Route path="/" element={

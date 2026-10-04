@@ -54,12 +54,20 @@ export default function VibeCodeWorkshopCard() {
                     First App for CRE
                   </span>
                 </h2>
-                <p className="text-xl text-slate-600 leading-relaxed mb-4">
+                <p className="text-xl text-slate-600 leading-relaxed mb-6">
                   A 90-minute working session for brokers, analysts, asset managers and investors. One app built live, honest costs, and no hype.
                 </p>
-                <div className="flex items-center gap-2 text-slate-700">
-                  <User className="w-5 h-5 text-blue-600" />
-                  <span className="font-medium">Taught by Tristen Palori, Commercial Broker at Foresite CRE and Co-founder of SiteMap CRE</span>
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <img
+                    src="https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/a11a7b3e4_image.png"
+                    alt="Tristen Palori"
+                    className="w-16 h-16 rounded-full object-cover ring-2 ring-blue-200 flex-shrink-0"
+                  />
+                  <div className="flex-1">
+                    <div className="font-bold text-slate-900 text-lg">Tristen Palori</div>
+                    <div className="text-sm text-slate-600">Commercial Broker at Foresite CRE and Co-founder of SiteMap CRE</div>
+                  </div>
+                  <User className="w-5 h-5 text-blue-600 flex-shrink-0 hidden sm:block" />
                 </div>
               </div>
 

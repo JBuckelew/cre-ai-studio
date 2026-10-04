@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle, Calendar, Clock, User, Zap, Code2, Rocket, Terminal } from "lucide-react";
 
-const STRIPE_URL = "https://buy.stripe.com/14A3cw3xR8D48d3gXYcV20q";
+const STRIPE_URLS = {
+  "cre-daily": "https://buy.stripe.com/3cIaEY9WfbPgfFvazAcV20r",
+  "mfn": "https://buy.stripe.com/eVq4gAd8rdXo2SJ8rscV20s",
+};
+const DEFAULT_STRIPE_URL = "https://buy.stripe.com/14A3cw3xR8D48d3gXYcV20q";
+
+function getStripeUrl() {
+  const ref = new URLSearchParams(window.location.search).get("ref");
+  return STRIPE_URLS[ref] || DEFAULT_STRIPE_URL;
+}
 
 const AGENDA = [
   { time: "0:00", duration: "6 min", title: "Opening", desc: "Open live on SiteMap CRE, the platform built by a broker with no engineering background. Set expectations plainly: what attendees will leave with, and what they will not.", icon: Rocket },
@@ -188,7 +197,7 @@ export default function VibeCodeWorkshopCard() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
-                  onClick={() => window.open(STRIPE_URL, "_blank")}
+                  onClick={() => window.open(getStripeUrl(), "_blank")}
                 >
                   Sign-Up Here
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -190,7 +190,7 @@ export default function VibeCodeWorkshopCard() {
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
                   onClick={() => window.open(STRIPE_URL, "_blank")}
                 >
-                  Register for $100
+                  Sign-Up Here
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <p className="text-sm text-slate-500">Live on October 29th • 90 minutes • Recording included</p>

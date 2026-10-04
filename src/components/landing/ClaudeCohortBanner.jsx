@@ -5,7 +5,7 @@ import { createPageUrl } from "@/utils";
 
 export default function ClaudeCohortBanner() {
   const handleClick = () => {
-    window.location.href = createPageUrl("ClaudeCohort");
+    window.location.href = createPageUrl("Workshops");
   };
 
   return (

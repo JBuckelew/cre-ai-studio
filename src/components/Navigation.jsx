@@ -36,7 +36,7 @@ export default function Navigation() {
   };
 
   const handleWorkshopClick = () => {
-    window.location.href = createPageUrl('ClaudeCohort');
+    window.location.href = createPageUrl('Workshops');
   };
 
   const handleTeachersClick = () => {

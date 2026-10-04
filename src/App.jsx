@@ -13,6 +13,7 @@ import FacebookAdLanding from './pages/FacebookAdLanding';
 import Newsletter from './pages/Newsletter';
 import Speaking from './pages/Speaking';
 import Training from './pages/Training';
+import Workshops from './pages/Workshops';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -58,6 +59,11 @@ const AuthenticatedApp = () => {
       <Route path="/training" element={
         <LayoutWrapper currentPageName="Training">
           <Training />
+        </LayoutWrapper>
+      } />
+      <Route path="/Workshops" element={
+        <LayoutWrapper currentPageName="Workshops">
+          <Workshops />
         </LayoutWrapper>
       } />
       <Route path="/" element={

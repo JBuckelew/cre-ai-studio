@@ -86,7 +86,7 @@ export const PAGES = {
     "WorkshopPayment": WorkshopPayment,
     "WorkshopThankYou": WorkshopThankYou,
     "Consulting": Consulting,
-    "ClaudeCohort": Workshops,
+    "Workshops": Workshops,
 }
 
 export const pagesConfig = {

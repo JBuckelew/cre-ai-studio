@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, CheckCircle, Calendar, Users, Video, Award } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, Zap, Code2 } from "lucide-react";
 import { createPageUrl } from '@/utils';
 import { base44 } from "@/api/base44Client";
 import VibeCodeWorkshopCard from "@/components/workshops/VibeCodeWorkshopCard";
@@ -40,11 +38,32 @@ export default function Workshops() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* SECTION 1 - HERO */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-black text-white overflow-hidden">
-        {/* Abstract Wave Background */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[800px] h-[800px] rounded-full bg-[#3d2a23] blur-[120px] opacity-60"></div>
-        </div>
+      <section className="relative min-h-[75vh] flex items-center justify-center bg-black text-white overflow-hidden">
+        {/* Animated gradient blobs */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-600 blur-[120px] opacity-40"
+          animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-600 blur-[120px] opacity-40"
+          animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-orange-500 blur-[150px] opacity-25"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 text-center z-10">
           <motion.div
@@ -52,15 +71,46 @@ export default function Workshops() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-sm md:text-base font-medium tracking-[0.3em] uppercase text-[#b3775c] mb-6">
-              CRE AI Studio Presents
-            </p>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[1.05] mb-6 text-white">
-              WORKSHOPS
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
+            >
+              <Sparkles className="w-4 h-4 text-orange-400" />
+              <span className="text-sm font-medium tracking-wide text-white/90">CRE AI Studio Presents</span>
+            </motion.div>
+
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[1.05] mb-6">
+              <span className="bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
+                WORKSHOPS
+              </span>
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-[#b3775c]">
+            <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
               Live AI Training for CRE Professionals
             </p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="flex items-center justify-center gap-6 mt-10 text-white/60"
+            >
+              <div className="flex items-center gap-2">
+                <Zap className="w-5 h-5 text-orange-400" />
+                <span className="text-sm font-medium">Hands-on</span>
+              </div>
+              <div className="w-1 h-1 rounded-full bg-white/30" />
+              <div className="flex items-center gap-2">
+                <Code2 className="w-5 h-5 text-blue-400" />
+                <span className="text-sm font-medium">Live builds</span>
+              </div>
+              <div className="w-1 h-1 rounded-full bg-white/30" />
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span className="text-sm font-medium">Real tools</span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -182,7 +232,7 @@ export default function Workshops() {
             {/* Animated background elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            
+
             <div className="relative p-12 md:p-16 text-center text-white">
               <h3 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
                 Not ready for a workshop? Start with the Studio.
@@ -190,7 +240,7 @@ export default function Workshops() {
               <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
                 Join hundreds of CRE professionals already learning AI through weekly lessons, live Q&A, and 24/7 founder access.
               </p>
-              
+
               <Button
                 size="lg"
                 className="bg-white text-blue-600 hover:bg-slate-100 font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"

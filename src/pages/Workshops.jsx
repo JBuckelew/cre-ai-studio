@@ -9,6 +9,7 @@ import { ArrowRight, CheckCircle, Calendar, Users, Video, Award } from "lucide-r
 import { createPageUrl } from '@/utils';
 import { base44 } from "@/api/base44Client";
 import ClaudeCohortCard from "@/components/workshops/ClaudeCohortCard";
+import VibeCodeWorkshopCard from "@/components/workshops/VibeCodeWorkshopCard";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Workshops() {
@@ -67,6 +68,9 @@ export default function Workshops() {
 
       {/* SECTION 2 - CLAUDE COHORT */}
       <ClaudeCohortCard />
+
+      {/* SECTION 2.5 - VIBE CODE WORKSHOP */}
+      <VibeCodeWorkshopCard />
 
       {/* SECTION 3 - COMING SOON TEASER */}
       <section className="py-20 bg-slate-50">

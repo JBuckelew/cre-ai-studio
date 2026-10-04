@@ -8,15 +8,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, CheckCircle, Calendar, Users, Video, Award } from "lucide-react";
 import { createPageUrl } from '@/utils';
 import { base44 } from "@/api/base44Client";
-import ClaudeCohortCard from "@/components/workshops/ClaudeCohortCard";
 import VibeCodeWorkshopCard from "@/components/workshops/VibeCodeWorkshopCard";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Workshops() {
   usePageMeta({
-    title: "Claude Cohort — Live AI Training for Commercial Real Estate | CRE AI Studio",
-    description: "The Claude Cohort is a six-week live training program built specifically for CRE professionals. Learn to set up Claude, make it sound like you, and turn it into a powerful agent.",
-    path: "/ClaudeCohort",
+    title: "Workshops — Live AI Training for Commercial Real Estate | CRE AI Studio",
+    description: "Live, hands-on AI workshops built specifically for CRE professionals. Learn to build, automate, and deploy AI tools for your commercial real estate business.",
+    path: "/Workshops",
     appendSiteName: false,
   });
   const [waitlistEmail, setWaitlistEmail] = useState("");
@@ -57,19 +56,16 @@ export default function Workshops() {
               CRE AI Studio Presents
             </p>
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[1.05] mb-6 text-white">
-              CLAUDE COHORT
+              WORKSHOPS
             </h1>
             <p className="text-2xl md:text-3xl font-bold text-[#b3775c]">
-              for CRE Professionals
+              Live AI Training for CRE Professionals
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 2 - CLAUDE COHORT */}
-      <ClaudeCohortCard />
-
-      {/* SECTION 2.5 - VIBE CODE WORKSHOP */}
+      {/* SECTION 2 - VIBE CODE WORKSHOP */}
       <VibeCodeWorkshopCard />
 
       {/* SECTION 3 - COMING SOON TEASER */}

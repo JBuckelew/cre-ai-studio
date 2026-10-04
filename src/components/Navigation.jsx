@@ -120,13 +120,6 @@ export default function Navigation() {
             </Button>
             <Button
               variant="ghost"
-              onClick={handleWorkshopClick}
-              className="text-orange-600 hover:text-orange-700 font-bold text-sm px-2"
-            >
-              Claude Cohort
-            </Button>
-            <Button
-              variant="ghost"
               onClick={() => window.location.href = '/Consulting'}
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
@@ -218,14 +211,6 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               Memberships
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleWorkshopClick}
-              className="text-orange-600 hover:text-orange-700 font-bold text-xs px-2 h-7"
-            >
-              Claude Cohort
             </Button>
             <Button
               variant="ghost"

@@ -1,0 +1,44 @@
+{
+  "name": "WorkshopSignup",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Buyer's email from Stripe checkout"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "cre-ai-studio",
+        "cre-daily",
+        "mfn"
+      ],
+      "description": "Referral source that drove the signup"
+    },
+    "stripe_session_id": {
+      "type": "string",
+      "description": "Stripe checkout session ID"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Payment amount in USD"
+    }
+  },
+  "required": [
+    "source",
+    "stripe_session_id",
+    "amount"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

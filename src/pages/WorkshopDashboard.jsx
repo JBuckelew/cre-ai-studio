@@ -3,6 +3,8 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { base44 } from "@/api/base44Client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Users, DollarSign, TrendingUp, Wallet } from "lucide-react";
 
 const SOURCES = {
@@ -18,9 +20,14 @@ export default function WorkshopDashboard() {
   usePageMeta({ title: "Workshop Dashboard", path: "/WorkshopDashboard", noindex: true });
   const [user, setUser] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
+  const [pwAuthed, setPwAuthed] = useState(() => sessionStorage.getItem("wdAuthed") === "true");
+  const [pwInput, setPwInput] = useState("");
+  const [pwError, setPwError] = useState(false);
+  const [pwLoading, setPwLoading] = useState(false);
   const queryClient = useQueryClient();
 
   useEffect(() => {
+    if (!pwAuthed) return;
     const checkAuth = async () => {
       try {
         const currentUser = await base44.auth.me();
@@ -36,7 +43,25 @@ export default function WorkshopDashboard() {
       }
     };
     checkAuth();
-  }, []);
+  }, [pwAuthed]);
+
+  const handlePasswordSubmit = async (e) => {
+    e.preventDefault();
+    setPwLoading(true);
+    setPwError(false);
+    try {
+      const res = await base44.functions.invoke("verifyWorkshopDashboardPassword", { password: pwInput });
+      if (res.authorized) {
+        sessionStorage.setItem("wdAuthed", "true");
+        setPwAuthed(true);
+      } else {
+        setPwError(true);
+      }
+    } catch {
+      setPwError(true);
+    }
+    setPwLoading(false);
+  };
 
   const { data: signups = [], isLoading } = useQuery({
     queryKey: ["workshopSignups"],
@@ -52,6 +77,37 @@ export default function WorkshopDashboard() {
     });
     return unsubscribe;
   }, [user, queryClient]);
+
+  if (!pwAuthed) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
+        <div className="w-full max-w-sm">
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h1 className="text-2xl font-bold text-slate-900 mb-2">Dashboard Access</h1>
+            <p className="text-sm text-slate-500 mb-6">Enter the password to view the workshop dashboard.</p>
+            <form onSubmit={handlePasswordSubmit} className="space-y-4">
+              <Input
+                type="password"
+                placeholder="Password"
+                value={pwInput}
+                onChange={(e) => { setPwInput(e.target.value); setPwError(false); }}
+                autoFocus
+                className="h-11"
+              />
+              {pwError && <p className="text-sm text-red-600">Incorrect password. Try again.</p>}
+              <Button
+                type="submit"
+                disabled={pwLoading || !pwInput}
+                className="w-full h-11 bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              >
+                {pwLoading ? "Checking..." : "Unlock Dashboard"}
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!authChecked || (isLoading && !signups.length)) {
     return (

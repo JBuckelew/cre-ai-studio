@@ -37,6 +37,7 @@ export default function WorkshopDashboard() {
       const res = await base44.functions.invoke("verifyWorkshopDashboardPassword", { password: pwInput.trim() });
       if (res.data?.authorized) {
         sessionStorage.setItem("wdAuthed", "true");
+        sessionStorage.setItem("wdPassword", pwInput.trim());
         setPwAuthed(true);
       } else {
         setPwError(true);
@@ -48,19 +49,16 @@ export default function WorkshopDashboard() {
   };
 
   const { data: signups = [], isLoading } = useQuery({
-    queryKey: ["workshopSignups"],
-    queryFn: () => base44.entities.WorkshopSignup.list("-created_date"),
+    queryKey: ["workshopSignups", pwAuthed],
+    queryFn: async () => {
+      const res = await base44.functions.invoke("getWorkshopSignups", {
+        password: sessionStorage.getItem("wdPassword") || "",
+      });
+      return res.data?.signups || [];
+    },
     enabled: pwAuthed,
+    refetchInterval: 15000,
   });
-
-  // Auto-update when a new signup lands
-  useEffect(() => {
-    if (!pwAuthed) return;
-    const unsubscribe = base44.entities.WorkshopSignup.subscribe(() => {
-      queryClient.invalidateQueries({ queryKey: ["workshopSignups"] });
-    });
-    return unsubscribe;
-  }, [pwAuthed, queryClient]);
 
   if (!pwAuthed) {
     return (

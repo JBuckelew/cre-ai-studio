@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createPageUrl } from '@/utils';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +14,20 @@ import { base44 } from "@/api/base44Client";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
+
+  useEffect(() => {
+    const checkAdmin = async () => {
+      try {
+        const user = await base44.auth.me();
+        setIsAdmin(user?.role === "admin");
+      } catch {
+        setIsAdmin(false);
+      }
+    };
+    checkAdmin();
+  }, []);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -91,6 +104,14 @@ export default function Footer() {
             >
               Admin
             </a>
+            {isAdmin && (
+              <a 
+                href="/WorkshopDashboard" 
+                className="text-slate-300 hover:text-white transition-colors duration-200"
+              >
+                Dashboard
+              </a>
+            )}
             <a 
               href="/speaking" 
               className="text-slate-300 hover:text-white transition-colors duration-200"

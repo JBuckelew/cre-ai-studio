@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle, LayoutDashboard } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { createPageUrl } from '@/utils';
 import { base44 } from "@/api/base44Client";
 import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
@@ -14,20 +14,6 @@ import {
 } from "@/components/ui/dialog";
 
 export default function Navigation() {
-  const [isAdmin, setIsAdmin] = useState(false);
-
-  useEffect(() => {
-    const checkAdmin = async () => {
-      try {
-        const user = await base44.auth.me();
-        setIsAdmin(user?.role === "admin");
-      } catch {
-        setIsAdmin(false);
-      }
-    };
-    checkAdmin();
-  }, []);
-
   const handleHomeClick = () => {
     window.location.href = createPageUrl('Home');
   };
@@ -167,16 +153,6 @@ export default function Navigation() {
             >
               Login
             </Button>
-            {isAdmin && (
-              <Button
-                variant="ghost"
-                onClick={() => window.location.href = "/WorkshopDashboard"}
-                className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2 flex items-center gap-1"
-              >
-                <LayoutDashboard className="w-4 h-4" />
-                Dashboard
-              </Button>
-            )}
           </div>
 
           {/* Join Now and Log In Buttons */}
@@ -276,17 +252,6 @@ export default function Navigation() {
             >
               Login
             </Button>
-            {isAdmin && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => window.location.href = "/WorkshopDashboard"}
-                className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7 flex items-center gap-1"
-              >
-                <LayoutDashboard className="w-3.5 h-3.5" />
-                Dashboard
-              </Button>
-            )}
           </div>
         </div>
       </div>

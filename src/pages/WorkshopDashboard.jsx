@@ -18,7 +18,6 @@ const fmt = (n) =>
 
 export default function WorkshopDashboard() {
   usePageMeta({ title: "Workshop Dashboard", path: "/WorkshopDashboard", noindex: true });
-  const [user, setUser] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [pwAuthed, setPwAuthed] = useState(() => sessionStorage.getItem("wdAuthed") === "true");
   const [pwInput, setPwInput] = useState("");
@@ -27,22 +26,7 @@ export default function WorkshopDashboard() {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    if (!pwAuthed) return;
-    const checkAuth = async () => {
-      try {
-        const currentUser = await base44.auth.me();
-        if (currentUser?.role !== "admin") {
-          window.location.href = "/";
-          return;
-        }
-        setUser(currentUser);
-      } catch {
-        window.location.href = "/";
-      } finally {
-        setAuthChecked(true);
-      }
-    };
-    checkAuth();
+    if (!pwAuthed) setAuthChecked(true);
   }, [pwAuthed]);
 
   const handlePasswordSubmit = async (e) => {
@@ -66,17 +50,17 @@ export default function WorkshopDashboard() {
   const { data: signups = [], isLoading } = useQuery({
     queryKey: ["workshopSignups"],
     queryFn: () => base44.entities.WorkshopSignup.list("-created_date"),
-    enabled: !!user,
+    enabled: pwAuthed,
   });
 
   // Auto-update when a new signup lands
   useEffect(() => {
-    if (!user) return;
+    if (!pwAuthed) return;
     const unsubscribe = base44.entities.WorkshopSignup.subscribe(() => {
       queryClient.invalidateQueries({ queryKey: ["workshopSignups"] });
     });
     return unsubscribe;
-  }, [user, queryClient]);
+  }, [pwAuthed, queryClient]);
 
   if (!pwAuthed) {
     return (

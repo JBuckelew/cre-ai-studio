@@ -50,8 +50,8 @@ export default function WorkshopDashboard() {
     setPwLoading(true);
     setPwError(false);
     try {
-      const res = await base44.functions.invoke("verifyWorkshopDashboardPassword", { password: pwInput });
-      if (res.authorized) {
+      const res = await base44.functions.invoke("verifyWorkshopDashboardPassword", { password: pwInput.trim() });
+      if (res.data?.authorized) {
         sessionStorage.setItem("wdAuthed", "true");
         setPwAuthed(true);
       } else {

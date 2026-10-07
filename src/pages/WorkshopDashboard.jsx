@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { base44 } from "@/api/base44Client";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,16 +18,10 @@ const fmt = (n) =>
 
 export default function WorkshopDashboard() {
   usePageMeta({ title: "Workshop Dashboard", path: "/WorkshopDashboard", noindex: true });
-  const [authChecked, setAuthChecked] = useState(false);
-  const [pwAuthed, setPwAuthed] = useState(() => sessionStorage.getItem("wdAuthed") === "true");
+  const [pwAuthed, setPwAuthed] = useState(() => !!sessionStorage.getItem("wdPassword"));
   const [pwInput, setPwInput] = useState("");
   const [pwError, setPwError] = useState(false);
   const [pwLoading, setPwLoading] = useState(false);
-  const queryClient = useQueryClient();
-
-  useEffect(() => {
-    if (!pwAuthed) setAuthChecked(true);
-  }, [pwAuthed]);
 
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +30,6 @@ export default function WorkshopDashboard() {
     try {
       const res = await base44.functions.invoke("verifyWorkshopDashboardPassword", { password: pwInput.trim() });
       if (res.data?.authorized) {
-        sessionStorage.setItem("wdAuthed", "true");
         sessionStorage.setItem("wdPassword", pwInput.trim());
         setPwAuthed(true);
       } else {
@@ -48,7 +41,7 @@ export default function WorkshopDashboard() {
     setPwLoading(false);
   };
 
-  const { data: signups = [], isLoading } = useQuery({
+  const { data: signups = [], isLoading, isError } = useQuery({
     queryKey: ["workshopSignups", pwAuthed],
     queryFn: async () => {
       const res = await base44.functions.invoke("getWorkshopSignups", {
@@ -58,7 +51,16 @@ export default function WorkshopDashboard() {
     },
     enabled: pwAuthed,
     refetchInterval: 15000,
+    retry: false,
   });
+
+  // Stale or wrong saved password: send back to the password screen
+  useEffect(() => {
+    if (isError) {
+      sessionStorage.removeItem("wdPassword");
+      setPwAuthed(false);
+    }
+  }, [isError]);
 
   if (!pwAuthed) {
     return (
@@ -91,7 +93,7 @@ export default function WorkshopDashboard() {
     );
   }
 
-  if (!authChecked || (isLoading && !signups.length)) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-slate-50">
         <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin" />

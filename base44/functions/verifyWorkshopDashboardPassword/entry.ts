@@ -1,15 +1,10 @@
-Deno.serve(async (req) => {
+import { isValidWorkshopPassword } from '../../shared/workshopPassword.ts';
+
+export default async function (req) {
   try {
-    const body = await req.json();
-    const { password } = body;
-    const storedPassword = Deno.env.get('WORKSHOP_DASHBOARD_PASSWORD')?.trim();
-
-    if (!storedPassword || !password || password !== storedPassword) {
-      return Response.json({ authorized: false });
-    }
-
-    return Response.json({ authorized: true });
+    const { password } = await req.json();
+    return Response.json({ authorized: isValidWorkshopPassword(password) });
   } catch (error) {
     return Response.json({ authorized: false });
   }
-});
+}

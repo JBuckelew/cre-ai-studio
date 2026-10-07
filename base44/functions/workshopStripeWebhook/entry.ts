@@ -8,12 +8,12 @@ const PAYMENT_LINK_MAP: Record<string, string> = {
   "14A3cw3xR8D48d3gXYcV20q": "cre-ai-studio",
 };
 
-function sourceFromUrl(url: string | null | undefined): string {
-  if (!url) return "cre-ai-studio";
+function sourceFromUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
   for (const [slug, source] of Object.entries(PAYMENT_LINK_MAP)) {
     if (url.includes(slug)) return source;
   }
-  return "cre-ai-studio";
+  return null;
 }
 
 Deno.serve(async (req: Request): Promise<Response> => {
@@ -89,7 +89,8 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
 
     // Determine the referral source from the Stripe Payment Link URL
-    let source = "cre-ai-studio";
+    // Only workshop Payment Links count; ignore membership and other checkouts
+    let source: string | null = null;
     if (session.payment_link && stripeKey) {
       try {
         const plRes = await fetch(
@@ -103,6 +104,11 @@ Deno.serve(async (req: Request): Promise<Response> => {
       } catch (e) {
         console.log("failed to retrieve payment link:", e.message);
       }
+    }
+
+    if (!source) {
+      console.log("not a workshop checkout, skipping:", session.id);
+      return new Response("ok", { status: 200 });
     }
 
     const base44 = createClientFromRequest(req);

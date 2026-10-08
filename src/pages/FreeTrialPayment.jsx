@@ -25,10 +25,10 @@ export default function FreeTrialPaymentPage() {
     description:
     <ul className="list-disc list-inside text-left space-y-1">
           <li><span className="text-green-400">Weekly step-by-step video lessons</span> on how to streamline your workflows with AI, or pre-packaged <span className="text-green-400">AI skills built for CRE</span></li>
-          <li className="hidden">Live lessons and AI updates</li>
+          
           <li>Monthly Office Hours for basic questions</li>
-          <li className="hidden">Access to our CRE Prompt Library</li>
-          <li className="hidden">AI updates & prompting tips</li>
+          
+          
           <li>+ Access to a community with hundreds of CRE pros learning to put AI to work</li>
         </ul>,
 
@@ -55,7 +55,7 @@ export default function FreeTrialPaymentPage() {
     <ul className="list-disc list-inside text-left space-y-1">
           <li>Everything in Levels 1 & 2 +</li>
           <li><span className="text-amber-400">Direct access to founders</span> for unlimited Q&A via dedicated channel</li>
-          <li className="hidden">Questions answered within 24 hours (your own personal AI consultants)</li>
+          
         </ul>,
 
     stripe_url: "https://buy.stripe.com/7sYfZid8r6uW64V6jkcV20b"

@@ -55,7 +55,7 @@ export default function FreeTrialPaymentPage() {
     <ul className="list-disc list-inside text-left space-y-1">
           <li>Everything in Levels 1 & 2 +</li>
           <li><span className="text-amber-400">Direct access to founders</span> for unlimited Q&A via dedicated channel</li>
-          <li>Questions answered within 24 hours (your own personal AI consultants)</li>
+          <li className="hidden">Questions answered within 24 hours (your own personal AI consultants)</li>
         </ul>,
 
     stripe_url: "https://buy.stripe.com/7sYfZid8r6uW64V6jkcV20b"

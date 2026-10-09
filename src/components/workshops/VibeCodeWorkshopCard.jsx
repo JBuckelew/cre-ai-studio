@@ -159,6 +159,7 @@ export default function VibeCodeWorkshopCard() {
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">Investment</div>
                         <div className="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">$100</div>
+                        <div className="mt-1 text-sm font-semibold text-orange-600">25% Launch Week Discount — Price goes up to $125 on 10/14</div>
                       </div>
                       <div>
                         <div className="text-sm font-semibold text-slate-500 mb-1">You leave with</div>

@@ -17,12 +17,11 @@ function getStripeUrl() {
 }
 
 const AGENDA = [
-  { time: "0:00", duration: "6 min", title: "Opening", desc: "Open live on SiteMap CRE, the platform built by a broker with no engineering background. Set expectations plainly: what attendees will leave with, and what they will not.", icon: Rocket },
-  { time: "6:00", duration: "12 min", title: "Decide to Build or Buy", desc: "Four signals a tool is worth building, and four signals to walk away. The three-question test: can you prompt it, can you buy it, or should you build it. Score three real CRE ideas live against the test.", icon: CheckCircle },
-  { time: "18:00", duration: "16 min", title: "How Vibe Coding Actually Works", desc: "What is really happening when you prompt, in plain language and no jargon. The four habits that decide whether it works, and the four ingredients nearly every CRE tool is made of.", icon: Code2 },
-  { time: "34:00", duration: "26 min", title: "Live Build: A Rent Schedule Builder", desc: "Show the finished tool first, then build the same thing from an empty folder. Three live changes, narrating the technique behind each one. Deploy it to the internet and open it on a phone before the segment ends.", icon: Terminal, highlight: true },
-  { time: "60:00", duration: "18 min", title: "From a Tool to a Real System", desc: "What an API actually is, and the three kinds of connection in plain terms. Real integrations: what each one solved, what it cost, and what broke. The honest gap between a weekend tool and a product people pay for.", icon: Zap },
-  { time: "78:00", duration: "12 min", title: "Resources, Offer, and Q&A", desc: "Resource pack: the finished app, prompt patterns, a build-or-buy checklist, cost sheet and glossary. SiteMap CRE discount code for attendees. Open Q&A.", icon: CheckCircle },
+  { title: "Decide Which Ideas Are Worth Building", desc: "Should you solve it with a prompt, buy an existing tool, or build your own? Learn a simple three-question test, and the four signals that tell you whether to build or walk away. We'll apply the framework to CRE app ideas live so you can evaluate yours.", icon: CheckCircle },
+  { title: "Learn How Vibe Coding Actually Works", desc: "Understand what AI's doing with your prompts so you know what to do next. Learn the four habits that help make your build actually work, and the basic components that run most CRE tools, explained without the technical jargon.", icon: Code2 },
+  { title: "Building It Live", desc: "Go through the motions with us live as we build a working CRE app on the call. See how we set it up, the instructions we use, and the whole process in motion, in real time.", icon: Terminal, highlight: true },
+  { title: "How to Take Your Tool to the Next Level", desc: "Understand the difference between what you can build in a weekend, a tool that actually works in production, and a platform that others can depend on. Learn the steps to take your tool to the next level.", icon: Zap },
+  { title: "Leave with Your Questions Answered", desc: "You'll leave with your vibe coding questions answered live by the founder of SiteMap CRE, along with resources to get you started: The build-vs-buy checklist, info glossary, and starter prompts we used in the session.", icon: Rocket },
 ];
 
 export default function VibeCodeWorkshopCard() {
@@ -114,13 +113,11 @@ export default function VibeCodeWorkshopCard() {
                             </div>
 
                             <div className="flex-1 pt-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{item.time}</span>
-                                <span className="text-xs text-slate-400">{item.duration}</span>
-                                {item.highlight && (
+                              {item.highlight && (
+                                <div className="flex items-center gap-2 mb-1">
                                   <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">LIVE BUILD</span>
-                                )}
-                              </div>
+                                </div>
+                              )}
                               <div className="font-semibold text-slate-900">{item.title}</div>
                               <div className="text-sm text-slate-600 leading-relaxed mt-0.5">{item.desc}</div>
                             </div>

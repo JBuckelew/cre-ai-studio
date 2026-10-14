@@ -83,7 +83,7 @@ export default function Workshops() {
 
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[1.05] mb-6">
               <span className="bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
-                WORKSHOPS
+                Upcoming Workshop: Vibe Coding for CRE
               </span>
             </h1>
             <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">

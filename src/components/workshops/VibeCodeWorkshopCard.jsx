@@ -59,7 +59,7 @@ export default function VibeCodeWorkshopCard() {
                   </span>
                 </h2>
                 <p className="text-xl text-slate-600 leading-relaxed mb-6">
-                  A 90-minute working session for brokers, analysts, asset managers and investors. One app built live, honest costs, and no hype.
+                  A 90-minute working session for brokers, analysts, asset managers and investors. You'll leave knowing how to decide what to build, how to build it, and how to take it from something that works for you to a tool that anyone could use.
                 </p>
                 <div className="flex justify-center mb-8">
                   <Button

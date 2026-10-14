@@ -35,12 +35,7 @@ export default function VibeCodeWorkshopCard() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.div>
           <Card className="relative overflow-hidden border-0 shadow-2xl rounded-3xl">
             {/* Gradient top bar */}
             <div className="h-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-orange-500" />
@@ -97,10 +92,6 @@ export default function VibeCodeWorkshopCard() {
                         return (
                           <motion.li
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="relative flex items-start gap-4"
                           >
                             {/* Icon node */}

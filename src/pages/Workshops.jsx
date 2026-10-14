@@ -66,34 +66,28 @@ export default function Workshops() {
         />
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 text-center z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
             >
               <Sparkles className="w-4 h-4 text-orange-400" />
               <span className="text-sm font-medium tracking-wide text-white/90">CRE AI Studio Presents</span>
             </motion.div>
 
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[1.05] mb-6">
-              <span className="bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
-                Upcoming Workshop: Vibe Coding for CRE
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] mb-6">
+              <span className="block bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
+                Upcoming Workshop:
+              </span>
+              <span className="block bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
+                Vibe Coding for CRE
               </span>
             </h1>
             <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
-              Live AI Training for CRE Professionals
+              Learn to Build Your First CRE App with AI
             </p>
+            <p className="text-lg text-white/70 mt-4 font-medium">Full Details Below</p>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
               className="flex items-center justify-center gap-6 mt-10 text-white/60"
             >
               <div className="flex items-center gap-2">
@@ -122,10 +116,6 @@ export default function Workshops() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
             className="text-center"
           >
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
@@ -168,12 +158,7 @@ export default function Workshops() {
       {/* SECTION 4 - FAQ */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-12 text-center">
               Workshop FAQ
             </h2>
@@ -223,10 +208,6 @@ export default function Workshops() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
             className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl"
           >
             {/* Animated background elements */}

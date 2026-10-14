@@ -61,6 +61,16 @@ export default function VibeCodeWorkshopCard() {
                 <p className="text-xl text-slate-600 leading-relaxed mb-6">
                   A 90-minute working session for brokers, analysts, asset managers and investors. One app built live, honest costs, and no hype.
                 </p>
+                <div className="flex justify-center mb-8">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-full px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                    onClick={() => window.open(getStripeUrl(), "_blank")}
+                  >
+                    Sign-Up Here
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
                 <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
                   <img
                     src="https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/a11a7b3e4_image.png"

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle } from "lucide-react";
 import { createPageUrl } from '@/utils';
+import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
 import {
@@ -18,17 +19,16 @@ export default function Navigation() {
     window.location.href = createPageUrl('Home');
   };
 
-  const handleWhatsIncludedClick = () => {
+  const handleWhatsIncludedClick = (e) => {
     if (window.location.pathname === '/' || window.location.pathname === createPageUrl('Home')) {
-      // If we're on the home page, scroll to the section
+      // If we're on the home page, prevent the default hash jump and scroll smoothly
+      e.preventDefault();
       const element = document.getElementById('whats-included');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      // If we're on another page, navigate to home page with anchor
-      window.location.href = createPageUrl('Home') + '#whats-included';
     }
+    // If we're on another page, let the anchor's default href="/#whats-included" handle it
   };
 
   const handleResourcesClick = () => {
@@ -113,62 +113,62 @@ export default function Navigation() {
           <div className="flex items-center justify-center gap-1">
             <Button
               variant="ghost"
-              onClick={handleWhatsIncludedClick}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
-              Memberships
+              <a href="/#whats-included" onClick={handleWhatsIncludedClick}>Memberships</a>
             </Button>
             <Button
               variant="ghost"
-              onClick={() => window.location.href = '/Consulting'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
-              Consulting
+              <Link to="/Consulting">Consulting</Link>
             </Button>
             <Button
               variant="ghost"
-              onClick={() => window.location.href = '/speaking'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
-              Speaking
+              <Link to="/speaking">Speaking</Link>
             </Button>
             <Button
               variant="ghost"
-              onClick={() => window.location.href = '/training'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
-              Training
+              <Link to="/training">Training</Link>
             </Button>
             <Button
               variant="ghost"
-              onClick={() => window.location.href = '/use-cases'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
-              AI Use Cases
+              <Link to="/use-cases">AI Use Cases</Link>
             </Button>
             <Button
               variant="ghost"
-              onClick={handleWorkshopClick}
+              asChild
               className="text-orange-600 hover:text-orange-700 font-bold text-sm px-2"
             >
-              Workshops
+              <Link to="/Workshops">Workshops</Link>
             </Button>
             <Button
               variant="ghost"
-              onClick={handleLoginClick}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
-              Login
+              <a href="https://cre-ai-studio.circle.so/getting-started" target="_blank" rel="noopener noreferrer">Login</a>
             </Button>
           </div>
 
           {/* Join Now and Log In Buttons */}
           <div className="justify-self-end flex items-center gap-2">
             <Button
-              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+              asChild
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4"
             >
-              Get My Free Trial
+              <Link to="/FreeTrialPayment">Get My Free Trial</Link>
             </Button>
             <Button
               onClick={openNewsletter}
@@ -195,10 +195,10 @@ export default function Navigation() {
           <div className="flex items-center justify-center gap-2 mb-2 pb-2 border-b border-slate-200">
             <Button
               size="sm"
-              onClick={() => window.location.href = createPageUrl('FreeTrialPayment')}
+              asChild
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs px-3"
             >
-              Get My Free Trial
+              <Link to="/FreeTrialPayment">Get My Free Trial</Link>
             </Button>
             <Button
               onClick={openNewsletter}
@@ -214,58 +214,58 @@ export default function Navigation() {
             <Button
               variant="ghost"
               size="sm"
-              onClick={handleWhatsIncludedClick}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Memberships
+              <a href="/#whats-included" onClick={handleWhatsIncludedClick}>Memberships</a>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => window.location.href = '/Consulting'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Consulting
+              <Link to="/Consulting">Consulting</Link>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => window.location.href = '/speaking'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Speaking
+              <Link to="/speaking">Speaking</Link>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => window.location.href = '/training'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Training
+              <Link to="/training">Training</Link>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => window.location.href = '/use-cases'}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              AI Use Cases
+              <Link to="/use-cases">AI Use Cases</Link>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              onClick={handleWorkshopClick}
+              asChild
               className="text-orange-600 hover:text-orange-700 font-bold text-xs px-2 h-7"
             >
-              Workshops
+              <Link to="/Workshops">Workshops</Link>
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              onClick={handleLoginClick}
+              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
-              Login
+              <a href="https://cre-ai-studio.circle.so/getting-started" target="_blank" rel="noopener noreferrer">Login</a>
             </Button>
           </div>
         </div>

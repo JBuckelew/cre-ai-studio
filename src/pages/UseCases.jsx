@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { useCases, useCasesIndex, categories, robotsForHost } from "@/data/useCases";
+import { useCases, useCasesIndex, categories } from "@/data/useCases";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
@@ -72,7 +72,7 @@ export default function UseCases() {
     ogImageAlt: useCasesIndex.ogImageAlt,
     path: "/use-cases",
     appendSiteName: false,
-    robots: robotsForHost(),
+    cleanOgOnUnmount: true,
   });
 
   const breadcrumbLd = breadcrumbJsonLd([

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { getCategory, robotsForHost } from "@/data/useCases";
+import { getCategory } from "@/data/useCases";
+import { setNotFoundFlag } from "@/lib/notFoundFlag";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from "@/utils";
@@ -22,8 +23,10 @@ export default function UseCaseCategoryPage({ type, slug }) {
       ])
     : null;
 
+  if (!c) setNotFoundFlag(true);
+
   usePageMeta({
-    title: c ? c.titleTag : "Use case not found | CRE AI Studio",
+    title: c ? c.titleTag : "Category not found | CRE AI Studio",
     description: c?.metaDescription,
     canonical: c?.canonical,
     path: c?.path,
@@ -32,8 +35,8 @@ export default function UseCaseCategoryPage({ type, slug }) {
     image: c?.ogImage,
     ogImageAlt: c?.ogImageAlt,
     appendSiteName: false,
-    robots: c ? robotsForHost() : "noindex, nofollow",
     noCanonical: !c,
+    cleanOgOnUnmount: true,
   });
 
   if (c) {

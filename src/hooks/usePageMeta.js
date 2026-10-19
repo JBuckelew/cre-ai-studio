@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const SITE_NAME = "CRE | AI Studio";
 const BASE_URL = "https://creaistudio.com";
@@ -25,7 +25,7 @@ function upsertLink(rel) {
 
 /**
  * Sets per-page SEO meta: document title, meta description, Open Graph,
- * Twitter Card, canonical URL, and robots directives.
+ * Twitter Card, and canonical URL.
  *
  * All meta is set SYNCHRONOUSLY during render (not in useEffect) so that
  * prerenderers and crawlers see the correct <title> and meta tags on the
@@ -42,8 +42,7 @@ function upsertLink(rel) {
  * @param {string} [opts.ogDescription] - Overrides og:description (defaults to description).
  * @param {string} [opts.twitterDescription] - Overrides twitter:description (defaults to ogDescription or description).
  * @param {string} [opts.type="website"] - og:type.
- * @param {string} [opts.robots] - Robots directive, e.g. "index, follow" or "noindex, nofollow".
- * @param {boolean} [opts.noindex] - Legacy: if true, sets noindex,nofollow (overridden by opts.robots).
+ * @param {boolean} [opts.cleanOgOnUnmount] - If true, removes og:image, og:image:alt, twitter:image and og:url on unmount.
  * @param {boolean} [opts.appendSiteName=true] - If false, title is used as-is.
  */
 export function usePageMeta({
@@ -57,13 +56,10 @@ export function usePageMeta({
   ogDescription,
   twitterDescription,
   type = "website",
-  robots,
-  noindex,
   noCanonical,
+  cleanOgOnUnmount,
   appendSiteName = true,
 } = {}) {
-  const robotsSavedRef = useRef(false);
-  const priorRobotsRef = useRef(null);
 
   // Set all meta synchronously during render so prerenderers capture
   // the correct title and meta on the first paint (before effects fire).
@@ -118,25 +114,31 @@ export function usePageMeta({
       upsertMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", image);
     }
 
-    // Robots — save prior value once, then set
-    const robotsEl = upsertMeta('meta[name="robots"]', "name", "robots");
-    if (!robotsSavedRef.current) {
-      priorRobotsRef.current = robotsEl.getAttribute("content");
-      robotsSavedRef.current = true;
-    }
-    const robotsValue = robots || (noindex ? "noindex, nofollow" : "index, follow");
-    robotsEl.setAttribute("content", robotsValue);
   }
 
-  // Restore prior robots value on unmount
+  // Remove og:image, og:image:alt, twitter:image and og:url on unmount
+  // so the next page never keeps the previous page's images.
   useEffect(() => {
+    if (!cleanOgOnUnmount) return;
     return () => {
-      if (robotsSavedRef.current && priorRobotsRef.current != null) {
-        const robotsEl = document.head.querySelector('meta[name="robots"]');
-        if (robotsEl) {
-          robotsEl.setAttribute("content", priorRobotsRef.current);
-        }
-      }
+      document.head.querySelector('meta[property="og:image"]')?.remove();
+      document.head.querySelector('meta[property="og:image:alt"]')?.remove();
+      document.head.querySelector('meta[name="twitter:image"]')?.remove();
+      document.head.querySelector('meta[property="og:url"]')?.remove();
     };
-  }, []);
+  }, [cleanOgOnUnmount]);
+}
+
+/**
+ * Sets or creates a <meta name="..."> tag with the given content.
+ */
+export function setMeta(name, content) {
+  if (typeof document === "undefined") return;
+  let el = document.head.querySelector(`meta[name="${name}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute("name", name);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
 }

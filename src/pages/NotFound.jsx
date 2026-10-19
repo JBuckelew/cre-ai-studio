@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { setNotFoundFlag } from "@/lib/notFoundFlag";
 
 export default function NotFound() {
+  setNotFoundFlag(true);
+
   usePageMeta({
     title: "Page not found | CRE AI Studio",
     description: "The page you were looking for could not be found.",
-    robots: "noindex, nofollow",
     appendSiteName: false,
     noCanonical: true,
   });

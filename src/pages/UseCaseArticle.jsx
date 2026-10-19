@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { getUseCaseBySlug, robotsForHost } from "@/data/useCases";
+import { getUseCaseBySlug } from "@/data/useCases";
+import { setNotFoundFlag } from "@/lib/notFoundFlag";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Lightbulb, ChevronDown } from "lucide-react";
 import { createPageUrl } from "@/utils";
@@ -20,6 +21,8 @@ export default function UseCaseArticle({ slug: slugProp }) {
       ])
     : null;
 
+  if (!uc) setNotFoundFlag(true);
+
   usePageMeta({
     title: uc ? uc.titleTag : "Use case not found | CRE AI Studio",
     description: uc?.metaDescription,
@@ -30,8 +33,8 @@ export default function UseCaseArticle({ slug: slugProp }) {
     ogImageAlt: uc?.ogImageAlt,
     type: "article",
     appendSiteName: false,
-    robots: uc ? robotsForHost() : "noindex, nofollow",
     noCanonical: !uc,
+    cleanOgOnUnmount: true,
   });
 
   // Inject JSON-LD synchronously during render so prerenderers

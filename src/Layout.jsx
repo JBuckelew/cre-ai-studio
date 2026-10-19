@@ -1,10 +1,25 @@
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import FreeTrialPopup from "./components/BlackFridayPopup";
 import { captureFirstTouchAttribution } from "./lib/attribution";
+import { setMeta } from "./hooks/usePageMeta";
+import { setNotFoundFlag, getNotFoundFlag } from "./lib/notFoundFlag";
 
 export default function Layout({ children, currentPageName }) {
+  const location = useLocation();
+
+  // Reset the not-found flag before children render so the previous
+  // page's setting doesn't leak into the next route.
+  setNotFoundFlag(false);
+
+  // Set robots in one place on every route change.
+  useEffect(() => {
+    const isPreviewHost = !["creaistudio.com", "www.creaistudio.com"].includes(window.location.hostname);
+    setMeta("robots", isPreviewHost || getNotFoundFlag() ? "noindex, nofollow" : "index, follow");
+  }, [location.pathname]);
+
   useEffect(() => {
     captureFirstTouchAttribution();
 

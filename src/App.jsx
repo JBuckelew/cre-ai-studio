@@ -7,6 +7,7 @@ import NavigationTracker from '@/lib/NavigationTracker'
 import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
+import NotFound from './pages/NotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import FacebookAdLanding from './pages/FacebookAdLanding';
@@ -112,7 +113,7 @@ const AuthenticatedApp = () => {
           }
         />
       ))}
-      <Route path="*" element={<PageNotFound />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

@@ -5,6 +5,7 @@ import { getCategory, robotsForHost } from "@/data/useCases";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from "@/utils";
+import UseCaseCard from "@/components/usecases/UseCaseCard";
 
 export default function UseCaseCategoryPage({ type, param }) {
   const c = getCategory(type, param);
@@ -119,39 +120,19 @@ export default function UseCaseCategoryPage({ type, param }) {
               {c.allLink.text}
             </Link>
           </div>
-          <div className="space-y-8">
+          <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {c.items.map((item) => (
-              <Link
+              <UseCaseCard
                 key={item.slug}
-                to={item.href}
-                className="block group"
-              >
-                <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="md:flex">
-                    <div className="md:flex-shrink-0">
-                      <img
-                        src={item.heroImageSrc}
-                        alt={item.imageAlt}
-                        className="w-full h-auto object-contain md:w-64 md:h-auto"
-                      />
-                    </div>
-                    <div className="p-8 flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-                          {item.kicker}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-slate-600 leading-relaxed mb-4">
-                        {item.dek}
-                      </p>
-                      <p className="text-xs text-slate-400">{item.creditLine}</p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                href={item.href}
+                img={item.heroImageSrc}
+                alt={item.imageAlt}
+                kicker={item.kicker}
+                title={item.title}
+                excerpt={item.dek}
+                credit={item.creditLine}
+                titleAs="h3"
+              />
             ))}
           </div>
         </div>

@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useCases, useCasesIndex, categories, robotsForHost } from "@/data/useCases";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const FEATURED = useCasesIndex.featuredSlug;
 const LATEST_ORDER = [
@@ -34,22 +32,30 @@ const TASK_KEYS = [
   "deal-sourcing",
 ];
 
-function SectionHeader({ children }) {
+function SectionHeader({ title, link }) {
   return (
-    <div className="mb-5">
-      <p className="text-xl font-bold text-slate-900">{children}</p>
+    <div className="flex justify-between items-baseline border-b-2 border-slate-900 mt-9 mb-4 pb-1.5">
+      <h2 className="m-0 text-[22px] font-black tracking-tight text-slate-900 leading-tight">
+        {title}
+      </h2>
+      {link}
     </div>
   );
 }
 
-function Chip({ to, name, count }) {
+function Chip({ to, name, count, variant = "dark" }) {
+  const style =
+    variant === "dark"
+      ? "bg-white/5 border border-white/15 text-slate-200"
+      : "bg-white border border-slate-200 text-slate-700";
+  const countStyle = variant === "dark" ? "text-slate-400" : "text-slate-500";
   return (
     <Link
       to={to}
-      className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
+      className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium no-underline ${style}`}
     >
       {name}
-      <span className="text-white/50 text-xs">{count}</span>
+      <b className={`ml-1 font-medium ${countStyle}`}>{count}</b>
     </Link>
   );
 }
@@ -76,7 +82,9 @@ export default function UseCases() {
       .filter((u) => u.slug !== FEATURED && !LATEST_ORDER.includes(u.slug))
       .sort((a, b) => (a.date < b.date ? 1 : -1)),
   ].slice(0, 9);
-  const startHere = START_HERE.map((s) => useCases.find((u) => u.slug === s)).filter(Boolean);
+  const startHere = START_HERE.map((s) =>
+    useCases.find((u) => u.slug === s)
+  ).filter(Boolean);
 
   const toolChips = TOOL_KEYS.map((k) => {
     const cat = categories.find((c) => c.type === "tool" && c.key === k);
@@ -129,41 +137,32 @@ export default function UseCases() {
 
         {/* Featured */}
         {featured && (
-          <section className="mb-7">
-            <SectionHeader>Featured</SectionHeader>
+          <section>
+            <SectionHeader title="Featured" />
             <Link
               to={`/use-cases/${featured.slug}`}
-              className="block group bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="grid gap-4 lg:grid-cols-[1.25fr_1fr] lg:items-center no-underline text-inherit"
             >
-              <div className="lg:flex">
-                <div className="lg:flex-shrink-0 lg:w-[480px]">
-                  <div className="aspect-[1200/630] bg-slate-50 overflow-hidden">
-                    <img
-                      src={featured.heroImageSrc}
-                      alt={featured.ogImageAlt}
-                      width={1200}
-                      height={630}
-                      className="w-full h-full object-contain block"
-                    />
-                  </div>
-                </div>
-                <div className="p-6 lg:p-8 flex-1 flex flex-col justify-center">
-                  <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
-                    {featured.kicker.replace(/^AI Use Case · /, "")}
-                  </span>
-                  <p className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
-                    {featured.h1}
-                  </p>
-                  <p className="text-slate-600 leading-relaxed mb-4">
-                    {featured.metaDescription}
-                  </p>
-                  <p className="text-xs text-slate-400 mb-4">
-                    {`Credit: ${featured.creatorHandle} · ${featured.bylineDate} · ${featured.readMins} min read`}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all">
-                    Read the use case
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+              <div className="aspect-[1200/630] rounded-2xl border border-slate-200 overflow-hidden bg-slate-900">
+                <img
+                  src={featured.heroImageSrc}
+                  alt={featured.ogImageAlt}
+                  width={1200}
+                  height={630}
+                  className="w-full h-full object-contain block"
+                />
+              </div>
+              <div>
+                <span className="text-xs font-bold tracking-widest uppercase text-blue-600">
+                  {featured.kicker.replace(/^AI Use Case · /, "")}
+                </span>
+                <h3 className="text-[26px] lg:text-[32px] font-bold tracking-tight leading-tight text-slate-900 mt-1.5 mb-2">
+                  {featured.h1}
+                </h3>
+                <p className="text-slate-600 mb-2">{featured.dek}</p>
+                <div className="text-[13px] text-slate-500">
+                  Credit: {featured.creatorName} ({featured.creatorHandle}) ·{" "}
+                  {featured.bylineDate} · {featured.readMins} min read
                 </div>
               </div>
             </Link>
@@ -173,97 +172,92 @@ export default function UseCases() {
         {/* Two-column */}
         <div className="grid gap-7 lg:grid-cols-[1.6fr_1fr]">
           <div>
-            <SectionHeader>Latest use cases</SectionHeader>
+            <SectionHeader title="Latest use cases" />
             <div className="grid gap-5 grid-cols-[repeat(auto-fill,minmax(260px,1fr))]">
               {latest.map((uc) => (
-                <UseCaseCard key={uc.slug} uc={uc} />
+                <UseCaseCard
+                  key={uc.slug}
+                  href={`/use-cases/${uc.slug}`}
+                  img={uc.heroImageSrc}
+                  alt={uc.ogImageAlt}
+                  kicker={uc.kicker.replace(/^AI Use Case · /, "")}
+                  title={uc.h1}
+                  excerpt={uc.metaDescription}
+                  credit={`Credit: ${uc.creatorHandle} · ${uc.bylineDate} · ${uc.readMins} min read`}
+                  titleAs="h3"
+                />
               ))}
             </div>
           </div>
           <aside>
-            <SectionHeader>Start here</SectionHeader>
-            <div className="space-y-3 mb-7">
-              {startHere.map((uc, i) => (
-                <Link
-                  key={uc.slug}
-                  to={`/use-cases/${uc.slug}`}
-                  className="block bg-white rounded-xl border border-slate-200 p-4 hover:border-blue-300 hover:shadow-md transition-all"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
+            <SectionHeader title="Start here" />
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl px-[18px] py-1.5">
+              <ol className="list-none m-0 p-0">
+                {startHere.map((uc, i) => (
+                  <li
+                    key={uc.slug}
+                    className="flex gap-3.5 py-3.5 border-b border-slate-200 last:border-0"
+                  >
+                    <span className="text-[28px] font-black text-slate-300 leading-none min-w-[22px]">
                       {i + 1}
                     </span>
                     <div>
-                      <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-                        {uc.kicker.replace(/^AI Use Case · /, "")}
-                      </span>
-                      <p className="text-sm font-bold text-slate-900 leading-snug mt-0.5">
+                      <Link
+                        to={`/use-cases/${uc.slug}`}
+                        className="font-bold text-slate-900 leading-snug no-underline"
+                      >
                         {uc.h1}
-                      </p>
+                      </Link>
+                      <span className="block mt-1 text-[13px] text-slate-500">
+                        {uc.kicker.replace(/^AI Use Case · /, "")} ·{" "}
+                        {uc.creatorHandle}
+                      </span>
                     </div>
-                  </div>
-                </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <h3 className="text-[15px] uppercase tracking-wider text-slate-500 mt-[18px] mb-2.5">
+              Browse by tool
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {toolChips.map((c) => (
+                <Chip key={c.to} {...c} variant="light" />
               ))}
             </div>
-            <SectionHeader>Browse</SectionHeader>
-            <div className="bg-white rounded-xl border border-slate-200 p-5">
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                By tool
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {toolChips.map((c) => (
-                  <Link
-                    key={c.to}
-                    to={c.to}
-                    className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
-                  >
-                    {c.name}
-                    <span className="text-slate-400 text-xs">{c.count}</span>
-                  </Link>
-                ))}
-              </div>
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                By task
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {taskChips.map((c) => (
-                  <Link
-                    key={c.to}
-                    to={c.to}
-                    className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
-                  >
-                    {c.name}
-                    <span className="text-slate-400 text-xs">{c.count}</span>
-                  </Link>
-                ))}
-              </div>
+            <h3 className="text-[15px] uppercase tracking-wider text-slate-500 mt-[18px] mb-2.5">
+              Browse by task
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {taskChips.map((c) => (
+                <Chip key={c.to} {...c} variant="light" />
+              ))}
             </div>
           </aside>
         </div>
 
         {/* CTA */}
-        <section className="mt-10">
-          <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl">
-            <div className="relative p-10 md:p-14 text-center text-white">
-              <p className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
-                Want more AI workflows for CRE?
-              </p>
-              <p className="text-base md:text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join hundreds of CRE professionals learning AI through weekly
-                lessons, live Q&A, and 24/7 founder access.
-              </p>
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-slate-100 font-bold rounded-full px-8 py-4 text-base shadow-xl transition-all duration-300 group"
-                onClick={() => (window.location.href = "/FreeTrialPayment")}
-              >
-                Start Your 7-Day Free Trial
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <p className="text-sm text-blue-200 mt-3">
-                No credit card required. Cancel anytime.
-              </p>
-            </div>
+        <section className="mt-11 bg-slate-900 text-white rounded-3xl border-2 border-white/10 p-6 lg:p-10">
+          <div className="text-xs font-bold tracking-widest uppercase text-blue-300">
+            {useCasesIndex.cta.label}
+          </div>
+          <p className="text-[26px] font-black tracking-tight leading-tight text-white mt-1.5 mb-2">
+            {useCasesIndex.cta.heading}
+          </p>
+          <p className="text-slate-300 mb-[18px]">{useCasesIndex.cta.body}</p>
+          <div className="flex flex-wrap gap-2.5">
+            <Link
+              to="/FreeTrialPayment"
+              className="rounded-md px-5 py-3 text-[15px] font-semibold bg-amber-50 text-slate-900"
+            >
+              Start Your 7-Day Free Trial
+            </Link>
+            <a
+              href="https://creaistudio.beehiiv.com/"
+              className="rounded-md px-5 py-3 text-[15px] font-semibold bg-blue-600 text-white"
+            >
+              Join the Newsletter
+            </a>
           </div>
         </section>
       </div>

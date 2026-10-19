@@ -1,34 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function UseCaseCard({ uc }) {
-  const shortKicker = uc.kicker.replace(/^AI Use Case · /, "");
-  const credit = `Credit: ${uc.creatorHandle} · ${uc.bylineDate} · ${uc.readMins} min read`;
+export default function UseCaseCard({
+  href,
+  img,
+  alt,
+  kicker,
+  title,
+  excerpt,
+  credit,
+  titleAs = "h3",
+}) {
+  const TitleTag = titleAs;
   return (
-    <Link to={`/use-cases/${uc.slug}`} className="block group h-full">
-      <article className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-        <div className="aspect-[1200/630] bg-slate-50 overflow-hidden border-b border-slate-100">
-          <img
-            src={uc.heroImageSrc}
-            alt={uc.ogImageAlt}
-            width={1200}
-            height={630}
-            className="w-full h-full object-contain block"
-          />
-        </div>
-        <div className="p-5 flex flex-col flex-1">
-          <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
-            {shortKicker}
-          </span>
-          <p className="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors leading-snug">
-            {uc.h1}
-          </p>
-          <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 flex-1">
-            {uc.metaDescription}
-          </p>
-          <p className="text-xs text-slate-400 mt-3">{credit}</p>
-        </div>
-      </article>
+    <Link
+      to={href}
+      className="flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_10px_24px_-8px_rgba(37,99,235,0.25)] transition-shadow no-underline text-inherit"
+    >
+      <div className="aspect-[1200/630] border-b border-slate-200 bg-slate-900">
+        <img
+          src={img}
+          alt={alt}
+          width={1200}
+          height={630}
+          loading="lazy"
+          className="w-full h-full object-contain block"
+        />
+      </div>
+      <div className="px-4 pt-3.5 pb-4">
+        <span className="text-xs font-bold tracking-widest uppercase text-blue-600">
+          {kicker}
+        </span>
+        <TitleTag className="text-[19px] font-bold leading-tight text-slate-900 mt-1.5 mb-2">
+          {title}
+        </TitleTag>
+        <p className="text-[15px] text-slate-600 mb-2.5">{excerpt}</p>
+        <div className="text-[13px] text-slate-500">{credit}</div>
+      </div>
     </Link>
   );
 }

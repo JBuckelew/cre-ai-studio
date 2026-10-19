@@ -2,15 +2,6 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { getUseCaseBySlug } from "@/data/useCases";
-import {
-  getRelatedUseCases,
-  extractSourceUrl,
-  getCreditSentence,
-  formatDate,
-  formatToolName,
-  formatTaskName,
-} from "@/lib/useCaseHelpers";
-import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Lightbulb, ChevronDown } from "lucide-react";
 import { createPageUrl } from "@/utils";
@@ -19,15 +10,15 @@ export default function UseCaseArticle() {
   const { slug } = useParams();
   const article = getUseCaseBySlug(slug);
 
-  const heroImageAbsolute = article?.heroImage
-    ? `${window.location.origin}${article.heroImage}`
+  const ogImageAbsolute = article?.ogImage
+    ? `${window.location.origin}${article.ogImage}`
     : undefined;
 
   usePageMeta({
     title: article?.titleTag,
     description: article?.metaDescription,
     path: `/use-cases/${slug}`,
-    image: heroImageAbsolute,
+    image: ogImageAbsolute,
     type: "article",
     appendSiteName: false,
     noindex: true,
@@ -50,47 +41,24 @@ export default function UseCaseArticle() {
     }
     ogImageAlt.setAttribute("content", article.ogImageAlt);
 
-    const articleLd = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: article.h1,
-      description: article.metaDescription,
-      image: heroImageAbsolute,
-      author: { "@type": "Organization", name: "CRE AI Studio" },
-      publisher: { "@type": "Organization", name: "CRE AI Studio" },
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": article.canonicalPlaceholder,
-      },
-    };
-
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: article.faq.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    };
-
+    // Inject articleJsonLd and faqPageJsonLd from the data
     const scriptArticle = document.createElement("script");
     scriptArticle.type = "application/ld+json";
     scriptArticle.setAttribute("data-usecase-ld", "article");
-    scriptArticle.text = JSON.stringify(articleLd);
+    scriptArticle.text = JSON.stringify(article.articleJsonLd);
     document.head.appendChild(scriptArticle);
 
     const scriptFaq = document.createElement("script");
     scriptFaq.type = "application/ld+json";
     scriptFaq.setAttribute("data-usecase-ld", "faq");
-    scriptFaq.text = JSON.stringify(faqLd);
+    scriptFaq.text = JSON.stringify(article.faqPageJsonLd);
     document.head.appendChild(scriptFaq);
 
     return () => {
       document.head.removeChild(scriptArticle);
       document.head.removeChild(scriptFaq);
     };
-  }, [article, slug, heroImageAbsolute]);
+  }, [article, slug]);
 
   if (!article) {
     return (
@@ -113,14 +81,9 @@ export default function UseCaseArticle() {
     );
   }
 
-  const sourceUrl = extractSourceUrl(article.creditHtml);
-  const creditSentence = getCreditSentence(article.creditHtml);
-  const handleUrl = `https://x.com/${article.creatorHandle.replace("@", "")}`;
-  const bylineDate = formatDate(article.date);
-  const related = getRelatedUseCases(article, 3);
   const hasChips =
-    (article.tools && article.tools.length > 0) ||
-    (article.tasks && article.tasks.length > 0);
+    (article.filedUnder?.tools && article.filedUnder.tools.length > 0) ||
+    (article.filedUnder?.tasks && article.filedUnder.tasks.length > 0);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -145,8 +108,7 @@ export default function UseCaseArticle() {
             {article.dek}
           </p>
           <p className="text-sm text-white/50">
-            By CRE AI Studio Editorial · {bylineDate} · {article.readMins} min
-            read
+            By CRE AI Studio Editorial · {article.bylineDate} · {article.readMins} min read
           </p>
         </div>
       </section>
@@ -178,19 +140,25 @@ export default function UseCaseArticle() {
 
         {/* Credit Box */}
         <div className="use-case-credit-box text-sm text-slate-500 mb-10 pb-6 border-b border-slate-200">
-          <p className="mb-3">{creditSentence}</p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Use case credit
+          </p>
+          <p className="mb-2">
+            <strong className="text-slate-900">{article.creatorName}</strong>{" "}
             <a
-              href={handleUrl}
+              href={article.creatorProfileUrl}
               target="_blank"
               rel="noopener"
               className="use-case-link"
             >
               {article.creatorHandle}
             </a>
-            {sourceUrl && (
+          </p>
+          <p className="mb-3">{article.creditLine}</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            {article.sourceUrl && (
               <a
-                href={sourceUrl}
+                href={article.sourceUrl}
                 target="_blank"
                 rel="noopener"
                 className="use-case-link inline-flex items-center gap-1"
@@ -199,6 +167,18 @@ export default function UseCaseArticle() {
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             )}
+            {article.extraSources.map((extra, i) => (
+              <a
+                key={i}
+                href={extra.url}
+                target="_blank"
+                rel="noopener"
+                className="use-case-link inline-flex items-center gap-1"
+              >
+                · {extra.label}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -208,22 +188,22 @@ export default function UseCaseArticle() {
             <span className="text-sm text-slate-500 font-medium mr-1">
               Filed under:
             </span>
-            {(article.tools || []).map((tool) => (
+            {(article.filedUnder?.tools || []).map((tool) => (
               <Link
-                key={tool}
-                to={`/use-cases/tool/${tool}`}
+                key={tool.key}
+                to={tool.href}
                 className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium hover:bg-blue-100 transition-colors"
               >
-                {formatToolName(tool)}
+                {tool.name}
               </Link>
             ))}
-            {(article.tasks || []).map((task) => (
+            {(article.filedUnder?.tasks || []).map((task) => (
               <Link
-                key={task}
-                to={`/use-cases/task/${task}`}
+                key={task.key}
+                to={task.href}
                 className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium hover:bg-blue-100 transition-colors"
               >
-                {formatTaskName(task)}
+                {task.name}
               </Link>
             ))}
           </div>
@@ -259,14 +239,34 @@ export default function UseCaseArticle() {
         </div>
 
         {/* Related Articles */}
-        {related.length > 0 && (
+        {article.related && article.related.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">
               More AI use cases
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              {related.map((uc) => (
-                <UseCaseCard key={uc.slug} uc={uc} compact />
+              {article.related.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  to={`/use-cases/${rel.slug}`}
+                  className="block group h-full"
+                >
+                  <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    <img
+                      src={rel.heroImage}
+                      alt={rel.title}
+                      className="w-full h-36 object-cover"
+                    />
+                    <div className="p-5 flex flex-col flex-1">
+                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        {rel.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 flex-1">
+                        {rel.dek}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

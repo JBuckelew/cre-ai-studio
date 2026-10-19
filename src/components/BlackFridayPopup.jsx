@@ -111,11 +111,11 @@ export default function FreeTrialPopup() {
                     </div>
 
                     {/* Headline */}
-                    <h2 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                    <p className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
                       AI Training that{" "}
                       <span className="italic text-blue-400">transforms</span>{" "}
                       your CRE Practice
-                    </h2>
+                    </p>
 
                     {/* Subheadline */}
                     <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-6">

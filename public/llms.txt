@@ -1,0 +1,56 @@
+# CRE AI Studio
+
+> AI training for commercial real estate pros: weekly hands-on tutorials and templates, live Q&A, and a community of hundreds of CRE pros.
+
+CRE AI Studio teaches commercial real estate professionals to use AI tools in their daily CRE workflows through hands-on training, live workshops and a member community. It was founded by Jonathan Buckelew, Nadine Ezzie and Topher Stephenson and is operated by BES.AI, LLC. It also offers custom team training, consulting, speaking, a free newsletter and a library of AI use cases from real CRE professionals.
+
+## Pages
+
+- [Home](https://creaistudio.com/): AI training for commercial real estate pros. Weekly hands-on tutorials and templates, live Q&A, and a community of hundreds of CRE pros.
+- [Newsletter](https://creaistudio.com/Newsletter): Free weekly AI tutorials, prompt libraries, and real CRE workflows delivered to your inbox.
+- [Speaking](https://creaistudio.com/speaking): Book Topher Stephenson, AI keynote speaker and trainer for commercial real estate, for keynotes, workshops and webinars at CRE conferences and associations.
+- [Training](https://creaistudio.com/training): Custom AI training for CRE brokerages, asset managers, and associations, with demos built on your own workflows. Recording and prompt pack included.
+- [Workshops](https://creaistudio.com/Workshops): Live, hands-on AI workshops built specifically for CRE professionals. Learn to build, automate, and deploy AI tools for your commercial real estate business.
+- [Consulting](https://creaistudio.com/Consulting): Custom AI consulting for CRE firms: Claude skills and agents, document intelligence, workflow automation, and AI strategy roadmapping.
+- [Articles](https://creaistudio.com/Articles): AI articles and videos for commercial real estate professionals: NotebookLM, Gemini vs. Copilot, and the top AI tools every CRE pro should know.
+- [Resources](https://creaistudio.com/Resources): CRE AI Prompt Library: ready-to-use AI prompts, guides, and templates built for commercial real estate professionals.
+- [Meet Your Teachers](https://creaistudio.com/MeetYourTeachers): The three co-founders who teach CRE AI Studio: Jonathan Buckelew, Nadine Ezzie and Topher Stephenson.
+
+## AI use cases
+
+- [AI Use Cases for Commercial Real Estate](https://creaistudio.com/use-cases): AI use cases for commercial real estate: real CRE workflows in Claude, ChatGPT and Grok Bot, credited to their creators, with copyable prompts and checks.
+- [How to Rebuild a Real Estate Proforma in Claude for Excel](https://creaistudio.com/use-cases/claude-for-excel-real-estate-proforma): Rebuild a sponsor proforma in Claude for Excel from screenshots and a rent roll in about 10 minutes. Workflow, copyable prompt, and what to check.
+- [Rent Roll Cleanup With AI: Copyable Prompt and Template](https://creaistudio.com/use-cases/ai-rent-roll-cleanup-prompt): Clean a messy rent roll with one AI prompt: map columns to a standard template, keep originals, separate vacants, and get an exception log.
+- [AI Lease Abstraction With Claude, ChatGPT and Your Template](https://creaistudio.com/use-cases/ai-lease-abstraction-claude-chatgpt-template): AI lease abstraction: a retail acquisitions VP fills a vendor-built Excel template with Claude and ChatGPT. Workflow, prompt, and checks.
+- [AI for Property Management: Running Grok Bots Like Staff](https://creaistudio.com/use-cases/ai-for-property-management-grok-bot-staff): AI for property management: one broker runs 18 Grok Bots (2 more building) like staff. Hiring framework, job-description prompt, and checks.
+- [Real Estate Underwriting Model Review: Claude and ChatGPT](https://creaistudio.com/use-cases/real-estate-underwriting-model-review-claude-chatgpt): Real estate underwriting review: Claude builds an audit tab, ChatGPT peer-reviews like an institutional associate, then back to Claude. Prompts and checks.
+- [Real Estate Due Diligence Package Built With Grok Bot](https://creaistudio.com/use-cases/real-estate-due-diligence-package-grok-bot): Real estate due diligence with AI: a seller had Grok Bot build buyer folders from Google Drive, fill gaps, then audit the package as a buyer. Steps and checks.
+- [Multifamily Underwriting With Claude Cowork in 5 Minutes](https://creaistudio.com/use-cases/multifamily-underwriting-claude-cowork): Multifamily underwriting with Claude Cowork: one investor taught it his model from the OM, rent roll and T12, saved a Skill, and now fills it in 5 minutes.
+- [AI Spreadsheet Analysis: 5 Errors to Check in a Rent Roll](https://creaistudio.com/use-cases/ai-spreadsheet-analysis-error-check-real-estate): AI spreadsheet analysis fails in five ways: extraction, categorization, formulas, units and reconciliation. A real estate investor's rule for checking it.
+- [Claude for Real Estate: AI Chief of Staff and Skill Library](https://creaistudio.com/use-cases/ai-chief-of-staff-cre-brokerage-claude): Claude for real estate at a CRE brokerage: one broker's Claude skill library for pitches, OMs and valuations, next to an AI chief of staff over admin agents.
+- [Off Market Commercial Real Estate Sourcing With AI](https://creaistudio.com/use-cases/off-market-commercial-real-estate-ai-deal-sourcing): Off market commercial real estate sourcing with AI: build a buy-box database, find the owners behind LLCs, skip-trace in three passes, rank by condition.
+
+## Use cases by tool
+
+- [Claude](https://creaistudio.com/use-cases/tool/claude): Use cases for Anthropic's Claude in commercial real estate, including Claude for Excel, from real professionals' public posts.
+- [ChatGPT](https://creaistudio.com/use-cases/tool/chatgpt): How CRE professionals use ChatGPT for underwriting reviews, lease abstracts, and more, credited to the people who shared them.
+- [Grok Bot](https://creaistudio.com/use-cases/tool/grok-bot): How property managers, brokers and investors run Grok Bots for real estate work, credited to the people who shared them.
+- [Excel](https://creaistudio.com/use-cases/tool/excel): AI workflows that live in Excel: proformas, rent rolls, lease abstract templates and model audits.
+- [Manus](https://creaistudio.com/use-cases/tool/manus): How commercial real estate investors use the Manus AI agent to build deal sourcing tools, credited to the people who shared them.
+
+## Use cases by task
+
+- [Underwriting](https://creaistudio.com/use-cases/task/underwriting): AI workflows for real estate underwriting: rebuilding proformas, cleaning rent rolls, and auditing models.
+- [Leasing](https://creaistudio.com/use-cases/task/leasing): AI workflows for leases: lease abstraction, lease review, and lease administration.
+- [Property Management](https://creaistudio.com/use-cases/task/property-management): AI for property management: bots and workflows for operations, leasing, marketing and finance.
+- [Rent Rolls](https://creaistudio.com/use-cases/task/rent-rolls): AI workflows for rent rolls: cleanup, normalization and tie-outs.
+- [Due Diligence](https://creaistudio.com/use-cases/task/due-diligence): AI workflows for due diligence packages and document review.
+- [Brokerage](https://creaistudio.com/use-cases/task/brokerage): AI for commercial real estate brokers: skill libraries, lead handling, prospecting and back-office agents.
+- [Deal Sourcing](https://creaistudio.com/use-cases/task/deal-sourcing): AI workflows for finding commercial real estate deals: buy-box databases, owner research and outreach.
+
+## Optional
+
+- [Privacy Policy](https://creaistudio.com/Privacy-Policy): Privacy policy for CRE AI Studio, operated by BES.AI, LLC: how we collect, use, and protect your information.
+- [Terms of Use](https://creaistudio.com/Terms-of-Use): Terms of Use governing access to the CRE AI Studio platform, community, courses, and related services.
+- [Cookie Policy](https://creaistudio.com/Cookie-Policy): How CRE AI Studio uses cookies and similar technologies to improve functionality and analyze usage.
+- [Disclaimer](https://creaistudio.com/Disclaimer): CRE AI Studio content is educational only, not legal, financial, or investment advice.

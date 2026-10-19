@@ -101,14 +101,14 @@ export default function UseCases() {
   }).filter(Boolean);
 
   return (
-    <div className="bg-white min-h-screen leading-[1.65]">
+    <div className="bg-white min-h-screen leading-[1.65] text-[17px]">
       <div className="max-w-6xl mx-auto px-4 pt-5 pb-14">
         {/* HERO */}
         <section className="bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] border-2 border-white/10 shadow-2xl shadow-blue-500/20 px-[22px] py-7 lg:p-12 mt-2 mb-7">
           <span className="text-xs font-bold tracking-widest uppercase text-blue-300">
             CRE AI Studio · AI Use Cases
           </span>
-          <h1 className="text-[32px] lg:text-5xl font-bold tracking-[-0.5px] leading-[1.2] text-white mt-2 mb-3">
+          <h1 className="text-[32px] lg:text-5xl md:leading-[1.2] lg:leading-[1.2] font-bold tracking-[-0.5px] leading-[1.2] text-white mt-2 mb-3">
             AI use cases that{" "}
             <em className="italic text-blue-500">actually work</em>{" "}
             in{" "}
@@ -117,7 +117,7 @@ export default function UseCases() {
             </span>
           </h1>
           <p className="text-[17px] leading-[1.65] max-w-[640px] text-slate-300 mb-4">{useCasesIndex.intro}</p>
-          <p className="text-xs uppercase tracking-wider font-bold text-slate-400 mt-3.5 mb-2">
+          <p className="text-xs uppercase leading-[1.65] tracking-[0.1em] font-bold text-slate-400 mt-3.5 mb-2">
             By tool
           </p>
           <div className="flex flex-wrap gap-2">
@@ -125,7 +125,7 @@ export default function UseCases() {
               <Chip key={c.to} {...c} />
             ))}
           </div>
-          <p className="text-xs uppercase tracking-wider font-bold text-slate-400 mt-3.5 mb-2">
+          <p className="text-xs uppercase leading-[1.65] tracking-[0.1em] font-bold text-slate-400 mt-3.5 mb-2">
             By task
           </p>
           <div className="flex flex-wrap gap-2">
@@ -196,7 +196,7 @@ export default function UseCases() {
                 {startHere.map((uc, i) => (
                   <li
                     key={uc.slug}
-                    className="flex gap-3.5 py-3.5 border-b border-slate-200 last:border-0"
+                    className="flex gap-3.5 py-[14px] my-1.5 border-b border-slate-200 last:border-0"
                   >
                     <span className="text-[28px] font-black text-slate-300 leading-none min-w-[22px]">
                       {i + 1}
@@ -204,7 +204,7 @@ export default function UseCases() {
                     <div>
                       <Link
                         to={`/use-cases/${uc.slug}`}
-                        className="text-[17px] font-bold text-slate-900 leading-snug no-underline"
+                        className="text-[17px] font-bold text-slate-900 leading-[1.35] no-underline"
                       >
                         {uc.h1}
                       </Link>
@@ -238,10 +238,10 @@ export default function UseCases() {
 
         {/* CTA */}
         <section className="mt-11 bg-slate-900 text-white rounded-3xl border-2 border-white/10 p-6 lg:p-10">
-          <div className="text-xs font-bold tracking-widest uppercase text-blue-300">
+          <div className="text-xs font-bold tracking-widest uppercase leading-[1.65] text-blue-300">
             {useCasesIndex.cta.label}
           </div>
-          <p className="text-[26px] font-black tracking-tight leading-tight text-white mt-1.5 mb-2">
+          <p className="text-[26px] font-black tracking-tight leading-[1.2] text-white mt-1.5 mb-2">
             {useCasesIndex.cta.heading}
           </p>
           <p className="text-slate-300 mb-[18px]">{useCasesIndex.cta.body}</p>

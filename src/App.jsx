@@ -15,6 +15,8 @@ import Speaking from './pages/Speaking';
 import Training from './pages/Training';
 import Workshops from './pages/Workshops';
 import WorkshopDashboard from './pages/WorkshopDashboard';
+import UseCases from './pages/UseCases';
+import UseCaseArticle from './pages/UseCaseArticle';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -70,6 +72,16 @@ const AuthenticatedApp = () => {
       <Route path="/WorkshopDashboard" element={
         <LayoutWrapper currentPageName="WorkshopDashboard">
           <WorkshopDashboard />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases" element={
+        <LayoutWrapper currentPageName="UseCases">
+          <UseCases />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/:slug" element={
+        <LayoutWrapper currentPageName="UseCaseArticle">
+          <UseCaseArticle />
         </LayoutWrapper>
       } />
       <Route path="/" element={

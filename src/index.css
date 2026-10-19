@@ -161,3 +161,90 @@ button:focus-visible {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* AI Use Case article body */
+.use-case-body h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+.use-case-body p {
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.use-case-body ol,
+.use-case-body ul {
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.use-case-body ol {
+  list-style: decimal;
+}
+.use-case-body ul {
+  list-style: disc;
+}
+.use-case-body ul.checks {
+  list-style: none;
+  padding-left: 0;
+}
+.use-case-body ul.checks > li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+.use-case-body ul.checks > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 9999px;
+  background: #2563eb;
+}
+.use-case-body li {
+  margin-bottom: 0.5rem;
+}
+.use-case-body a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.use-case-body a:hover {
+  color: #1d4ed8;
+}
+.use-case-body strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+.use-case-body pre.prompt {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.use-case-body pre.prompt code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  color: #1e293b;
+  white-space: pre-wrap;
+  line-height: 1.65;
+  background: transparent;
+  padding: 0;
+}
+.use-case-link {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.use-case-link:hover {
+  color: #1d4ed8;
+}

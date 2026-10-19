@@ -452,7 +452,7 @@ export const featuredUseCaseSlug = "claude-for-excel-real-estate-proforma";
 
 export const useCasesIndex = {
   "path": "/use-cases",
-  "canonical": "https://creaistudio.com/use-cases/",
+  "canonical": "https://creaistudio.com/use-cases",
   "titleTag": "AI Use Cases for Commercial Real Estate | CRE AI Studio",
   "metaDescription": "AI use cases for commercial real estate: real CRE workflows in Claude, ChatGPT and Grok Bot, credited to their creators, with copyable prompts and checks.",
   "ogTitle": "AI Use Cases for Commercial Real Estate",

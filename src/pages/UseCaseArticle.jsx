@@ -267,7 +267,7 @@ export default function UseCaseArticle() {
                     <img
                       src={r.heroImageSrc}
                       alt={r.imageAlt}
-                      className="w-full h-36 object-cover"
+                      className="w-full h-auto object-contain"
                     />
                     <div className="p-5 flex flex-col flex-1">
                       <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">

@@ -33,11 +33,10 @@ export default function UseCases() {
             AI Use Cases
           </span>
           <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent pb-2">
-            AI Use Cases for CRE
+            AI use cases that actually work in Commercial Real Estate
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Real-world AI workflows from commercial real estate professionals.
-            See how they use AI tools to save time and make better decisions.
+            Real workflows shared by CRE professionals, credited to the people who built them. Each one comes with a copyable prompt and a list of what to check before you rely on it.
           </p>
         </div>
       </section>

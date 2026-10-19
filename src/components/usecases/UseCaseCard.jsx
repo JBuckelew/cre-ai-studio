@@ -40,7 +40,7 @@ export default function UseCaseCard({ uc, compact = false }) {
             <img
               src={uc.heroImageSrc}
               alt={uc.ogImageAlt}
-              className="w-full h-56 md:w-64 md:h-full object-cover"
+              className="w-full h-auto object-contain md:w-64 md:h-auto"
             />
           </div>
           <div className="p-8 flex-1">

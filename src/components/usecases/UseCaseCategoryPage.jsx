@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { getCategory, robotsForHost } from "@/data/useCases";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -8,8 +8,11 @@ import { createPageUrl } from "@/utils";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
-export default function UseCaseCategoryPage({ type, param }) {
-  const c = getCategory(type, param);
+export default function UseCaseCategoryPage({ type, slug }) {
+  const params = useParams();
+  const resolvedType = type || (params.tool ? "tool" : "task");
+  const resolvedSlug = slug || params.tool || params.task;
+  const c = getCategory(resolvedType, resolvedSlug);
 
   const breadcrumbLd = c
     ? breadcrumbJsonLd([
@@ -46,7 +49,7 @@ export default function UseCaseCategoryPage({ type, param }) {
       injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
     }
     return () => clearUseCaseJsonLd();
-  }, [type, param]);
+  }, [resolvedType, resolvedSlug]);
 
   if (!c) {
     return (

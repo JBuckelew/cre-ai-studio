@@ -21,6 +21,27 @@ import UseCaseArticle from './pages/UseCaseArticle';
 import UseCaseToolCategory from './pages/UseCaseToolCategory';
 import UseCaseTaskCategory from './pages/UseCaseTaskCategory';
 import UseCaseRentRollCleanup from './pages/UseCaseRentRollCleanup';
+import UseCaseClaudeExcelProforma from './pages/UseCaseClaudeExcelProforma';
+import UseCaseLeaseAbstraction from './pages/UseCaseLeaseAbstraction';
+import UseCasePropertyManagementGrokBot from './pages/UseCasePropertyManagementGrokBot';
+import UseCaseUnderwritingModelReview from './pages/UseCaseUnderwritingModelReview';
+import UseCaseDueDiligencePackage from './pages/UseCaseDueDiligencePackage';
+import UseCaseMultifamilyUnderwritingCowork from './pages/UseCaseMultifamilyUnderwritingCowork';
+import UseCaseSpreadsheetErrorCheck from './pages/UseCaseSpreadsheetErrorCheck';
+import UseCaseChiefOfStaffBrokerage from './pages/UseCaseChiefOfStaffBrokerage';
+import UseCaseOffMarketDealSourcing from './pages/UseCaseOffMarketDealSourcing';
+import UseCaseToolClaude from './pages/UseCaseToolClaude';
+import UseCaseToolChatgpt from './pages/UseCaseToolChatgpt';
+import UseCaseToolGrokBot from './pages/UseCaseToolGrokBot';
+import UseCaseToolExcel from './pages/UseCaseToolExcel';
+import UseCaseToolManus from './pages/UseCaseToolManus';
+import UseCaseTaskUnderwriting from './pages/UseCaseTaskUnderwriting';
+import UseCaseTaskLeasing from './pages/UseCaseTaskLeasing';
+import UseCaseTaskPropertyManagement from './pages/UseCaseTaskPropertyManagement';
+import UseCaseTaskRentRolls from './pages/UseCaseTaskRentRolls';
+import UseCaseTaskDueDiligence from './pages/UseCaseTaskDueDiligence';
+import UseCaseTaskBrokerage from './pages/UseCaseTaskBrokerage';
+import UseCaseTaskDealSourcing from './pages/UseCaseTaskDealSourcing';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -83,9 +104,69 @@ const AuthenticatedApp = () => {
           <UseCases />
         </LayoutWrapper>
       } />
+      <Route path="/use-cases/tool/claude" element={
+        <LayoutWrapper currentPageName="UseCaseToolClaude">
+          <UseCaseToolClaude />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/tool/chatgpt" element={
+        <LayoutWrapper currentPageName="UseCaseToolChatgpt">
+          <UseCaseToolChatgpt />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/tool/grok-bot" element={
+        <LayoutWrapper currentPageName="UseCaseToolGrokBot">
+          <UseCaseToolGrokBot />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/tool/excel" element={
+        <LayoutWrapper currentPageName="UseCaseToolExcel">
+          <UseCaseToolExcel />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/tool/manus" element={
+        <LayoutWrapper currentPageName="UseCaseToolManus">
+          <UseCaseToolManus />
+        </LayoutWrapper>
+      } />
       <Route path="/use-cases/tool/:tool" element={
         <LayoutWrapper currentPageName="UseCaseToolCategory">
           <UseCaseToolCategory />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/underwriting" element={
+        <LayoutWrapper currentPageName="UseCaseTaskUnderwriting">
+          <UseCaseTaskUnderwriting />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/leasing" element={
+        <LayoutWrapper currentPageName="UseCaseTaskLeasing">
+          <UseCaseTaskLeasing />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/property-management" element={
+        <LayoutWrapper currentPageName="UseCaseTaskPropertyManagement">
+          <UseCaseTaskPropertyManagement />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/rent-rolls" element={
+        <LayoutWrapper currentPageName="UseCaseTaskRentRolls">
+          <UseCaseTaskRentRolls />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/due-diligence" element={
+        <LayoutWrapper currentPageName="UseCaseTaskDueDiligence">
+          <UseCaseTaskDueDiligence />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/brokerage" element={
+        <LayoutWrapper currentPageName="UseCaseTaskBrokerage">
+          <UseCaseTaskBrokerage />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/deal-sourcing" element={
+        <LayoutWrapper currentPageName="UseCaseTaskDealSourcing">
+          <UseCaseTaskDealSourcing />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/task/:task" element={
@@ -96,6 +177,51 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/ai-rent-roll-cleanup-prompt" element={
         <LayoutWrapper currentPageName="UseCaseRentRollCleanup">
           <UseCaseRentRollCleanup />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/claude-for-excel-real-estate-proforma" element={
+        <LayoutWrapper currentPageName="UseCaseClaudeExcelProforma">
+          <UseCaseClaudeExcelProforma />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-lease-abstraction-claude-chatgpt-template" element={
+        <LayoutWrapper currentPageName="UseCaseLeaseAbstraction">
+          <UseCaseLeaseAbstraction />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-for-property-management-grok-bot-staff" element={
+        <LayoutWrapper currentPageName="UseCasePropertyManagementGrokBot">
+          <UseCasePropertyManagementGrokBot />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/real-estate-underwriting-model-review-claude-chatgpt" element={
+        <LayoutWrapper currentPageName="UseCaseUnderwritingModelReview">
+          <UseCaseUnderwritingModelReview />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/real-estate-due-diligence-package-grok-bot" element={
+        <LayoutWrapper currentPageName="UseCaseDueDiligencePackage">
+          <UseCaseDueDiligencePackage />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/multifamily-underwriting-claude-cowork" element={
+        <LayoutWrapper currentPageName="UseCaseMultifamilyUnderwritingCowork">
+          <UseCaseMultifamilyUnderwritingCowork />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-spreadsheet-analysis-error-check-real-estate" element={
+        <LayoutWrapper currentPageName="UseCaseSpreadsheetErrorCheck">
+          <UseCaseSpreadsheetErrorCheck />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-chief-of-staff-cre-brokerage-claude" element={
+        <LayoutWrapper currentPageName="UseCaseChiefOfStaffBrokerage">
+          <UseCaseChiefOfStaffBrokerage />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/off-market-commercial-real-estate-ai-deal-sourcing" element={
+        <LayoutWrapper currentPageName="UseCaseOffMarketDealSourcing">
+          <UseCaseOffMarketDealSourcing />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

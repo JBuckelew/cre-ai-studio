@@ -250,11 +250,15 @@ export default function UseCaseArticle() {
                   className="block group h-full"
                 >
                   <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                    <img
-                      src={r.heroImageSrc}
-                      alt={r.imageAlt}
-                      className="w-full h-auto object-contain"
-                    />
+                    <div className="aspect-[1200/630] border-b border-slate-200 bg-slate-900">
+                      <img
+                        src={r.heroImageSrc}
+                        alt={r.imageAlt}
+                        width={1200}
+                        height={630}
+                        className="w-full h-full object-contain block"
+                      />
+                    </div>
                     <div className="p-5 flex flex-col flex-1">
                       <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
                         {r.kicker}

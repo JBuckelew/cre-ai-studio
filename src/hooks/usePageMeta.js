@@ -27,6 +27,10 @@ function upsertLink(rel) {
  * Sets per-page SEO meta: document title, meta description, Open Graph,
  * Twitter Card, canonical URL, and robots directives.
  *
+ * All meta is set SYNCHRONOUSLY during render (not in useEffect) so that
+ * prerenderers and crawlers see the correct <title> and meta tags on the
+ * very first paint, before any effects fire.
+ *
  * @param {Object} opts
  * @param {string} [opts.title] - Page title (site name appended unless appendSiteName is false).
  * @param {string} [opts.description] - Meta description.
@@ -35,7 +39,8 @@ function upsertLink(rel) {
  * @param {string} [opts.image] - Absolute URL for og:image / twitter:image.
  * @param {string} [opts.ogImageAlt] - og:image:alt text.
  * @param {string} [opts.ogTitle] - Overrides og:title / twitter:title (defaults to full title).
- * @param {string} [opts.ogDescription] - Overrides og:description / twitter:description (defaults to description).
+ * @param {string} [opts.ogDescription] - Overrides og:description (defaults to description).
+ * @param {string} [opts.twitterDescription] - Overrides twitter:description (defaults to ogDescription or description).
  * @param {string} [opts.type="website"] - og:type.
  * @param {string} [opts.robots] - Robots directive, e.g. "index, follow" or "noindex, nofollow".
  * @param {boolean} [opts.noindex] - Legacy: if true, sets noindex,nofollow (overridden by opts.robots).
@@ -50,6 +55,7 @@ export function usePageMeta({
   ogImageAlt,
   ogTitle,
   ogDescription,
+  twitterDescription,
   type = "website",
   robots,
   noindex,
@@ -58,7 +64,9 @@ export function usePageMeta({
   const robotsSavedRef = useRef(false);
   const priorRobotsRef = useRef(null);
 
-  useEffect(() => {
+  // Set all meta synchronously during render so prerenderers capture
+  // the correct title and meta on the first paint (before effects fire).
+  if (typeof document !== "undefined") {
     const fullTitle = title ? (appendSiteName ? `${title} | ${SITE_NAME}` : title) : SITE_NAME;
     document.title = fullTitle;
 
@@ -96,8 +104,9 @@ export function usePageMeta({
     // Twitter Card
     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card").setAttribute("content", image ? "summary_large_image" : "summary");
     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title").setAttribute("content", ogTitleValue);
-    if (ogDescValue) {
-      upsertMeta('meta[name="twitter:description"]', "name", "twitter:description").setAttribute("content", ogDescValue);
+    const twDescValue = twitterDescription || ogDescValue;
+    if (twDescValue) {
+      upsertMeta('meta[name="twitter:description"]', "name", "twitter:description").setAttribute("content", twDescValue);
     }
     if (image) {
       upsertMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", image);
@@ -111,7 +120,7 @@ export function usePageMeta({
     }
     const robotsValue = robots || (noindex ? "noindex, nofollow" : "index, follow");
     robotsEl.setAttribute("content", robotsValue);
-  }, [title, description, path, canonical, image, ogImageAlt, ogTitle, ogDescription, type, robots, noindex, appendSiteName]);
+  }
 
   // Restore prior robots value on unmount
   useEffect(() => {

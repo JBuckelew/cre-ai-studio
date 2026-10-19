@@ -1,10 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { getUseCaseBySlug, robotsForHost } from "@/data/useCases";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Lightbulb, ChevronDown } from "lucide-react";
 import { createPageUrl } from "@/utils";
+
+function injectJsonLd(id, data) {
+  if (typeof document === "undefined" || !data) return;
+  let script = document.head.querySelector(`script[data-usecase-ld="${id}"]`);
+  if (!script) {
+    script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-usecase-ld", id);
+    document.head.appendChild(script);
+  }
+  script.text = JSON.stringify(data);
+}
 
 export default function UseCaseArticle() {
   const { slug } = useParams();
@@ -15,46 +27,20 @@ export default function UseCaseArticle() {
     description: uc?.metaDescription,
     path: `/use-cases/${slug}`,
     image: uc?.ogImage,
+    ogDescription: uc?.ogDescription,
+    twitterDescription: uc?.twitterDescription,
+    ogImageAlt: uc?.ogImageAlt,
     type: "article",
     appendSiteName: false,
     robots: robotsForHost(),
   });
 
-  useEffect(() => {
-    if (!uc) return;
-
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", uc.ogDescription);
-
-    const twDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twDesc) twDesc.setAttribute("content", uc.twitterDescription);
-
-    let ogImageAlt = document.querySelector('meta[property="og:image:alt"]');
-    if (!ogImageAlt) {
-      ogImageAlt = document.createElement("meta");
-      ogImageAlt.setAttribute("property", "og:image:alt");
-      document.head.appendChild(ogImageAlt);
-    }
-    ogImageAlt.setAttribute("content", uc.ogImageAlt);
-
-    // Inject articleJsonLd and faqPageJsonLd from the data (images already absolute)
-    const scriptArticle = document.createElement("script");
-    scriptArticle.type = "application/ld+json";
-    scriptArticle.setAttribute("data-usecase-ld", "article");
-    scriptArticle.text = JSON.stringify(uc.articleJsonLd);
-    document.head.appendChild(scriptArticle);
-
-    const scriptFaq = document.createElement("script");
-    scriptFaq.type = "application/ld+json";
-    scriptFaq.setAttribute("data-usecase-ld", "faq");
-    scriptFaq.text = JSON.stringify(uc.faqPageJsonLd);
-    document.head.appendChild(scriptFaq);
-
-    return () => {
-      document.head.removeChild(scriptArticle);
-      document.head.removeChild(scriptFaq);
-    };
-  }, [uc, slug]);
+  // Inject JSON-LD synchronously during render so prerenderers
+  // capture structured data on the first paint.
+  if (uc) {
+    injectJsonLd("article", uc.articleJsonLd);
+    injectJsonLd("faq", uc.faqPageJsonLd);
+  }
 
   if (!uc) {
     return (

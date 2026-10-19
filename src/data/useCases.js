@@ -457,6 +457,8 @@ export const useCasesIndex = {
   "metaDescription": "AI use cases for commercial real estate: real CRE workflows in Claude, ChatGPT and Grok Bot, credited to their creators, with copyable prompts and checks.",
   "ogTitle": "AI Use Cases for Commercial Real Estate",
   "ogDescription": "AI use cases for commercial real estate: real CRE workflows in Claude, ChatGPT and Grok Bot, credited to their creators, with copyable prompts and checks.",
+  "h1": "AI use cases that actually work in Commercial Real Estate",
+  "intro": "Real workflows shared by CRE professionals, credited to the people who built them. Each one comes with a copyable prompt and a list of what to check before you rely on it.",
   "featuredSlug": "claude-for-excel-real-estate-proforma",
   "ogImage": "https://creaistudio.com/use-cases-images/claude-for-excel-real-estate-proforma.png",
   "ogImageAlt": "Five-step workflow diagram: capture screenshots of the sources and uses and proforma, load them into Claude in Excel, paste the rent roll and flag missing assumptions, supply the waterfall terms, then spot-check formulas.",

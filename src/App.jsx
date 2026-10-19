@@ -20,6 +20,7 @@ import UseCases from './pages/UseCases';
 import UseCaseArticle from './pages/UseCaseArticle';
 import UseCaseToolCategory from './pages/UseCaseToolCategory';
 import UseCaseTaskCategory from './pages/UseCaseTaskCategory';
+import UseCaseRentRollCleanup from './pages/UseCaseRentRollCleanup';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -90,6 +91,11 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/task/:task" element={
         <LayoutWrapper currentPageName="UseCaseTaskCategory">
           <UseCaseTaskCategory />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-rent-roll-cleanup-prompt" element={
+        <LayoutWrapper currentPageName="UseCaseRentRollCleanup">
+          <UseCaseRentRollCleanup />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

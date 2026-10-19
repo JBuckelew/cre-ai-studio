@@ -18,8 +18,9 @@ function injectJsonLd(id, data) {
   script.text = JSON.stringify(data);
 }
 
-export default function UseCaseArticle() {
-  const { slug } = useParams();
+export default function UseCaseArticle({ slug: slugProp }) {
+  const { slug: slugParam } = useParams();
+  const slug = slugProp || slugParam;
   const uc = getUseCaseBySlug(slug);
 
   usePageMeta({

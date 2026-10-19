@@ -2,40 +2,46 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { getUseCaseBySlug } from "@/data/useCases";
-import { Button } from "@/components/ui/button";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { ArrowRight, ArrowLeft, Lightbulb } from "lucide-react";
+  getRelatedUseCases,
+  extractSourceUrl,
+  getCreditSentence,
+  formatDate,
+  formatToolName,
+  formatTaskName,
+} from "@/lib/useCaseHelpers";
+import UseCaseCard from "@/components/usecases/UseCaseCard";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowLeft, Lightbulb, ChevronDown } from "lucide-react";
 import { createPageUrl } from "@/utils";
 
 export default function UseCaseArticle() {
   const { slug } = useParams();
   const article = getUseCaseBySlug(slug);
 
+  const heroImageAbsolute = article?.heroImage
+    ? `${window.location.origin}${article.heroImage}`
+    : undefined;
+
   usePageMeta({
     title: article?.titleTag,
     description: article?.metaDescription,
     path: `/use-cases/${slug}`,
-    image: article?.heroImage,
+    image: heroImageAbsolute,
     type: "article",
     appendSiteName: false,
+    noindex: true,
   });
 
   useEffect(() => {
     if (!article) return;
 
-    // Override og:description and twitter:description with article-specific values
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", article.ogDescription);
 
     const twDesc = document.querySelector('meta[name="twitter:description"]');
     if (twDesc) twDesc.setAttribute("content", article.twitterDescription);
 
-    // og:image:alt
     let ogImageAlt = document.querySelector('meta[property="og:image:alt"]');
     if (!ogImageAlt) {
       ogImageAlt = document.createElement("meta");
@@ -44,18 +50,14 @@ export default function UseCaseArticle() {
     }
     ogImageAlt.setAttribute("content", article.ogImageAlt);
 
-    // JSON-LD: Article
     const articleLd = {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: article.h1,
       description: article.metaDescription,
-      image: article.heroImage,
+      image: heroImageAbsolute,
       author: { "@type": "Organization", name: "CRE AI Studio" },
-      publisher: {
-        "@type": "Organization",
-        name: "CRE AI Studio",
-      },
+      publisher: { "@type": "Organization", name: "CRE AI Studio" },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": article.canonicalPlaceholder,
@@ -87,11 +89,8 @@ export default function UseCaseArticle() {
     return () => {
       document.head.removeChild(scriptArticle);
       document.head.removeChild(scriptFaq);
-      if (ogImageAlt && !ogImageAlt.getAttribute("data-usecase-ld")) {
-        // leave the alt meta; it will be overwritten next time
-      }
     };
-  }, [article, slug]);
+  }, [article, slug, heroImageAbsolute]);
 
   if (!article) {
     return (
@@ -114,6 +113,15 @@ export default function UseCaseArticle() {
     );
   }
 
+  const sourceUrl = extractSourceUrl(article.creditHtml);
+  const creditSentence = getCreditSentence(article.creditHtml);
+  const handleUrl = `https://x.com/${article.creatorHandle.replace("@", "")}`;
+  const bylineDate = formatDate(article.date);
+  const related = getRelatedUseCases(article, 3);
+  const hasChips =
+    (article.tools && article.tools.length > 0) ||
+    (article.tasks && article.tasks.length > 0);
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero */}
@@ -133,8 +141,12 @@ export default function UseCaseArticle() {
           <h1 className="text-3xl md:text-5xl font-black leading-tight mb-6 pb-2 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
             {article.h1}
           </h1>
-          <p className="text-lg md:text-xl text-white/70 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-4">
             {article.dek}
+          </p>
+          <p className="text-sm text-white/50">
+            By CRE AI Studio Editorial · {bylineDate} · {article.readMins} min
+            read
           </p>
         </div>
       </section>
@@ -164,11 +176,58 @@ export default function UseCaseArticle() {
           </figcaption>
         </figure>
 
-        {/* Credit */}
-        <p
-          className="text-sm text-slate-500 mb-10 pb-6 border-b border-slate-200"
-          dangerouslySetInnerHTML={{ __html: article.creditHtml }}
-        />
+        {/* Credit Box */}
+        <div className="use-case-credit-box text-sm text-slate-500 mb-10 pb-6 border-b border-slate-200">
+          <p className="mb-3">{creditSentence}</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a
+              href={handleUrl}
+              target="_blank"
+              rel="noopener"
+              className="use-case-link"
+            >
+              {article.creatorHandle}
+            </a>
+            {sourceUrl && (
+              <a
+                href={sourceUrl}
+                target="_blank"
+                rel="noopener"
+                className="use-case-link inline-flex items-center gap-1"
+              >
+                Read the original post on X
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Filed Under Chips */}
+        {hasChips && (
+          <div className="flex flex-wrap items-center gap-2 mb-10">
+            <span className="text-sm text-slate-500 font-medium mr-1">
+              Filed under:
+            </span>
+            {(article.tools || []).map((tool) => (
+              <Link
+                key={tool}
+                to={`/use-cases/tool/${tool}`}
+                className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium hover:bg-blue-100 transition-colors"
+              >
+                {formatToolName(tool)}
+              </Link>
+            ))}
+            {(article.tasks || []).map((task) => (
+              <Link
+                key={task}
+                to={`/use-cases/task/${task}`}
+                className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium hover:bg-blue-100 transition-colors"
+              >
+                {formatTaskName(task)}
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* Body */}
         <div
@@ -177,27 +236,41 @@ export default function UseCaseArticle() {
         />
 
         {/* FAQ */}
-        <div className="mt-16">
+        <div className="mt-16 use-case-faq">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">
             {article.faqHeading}
           </h2>
-          <Accordion type="single" collapsible className="space-y-4">
+          <div className="space-y-4">
             {article.faq.map((item, index) => (
-              <AccordionItem
+              <details
                 key={index}
-                value={`faq-${index}`}
                 className="border border-slate-200 rounded-2xl px-6 bg-white"
               >
-                <AccordionTrigger className="text-left text-base font-bold text-slate-900 hover:no-underline py-5">
+                <summary className="cursor-pointer text-left text-base font-bold text-slate-900 py-5 flex items-center justify-between">
                   {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-slate-600 text-base leading-relaxed pb-6">
+                  <ChevronDown className="w-5 h-5 text-slate-400 faq-chevron transition-transform flex-shrink-0 ml-4" />
+                </summary>
+                <div className="text-slate-600 text-base leading-relaxed pb-6">
                   {item.a}
-                </AccordionContent>
-              </AccordionItem>
+                </div>
+              </details>
             ))}
-          </Accordion>
+          </div>
         </div>
+
+        {/* Related Articles */}
+        {related.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">
+              More AI use cases
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {related.map((uc) => (
+                <UseCaseCard key={uc.slug} uc={uc} compact />
+              ))}
+            </div>
+          </div>
+        )}
       </article>
 
       {/* CTA */}
@@ -207,11 +280,12 @@ export default function UseCaseArticle() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="relative p-12 md:p-16 text-center text-white">
-              <h3 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+              <p className="text-3xl md:text-4xl font-black mb-4 leading-tight">
                 Want more AI workflows for CRE?
-              </h3>
+              </p>
               <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join hundreds of CRE professionals learning AI through weekly lessons, live Q&A, and 24/7 founder access.
+                Join hundreds of CRE professionals learning AI through weekly
+                lessons, live Q&A, and 24/7 founder access.
               </p>
               <Button
                 size="lg"

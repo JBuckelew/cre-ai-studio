@@ -101,12 +101,12 @@ export default function Navigation() {
         <div className="hidden md:grid md:grid-cols-[auto_1fr_auto] items-center h-16 gap-4">
           {/* Logo */}
           <div className="justify-self-start">
-            <h1
+            <span
               className="text-lg font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent cursor-pointer"
               onClick={handleHomeClick}
             >
               CRE AI Studio
-            </h1>
+            </span>
           </div>
 
           {/* Navigation Links */}
@@ -183,12 +183,12 @@ export default function Navigation() {
         <div className="md:hidden py-2">
           {/* Logo */}
           <div className="flex items-center justify-center mb-2">
-            <h1
+            <span
               className="text-base font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent cursor-pointer"
               onClick={handleHomeClick}
             >
               CRE AI Studio
-            </h1>
+            </span>
           </div>
 
           {/* Top row: Buttons */}

@@ -13,7 +13,7 @@ import {
 import { base44 } from "@/api/base44Client";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",

@@ -248,3 +248,23 @@ button:focus-visible {
 .use-case-link:hover {
   color: #1d4ed8;
 }
+
+/* Credit box: prevent horizontal overflow on narrow screens */
+.use-case-credit-box,
+.use-case-credit-box a,
+.use-case-credit-box .use-case-link {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* FAQ: native details/summary styling */
+.use-case-faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+.use-case-faq summary::-webkit-details-marker {
+  display: none;
+}
+.use-case-faq details[open] .faq-chevron {
+  transform: rotate(180deg);
+}

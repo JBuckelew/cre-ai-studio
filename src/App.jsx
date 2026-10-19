@@ -17,6 +17,8 @@ import Workshops from './pages/Workshops';
 import WorkshopDashboard from './pages/WorkshopDashboard';
 import UseCases from './pages/UseCases';
 import UseCaseArticle from './pages/UseCaseArticle';
+import UseCaseToolCategory from './pages/UseCaseToolCategory';
+import UseCaseTaskCategory from './pages/UseCaseTaskCategory';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -77,6 +79,16 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases" element={
         <LayoutWrapper currentPageName="UseCases">
           <UseCases />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/tool/:tool" element={
+        <LayoutWrapper currentPageName="UseCaseToolCategory">
+          <UseCaseToolCategory />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/task/:task" element={
+        <LayoutWrapper currentPageName="UseCaseTaskCategory">
+          <UseCaseTaskCategory />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

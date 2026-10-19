@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useCases } from "@/data/useCases";
+import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function UseCases() {
   usePageMeta({
     title: "AI Use Cases",
-    description: "Real-world AI workflows for commercial real estate professionals. See how CRE pros use AI tools to save time, underwrite deals, and close faster.",
+    description:
+      "Real-world AI workflows for commercial real estate professionals. See how CRE pros use AI tools to save time, underwrite deals, and close faster.",
     path: "/use-cases",
+    noindex: true,
   });
 
   return (
@@ -29,45 +31,18 @@ export default function UseCases() {
             AI Use Cases for CRE
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Real-world AI workflows from commercial real estate professionals. See how they use AI tools to save time and make better decisions.
+            Real-world AI workflows from commercial real estate professionals.
+            See how they use AI tools to save time and make better decisions.
           </p>
         </div>
       </section>
 
-      {/* Article List */}
+      {/* Article List - all 10 cards */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
             {useCases.map((uc) => (
-              <Link
-                to={`/use-cases/${uc.slug}`}
-                key={uc.slug}
-                className="block group"
-              >
-                <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="md:flex">
-                    <div className="md:flex-shrink-0">
-                      <img
-                        src={uc.heroImage}
-                        alt={uc.ogImageAlt}
-                        className="w-full h-56 md:w-64 md:h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-8 flex-1">
-                      <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                        {uc.h1}
-                      </h2>
-                      <p className="text-slate-600 leading-relaxed mb-4">
-                        {uc.dek}
-                      </p>
-                      <span className="inline-flex items-center gap-1 text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all">
-                        Read the use case
-                        <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+              <UseCaseCard key={uc.slug} uc={uc} />
             ))}
           </div>
         </div>
@@ -80,11 +55,12 @@ export default function UseCases() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="relative p-12 md:p-16 text-center text-white">
-              <h3 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
                 Want more AI workflows for CRE?
-              </h3>
+              </h2>
               <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join hundreds of CRE professionals learning AI through weekly lessons, live Q&A, and 24/7 founder access.
+                Join hundreds of CRE professionals learning AI through weekly
+                lessons, live Q&A, and 24/7 founder access.
               </p>
               <Button
                 size="lg"

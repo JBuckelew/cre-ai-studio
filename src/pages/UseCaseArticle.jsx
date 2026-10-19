@@ -1,47 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { getUseCaseBySlug, robotsForHost } from "@/data/useCases";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Lightbulb, ChevronDown } from "lucide-react";
 import { createPageUrl } from "@/utils";
-
-function injectJsonLd(id, data) {
-  if (typeof document === "undefined" || !data) return;
-  let script = document.head.querySelector(`script[data-usecase-ld="${id}"]`);
-  if (!script) {
-    script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.setAttribute("data-usecase-ld", id);
-    document.head.appendChild(script);
-  }
-  script.text = JSON.stringify(data);
-}
+import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
 export default function UseCaseArticle({ slug: slugProp }) {
   const { slug: slugParam } = useParams();
   const slug = slugProp || slugParam;
   const uc = getUseCaseBySlug(slug);
 
+  const breadcrumbLd = uc
+    ? breadcrumbJsonLd([
+        { name: "Home", url: "https://creaistudio.com/" },
+        { name: "AI Use Cases", url: "https://creaistudio.com/use-cases" },
+        { name: uc.h1, url: `https://creaistudio.com/use-cases/${slug}` },
+      ])
+    : null;
+
   usePageMeta({
-    title: uc?.titleTag,
+    title: uc ? uc.titleTag : "Use case not found | CRE AI Studio",
     description: uc?.metaDescription,
-    path: `/use-cases/${slug}`,
+    path: uc ? `/use-cases/${slug}` : undefined,
     image: uc?.ogImage,
     ogDescription: uc?.ogDescription,
     twitterDescription: uc?.twitterDescription,
     ogImageAlt: uc?.ogImageAlt,
     type: "article",
     appendSiteName: false,
-    robots: robotsForHost(),
+    robots: uc ? robotsForHost() : "noindex, nofollow",
+    noCanonical: !uc,
   });
 
   // Inject JSON-LD synchronously during render so prerenderers
   // capture structured data on the first paint.
   if (uc) {
-    injectJsonLd("article", uc.articleJsonLd);
-    injectJsonLd("faq", uc.faqPageJsonLd);
+    clearUseCaseJsonLd();
+    injectUseCaseJsonLd("article", uc.articleJsonLd);
+    injectUseCaseJsonLd("faq", uc.faqPageJsonLd);
+    injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
+  } else {
+    clearUseCaseJsonLd();
   }
+
+  // Re-inject after cleanup from previous page, and clean up on unmount.
+  useEffect(() => {
+    if (uc) {
+      clearUseCaseJsonLd();
+      injectUseCaseJsonLd("article", uc.articleJsonLd);
+      injectUseCaseJsonLd("faq", uc.faqPageJsonLd);
+      injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
+    }
+    return () => clearUseCaseJsonLd();
+  }, [slug]);
 
   if (!uc) {
     return (

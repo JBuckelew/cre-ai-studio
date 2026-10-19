@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useCases, useCasesIndex, categories, robotsForHost } from "@/data/useCases";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
+import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
 const FEATURED = useCasesIndex.featuredSlug;
 const LATEST_ORDER = [
@@ -35,7 +36,7 @@ const TASK_KEYS = [
 function SectionHeader({ title, link }) {
   return (
     <div className="flex justify-between items-baseline border-b-2 border-slate-900 mt-9 mb-4 pb-1.5">
-      <h2 className="m-0 text-[22px] font-black tracking-tight text-slate-900 leading-tight">
+      <h2 className="m-0 text-[22px] font-black tracking-[-0.3px] text-slate-900 leading-[1.2]">
         {title}
       </h2>
       {link}
@@ -74,6 +75,20 @@ export default function UseCases() {
     robots: robotsForHost(),
   });
 
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: "Home", url: "https://creaistudio.com/" },
+    { name: "AI Use Cases", url: "https://creaistudio.com/use-cases" },
+  ]);
+
+  clearUseCaseJsonLd();
+  injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
+
+  useEffect(() => {
+    clearUseCaseJsonLd();
+    injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
+    return () => clearUseCaseJsonLd();
+  }, []);
+
   const featured = useCases.find((u) => u.slug === FEATURED);
   const latestSlugs = LATEST_ORDER.filter((s) => s !== FEATURED);
   const latest = [
@@ -105,7 +120,7 @@ export default function UseCases() {
       <div className="max-w-6xl mx-auto px-4 pt-5 pb-14">
         {/* HERO */}
         <section className="bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] border-2 border-white/10 shadow-2xl shadow-blue-500/20 px-[22px] py-7 lg:p-12 mt-2 mb-7">
-          <span className="text-xs font-bold tracking-widest uppercase text-blue-300">
+          <span className="text-xs font-bold tracking-[0.12em] uppercase leading-[1.65] text-blue-300">
             CRE AI Studio · AI Use Cases
           </span>
           <h1 className="text-[32px] lg:text-5xl md:leading-[1.2] lg:leading-[1.2] font-bold tracking-[-0.5px] leading-[1.2] text-white mt-2 mb-3">
@@ -117,7 +132,7 @@ export default function UseCases() {
             </span>
           </h1>
           <p className="text-[17px] leading-[1.65] max-w-[640px] text-slate-300 mb-4">{useCasesIndex.intro}</p>
-          <p className="text-xs uppercase leading-[1.65] tracking-[0.1em] font-bold text-slate-400 mt-3.5 mb-2">
+          <p className="text-xs uppercase leading-[1.65] tracking-[0.12em] font-bold text-slate-400 mt-3.5 mb-2">
             By tool
           </p>
           <div className="flex flex-wrap gap-2">
@@ -125,7 +140,7 @@ export default function UseCases() {
               <Chip key={c.to} {...c} />
             ))}
           </div>
-          <p className="text-xs uppercase leading-[1.65] tracking-[0.1em] font-bold text-slate-400 mt-3.5 mb-2">
+          <p className="text-xs uppercase leading-[1.65] tracking-[0.12em] font-bold text-slate-400 mt-3.5 mb-2">
             By task
           </p>
           <div className="flex flex-wrap gap-2">
@@ -153,7 +168,7 @@ export default function UseCases() {
                 />
               </div>
               <div>
-                <span className="text-xs font-bold tracking-widest uppercase text-blue-600">
+                <span className="text-xs font-bold tracking-[0.12em] uppercase leading-[1.65] text-blue-600">
                   {featured.kicker.replace(/^AI Use Case · /, "")}
                 </span>
                 <h3 className="text-[26px] lg:text-[32px] font-bold tracking-[-0.3px] leading-[1.2] text-slate-900 mt-1.5 mb-2">
@@ -217,7 +232,7 @@ export default function UseCases() {
                 ))}
               </ol>
             </div>
-            <h3 className="text-[15px] uppercase tracking-wider leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
+            <h3 className="text-[15px] uppercase tracking-[0.08em] font-bold leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
               Browse by tool
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -225,7 +240,7 @@ export default function UseCases() {
                 <Chip key={c.to} {...c} variant="light" />
               ))}
             </div>
-            <h3 className="text-[15px] uppercase tracking-wider leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
+            <h3 className="text-[15px] uppercase tracking-[0.08em] font-bold leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
               Browse by task
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -238,10 +253,10 @@ export default function UseCases() {
 
         {/* CTA */}
         <section className="mt-11 bg-slate-900 text-white rounded-3xl border-2 border-white/10 px-[22px] py-7 md:p-10">
-          <div className="text-xs font-bold tracking-widest uppercase leading-[1.65] text-blue-300">
+          <div className="text-xs font-bold tracking-[0.13em] uppercase leading-[1.65] text-blue-300">
             {useCasesIndex.cta.label}
           </div>
-          <p className="text-[26px] font-black tracking-tight leading-[1.2] text-white mt-1.5 mb-2">
+          <p className="text-[26px] font-black tracking-[-0.4px] leading-[1.2] text-white mt-1.5 mb-2">
             {useCasesIndex.cta.heading}
           </p>
           <p className="text-slate-300 mb-[18px]">{useCasesIndex.cta.body}</p>
@@ -254,7 +269,7 @@ export default function UseCases() {
             </Link>
             <a
               href="https://creaistudio.beehiiv.com/"
-              className="rounded-md px-5 py-3 text-[15px] font-semibold bg-blue-600 text-white"
+              className="rounded-md px-5 py-3 text-[15px] font-medium bg-blue-600 text-white"
             >
               Join the Newsletter
             </a>

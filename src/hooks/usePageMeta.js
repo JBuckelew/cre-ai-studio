@@ -59,6 +59,7 @@ export function usePageMeta({
   type = "website",
   robots,
   noindex,
+  noCanonical,
   appendSiteName = true,
 } = {}) {
   const robotsSavedRef = useRef(false);
@@ -95,10 +96,15 @@ export function usePageMeta({
     }
 
     // Canonical + og:url
-    const canonicalUrl = canonical || (path ? BASE_URL + (path === "/" ? "/" : path) : null);
-    if (canonicalUrl) {
-      upsertMeta('meta[property="og:url"]', "property", "og:url").setAttribute("content", canonicalUrl);
-      upsertLink("canonical").setAttribute("href", canonicalUrl);
+    if (noCanonical) {
+      document.head.querySelector('link[rel="canonical"]')?.remove();
+      document.head.querySelector('meta[property="og:url"]')?.remove();
+    } else {
+      const canonicalUrl = canonical || (path ? BASE_URL + (path === "/" ? "/" : path) : null);
+      if (canonicalUrl) {
+        upsertMeta('meta[property="og:url"]', "property", "og:url").setAttribute("content", canonicalUrl);
+        upsertLink("canonical").setAttribute("href", canonicalUrl);
+      }
     }
 
     // Twitter Card

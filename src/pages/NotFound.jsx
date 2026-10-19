@@ -8,6 +8,7 @@ export default function NotFound() {
     description: "The page you were looking for could not be found.",
     robots: "noindex, nofollow",
     appendSiteName: false,
+    noCanonical: true,
   });
 
   return (

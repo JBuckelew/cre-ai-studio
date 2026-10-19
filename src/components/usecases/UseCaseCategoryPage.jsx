@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { getCategory, robotsForHost } from "@/data/useCases";
@@ -6,12 +6,21 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createPageUrl } from "@/utils";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
+import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
 export default function UseCaseCategoryPage({ type, param }) {
   const c = getCategory(type, param);
 
+  const breadcrumbLd = c
+    ? breadcrumbJsonLd([
+        { name: "Home", url: "https://creaistudio.com/" },
+        { name: "AI Use Cases", url: "https://creaistudio.com/use-cases" },
+        { name: c.h1, url: c.canonical },
+      ])
+    : null;
+
   usePageMeta({
-    title: c?.titleTag,
+    title: c ? c.titleTag : "Use case not found | CRE AI Studio",
     description: c?.metaDescription,
     canonical: c?.canonical,
     path: c?.path,
@@ -20,8 +29,24 @@ export default function UseCaseCategoryPage({ type, param }) {
     image: c?.ogImage,
     ogImageAlt: c?.ogImageAlt,
     appendSiteName: false,
-    robots: robotsForHost(),
+    robots: c ? robotsForHost() : "noindex, nofollow",
+    noCanonical: !c,
   });
+
+  if (c) {
+    clearUseCaseJsonLd();
+    injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
+  } else {
+    clearUseCaseJsonLd();
+  }
+
+  useEffect(() => {
+    if (c) {
+      clearUseCaseJsonLd();
+      injectUseCaseJsonLd("breadcrumb", breadcrumbLd);
+    }
+    return () => clearUseCaseJsonLd();
+  }, [type, param]);
 
   if (!c) {
     return (
@@ -78,7 +103,7 @@ export default function UseCaseCategoryPage({ type, param }) {
               </span>
             ))}
           </nav>
-          <span className="inline-block text-xs font-bold tracking-widest uppercase text-blue-400 mb-4">
+          <span className="inline-block text-xs font-bold tracking-[0.12em] uppercase leading-[1.65] text-blue-400 mb-4">
             {c.heroKicker}
           </span>
           <h1 className="text-3xl md:text-5xl font-black leading-tight mb-4 pb-2 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
@@ -112,7 +137,7 @@ export default function UseCaseCategoryPage({ type, param }) {
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-black text-slate-900">{c.listHeading}</h2>
+            <h2 className="text-2xl font-black tracking-[-0.3px] leading-[1.2] text-slate-900">{c.listHeading}</h2>
             <Link
               to={c.allLink.href}
               className="text-blue-600 font-semibold text-sm hover:underline"
@@ -145,7 +170,7 @@ export default function UseCaseCategoryPage({ type, param }) {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="relative p-12 md:p-16 text-center text-white">
-              <p className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+              <p className="text-3xl md:text-4xl font-black mb-4 leading-tight tracking-[-0.4px]">
                 Want more AI workflows for CRE?
               </p>
               <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">

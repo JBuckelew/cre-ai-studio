@@ -1,6 +1,6 @@
 import React from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export default function PrivacyPolicy() {
   usePageMeta({
@@ -13,9 +13,9 @@ export default function PrivacyPolicy() {
       <div className="max-w-4xl mx-auto px-6">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-slate-900">
+            <h1 className="font-semibold leading-none tracking-tight text-3xl font-bold text-slate-900">
               Privacy Policy
-            </CardTitle>
+            </h1>
           </CardHeader>
           <CardContent className="prose max-w-none space-y-6">
             <p className="text-slate-600 leading-relaxed">

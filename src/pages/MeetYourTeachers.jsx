@@ -10,6 +10,7 @@ export default function MeetYourTeachers() {
   });
   return (
     <div className="min-h-screen bg-slate-50">
+      <h1 className="sr-only">Meet Your Teachers</h1>
       <FoundersSection />
     </div>
   );

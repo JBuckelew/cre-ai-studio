@@ -46,13 +46,13 @@ function SectionHeader({ title, link }) {
 function Chip({ to, name, count, variant = "dark" }) {
   const style =
     variant === "dark"
-      ? "bg-white/5 border border-white/15 text-slate-200"
-      : "bg-white border border-slate-200 text-slate-700";
+      ? "py-[5px] leading-[1.65] bg-white/[0.06] border border-white/15 text-slate-200"
+      : "py-1 bg-white border border-slate-200 text-slate-700";
   const countStyle = variant === "dark" ? "text-slate-400" : "text-slate-500";
   return (
     <Link
       to={to}
-      className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium no-underline ${style}`}
+      className={`inline-flex items-center rounded-full px-3 text-sm font-medium no-underline ${style}`}
     >
       {name}
       <b className={`ml-1 font-medium ${countStyle}`}>{count}</b>
@@ -101,14 +101,14 @@ export default function UseCases() {
   }).filter(Boolean);
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-white min-h-screen leading-[1.65]">
       <div className="max-w-6xl mx-auto px-4 pt-5 pb-14">
         {/* HERO */}
-        <section className="bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] border-2 border-white/10 shadow-2xl shadow-blue-500/20 p-6 lg:p-12 mt-2 mb-7">
+        <section className="bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] border-2 border-white/10 shadow-2xl shadow-blue-500/20 px-[22px] py-7 lg:p-12 mt-2 mb-7">
           <span className="text-xs font-bold tracking-widest uppercase text-blue-300">
             CRE AI Studio · AI Use Cases
           </span>
-          <h1 className="text-3xl lg:text-5xl font-bold tracking-tight leading-tight text-white mt-2 mb-3">
+          <h1 className="text-[32px] lg:text-5xl font-bold tracking-[-0.5px] leading-[1.2] text-white mt-2 mb-3">
             AI use cases that{" "}
             <em className="italic text-blue-500">actually work</em>{" "}
             in{" "}
@@ -116,7 +116,7 @@ export default function UseCases() {
               Commercial Real Estate
             </span>
           </h1>
-          <p className="text-slate-300 max-w-2xl mb-4">{useCasesIndex.intro}</p>
+          <p className="text-[17px] leading-[1.65] max-w-[640px] text-slate-300 mb-4">{useCasesIndex.intro}</p>
           <p className="text-xs uppercase tracking-wider font-bold text-slate-400 mt-3.5 mb-2">
             By tool
           </p>
@@ -156,10 +156,10 @@ export default function UseCases() {
                 <span className="text-xs font-bold tracking-widest uppercase text-blue-600">
                   {featured.kicker.replace(/^AI Use Case · /, "")}
                 </span>
-                <h3 className="text-[26px] lg:text-[32px] font-bold tracking-tight leading-tight text-slate-900 mt-1.5 mb-2">
+                <h3 className="text-[26px] lg:text-[32px] font-bold tracking-[-0.3px] leading-[1.2] text-slate-900 mt-1.5 mb-2">
                   {featured.h1}
                 </h3>
-                <p className="text-slate-600 mb-2">{featured.dek}</p>
+                <p className="text-[17px] leading-[1.65] text-slate-600 mb-2">{featured.dek}</p>
                 <div className="text-[13px] text-slate-500">
                   Credit: {featured.creatorName} ({featured.creatorHandle}) ·{" "}
                   {featured.bylineDate} · {featured.readMins} min read
@@ -204,7 +204,7 @@ export default function UseCases() {
                     <div>
                       <Link
                         to={`/use-cases/${uc.slug}`}
-                        className="font-bold text-slate-900 leading-snug no-underline"
+                        className="text-[17px] font-bold text-slate-900 leading-snug no-underline"
                       >
                         {uc.h1}
                       </Link>
@@ -217,7 +217,7 @@ export default function UseCases() {
                 ))}
               </ol>
             </div>
-            <h3 className="text-[15px] uppercase tracking-wider text-slate-500 mt-[18px] mb-2.5">
+            <h3 className="text-[15px] uppercase tracking-wider leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
               Browse by tool
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -225,7 +225,7 @@ export default function UseCases() {
                 <Chip key={c.to} {...c} variant="light" />
               ))}
             </div>
-            <h3 className="text-[15px] uppercase tracking-wider text-slate-500 mt-[18px] mb-2.5">
+            <h3 className="text-[15px] uppercase tracking-wider leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
               Browse by task
             </h3>
             <div className="flex flex-wrap gap-2">

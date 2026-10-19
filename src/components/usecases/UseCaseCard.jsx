@@ -31,7 +31,7 @@ export default function UseCaseCard({
         <span className="text-xs font-bold tracking-widest uppercase text-blue-600">
           {kicker}
         </span>
-        <TitleTag className="text-[19px] font-bold leading-tight text-slate-900 mt-1.5 mb-2">
+        <TitleTag className="text-[19px] font-bold leading-[1.2] text-slate-900 mt-1.5 mb-2">
           {title}
         </TitleTag>
         <p className="text-[15px] text-slate-600 mb-2.5">{excerpt}</p>

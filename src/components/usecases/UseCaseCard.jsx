@@ -8,7 +8,7 @@ export default function UseCaseCard({ uc, compact = false }) {
       <Link to={`/use-cases/${uc.slug}`} className="block group h-full">
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
           <img
-            src={uc.heroImage}
+            src={uc.heroImageSrc}
             alt={uc.ogImageAlt}
             className="w-full h-36 object-cover"
           />
@@ -38,7 +38,7 @@ export default function UseCaseCard({ uc, compact = false }) {
         <div className="md:flex">
           <div className="md:flex-shrink-0">
             <img
-              src={uc.heroImage}
+              src={uc.heroImageSrc}
               alt={uc.ogImageAlt}
               className="w-full h-56 md:w-64 md:h-full object-cover"
             />

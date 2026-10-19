@@ -1,37 +1,33 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { getUseCaseBySlug } from "@/data/useCases";
+import { getUseCaseBySlug, robotsForHost } from "@/data/useCases";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Lightbulb, ChevronDown } from "lucide-react";
 import { createPageUrl } from "@/utils";
 
 export default function UseCaseArticle() {
   const { slug } = useParams();
-  const article = getUseCaseBySlug(slug);
-
-  const ogImageAbsolute = article?.ogImage
-    ? `${window.location.origin}${article.ogImage}`
-    : undefined;
+  const uc = getUseCaseBySlug(slug);
 
   usePageMeta({
-    title: article?.titleTag,
-    description: article?.metaDescription,
+    title: uc?.titleTag,
+    description: uc?.metaDescription,
     path: `/use-cases/${slug}`,
-    image: ogImageAbsolute,
+    image: uc?.ogImage,
     type: "article",
     appendSiteName: false,
-    noindex: true,
+    robots: robotsForHost(),
   });
 
   useEffect(() => {
-    if (!article) return;
+    if (!uc) return;
 
     const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", article.ogDescription);
+    if (ogDesc) ogDesc.setAttribute("content", uc.ogDescription);
 
     const twDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twDesc) twDesc.setAttribute("content", article.twitterDescription);
+    if (twDesc) twDesc.setAttribute("content", uc.twitterDescription);
 
     let ogImageAlt = document.querySelector('meta[property="og:image:alt"]');
     if (!ogImageAlt) {
@@ -39,28 +35,28 @@ export default function UseCaseArticle() {
       ogImageAlt.setAttribute("property", "og:image:alt");
       document.head.appendChild(ogImageAlt);
     }
-    ogImageAlt.setAttribute("content", article.ogImageAlt);
+    ogImageAlt.setAttribute("content", uc.ogImageAlt);
 
-    // Inject articleJsonLd and faqPageJsonLd from the data
+    // Inject articleJsonLd and faqPageJsonLd from the data (images already absolute)
     const scriptArticle = document.createElement("script");
     scriptArticle.type = "application/ld+json";
     scriptArticle.setAttribute("data-usecase-ld", "article");
-    scriptArticle.text = JSON.stringify(article.articleJsonLd);
+    scriptArticle.text = JSON.stringify(uc.articleJsonLd);
     document.head.appendChild(scriptArticle);
 
     const scriptFaq = document.createElement("script");
     scriptFaq.type = "application/ld+json";
     scriptFaq.setAttribute("data-usecase-ld", "faq");
-    scriptFaq.text = JSON.stringify(article.faqPageJsonLd);
+    scriptFaq.text = JSON.stringify(uc.faqPageJsonLd);
     document.head.appendChild(scriptFaq);
 
     return () => {
       document.head.removeChild(scriptArticle);
       document.head.removeChild(scriptFaq);
     };
-  }, [article, slug]);
+  }, [uc, slug]);
 
-  if (!article) {
+  if (!uc) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
         <div className="text-center">
@@ -82,8 +78,8 @@ export default function UseCaseArticle() {
   }
 
   const hasChips =
-    (article.filedUnder?.tools && article.filedUnder.tools.length > 0) ||
-    (article.filedUnder?.tasks && article.filedUnder.tasks.length > 0);
+    (uc.filedUnder?.tools && uc.filedUnder.tools.length > 0) ||
+    (uc.filedUnder?.tasks && uc.filedUnder.tasks.length > 0);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -101,15 +97,22 @@ export default function UseCaseArticle() {
             <ArrowLeft className="w-4 h-4" />
             All AI Use Cases
           </Link>
+          <Link
+            to={uc.kickerHref}
+            className="inline-block text-xs font-bold tracking-widest uppercase text-blue-600 no-underline mt-4"
+          >
+            {uc.kicker}
+          </Link>
           <h1 className="text-3xl md:text-5xl font-black leading-tight mb-6 pb-2 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
-            {article.h1}
+            {uc.h1}
           </h1>
           <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-4">
-            {article.dek}
+            {uc.dek}
           </p>
-          <p className="text-sm text-white/50">
-            By CRE AI Studio Editorial · {article.bylineDate} · {article.readMins} min read
-          </p>
+          <div className="text-sm text-white/50">
+            By CRE AI Studio Editorial · {uc.bylineDate} · {uc.readMins} min read
+            <span className="block mt-0.5">{uc.aiNote}</span>
+          </div>
         </div>
       </section>
 
@@ -121,7 +124,7 @@ export default function UseCaseArticle() {
             <Lightbulb className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
             <div
               className="text-slate-700 leading-relaxed [&_strong]:font-bold [&_strong]:text-slate-900"
-              dangerouslySetInnerHTML={{ __html: article.answerHtml }}
+              dangerouslySetInnerHTML={{ __html: uc.answerHtml }}
             />
           </div>
         </div>
@@ -129,12 +132,12 @@ export default function UseCaseArticle() {
         {/* Hero Image */}
         <figure className="mb-4">
           <img
-            src={article.heroImage}
-            alt={article.ogImageAlt}
+            src={uc.heroImageSrc}
+            alt={uc.ogImageAlt}
             className="w-full rounded-2xl shadow-lg"
           />
           <figcaption className="text-sm text-slate-500 mt-3 text-center italic">
-            {article.imageCaption}
+            {uc.imageCaption}
           </figcaption>
         </figure>
 
@@ -144,21 +147,21 @@ export default function UseCaseArticle() {
             Use case credit
           </p>
           <p className="mb-2">
-            <strong className="text-slate-900">{article.creatorName}</strong>{" "}
+            <strong className="text-slate-900">{uc.creatorName}</strong>{" "}
             <a
-              href={article.creatorProfileUrl}
+              href={uc.creatorProfileUrl}
               target="_blank"
               rel="noopener"
               className="use-case-link"
             >
-              {article.creatorHandle}
+              {uc.creatorHandle}
             </a>
           </p>
-          <p className="mb-3">{article.creditLine}</p>
+          <p className="mb-3">{uc.creditLine}</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            {article.sourceUrl && (
+            {uc.sourceUrl && (
               <a
-                href={article.sourceUrl}
+                href={uc.sourceUrl}
                 target="_blank"
                 rel="noopener"
                 className="use-case-link inline-flex items-center gap-1"
@@ -167,7 +170,7 @@ export default function UseCaseArticle() {
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             )}
-            {article.extraSources.map((extra, i) => (
+            {uc.extraSources.map((extra, i) => (
               <a
                 key={i}
                 href={extra.url}
@@ -188,7 +191,7 @@ export default function UseCaseArticle() {
             <span className="text-sm text-slate-500 font-medium mr-1">
               Filed under:
             </span>
-            {(article.filedUnder?.tools || []).map((tool) => (
+            {(uc.filedUnder?.tools || []).map((tool) => (
               <Link
                 key={tool.key}
                 to={tool.href}
@@ -197,7 +200,7 @@ export default function UseCaseArticle() {
                 {tool.name}
               </Link>
             ))}
-            {(article.filedUnder?.tasks || []).map((task) => (
+            {(uc.filedUnder?.tasks || []).map((task) => (
               <Link
                 key={task.key}
                 to={task.href}
@@ -212,22 +215,23 @@ export default function UseCaseArticle() {
         {/* Body */}
         <div
           className="use-case-body"
-          dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
+          dangerouslySetInnerHTML={{ __html: uc.bodyHtml }}
         />
 
         {/* FAQ */}
         <div className="mt-16 use-case-faq">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">
-            {article.faqHeading}
+            {uc.faqHeading}
           </h2>
           <div className="space-y-4">
-            {article.faq.map((item, index) => (
+            {uc.faq.map((item, index) => (
               <details
                 key={index}
+                open={index === 0}
                 className="border border-slate-200 rounded-2xl px-6 bg-white"
               >
                 <summary className="cursor-pointer text-left text-base font-bold text-slate-900 py-5 flex items-center justify-between">
-                  {item.q}
+                  <h3 className="inline text-base font-bold m-0">{item.q}</h3>
                   <ChevronDown className="w-5 h-5 text-slate-400 faq-chevron transition-transform flex-shrink-0 ml-4" />
                 </summary>
                 <div className="text-slate-600 text-base leading-relaxed pb-6">
@@ -239,31 +243,43 @@ export default function UseCaseArticle() {
         </div>
 
         {/* Related Articles */}
-        {article.related && article.related.length > 0 && (
+        {uc.related && uc.related.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-6">
-              More AI use cases
-            </h2>
+            <div className="flex items-center justify-between mb-6">
+              <p className="text-2xl md:text-3xl font-black text-slate-900">
+                {uc.relatedTitle}
+              </p>
+              <Link
+                to="/use-cases"
+                className="text-blue-600 font-semibold text-sm hover:underline"
+              >
+                All use cases →
+              </Link>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {article.related.map((rel) => (
+              {uc.related.map((r) => (
                 <Link
-                  key={rel.slug}
-                  to={`/use-cases/${rel.slug}`}
+                  key={r.slug}
+                  to={r.href}
                   className="block group h-full"
                 >
                   <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     <img
-                      src={rel.heroImage}
-                      alt={rel.title}
+                      src={r.heroImageSrc}
+                      alt={r.imageAlt}
                       className="w-full h-36 object-cover"
                     />
                     <div className="p-5 flex flex-col flex-1">
-                      <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                        {rel.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 flex-1">
-                        {rel.dek}
+                      <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
+                        {r.kicker}
+                      </span>
+                      <p className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        {r.title}
                       </p>
+                      <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 flex-1">
+                        {r.dek}
+                      </p>
+                      <p className="text-xs text-slate-400 mt-3">{r.creditLine}</p>
                     </div>
                   </div>
                 </Link>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const SITE_NAME = "CRE | AI Studio";
 const BASE_URL = "https://creaistudio.com";
@@ -28,14 +28,36 @@ function upsertLink(rel) {
  * Twitter Card, canonical URL, and robots directives.
  *
  * @param {Object} opts
- * @param {string} [opts.title] - Page title (site name is appended). Omit for home/brand-only.
+ * @param {string} [opts.title] - Page title (site name appended unless appendSiteName is false).
  * @param {string} [opts.description] - Meta description.
  * @param {string} [opts.path] - Route path, e.g. "/Resources". Used for canonical + og:url.
+ * @param {string} [opts.canonical] - Full canonical URL (overrides path-based canonical).
  * @param {string} [opts.image] - Absolute URL for og:image / twitter:image.
+ * @param {string} [opts.ogImageAlt] - og:image:alt text.
+ * @param {string} [opts.ogTitle] - Overrides og:title / twitter:title (defaults to full title).
+ * @param {string} [opts.ogDescription] - Overrides og:description / twitter:description (defaults to description).
  * @param {string} [opts.type="website"] - og:type.
- * @param {boolean} [opts.noindex=false] - If true, sets noindex,nofollow.
+ * @param {string} [opts.robots] - Robots directive, e.g. "index, follow" or "noindex, nofollow".
+ * @param {boolean} [opts.noindex] - Legacy: if true, sets noindex,nofollow (overridden by opts.robots).
+ * @param {boolean} [opts.appendSiteName=true] - If false, title is used as-is.
  */
-export function usePageMeta({ title, description, path, image, type = "website", noindex = false, appendSiteName = true } = {}) {
+export function usePageMeta({
+  title,
+  description,
+  path,
+  canonical,
+  image,
+  ogImageAlt,
+  ogTitle,
+  ogDescription,
+  type = "website",
+  robots,
+  noindex,
+  appendSiteName = true,
+} = {}) {
+  const robotsSavedRef = useRef(false);
+  const priorRobotsRef = useRef(null);
+
   useEffect(() => {
     const fullTitle = title ? (appendSiteName ? `${title} | ${SITE_NAME}` : title) : SITE_NAME;
     document.title = fullTitle;
@@ -45,32 +67,61 @@ export function usePageMeta({ title, description, path, image, type = "website",
     }
 
     // Open Graph
-    upsertMeta('meta[property="og:title"]', "property", "og:title").setAttribute("content", fullTitle);
-    if (description) {
-      upsertMeta('meta[property="og:description"]', "property", "og:description").setAttribute("content", description);
+    const ogTitleValue = ogTitle || fullTitle;
+    upsertMeta('meta[property="og:title"]', "property", "og:title").setAttribute("content", ogTitleValue);
+
+    const ogDescValue = ogDescription || description;
+    if (ogDescValue) {
+      upsertMeta('meta[property="og:description"]', "property", "og:description").setAttribute("content", ogDescValue);
     }
+
     upsertMeta('meta[property="og:site_name"]', "property", "og:site_name").setAttribute("content", SITE_NAME);
     upsertMeta('meta[property="og:type"]', "property", "og:type").setAttribute("content", type);
+
     if (image) {
       upsertMeta('meta[property="og:image"]', "property", "og:image").setAttribute("content", image);
     }
-    if (path) {
-      const url = BASE_URL + (path === "/" ? "/" : path);
-      upsertMeta('meta[property="og:url"]', "property", "og:url").setAttribute("content", url);
-      upsertLink("canonical").setAttribute("href", url);
+
+    if (ogImageAlt) {
+      upsertMeta('meta[property="og:image:alt"]', "property", "og:image:alt").setAttribute("content", ogImageAlt);
+    }
+
+    // Canonical + og:url
+    const canonicalUrl = canonical || (path ? BASE_URL + (path === "/" ? "/" : path) : null);
+    if (canonicalUrl) {
+      upsertMeta('meta[property="og:url"]', "property", "og:url").setAttribute("content", canonicalUrl);
+      upsertLink("canonical").setAttribute("href", canonicalUrl);
     }
 
     // Twitter Card
     upsertMeta('meta[name="twitter:card"]', "name", "twitter:card").setAttribute("content", image ? "summary_large_image" : "summary");
-    upsertMeta('meta[name="twitter:title"]', "name", "twitter:title").setAttribute("content", fullTitle);
-    if (description) {
-      upsertMeta('meta[name="twitter:description"]', "name", "twitter:description").setAttribute("content", description);
+    upsertMeta('meta[name="twitter:title"]', "name", "twitter:title").setAttribute("content", ogTitleValue);
+    if (ogDescValue) {
+      upsertMeta('meta[name="twitter:description"]', "name", "twitter:description").setAttribute("content", ogDescValue);
     }
     if (image) {
       upsertMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", image);
     }
 
-    // Robots
-    upsertMeta('meta[name="robots"]', "name", "robots").setAttribute("content", noindex ? "noindex, nofollow" : "index, follow");
-  }, [title, description, path, image, type, noindex, appendSiteName]);
+    // Robots — save prior value once, then set
+    const robotsEl = upsertMeta('meta[name="robots"]', "name", "robots");
+    if (!robotsSavedRef.current) {
+      priorRobotsRef.current = robotsEl.getAttribute("content");
+      robotsSavedRef.current = true;
+    }
+    const robotsValue = robots || (noindex ? "noindex, nofollow" : "index, follow");
+    robotsEl.setAttribute("content", robotsValue);
+  }, [title, description, path, canonical, image, ogImageAlt, ogTitle, ogDescription, type, robots, noindex, appendSiteName]);
+
+  // Restore prior robots value on unmount
+  useEffect(() => {
+    return () => {
+      if (robotsSavedRef.current && priorRobotsRef.current != null) {
+        const robotsEl = document.head.querySelector('meta[name="robots"]');
+        if (robotsEl) {
+          robotsEl.setAttribute("content", priorRobotsRef.current);
+        }
+      }
+    };
+  }, []);
 }

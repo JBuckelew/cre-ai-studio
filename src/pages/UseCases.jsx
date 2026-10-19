@@ -1,17 +1,22 @@
 import React from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { useCases } from "@/data/useCases";
+import { useCases, useCasesIndex, robotsForHost } from "@/data/useCases";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function UseCases() {
   usePageMeta({
-    title: "AI Use Cases",
-    description:
-      "Real-world AI workflows for commercial real estate professionals. See how CRE pros use AI tools to save time, underwrite deals, and close faster.",
+    title: useCasesIndex.titleTag,
+    description: useCasesIndex.metaDescription,
+    canonical: useCasesIndex.canonical,
+    ogTitle: useCasesIndex.ogTitle,
+    ogDescription: useCasesIndex.ogDescription,
+    image: useCasesIndex.ogImage,
+    ogImageAlt: useCasesIndex.ogImageAlt,
     path: "/use-cases",
-    noindex: true,
+    appendSiteName: false,
+    robots: robotsForHost(),
   });
 
   return (
@@ -55,9 +60,9 @@ export default function UseCases() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="relative p-12 md:p-16 text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+              <p className="text-3xl md:text-4xl font-black mb-4 leading-tight">
                 Want more AI workflows for CRE?
-              </h2>
+              </p>
               <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                 Join hundreds of CRE professionals learning AI through weekly
                 lessons, live Q&A, and 24/7 founder access.

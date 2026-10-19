@@ -47,7 +47,7 @@ function Chip({ to, name, count, variant = "dark" }) {
   const style =
     variant === "dark"
       ? "py-[5px] leading-[1.65] bg-white/[0.06] border border-white/15 text-slate-200"
-      : "py-1 bg-white border border-slate-200 text-slate-700";
+      : "py-[5px] leading-[1.65] bg-white border border-slate-200 text-slate-700";
   const countStyle = variant === "dark" ? "text-slate-400" : "text-slate-500";
   return (
     <Link
@@ -237,7 +237,7 @@ export default function UseCases() {
         </div>
 
         {/* CTA */}
-        <section className="mt-11 bg-slate-900 text-white rounded-3xl border-2 border-white/10 p-6 lg:p-10">
+        <section className="mt-11 bg-slate-900 text-white rounded-3xl border-2 border-white/10 px-[22px] py-7 md:p-10">
           <div className="text-xs font-bold tracking-widest uppercase leading-[1.65] text-blue-300">
             {useCasesIndex.cta.label}
           </div>

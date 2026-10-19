@@ -86,18 +86,6 @@ export default function Footer() {
               Cookie Policy
             </a>
             <a 
-              href={createPageUrl('Admin')} 
-              className="text-slate-300 hover:text-white transition-colors duration-200"
-            >
-              Admin
-            </a>
-            <a 
-              href="/WorkshopDashboard" 
-              className="text-slate-300 hover:text-white transition-colors duration-200"
-            >
-              Dashboard
-            </a>
-            <a 
               href="/speaking" 
               className="text-slate-300 hover:text-white transition-colors duration-200"
             >

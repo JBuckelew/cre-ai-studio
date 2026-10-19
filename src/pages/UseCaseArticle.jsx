@@ -99,7 +99,7 @@ export default function UseCaseArticle() {
           </Link>
           <Link
             to={uc.kickerHref}
-            className="inline-block text-xs font-bold tracking-widest uppercase text-blue-600 no-underline mt-4"
+            className="block text-xs font-bold tracking-widest uppercase text-blue-600 no-underline mt-4"
           >
             {uc.kicker}
           </Link>

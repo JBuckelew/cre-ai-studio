@@ -6,22 +6,7 @@ import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
 const FEATURED = useCasesIndex.featuredSlug;
-const LATEST_ORDER = [
-  "ai-chief-of-staff-cre-brokerage-claude",
-  "ai-for-property-management-grok-bot-staff",
-  "ai-lease-abstraction-claude-chatgpt-template",
-  "ai-rent-roll-cleanup-prompt",
-  "ai-spreadsheet-analysis-error-check-real-estate",
-  "multifamily-underwriting-claude-cowork",
-  "off-market-commercial-real-estate-ai-deal-sourcing",
-  "real-estate-due-diligence-package-grok-bot",
-  "real-estate-underwriting-model-review-claude-chatgpt",
-];
-const START_HERE = [
-  "ai-rent-roll-cleanup-prompt",
-  "ai-lease-abstraction-claude-chatgpt-template",
-  "claude-for-excel-real-estate-proforma",
-];
+const LATEST_ORDER = ["ai-chief-of-staff-cre-brokerage-claude","ai-for-property-management-grok-bot-staff","ai-lease-abstraction-claude-chatgpt-template","ai-rent-roll-cleanup-prompt","ai-spreadsheet-analysis-error-check-real-estate","commercial-lease-review-ai-landlord-side","multifamily-underwriting-claude-cowork","off-market-commercial-real-estate-ai-deal-sourcing","real-estate-due-diligence-package-grok-bot","real-estate-underwriting-model-review-claude-chatgpt","zillow-lease-agreement-grok-bot"];
 const TOOL_KEYS = ["claude", "chatgpt", "grok-bot", "excel", "manus"];
 const TASK_KEYS = [
   "underwriting",
@@ -97,10 +82,6 @@ export default function UseCases() {
       .filter((u) => u.slug !== FEATURED && !LATEST_ORDER.includes(u.slug))
       .sort((a, b) => (a.date < b.date ? 1 : -1)),
   ].slice(0, 9);
-  const startHere = START_HERE.map((s) =>
-    useCases.find((u) => u.slug === s)
-  ).filter(Boolean);
-
   const toolChips = TOOL_KEYS.map((k) => {
     const cat = categories.find((c) => c.type === "tool" && c.key === k);
     if (!cat) return null;
@@ -184,71 +165,40 @@ export default function UseCases() {
           </section>
         )}
 
-        {/* Two-column */}
-        <div className="grid gap-7 lg:grid-cols-[1.6fr_1fr]">
-          <div>
-            <SectionHeader title="Latest use cases" />
-            <div className="grid gap-5 grid-cols-[repeat(auto-fill,minmax(260px,1fr))]">
-              {latest.map((uc) => (
-                <UseCaseCard
-                  key={uc.slug}
-                  href={`/use-cases/${uc.slug}`}
-                  img={uc.heroImageSrc}
-                  alt={uc.ogImageAlt}
-                  kicker={uc.kicker.replace(/^AI Use Case · /, "")}
-                  title={uc.h1}
-                  excerpt={uc.metaDescription}
-                  credit={`Credit: ${uc.creatorHandle} · ${uc.bylineDate} · ${uc.readMins} min read`}
-                  titleAs="h3"
-                />
-              ))}
-            </div>
-          </div>
-          <aside>
-            <SectionHeader title="Start here" />
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl px-[18px] py-1.5">
-              <ol className="list-none m-0 p-0">
-                {startHere.map((uc, i) => (
-                  <li
-                    key={uc.slug}
-                    className="flex gap-3.5 py-[14px] my-1.5 border-b border-slate-200 last:border-0"
-                  >
-                    <span className="text-[28px] font-black text-slate-300 leading-none min-w-[22px]">
-                      {i + 1}
-                    </span>
-                    <div>
-                      <Link
-                        to={`/use-cases/${uc.slug}`}
-                        className="text-[17px] font-bold text-slate-900 leading-[1.35] no-underline"
-                      >
-                        {uc.h1}
-                      </Link>
-                      <span className="block mt-1 text-[13px] text-slate-500">
-                        {uc.kicker.replace(/^AI Use Case · /, "")} ·{" "}
-                        {uc.creatorHandle}
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <h3 className="text-[15px] uppercase tracking-[0.08em] font-bold leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
-              Browse by tool
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {toolChips.map((c) => (
-                <Chip key={c.to} {...c} variant="light" />
-              ))}
-            </div>
-            <h3 className="text-[15px] uppercase tracking-[0.08em] font-bold leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
-              Browse by task
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {taskChips.map((c) => (
-                <Chip key={c.to} {...c} variant="light" />
-              ))}
-            </div>
-          </aside>
+        {/* Latest use cases */}
+        <SectionHeader title="Latest use cases" />
+        <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {latest.map((uc) => (
+            <UseCaseCard
+              key={uc.slug}
+              href={`/use-cases/${uc.slug}`}
+              img={uc.heroImageSrc}
+              alt={uc.ogImageAlt}
+              kicker={uc.kicker.replace(/^AI Use Case · /, "")}
+              title={uc.h1}
+              excerpt={uc.metaDescription}
+              credit={`Credit: ${uc.creatorHandle} · ${uc.bylineDate} · ${uc.readMins} min read`}
+              titleAs="h3"
+            />
+          ))}
+        </div>
+
+        {/* Browse */}
+        <h3 className="text-[15px] uppercase tracking-[0.08em] font-bold leading-[1.2] text-slate-500 mt-9 mb-2.5">
+          Browse by tool
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {toolChips.map((c) => (
+            <Chip key={c.to} {...c} variant="light" />
+          ))}
+        </div>
+        <h3 className="text-[15px] uppercase tracking-[0.08em] font-bold leading-[1.2] text-slate-500 mt-[18px] mb-2.5">
+          Browse by task
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {taskChips.map((c) => (
+            <Chip key={c.to} {...c} variant="light" />
+          ))}
         </div>
 
         {/* CTA */}

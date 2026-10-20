@@ -42,6 +42,8 @@ import UseCaseTaskRentRolls from './pages/UseCaseTaskRentRolls';
 import UseCaseTaskDueDiligence from './pages/UseCaseTaskDueDiligence';
 import UseCaseTaskBrokerage from './pages/UseCaseTaskBrokerage';
 import UseCaseTaskDealSourcing from './pages/UseCaseTaskDealSourcing';
+import UseCaseCommercialLeaseReview from './pages/UseCaseCommercialLeaseReview';
+import UseCaseZillowLeaseGrokBot from './pages/UseCaseZillowLeaseGrokBot';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -222,6 +224,16 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/off-market-commercial-real-estate-ai-deal-sourcing" element={
         <LayoutWrapper currentPageName="UseCaseOffMarketDealSourcing">
           <UseCaseOffMarketDealSourcing />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/commercial-lease-review-ai-landlord-side" element={
+        <LayoutWrapper currentPageName="UseCaseCommercialLeaseReview">
+          <UseCaseCommercialLeaseReview />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/zillow-lease-agreement-grok-bot" element={
+        <LayoutWrapper currentPageName="UseCaseZillowLeaseGrokBot">
+          <UseCaseZillowLeaseGrokBot />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

@@ -81,7 +81,7 @@ export default function UseCases() {
     ...useCases
       .filter((u) => u.slug !== FEATURED && !LATEST_ORDER.includes(u.slug))
       .sort((a, b) => (a.date < b.date ? 1 : -1)),
-  ].slice(0, 9);
+  ];
   const toolChips = TOOL_KEYS.map((k) => {
     const cat = categories.find((c) => c.type === "tool" && c.key === k);
     if (!cat) return null;

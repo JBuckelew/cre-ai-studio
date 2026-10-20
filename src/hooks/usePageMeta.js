@@ -116,13 +116,21 @@ export function usePageMeta({
       upsertMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", image);
     }
 
-    // Og cleanup: remove og:image, og:image:alt, twitter:image, og:url
-    // so the next page never keeps the previous page's images.
+    // Og cleanup: reset og:image / twitter:image to the default logo on prod
+    // (so the next page never keeps the previous page's images), or remove
+    // them on non-prod hosts. Always remove og:image:alt and og:url.
     if (!cleanOgOnUnmount) return;
+    const DEFAULT_OG_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/68a7d83d574299e5af5ccbd3/4da799a0b_CREAIStudioLogoDesign.png?width=1200&height=630&resize=contain";
+    const IS_PROD = ["creaistudio.com", "www.creaistudio.com"].includes(window.location.hostname);
     return () => {
-      document.head.querySelector('meta[property="og:image"]')?.remove();
+      if (IS_PROD) {
+        upsertMeta('meta[property="og:image"]', "property", "og:image").setAttribute("content", DEFAULT_OG_IMAGE);
+        upsertMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", DEFAULT_OG_IMAGE);
+      } else {
+        document.head.querySelector('meta[property="og:image"]')?.remove();
+        document.head.querySelector('meta[name="twitter:image"]')?.remove();
+      }
       document.head.querySelector('meta[property="og:image:alt"]')?.remove();
-      document.head.querySelector('meta[name="twitter:image"]')?.remove();
       document.head.querySelector('meta[property="og:url"]')?.remove();
     };
   }, [title, description, path, canonical, image, ogImageAlt, ogTitle, ogDescription, twitterDescription, type, noCanonical, cleanOgOnUnmount, appendSiteName]);

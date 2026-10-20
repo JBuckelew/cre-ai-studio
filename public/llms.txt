@@ -49,7 +49,7 @@ CRE AI Studio teaches commercial real estate professionals to use AI tools in th
 - [Rent Rolls](https://creaistudio.com/use-cases/task/rent-rolls): AI workflows for rent rolls: cleanup, normalization and tie-outs.
 - [Due Diligence](https://creaistudio.com/use-cases/task/due-diligence): AI workflows for due diligence packages and document review.
 - [Brokerage](https://creaistudio.com/use-cases/task/brokerage): AI for commercial real estate brokers: skill libraries, lead handling, prospecting and back-office agents.
-- [Deal Sourcing](https://creaistudio.com/use-cases/task/deal-sourcing): AI workflows for finding commercial real estate deals: buy-box databases, owner research and outreach.
+- [Deal Sourcing](https://creaistudio.com/use-cases/task/deal-sourcing): AI workflows for finding and screening commercial real estate deals: buy-box databases, owner research, outreach and scoring inbound deal emails.
 
 ## Optional
 

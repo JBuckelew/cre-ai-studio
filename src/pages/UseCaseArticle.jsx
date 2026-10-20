@@ -62,26 +62,19 @@ export default function UseCaseArticle({ slug: slugProp }) {
   // Add a "Copy prompt" button to every prompt block in the article body.
   useEffect(() => {
     if (!uc) return;
-    document.querySelectorAll(".use-case-body pre").forEach((pre) => {
+    document.querySelectorAll(".use-case-body pre").forEach(pre => {
       if (pre.querySelector("button.copy-prompt")) return;
       const b = document.createElement("button");
-      b.className = "copy-prompt absolute top-2 right-2 text-xs px-2 py-1 rounded bg-slate-800 text-white";
-      b.type = "button";
-      b.textContent = "Copy prompt";
-      b.setAttribute("aria-label", "Copy prompt");
-      b.onclick = () =>
-        navigator.clipboard
-          .writeText(
-            pre.innerText
-              .replace(/^\[[^\]]*\]:?\s*$/gm, "")
-              .replace(/^Copy prompt$/m, "")
-              .trim()
-          )
-          .then(() => {
-            b.textContent = "Copied";
-            setTimeout(() => (b.textContent = "Copy prompt"), 1500);
-          });
+      b.className = "copy-prompt absolute top-2 right-2 font-sans font-medium text-xs px-2 py-1 rounded-md bg-slate-800 text-white";
+      b.type = "button"; b.textContent = "Copy prompt"; b.setAttribute("aria-label", "Copy prompt");
+      b.onclick = () => navigator.clipboard.writeText(
+        pre.innerText
+          .replace(/^\[[^\]]*\]:?[ \t]*(\r?\n|$)/gm, "")
+          .replace(/^(Copy prompt|Copied)$/m, "")
+          .trim()
+      ).then(() => { b.textContent = "Copied"; setTimeout(() => (b.textContent = "Copy prompt"), 1500); });
       pre.classList.add("relative");
+      pre.style.paddingTop = "2.75rem";
       pre.appendChild(b);
     });
   }, [uc?.slug]);

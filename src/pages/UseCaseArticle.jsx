@@ -84,6 +84,11 @@ export default function UseCaseArticle({ slug: slugProp }) {
     (uc.filedUnder?.tools && uc.filedUnder.tools.length > 0) ||
     (uc.filedUnder?.tasks && uc.filedUnder.tasks.length > 0);
 
+  // Platform-aware credit: if creatorName is empty or matches the handle
+  // without its @ / u/ / r/ prefix, show only the handle once.
+  const handleBase = uc.creatorHandle ? uc.creatorHandle.replace(/^(@|u\/|r\/)/, "") : "";
+  const showCreatorName = uc.creatorName && uc.creatorName !== handleBase;
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero */}
@@ -150,7 +155,8 @@ export default function UseCaseArticle({ slug: slugProp }) {
             Use case credit
           </p>
           <p className="mb-2">
-            <strong className="text-slate-900">{uc.creatorName}</strong>{" "}
+            {showCreatorName && <strong className="text-slate-900">{uc.creatorName}</strong>}
+            {showCreatorName && " "}
             <a
               href={uc.creatorProfileUrl}
               target="_blank"

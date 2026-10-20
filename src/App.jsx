@@ -44,6 +44,7 @@ import UseCaseTaskBrokerage from './pages/UseCaseTaskBrokerage';
 import UseCaseTaskDealSourcing from './pages/UseCaseTaskDealSourcing';
 import UseCaseCommercialLeaseReview from './pages/UseCaseCommercialLeaseReview';
 import UseCaseZillowLeaseGrokBot from './pages/UseCaseZillowLeaseGrokBot';
+import UseCaseDealAnalyzerClaudeCode from './pages/UseCaseDealAnalyzerClaudeCode';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -234,6 +235,11 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/zillow-lease-agreement-grok-bot" element={
         <LayoutWrapper currentPageName="UseCaseZillowLeaseGrokBot">
           <UseCaseZillowLeaseGrokBot />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/real-estate-deal-analyzer-claude-code" element={
+        <LayoutWrapper currentPageName="UseCaseDealAnalyzerClaudeCode">
+          <UseCaseDealAnalyzerClaudeCode />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

@@ -27,7 +27,7 @@ export default function UseCaseCategoryPage({ type, slug }) {
 
   usePageMeta({
     title: c ? c.titleTag : "Category not found | CRE AI Studio",
-    description: c?.metaDescription,
+    description: c ? c.metaDescription : "This category could not be found. Browse all AI use cases for commercial real estate at CRE AI Studio.",
     canonical: c?.canonical,
     path: c?.path,
     ogTitle: c?.ogTitle,

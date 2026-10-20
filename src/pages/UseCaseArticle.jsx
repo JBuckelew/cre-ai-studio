@@ -25,7 +25,7 @@ export default function UseCaseArticle({ slug: slugProp }) {
 
   usePageMeta({
     title: uc ? uc.titleTag : "Use case not found | CRE AI Studio",
-    description: uc?.metaDescription,
+    description: uc ? uc.metaDescription : "This use case could not be found. Browse all AI use cases for commercial real estate at CRE AI Studio.",
     path: uc ? `/use-cases/${slug}` : undefined,
     image: uc?.ogImage,
     ogDescription: uc?.ogDescription,

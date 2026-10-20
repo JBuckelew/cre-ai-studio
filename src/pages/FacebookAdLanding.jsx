@@ -1,5 +1,5 @@
-import React from "react";
-import { usePageMeta } from "@/hooks/usePageMeta";
+import React, { useEffect } from "react";
+import { usePageMeta, setMeta } from "@/hooks/usePageMeta";
 import AdHero from "@/components/fblanding/AdHero";
 import AdProblem from "@/components/fblanding/AdProblem";
 import AdOutcome from "@/components/fblanding/AdOutcome";
@@ -19,6 +19,11 @@ export default function FacebookAdLanding() {
     description: "Join CRE AI Studio free for 7 days and learn practical AI workflows, prompts, templates, and tutorials built specifically for commercial real estate professionals.",
     path: "/FacebookAdLanding",
   });
+
+  useEffect(() => {
+    const isProdHost = ["creaistudio.com", "www.creaistudio.com"].includes(window.location.hostname);
+    setMeta("robots", isProdHost ? "index, follow" : "noindex, nofollow");
+  }, []);
 
   return (
     <div className="min-h-screen bg-white pb-16 lg:pb-0">

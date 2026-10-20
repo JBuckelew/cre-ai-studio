@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { usePageMeta } from "@/hooks/usePageMeta";
+import { usePageMeta, setMeta } from "@/hooks/usePageMeta";
 import NewsletterHero from "@/components/newsletter/NewsletterHero";
 import NewsletterTestimonials from "@/components/newsletter/NewsletterTestimonials";
 import Footer from "@/components/Footer";
@@ -13,6 +13,11 @@ export default function Newsletter() {
     path: "/Newsletter",
     appendSiteName: false,
   });
+
+  useEffect(() => {
+    const isProdHost = ["creaistudio.com", "www.creaistudio.com"].includes(window.location.hostname);
+    setMeta("robots", isProdHost ? "index, follow" : "noindex, nofollow");
+  }, []);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

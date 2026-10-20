@@ -27,9 +27,8 @@ function upsertLink(rel) {
  * Sets per-page SEO meta: document title, meta description, Open Graph,
  * Twitter Card, and canonical URL.
  *
- * All meta is set SYNCHRONOUSLY during render (not in useEffect) so that
- * prerenderers and crawlers see the correct <title> and meta tags on the
- * very first paint, before any effects fire.
+ * All meta is set in a single useEffect (not during render) so that, on
+ * navigation, the old page's cleanup runs before the new page's effect.
  *
  * @param {Object} opts
  * @param {string} [opts.title] - Page title (site name appended unless appendSiteName is false).
@@ -61,9 +60,12 @@ export function usePageMeta({
   appendSiteName = true,
 } = {}) {
 
-  // Set all meta synchronously during render so prerenderers capture
-  // the correct title and meta on the first paint (before effects fire).
-  if (typeof document !== "undefined") {
+  // All head writes happen in a single useEffect so that, on navigation,
+  // the old page's cleanup runs before the new page's effect — the new
+  // page's values always win. Nothing writes to the head during render.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+
     const fullTitle = title ? (appendSiteName ? `${title} | ${SITE_NAME}` : title) : SITE_NAME;
     document.title = fullTitle;
 
@@ -114,11 +116,8 @@ export function usePageMeta({
       upsertMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", image);
     }
 
-  }
-
-  // Remove og:image, og:image:alt, twitter:image and og:url on unmount
-  // so the next page never keeps the previous page's images.
-  useEffect(() => {
+    // Og cleanup: remove og:image, og:image:alt, twitter:image, og:url
+    // so the next page never keeps the previous page's images.
     if (!cleanOgOnUnmount) return;
     return () => {
       document.head.querySelector('meta[property="og:image"]')?.remove();
@@ -126,7 +125,7 @@ export function usePageMeta({
       document.head.querySelector('meta[name="twitter:image"]')?.remove();
       document.head.querySelector('meta[property="og:url"]')?.remove();
     };
-  }, [cleanOgOnUnmount]);
+  }, [title, description, path, canonical, image, ogImageAlt, ogTitle, ogDescription, twitterDescription, type, noCanonical, cleanOgOnUnmount, appendSiteName]);
 }
 
 /**

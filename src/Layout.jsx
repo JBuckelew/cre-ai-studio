@@ -17,8 +17,9 @@ export default function Layout({ children, currentPageName }) {
   // Set robots in one place on every route change.
   useEffect(() => {
     const isPreviewHost = !["creaistudio.com", "www.creaistudio.com"].includes(window.location.hostname);
-    const isWorkshopDashboard = location.pathname.toLowerCase() === "/workshopdashboard";
-    setMeta("robots", isPreviewHost || isWorkshopDashboard || getNotFoundFlag() ? "noindex, nofollow" : "index, follow");
+    const NOINDEX_PATHS = ["/workshopdashboard","/paymentsuccess","/workshopthankyou","/admin"];
+    const isPrivatePage = NOINDEX_PATHS.includes(location.pathname.toLowerCase().replace(/\/+$/, ""));
+    setMeta("robots", isPreviewHost || isPrivatePage || getNotFoundFlag() ? "noindex, nofollow" : "index, follow");
   }, [location.pathname]);
 
   useEffect(() => {

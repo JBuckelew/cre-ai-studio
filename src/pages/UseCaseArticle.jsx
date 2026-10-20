@@ -89,6 +89,10 @@ export default function UseCaseArticle({ slug: slugProp }) {
   const handleBase = uc.creatorHandle ? uc.creatorHandle.replace(/^(@|u\/|r\/)/, "") : "";
   const showCreatorName = uc.creatorName && uc.creatorName !== handleBase;
 
+  // Source link label: defaults to X when sourcePlatform is missing.
+  const SOURCE_PLATFORM_NAMES = { X: "X", Reddit: "Reddit", LinkedIn: "LinkedIn" };
+  const sourceLabel = SOURCE_PLATFORM_NAMES[uc.sourcePlatform] || SOURCE_PLATFORM_NAMES.X;
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero */}
@@ -157,14 +161,18 @@ export default function UseCaseArticle({ slug: slugProp }) {
           <p className="mb-2">
             {showCreatorName && <strong className="text-slate-900">{uc.creatorName}</strong>}
             {showCreatorName && " "}
-            <a
-              href={uc.creatorProfileUrl}
-              target="_blank"
-              rel="noopener"
-              className="use-case-link"
-            >
-              {uc.creatorHandle}
-            </a>
+            {uc.creatorProfileUrl ? (
+              <a
+                href={uc.creatorProfileUrl}
+                target="_blank"
+                rel="noopener"
+                className="use-case-link"
+              >
+                {uc.creatorHandle}
+              </a>
+            ) : (
+              <span>{uc.creatorHandle}</span>
+            )}
           </p>
           <p className="mb-3">{uc.creditLine}</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -175,7 +183,7 @@ export default function UseCaseArticle({ slug: slugProp }) {
                 rel="noopener"
                 className="use-case-link inline-flex items-center gap-1"
               >
-                Read the original post on X
+                Read the original post on {sourceLabel}
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             )}

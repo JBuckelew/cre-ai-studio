@@ -20,12 +20,12 @@ export default function AdminPage() {
       try {
         const currentUser = await base44.auth.me();
         if (currentUser?.role !== 'admin') {
-          window.location.href = '/';
+          window.location.replace("/");
           return;
         }
         setUser(currentUser);
       } catch (error) {
-        window.location.href = '/';
+        window.location.replace("/");
       }
     };
     checkAuth();

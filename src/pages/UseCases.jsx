@@ -6,7 +6,7 @@ import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
 const FEATURED = useCasesIndex.featuredSlug;
-const LATEST_ORDER = ["ai-chief-of-staff-cre-brokerage-claude","ai-for-property-management-grok-bot-staff","ai-lease-abstraction-claude-chatgpt-template","ai-rent-roll-cleanup-prompt","ai-spreadsheet-analysis-error-check-real-estate","commercial-lease-review-ai-landlord-side","multifamily-underwriting-claude-cowork","off-market-commercial-real-estate-ai-deal-sourcing","real-estate-deal-analyzer-claude-code","real-estate-due-diligence-package-grok-bot","real-estate-underwriting-model-review-claude-chatgpt","zillow-lease-agreement-grok-bot"];
+const LATEST_ORDER = ["ai-chief-of-staff-cre-brokerage-claude","ai-for-property-management-grok-bot-staff","ai-lease-abstraction-claude-chatgpt-template","ai-rent-roll-cleanup-prompt","ai-spreadsheet-analysis-error-check-real-estate","commercial-lease-review-ai-landlord-side","late-rent-notice-ai-prompt","meta-muse-commercial-real-estate-deal-sourcing","multifamily-underwriting-claude-cowork","off-market-commercial-real-estate-ai-deal-sourcing","offering-memorandum-review-two-claude-agents","owner-statement-owner-report-claude-skill","property-management-automation-n8n-claude-maintenance","real-estate-deal-analyzer-claude-code","real-estate-due-diligence-package-grok-bot","real-estate-underwriting-model-review-claude-chatgpt","zillow-lease-agreement-grok-bot"];
 const TOOL_KEYS = ["claude", "chatgpt", "grok-bot", "excel", "manus"];
 const TASK_KEYS = [
   "underwriting",

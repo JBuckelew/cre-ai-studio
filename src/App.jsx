@@ -45,6 +45,11 @@ import UseCaseTaskDealSourcing from './pages/UseCaseTaskDealSourcing';
 import UseCaseCommercialLeaseReview from './pages/UseCaseCommercialLeaseReview';
 import UseCaseZillowLeaseGrokBot from './pages/UseCaseZillowLeaseGrokBot';
 import UseCaseDealAnalyzerClaudeCode from './pages/UseCaseDealAnalyzerClaudeCode';
+import UseCaseMetaMuseDealSourcing from './pages/UseCaseMetaMuseDealSourcing';
+import UseCaseOfferingMemorandumReview from './pages/UseCaseOfferingMemorandumReview';
+import UseCaseLateRentNotice from './pages/UseCaseLateRentNotice';
+import UseCaseOwnerStatementReport from './pages/UseCaseOwnerStatementReport';
+import UseCasePropertyManagementAutomation from './pages/UseCasePropertyManagementAutomation';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -240,6 +245,31 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/real-estate-deal-analyzer-claude-code" element={
         <LayoutWrapper currentPageName="UseCaseDealAnalyzerClaudeCode">
           <UseCaseDealAnalyzerClaudeCode />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/meta-muse-commercial-real-estate-deal-sourcing" element={
+        <LayoutWrapper currentPageName="UseCaseMetaMuseDealSourcing">
+          <UseCaseMetaMuseDealSourcing />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/offering-memorandum-review-two-claude-agents" element={
+        <LayoutWrapper currentPageName="UseCaseOfferingMemorandumReview">
+          <UseCaseOfferingMemorandumReview />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/late-rent-notice-ai-prompt" element={
+        <LayoutWrapper currentPageName="UseCaseLateRentNotice">
+          <UseCaseLateRentNotice />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/owner-statement-owner-report-claude-skill" element={
+        <LayoutWrapper currentPageName="UseCaseOwnerStatementReport">
+          <UseCaseOwnerStatementReport />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/property-management-automation-n8n-claude-maintenance" element={
+        <LayoutWrapper currentPageName="UseCasePropertyManagementAutomation">
+          <UseCasePropertyManagementAutomation />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

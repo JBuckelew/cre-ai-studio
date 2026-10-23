@@ -50,6 +50,10 @@ import UseCaseOfferingMemorandumReview from './pages/UseCaseOfferingMemorandumRe
 import UseCaseLateRentNotice from './pages/UseCaseLateRentNotice';
 import UseCaseOwnerStatementReport from './pages/UseCaseOwnerStatementReport';
 import UseCasePropertyManagementAutomation from './pages/UseCasePropertyManagementAutomation';
+import UseCasePropertyManagementFees from './pages/UseCasePropertyManagementFees';
+import UseCasePropertyManagementReporting from './pages/UseCasePropertyManagementReporting';
+import UseCaseMultifamilyAcquisitions from './pages/UseCaseMultifamilyAcquisitions';
+import UseCaseAICommercialRealEstateBrokers from './pages/UseCaseAICommercialRealEstateBrokers';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -270,6 +274,26 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/property-management-automation-n8n-claude-maintenance" element={
         <LayoutWrapper currentPageName="UseCasePropertyManagementAutomation">
           <UseCasePropertyManagementAutomation />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/property-management-fees-audit-grok-bot" element={
+        <LayoutWrapper currentPageName="UseCasePropertyManagementFees">
+          <UseCasePropertyManagementFees />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/property-management-reporting-email-dashboard-claude" element={
+        <LayoutWrapper currentPageName="UseCasePropertyManagementReporting">
+          <UseCasePropertyManagementReporting />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/multifamily-acquisitions-grok-bot-knowledge-base" element={
+        <LayoutWrapper currentPageName="UseCaseMultifamilyAcquisitions">
+          <UseCaseMultifamilyAcquisitions />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-for-commercial-real-estate-brokers-grok-bot-admin" element={
+        <LayoutWrapper currentPageName="UseCaseAICommercialRealEstateBrokers">
+          <UseCaseAICommercialRealEstateBrokers />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

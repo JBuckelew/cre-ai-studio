@@ -194,7 +194,7 @@ export default function UseCaseCategoryPage({ type, slug }) {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <p className="text-sm text-blue-200 mt-4">
-                No credit card required. Cancel anytime.
+                Cancel anytime.
               </p>
             </div>
           </div>

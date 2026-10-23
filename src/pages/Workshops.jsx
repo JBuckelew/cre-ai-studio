@@ -232,7 +232,7 @@ export default function Workshops() {
               </Button>
 
               <p className="text-sm text-blue-200 mt-6">
-                No credit card required • Cancel anytime
+                Cancel anytime
               </p>
             </div>
           </motion.div>

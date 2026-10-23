@@ -69,7 +69,7 @@ export default function UseCaseArticle({ slug: slugProp }) {
       b.type = "button"; b.textContent = "Copy prompt"; b.setAttribute("aria-label", "Copy prompt");
       b.onclick = () => navigator.clipboard.writeText(
         pre.innerText
-          .replace(/^\[[^\]]*\]:?[ \t]*(\r?\n|$)/gm, "")
+          .replace(/^\[(?:CRE AI Studio|Optional add-on)[^\]]*\]:?[ \t]*(\r?\n|$)/gm, "")
           .replace(/^(Copy prompt|Copied)$/m, "")
           .trim()
       ).then(() => { b.textContent = "Copied"; setTimeout(() => (b.textContent = "Copy prompt"), 1500); });

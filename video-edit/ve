@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Run the video-edit pipeline with the kit's own Python (Git Bash on Windows, or macOS/Linux).
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -x "$here/.venv/Scripts/python.exe" ]; then py="$here/.venv/Scripts/python.exe"
+elif [ -x "$here/.venv/bin/python" ]; then py="$here/.venv/bin/python"
+else echo "No .venv found. Run setup.ps1 first." >&2; exit 1; fi
+exec "$py" "$here/scripts/render.py" "$@"

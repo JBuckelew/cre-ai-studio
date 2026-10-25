@@ -1,0 +1,35 @@
+{
+  "square": {
+    "label": "LinkedIn feed 1:1",
+    "width": 1080,
+    "height": 1080,
+    "fps": 30,
+    "face_follow": true,
+    "max_gap": 0.25,
+    "captions": { "enabled": true, "size": 62, "max_words": 4, "max_chars": 22, "margin": 120 },
+    "graphics": { "zone": "top" },
+    "music": true
+  },
+  "landscape": {
+    "label": "LinkedIn / YouTube 16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "face_follow": true,
+    "max_gap": 0.25,
+    "captions": { "enabled": true, "size": 58, "max_words": 4, "max_chars": 26, "margin": 90 },
+    "graphics": { "zone": "side" },
+    "music": true
+  },
+  "course": {
+    "label": "CRE AI Studio lesson 16:9 (screen + face)",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "face_follow": false,
+    "max_gap": 0.5,
+    "captions": { "enabled": true, "size": 44, "max_words": 6, "max_chars": 40, "margin": 50 },
+    "graphics": { "zone": "corner" },
+    "music": false
+  }
+}

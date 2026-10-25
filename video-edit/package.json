@@ -1,0 +1,9 @@
+{
+  "name": "video-edit",
+  "private": true,
+  "type": "module",
+  "description": "Graphics renderer for the Claude video-edit kit",
+  "dependencies": {
+    "puppeteer": "^23.11.1"
+  }
+}

@@ -1,0 +1,6 @@
+faster-whisper>=1.1.0
+opencv-python>=4.9,<5  # 5.x moved the Haar face detector out of the main package
+numpy>=1.26
+pillow>=10.0
+python-dotenv>=1.0
+requests>=2.31

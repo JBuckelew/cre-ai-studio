@@ -1,0 +1,25 @@
+{
+  "name": "CRE AI Studio",
+  "font_family": "Inter",
+  "font_url": "https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap",
+  "colors": {
+    "primary": "#2563EB",
+    "primary_dark": "#1D4ED8",
+    "ink": "#0F172A",
+    "paper": "#FFFFFF",
+    "tint": "#DBEAFE",
+    "muted": "#334155"
+  },
+  "logo": "",
+  "captions": {
+    "font": "Arial",
+    "bold": true,
+    "color": "#FFFFFF",
+    "active_color": "#93C5FD",
+    "outline_color": "#0F172A",
+    "outline": 5,
+    "uppercase": false,
+    "highlight_active_word": true
+  },
+  "music_prompt": "Minimal, modern, confident instrumental. Light electronic pulse, soft piano, no vocals, no big drops. Sits under a business explainer."
+}

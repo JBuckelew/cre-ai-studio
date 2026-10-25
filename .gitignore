@@ -29,3 +29,15 @@ dist-ssr
 
 .env
 base44/.app.jsonc
+
+# video-edit kit: footage, renders and local tooling stay off git
+video-edit/.venv
+video-edit/node_modules
+video-edit/projects/*
+!video-edit/projects/.gitkeep
+video-edit/references/*
+!video-edit/references/README.md
+video-edit/fonts/*
+!video-edit/fonts/README.md
+video-edit/best.mp4
+!video-edit/.env.example

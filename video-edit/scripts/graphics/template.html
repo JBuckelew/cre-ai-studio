@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link id="font" rel="stylesheet" href="">
+<style>
+  :root {
+    --primary: #2563EB; --primary-dark: #1D4ED8; --ink: #0F172A;
+    --paper: #FFFFFF; --tint: #DBEAFE; --muted: #334155;
+    --font: Inter, "Segoe UI", Arial, sans-serif;
+    --u: 1px; /* scale unit: 1/1080 of the short side */
+  }
+  html, body { margin: 0; background: transparent; overflow: hidden; }
+  body { font-family: var(--font); color: var(--ink); }
+  #stage { position: absolute; inset: 0; }
+  .g { position: absolute; will-change: transform, opacity; }
+  .card {
+    background: var(--paper); border-radius: calc(28 * var(--u));
+    padding: calc(34 * var(--u)) calc(44 * var(--u));
+    box-shadow: 0 calc(18 * var(--u)) calc(50 * var(--u)) rgba(15, 23, 42, .28);
+    border: calc(3 * var(--u)) solid rgba(37, 99, 235, .14);
+  }
+  .kicker {
+    display: inline-block; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    font-size: calc(22 * var(--u)); color: var(--primary);
+    background: var(--tint); border-radius: calc(10 * var(--u));
+    padding: calc(6 * var(--u)) calc(14 * var(--u)); margin-bottom: calc(14 * var(--u));
+  }
+  .title { font-size: calc(60 * var(--u)); font-weight: 800; line-height: 1.08; letter-spacing: -.02em; }
+  em { font-style: normal; color: var(--primary); }
+  .stat .value { font-size: calc(132 * var(--u)); font-weight: 800; line-height: 1; letter-spacing: -.03em; color: var(--primary); }
+  .stat .label { font-size: calc(34 * var(--u)); font-weight: 700; color: var(--muted); margin-top: calc(8 * var(--u)); }
+  .list .head { font-size: calc(34 * var(--u)); font-weight: 800; margin-bottom: calc(14 * var(--u)); }
+  .list .item { font-size: calc(38 * var(--u)); font-weight: 700; display: flex; gap: calc(16 * var(--u)); align-items: center; margin: calc(10 * var(--u)) 0; }
+  .list .dot { width: calc(40 * var(--u)); height: calc(40 * var(--u)); border-radius: 50%; background: var(--primary); color: #fff;
+    font-size: calc(22 * var(--u)); display: grid; place-items: center; flex: none; }
+  .quote .text { font-size: calc(46 * var(--u)); font-weight: 700; line-height: 1.2; }
+  .quote .text::before { content: "\201C"; color: var(--primary); }
+  .quote .text::after { content: "\201D"; color: var(--primary); }
+  .quote .by { margin-top: calc(14 * var(--u)); font-size: calc(26 * var(--u)); color: var(--muted); font-weight: 600; }
+  .keyword { background: var(--primary); color: #fff; font-weight: 800; font-size: calc(56 * var(--u));
+    border-radius: calc(20 * var(--u)); padding: calc(16 * var(--u)) calc(34 * var(--u));
+    box-shadow: 0 calc(14 * var(--u)) calc(40 * var(--u)) rgba(37, 99, 235, .45); white-space: nowrap; }
+  .lower { display: flex; flex-direction: column; border-left: calc(10 * var(--u)) solid var(--primary); }
+  .lower .name { font-size: calc(44 * var(--u)); font-weight: 800; }
+  .lower .role { font-size: calc(28 * var(--u)); color: var(--muted); font-weight: 600; }
+  .image img { display: block; max-width: 100%; max-height: calc(520 * var(--u)); border-radius: calc(16 * var(--u)); }
+  .image .cap { margin-top: calc(12 * var(--u)); font-size: calc(26 * var(--u)); font-weight: 700; color: var(--muted); }
+  .logo { position: absolute; opacity: .9; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// *word* in text renders in the brand colour.
+const rich = s => esc(s).replace(/\*([^*]+)\*/g, "<em>$1</em>");
+const ease = t => 1 - Math.pow(1 - Math.min(Math.max(t, 0), 1), 3);
+
+window.setup = (brand, W, H) => {
+  const r = document.documentElement.style;
+  const c = brand.colors || {};
+  r.setProperty("--primary", c.primary); r.setProperty("--primary-dark", c.primary_dark);
+  r.setProperty("--ink", c.ink); r.setProperty("--paper", c.paper);
+  r.setProperty("--tint", c.tint); r.setProperty("--muted", c.muted);
+  r.setProperty("--font", `${brand.font_family}, "Segoe UI", Arial, sans-serif`);
+  r.setProperty("--u", `${Math.min(W, H) / 1080}px`);
+  if (brand.font_url) document.getElementById("font").href = brand.font_url;
+};
+
+function body(g) {
+  switch (g.type) {
+    case "title": return `<div class="card">${g.kicker ? `<div class="kicker">${esc(g.kicker)}</div>` : ""}<div class="title">${rich(g.text)}</div></div>`;
+    case "stat": return `<div class="card stat">${g.kicker ? `<div class="kicker">${esc(g.kicker)}</div>` : ""}<div class="value">${esc(g.value)}</div><div class="label">${esc(g.label)}</div></div>`;
+    case "list": return `<div class="card list">${g.title ? `<div class="head">${esc(g.title)}</div>` : ""}${(g.items || []).map((it, i) =>
+      `<div class="item" data-i="${i}"><span class="dot">${i + 1}</span><span>${rich(it)}</span></div>`).join("")}</div>`;
+    case "quote": return `<div class="card quote"><div class="text">${rich(g.text)}</div>${g.by ? `<div class="by">${esc(g.by)}</div>` : ""}</div>`;
+    case "keyword": return `<div class="keyword">${rich(g.text)}</div>`;
+    case "lower": return `<div class="card lower"><span class="name">${esc(g.name)}</span><span class="role">${esc(g.role)}</span></div>`;
+    case "image": return `<div class="card image"><img src="${esc(g.src_url)}">${g.caption ? `<div class="cap">${esc(g.caption)}</div>` : ""}</div>`;
+    case "html": return g.html;
+    default: return "";
+  }
+}
+
+// Places the graphic in its zone, away from the face box (normalised x,y,w,h).
+function place(el, g, zone, face, W, H) {
+  const m = Math.min(W, H) * 0.06;
+  const maxW = zone === "side" || zone === "corner" ? W * 0.42 : W - 2 * m;
+  el.style.maxWidth = `${maxW}px`;
+  const r = el.getBoundingClientRect();
+  const spots = {
+    top: [(W - r.width) / 2, m],
+    bottom: [(W - r.width) / 2, H - r.height - H * 0.24],
+    center: [(W - r.width) / 2, (H - r.height) / 2],
+    left: [m, (H - r.height) / 2 - H * 0.06],
+    right: [W - r.width - m, (H - r.height) / 2 - H * 0.06],
+    corner: [W - r.width - m, m],
+    "corner-left": [m, m],
+    lower: [m, H - r.height - H * 0.22],
+  };
+  let pos = g.position && g.position !== "auto" ? g.position : null;
+  if (!pos) {
+    // Preferred spots for the zone, then whichever overlaps the face least.
+    const order = g.type === "lower" ? ["lower", "bottom"]
+      : zone === "top" ? ["top", "bottom", "left", "right"]
+      : zone === "corner" ? ["corner", "corner-left", "bottom"]
+      : face && face[0] + face[2] / 2 > 0.5 ? ["left", "right", "top"] : ["right", "left", "top"];
+    const overlap = ([x, y]) => {
+      if (!face) return 0;
+      const pad = 0.15;
+      const fx = (face[0] - face[2] * pad) * W, fy = (face[1] - face[3] * pad) * H;
+      const fw = face[2] * (1 + 2 * pad) * W, fh = face[3] * (1 + 2 * pad) * H;
+      const ox = Math.max(0, Math.min(x + r.width, fx + fw) - Math.max(x, fx));
+      const oy = Math.max(0, Math.min(y + r.height, fy + fh) - Math.max(y, fy));
+      return ox * oy;
+    };
+    pos = order.reduce((best, p) => overlap(spots[p]) < overlap(spots[best]) ? p : best, order[0]);
+  }
+  const [x, y] = spots[pos] || spots.top;
+  el.style.left = `${x}px`;
+  // Lower spots anchor by their bottom edge so a list grows upward as items reveal.
+  if (y > H / 2) el.style.bottom = `${H - y - r.height}px`; else el.style.top = `${y}px`;
+  return pos;
+}
+
+let current = null;
+// phase: 0..1 entrance progress, exit: 0..1 exit progress, reveal: number of list items shown.
+window.show = (g, zone, face, W, H) => {
+  const stage = document.getElementById("stage");
+  stage.innerHTML = "";
+  current = null;
+  if (!g || g.type === "none") return null;
+  const el = document.createElement("div");
+  el.className = "g"; el.innerHTML = body(g);
+  stage.appendChild(el);
+  const pos = place(el, g, zone, face, W, H);
+  current = { el, pos };
+  return pos;
+};
+
+window.frame = (enter, exit, reveal) => {
+  if (!current) return;
+  const { el, pos } = current;
+  const e = ease(enter), x = ease(exit);
+  const dir = { left: [-1, 0], right: [1, 0], top: [0, -1], corner: [0, -1], "corner-left": [0, -1], lower: [-1, 0] }[pos] || [0, 1];
+  const dist = 60 * (1 - e) + 40 * x;
+  el.style.opacity = String(e * (1 - x));
+  el.style.transform = `translate(${dir[0] * dist}px, ${dir[1] * dist}px) scale(${0.96 + 0.04 * e})`;
+  el.querySelectorAll(".item").forEach(it => {
+    const on = Number(it.dataset.i) < reveal;
+    it.style.display = on ? "flex" : "none";
+  });
+};
+
+window.ready = () => document.fonts.ready.then(() =>
+  Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; }))));
+</script>
+</body>
+</html>

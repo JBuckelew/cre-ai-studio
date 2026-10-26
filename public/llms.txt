@@ -2,7 +2,7 @@
 
 > AI training for commercial real estate pros: weekly hands-on tutorials and templates, live Q&A, and a community of hundreds of CRE pros.
 
-CRE AI Studio teaches commercial real estate professionals to use AI tools in their daily CRE workflows through hands-on training, live workshops and a member community. It was founded by Jonathan Buckelew, Nadine Ezzie and Topher Stephenson and is operated by BES.AI, LLC. It also offers custom team training, consulting, speaking, a free newsletter and a library of AI use cases from real CRE professionals.
+CRE AI Studio teaches commercial real estate professionals to use AI tools in their daily CRE workflows through hands-on training, live workshops and a member community. It was founded by Jonathan Buckelew and Topher Stephenson. It also offers custom team training, consulting, speaking, a free newsletter and a library of AI use cases from real CRE professionals.
 
 ## Pages
 
@@ -14,7 +14,7 @@ CRE AI Studio teaches commercial real estate professionals to use AI tools in th
 - [Consulting](https://creaistudio.com/Consulting): Custom AI consulting for CRE firms: Claude skills and agents, document intelligence, workflow automation, and AI strategy roadmapping.
 - [Articles](https://creaistudio.com/Articles): AI articles and videos for commercial real estate professionals: NotebookLM, Gemini vs. Copilot, and the top AI tools every CRE pro should know.
 - [Resources](https://creaistudio.com/Resources): CRE AI Prompt Library: ready-to-use AI prompts, guides, and templates built for commercial real estate professionals.
-- [Meet Your Teachers](https://creaistudio.com/MeetYourTeachers): The three co-founders who teach CRE AI Studio: Jonathan Buckelew, Nadine Ezzie and Topher Stephenson.
+- [Meet Your Teachers](https://creaistudio.com/MeetYourTeachers): The two co-founders who teach CRE AI Studio: Jonathan Buckelew and Topher Stephenson.
 
 ## AI use cases
 
@@ -62,7 +62,7 @@ CRE AI Studio teaches commercial real estate professionals to use AI tools in th
 
 ## Optional
 
-- [Privacy Policy](https://creaistudio.com/Privacy-Policy): Privacy policy for CRE AI Studio, operated by BES.AI, LLC: how we collect, use, and protect your information.
+- [Privacy Policy](https://creaistudio.com/Privacy-Policy): Privacy policy for CRE AI Studio: how we collect, use, and protect your information.
 - [Terms of Use](https://creaistudio.com/Terms-of-Use): Terms of Use governing access to the CRE AI Studio platform, community, courses, and related services.
 - [Cookie Policy](https://creaistudio.com/Cookie-Policy): How CRE AI Studio uses cookies and similar technologies to improve functionality and analyze usage.
 - [Disclaimer](https://creaistudio.com/Disclaimer): CRE AI Studio content is educational only, not legal, financial, or investment advice.

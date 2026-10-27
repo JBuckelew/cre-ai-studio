@@ -33,7 +33,7 @@ const serviceSchema = {
   serviceType: "Corporate AI training for commercial real estate firms",
   name: "AI training for commercial real estate teams",
   description:
-    "Corporate AI training for CRE firms, built around your platform, your tools, and your team's real work. Live online (or onsite). Led by both founders.",
+    "Corporate AI training for CRE firms on Claude, ChatGPT, Gemini, or Copilot. Built around your platform, subscription, and workflows. Sessions run over live video, or onsite if you prefer.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -65,7 +65,7 @@ const courseSchema = {
   "@type": "Course",
   name: "Corporate AI training for commercial real estate teams",
   description:
-    "Firm-built AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Live online by default, delivered by both founders.",
+    "AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Built around your firm's platform and workflows. Sessions run over live video, or onsite if you prefer.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -80,13 +80,13 @@ export default function Training() {
   usePageMeta({
     title: "AI Training for Commercial Real Estate Teams | CRE AI Studio",
     description:
-      "Corporate AI training for CRE firms, built around your platform, your tools, and your team's real work. Live online (or onsite). Led by both founders.",
+      "Corporate AI training for CRE firms on Claude, ChatGPT, Gemini, or Copilot. Built around your platform, subscription, and workflows. Sessions run over live video, or onsite if you prefer.",
     path: "/training",
     appendSiteName: false,
     noindex: false,
     image:
       "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/6001223af_hero-dual-presenters-a.jpg",
-    ogImageAlt: "Topher Stephenson delivering AI training for a commercial real estate team",
+    ogImageAlt: "Topher Stephenson and Jonathan Buckelew, founders of CRE AI Studio",
   });
 
   const scrollToRequest = () =>

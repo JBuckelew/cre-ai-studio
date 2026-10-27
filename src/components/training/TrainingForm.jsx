@@ -6,6 +6,8 @@ const TOPHER_HEADSHOT =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/411ec6d87_topher-headshot.jpg";
 const JONATHAN_HEADSHOT =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ec13d5946_jonathan-headshot.jpg";
+const JONATHAN_PRESENTING =
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/e9990578e_jonathan-presenting.jpg";
 
 const TEAM_SIZE_OPTIONS = [
   "Not sure yet",
@@ -26,16 +28,17 @@ const PLATFORM_OPTIONS = [
 
 const FORMAT_OPTIONS = [
   "Not sure yet",
-  "One session for one team (60 to 90 minutes)",
-  "A program across several teams (2 to 6 sessions)",
+  "One-time training for one team (60 to 90 minutes)",
+  "Basics or advanced package (2 to 6 sessions)",
+  "Focused-team package across several groups",
   "Enterprise, multiple offices or platforms",
 ];
 
 const CHECKLIST = [
   "Both founders on every session",
-  "A fixed fee, agreed in writing before we build anything",
-  "Invoiced after delivery",
-  "Everything we build is yours to keep and share internally",
+  "Scoped to your platform, seats, and enabled features before we build",
+  "Demos built on your own documents and workflows",
+  "Recording, session outline, and prompt library included",
 ];
 
 export default function TrainingForm() {
@@ -106,10 +109,9 @@ export default function TrainingForm() {
   }
 
   return (
-    <section id="request" className="bg-slate-50 py-20">
+    <section id="request" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Left column */}
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
               Tell us about{" "}
@@ -118,9 +120,9 @@ export default function TrainingForm() {
               </span>
             </h2>
             <p className="text-slate-600 leading-relaxed mb-4">
-              Who is in the room, what platform they are on, and what you want them doing
-              differently afterward. We answer within one business day, either with a scoping call or
-              a straight answer on whether we are the right fit.
+              Which platform your firm is on, roughly how many people you want trained, and what
+              you&apos;re hoping they walk away able to do. We answer within one business day —
+              either with a scoping call or a straight answer on whether we are the right fit.
             </p>
             <p className="text-slate-600 leading-relaxed mb-8">
               Both founders deliver every session together, so we hold a limited number of training
@@ -128,7 +130,7 @@ export default function TrainingForm() {
               works.
             </p>
 
-            <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm mb-8">
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6 shadow-sm mb-8">
               <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
                 How we work
               </p>
@@ -146,7 +148,7 @@ export default function TrainingForm() {
 
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
               <img
-                src="https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/08fbba5dd_jonathan-podium.jpg"
+                src={JONATHAN_PRESENTING}
                 alt="Jonathan Buckelew delivering an AI training session for a commercial real estate team"
                 className="w-full aspect-video object-cover"
                 loading="lazy"
@@ -178,7 +180,6 @@ export default function TrainingForm() {
             </div>
           </div>
 
-          {/* Right column - form */}
           <div className="rounded-2xl bg-white border-2 border-slate-100 shadow-sm p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>

@@ -29,11 +29,9 @@ export default function TrainingInstructors() {
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
             Who delivers it
           </h2>
-          <p className="text-slate-600 leading-relaxed mb-3">
-            Both founders deliver every training.
-          </p>
-          <p className="text-sm font-semibold text-slate-800">
-            Training CRE teams on AI since March 2024.
+          <p className="text-slate-600 leading-relaxed">
+            Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training
+            practice. Sessions are taught by our training team.
           </p>
         </div>
 
@@ -45,7 +43,7 @@ export default function TrainingInstructors() {
             >
               <img
                 src={f.image}
-                alt={`${f.name} delivering AI training for commercial real estate`}
+                alt={`${f.name}, CRE AI Studio`}
                 className="w-full aspect-[4/3] object-cover"
                 loading="lazy"
               />

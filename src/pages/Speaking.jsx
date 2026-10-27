@@ -18,7 +18,7 @@ const personSchema = {
   name: "Topher Stephenson",
   jobTitle: "AI Keynote Speaker and Trainer for Commercial Real Estate",
   worksFor: { "@type": "Organization", name: "CRE AI Studio" },
-  sameAs: ["https://www.linkedin.com/in/topherstephenson/", "https://x.com/TopherNow"],
+  sameAs: ["https://www.linkedin.com/in/tophernow/", "https://x.com/TopherNow"],
 };
 
 const serviceSchema = {
@@ -81,7 +81,7 @@ export default function Speaking() {
           </p>
           <div className="flex justify-center gap-6 text-sm">
             <a
-              href="https://www.linkedin.com/in/topherstephenson/"
+              href="https://www.linkedin.com/in/tophernow/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors"

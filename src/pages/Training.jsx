@@ -12,7 +12,7 @@ import TrainingTestimonials from "@/components/training/TrainingTestimonials";
 import TrainingFAQ, { FAQ_ITEMS } from "@/components/training/TrainingFAQ";
 import TrainingSupportingQuotes from "@/components/training/TrainingSupportingQuotes";
 import TrainingForm from "@/components/training/TrainingForm";
-import TrainingBridge from "@/components/training/TrainingBridge";
+import TrainingFinalCTA from "@/components/training/TrainingFinalCTA";
 
 const topherPerson = {
   "@type": "Person",
@@ -145,17 +145,17 @@ export default function Training() {
         onTestimonialsClick={scrollToTestimonials}
       />
       <TrainingWho />
+      <TrainingTestimonials />
       <TrainingDifference />
       <TrainingHow />
       <TrainingPlatforms />
       <TrainingFormats />
       <TrainingByTeam />
       <TrainingInstructors />
-      <TrainingTestimonials />
-      <TrainingFAQ />
       <TrainingSupportingQuotes />
       <TrainingForm />
-      <TrainingBridge />
+      <TrainingFAQ />
+      <TrainingFinalCTA />
 
       <script
         type="application/ld+json"

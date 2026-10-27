@@ -23,11 +23,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: "What do we leave with?",
-    a: "The recording, a session outline, and a prompt library.",
+    a: "Reusable recordings to share across your team, plus a session outline and a prompt library.",
   },
   {
     q: "What makes a good AI training partner for a CRE firm?",
-    a: "Look for trainers who already work in commercial real estate, confirm your platform and seats before they build, and teach on your real documents and workflows. CRE AI Studio has trained CRE teams on AI since March 2024, for brokerages, owner/operators, associations, and investment firms.",
+    a: "Look for trainers who already work in commercial real estate, confirm your platform and seats before they build, and teach on your documents and workflows. CRE AI Studio has trained CRE teams on AI since March 2024, for brokerages, owner/operators, associations, and investment firms.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function TrainingFAQ() {
             Questions
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-            FAQ
+            Common questions about CRE AI training
           </h2>
         </div>
         <dl className="divide-y divide-slate-200">

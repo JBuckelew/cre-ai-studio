@@ -29,15 +29,15 @@ const SUPPORTING = [
 
 export default function TrainingSupportingQuotes() {
   return (
-    <section id="more-leaders" className="bg-white py-10 lg:py-12 border-t border-slate-100">
+    <section id="more-leaders" className="bg-slate-50 py-14 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-6">
+        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-8">
           More from CRE leaders
         </p>
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 max-w-5xl">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl">
           {SUPPORTING.map((t) => (
-            <figure key={t.name} className="border-l-2 border-slate-200 pl-4">
-              <blockquote className="text-sm text-slate-600 leading-relaxed mb-2">
+            <figure key={t.name} className="border-l-2 border-blue-200 pl-5">
+              <blockquote className="text-slate-600 leading-relaxed mb-3">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption>

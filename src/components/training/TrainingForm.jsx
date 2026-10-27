@@ -26,10 +26,9 @@ const PLATFORM_OPTIONS = [
 
 const FORMAT_OPTIONS = [
   "Not sure yet",
-  "One-time training for one team (60 to 90 minutes)",
-  "Basics or advanced package (2 to 6 sessions)",
+  "One-time training for one team",
+  "Basics or advanced package",
   "Focused-team package across several groups",
-  "Enterprise, multiple offices or platforms",
 ];
 
 const CHECKLIST = [

@@ -1,14 +1,14 @@
 import React from "react";
-import { QUOTES, Avatar, SectionHead } from "@/components/training/TrainingQuoteKit";
 import { Quote } from "lucide-react";
+import { QUOTES, Avatar, SectionHead } from "@/components/training/TrainingQuoteKit";
 
 export default function TrainingDifference() {
-  const q = QUOTES.murphy;
+  const q = QUOTES.angelo;
   return (
     <section id="built-around" className="bg-white py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-7">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-6">
             <SectionHead
               chip="Built around your firm"
               title="A commercial real estate AI training company"
@@ -22,18 +22,30 @@ export default function TrainingDifference() {
               your team needs done, then the advanced features they have not figured out yet.
             </p>
           </div>
-          <div className="lg:col-span-5">
-            <figure className="relative rounded-3xl bg-slate-50 border border-slate-200 p-7 md:p-9 shadow-sm">
-              <Quote className="w-9 h-9 text-blue-600 mb-5" aria-hidden="true" />
-              <blockquote className="font-serif text-xl md:text-2xl text-slate-900 leading-snug mb-7">
+          <div className="lg:col-span-6">
+            <figure className="relative overflow-hidden rounded-3xl bg-slate-900 text-white p-8 md:p-11 shadow-xl">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[radial-gradient(60%_70%_at_100%_0%,rgba(59,130,246,0.30),transparent)]"
+              />
+              <Quote className="relative w-10 h-10 text-blue-300 mb-5" aria-hidden="true" />
+              <blockquote className="relative font-serif text-xl md:text-2xl leading-snug mb-8">
                 &ldquo;{q.quote}&rdquo;
               </blockquote>
-              <figcaption className="flex items-center gap-3 pt-5 border-t border-slate-200">
-                <Avatar name={q.name} />
+              <figcaption className="relative flex items-center gap-5 pt-6 border-t border-white/15">
+                <span className="hidden sm:block">
+                  <Avatar name={q.name} dark big />
+                </span>
                 <span>
-                  <span className="block text-sm font-semibold text-slate-900">{q.name}</span>
-                  <span className="block text-xs text-slate-500">{q.title}</span>
-                  <span className="block text-xs font-semibold text-blue-700">{q.firm}</span>
+                  <span className="block font-serif text-2xl md:text-3xl font-bold text-white leading-tight">
+                    {q.name}
+                  </span>
+                  <span className="block text-base md:text-lg text-slate-200 mt-1">
+                    {q.title}
+                  </span>
+                  <span className="block font-serif text-2xl md:text-3xl font-bold text-blue-300 leading-tight mt-1">
+                    {q.firm}
+                  </span>
                 </span>
               </figcaption>
             </figure>

@@ -23,8 +23,8 @@ const STEPS = [
   },
   {
     n: "05",
-    title: "What you keep",
-    body: "The recording, a session outline, and a prompt library.",
+    title: "After the session",
+    body: "Reusable recordings to share across your team, plus a session outline and a prompt library.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function TrainingHow() {
           </h2>
         </div>
 
-        <ol className="grid md:grid-cols-5 gap-8 md:gap-5">
+        <ol className="grid sm:grid-cols-2 xl:grid-cols-5 gap-8 xl:gap-5">
           {STEPS.map((s) => (
             <li key={s.n}>
               <span className="block text-3xl md:text-4xl font-bold text-slate-200 mb-3 tabular-nums">

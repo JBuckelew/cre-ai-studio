@@ -30,25 +30,25 @@ const STEPS = [
 
 export default function TrainingHow() {
   return (
-    <section id="how-it-works" className="bg-white py-12 lg:py-14">
+    <section id="how-it-works" className="bg-white py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-8">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
             How it works
-          </span>
+          </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-            How it works
+            How CRE AI training works
           </h2>
         </div>
 
-        <ol className="max-w-3xl divide-y divide-slate-100 border-y border-slate-100">
+        <ol className="grid md:grid-cols-5 gap-8 md:gap-5">
           {STEPS.map((s) => (
-            <li key={s.n} className="flex gap-4 py-4">
-              <span className="text-xs font-bold text-purple-500 shrink-0 pt-1 w-6">{s.n}</span>
-              <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">{s.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{s.body}</p>
-              </div>
+            <li key={s.n}>
+              <span className="block text-3xl md:text-4xl font-bold text-slate-200 mb-3 tabular-nums">
+                {s.n}
+              </span>
+              <h3 className="font-semibold text-slate-900 mb-2 text-base leading-snug">{s.title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{s.body}</p>
             </li>
           ))}
         </ol>

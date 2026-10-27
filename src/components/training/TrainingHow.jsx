@@ -6,37 +6,37 @@ const STEPS = [
   {
     n: "01",
     icon: ClipboardList,
-    title: "Survey and discovery",
+    title: "AI training survey and discovery",
     body: "Before we plan anything, we learn who will be in the training and what they do. Your team completes a short survey, or we talk with you directly, so we know how people use AI today and what they want to be able to do next. If you do not have a survey, we help you write one.",
   },
   {
     n: "02",
     icon: SlidersHorizontal,
-    title: "Platform and feature review",
+    title: "AI platform and feature review",
     body: "We confirm which AI platform your firm uses, which subscription plan you are on, how many seats you have, and which features are turned on, along with any connected tools. Every demo then shows something your team can actually run on their own accounts.",
   },
   {
     n: "03",
     icon: MonitorPlay,
-    title: "Demos on your work",
+    title: "AI platform demos on your team's work",
     body: "We show your team how to use your AI platform to the fullest by demonstrating how to use its most powerful features across the use cases and real work that's most relevant to them.",
   },
   {
     n: "04",
     icon: Video,
-    title: "Live sessions",
+    title: "Live CRE AI training sessions",
     body: "The training is delivered live over video, or onsite if you prefer. When a group includes people in different roles or at different skill levels, we split them into separate sessions so everyone sees examples that apply to their own work. Sessions are delivered by our co-founders along with our CRE AI training team.",
   },
   {
     n: "05",
     icon: MessagesSquare,
-    title: "Questions and answers",
+    title: "CRE AI training Q&A",
     body: "Questions can be answered throughout the training session, with dedicated time for Q&A built in at the end. Every question is answered by commercial real estate professionals with over a decade of industry experience.",
   },
   {
     n: "06",
     icon: FileText,
-    title: "After the session",
+    title: "After your AI training session",
     body: "After the training, you receive reusable recordings to share across your team, a session outline that summarizes what was covered, and a prompt library your team can keep using in their daily work. People who could not attend can watch the recording.",
   },
 ];

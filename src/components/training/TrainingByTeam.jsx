@@ -11,7 +11,7 @@ export default function TrainingByTeam() {
         className="absolute inset-0 bg-[radial-gradient(50%_70%_at_50%_0%,rgba(59,130,246,0.22),transparent)]"
       />
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <SectionHead dark center chip="Across teams" title="Built for how CRE teams" accent="split the work" />
+        <SectionHead dark center sub="Sessions are tailored to each group at your firm, such as brokers, asset managers, operations, and marketing." chip="Training by team" title="CRE AI training for" accent="each team at your firm" />
         <Quote className="w-10 h-10 text-blue-300 mx-auto mb-6" aria-hidden="true" />
         <blockquote className="font-serif text-xl md:text-3xl text-white leading-snug mb-8">
           &ldquo;{q.quote}&rdquo;

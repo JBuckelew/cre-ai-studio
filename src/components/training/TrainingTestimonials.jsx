@@ -1,6 +1,6 @@
 import React from "react";
 
-/** Mid-page "What CRE leaders say" — 6 cards. Verbatim trims only. */
+/** Mid-page "What CRE leaders say" - 6 cards. Verbatim trims only. */
 const MID_QUOTES = [
   {
     name: "Jonathan Salk",
@@ -60,7 +60,7 @@ export default function TrainingTestimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-5">
-            Social proof
+            From CRE leaders
           </span>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
             What CRE leaders say

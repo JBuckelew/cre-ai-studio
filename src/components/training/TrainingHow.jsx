@@ -19,7 +19,7 @@ const STEPS = [
   {
     n: "04",
     title: "Live sessions",
-    body: "Both founders deliver. Live online by default (or onsite). We split by group and by level when that keeps the content relevant, and we leave time for questions.",
+    body: "Sessions run over live video, or onsite if you prefer. We split by group and by level when that keeps the content relevant, and we leave time for questions.",
   },
   {
     n: "05",

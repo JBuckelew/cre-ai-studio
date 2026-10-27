@@ -51,12 +51,12 @@ export const QUOTES = {
     quote:
       'Instead of vague "use AI for everything" advice, we got concrete guidance on what to focus on. We left the sessions with a detailed outline of what we\'re doing now, and an executive summary on what to do next.',
   },
-  knight: {
-    name: "David Knight",
-    title: "Partner",
-    firm: "Sitings Realty Ltd",
+  eric: {
+    name: "Eric Edwards",
+    title: "2026 Florida CCIM SW District President",
+    firm: "CCIM",
     quote:
-      "He showed us how to use AI to move faster on marketing, and explored in detail how to build custom AI bots that can handle repetitive tasks in our business.",
+      "Topher has a talent for making AI accessible and relevant to commercial real estate professionals.",
   },
   tim: {
     name: "Tim Murphy",
@@ -66,6 +66,25 @@ export const QUOTES = {
       "He does not just explain what is possible. He shows how to take these tools from idea to implementation across our diverse departments like leasing, acquisitions, marketing, property management, accounting, construction, and development.",
   },
 };
+
+// Single most useful line of each testimonial (verbatim trims).
+export const LINES = {
+  sarah:
+    "A unique ability to translate complex concepts into practical, relevant insights for commercial real estate professionals at all levels. The feedback from our Advisors was overwhelmingly positive.",
+  kristie:
+    "His ability to translate AI into practical, real-world applications made a significant impact, with several attendees noting it was the best course they had taken.",
+  jenna:
+    "He taught the entire team how to build customized versions of AI tools for their specific use-cases.",
+  erin: QUOTES.erin.quote,
+  murphy:
+    'Instead of vague "use AI for everything" advice, we got concrete guidance on what to focus on.',
+  salk: "Our members walked away with actionable strategies they could use immediately.",
+  eric: QUOTES.eric.quote,
+};
+
+export function withLine(key) {
+  return { ...QUOTES[key], quote: LINES[key] };
+}
 
 export function initials(name) {
   return name
@@ -77,11 +96,11 @@ export function initials(name) {
     .join("");
 }
 
-export function Avatar({ name, dark = false }) {
+export function Avatar({ name, dark = false, big = false }) {
   return (
     <span
       aria-hidden="true"
-      className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center text-xs font-bold text-white ${
+      className={`${big ? "w-16 h-16 text-base" : "w-10 h-10 text-xs"} shrink-0 rounded-full flex items-center justify-center font-bold text-white ${
         dark ? "bg-white/15 ring-1 ring-white/25" : "bg-gradient-to-br from-blue-600 to-purple-600"
       }`}
     >

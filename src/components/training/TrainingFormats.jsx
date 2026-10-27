@@ -17,24 +17,27 @@ const ITEMS = [
 
 export default function TrainingFormats() {
   return (
-    <section id="formats" className="bg-white py-12 lg:py-14">
+    <section id="formats" className="bg-white py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-8">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
+        <div className="max-w-2xl mb-10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
             Formats and packages
-          </span>
+          </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
-            Formats and packages
+            Formats for commercial real estate AI training
           </h2>
-          <p className="text-slate-600 text-sm leading-relaxed">
+          <p className="text-slate-600 leading-relaxed">
             Sessions run over live video, or onsite if you prefer.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-6 max-w-4xl">
+        <div className="grid md:grid-cols-3 gap-6">
           {ITEMS.map((item) => (
-            <div key={item.title} className={item.title === "Focused-team packages" ? "md:col-span-2" : ""}>
-              <h3 className="font-semibold text-slate-900 mb-1.5">{item.title}</h3>
+            <div
+              key={item.title}
+              className="rounded-2xl bg-slate-50 border-2 border-slate-100 p-7"
+            >
+              <h3 className="font-semibold text-slate-900 text-lg mb-3">{item.title}</h3>
               <p className="text-sm text-slate-600 leading-relaxed">{item.body}</p>
             </div>
           ))}

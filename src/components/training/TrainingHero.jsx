@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 
 const HERO_DUAL =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/6001223af_hero-dual-presenters-a.jpg";
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/46850fa06_hero-dual-presenters-a.jpg";
 
 export default function TrainingHero({ onRequestClick, onHowClick, onTestimonialsClick }) {
   return (
@@ -61,7 +61,7 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
               <img
                 src={HERO_DUAL}
                 alt="Topher Stephenson and Jonathan Buckelew, founders of CRE AI Studio"
-                className="w-full aspect-[4/3] object-cover object-center"
+                className="w-full aspect-[16/10] object-cover object-center"
                 loading="eager"
               />
             </div>

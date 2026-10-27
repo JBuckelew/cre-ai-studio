@@ -3,7 +3,7 @@ import React from "react";
 const ITEMS = [
   {
     title: "One-time sessions",
-    body: "A focused team session, typically 60 to 90 minutes, on your platform and use cases. Longer workshops when the scope needs it. You leave with the recording and a prompt library.",
+    body: "A focused team session, typically 60 to 90 minutes, on your platform and use cases. Longer workshops when the scope needs it.",
   },
   {
     title: "Structured packages",
@@ -27,7 +27,8 @@ export default function TrainingFormats() {
             Formats for commercial real estate AI training
           </h2>
           <p className="text-slate-600 leading-relaxed">
-            Sessions run over live video, or onsite if you prefer.
+            Sessions run over live video, or onsite if you prefer. Reusable recordings to share
+            across your team.
           </p>
         </div>
 

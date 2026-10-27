@@ -47,7 +47,7 @@ export default function TrainingInstructors() {
                 />
               </div>
               <div className="sm:col-span-3 pt-1">
-                <h3 className="font-bold text-slate-900 text-xl mb-2">{f.name}</h3>
+                <h3 className="font-bold text-slate-900 text-xl mb-2">{f.name}, CRE AI trainer</h3>
                 <p className="text-slate-600 leading-relaxed">{f.bio}</p>
                 {f.linkedin && (
                   <a

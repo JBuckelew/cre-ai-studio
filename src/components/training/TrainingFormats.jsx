@@ -5,26 +5,26 @@ const PACKAGES = [
     title: "One-time training",
     who: "A firm or team that wants a clear, customized baseline.",
     format:
-      "Live online (or onsite). A focused team session is typically 60 to 90 minutes. Longer workshops when the scope needs it.",
+      "Sessions run over live video, or onsite if you prefer. A focused team session is typically 60 to 90 minutes. Longer workshops when the scope needs it.",
     leave: "A session on your platform and use cases, the recording, and a prompt library.",
   },
   {
     title: "Basics package",
     who: "Teams building a shared day-one baseline: prompting, finding solid sources, and everyday wins on your platform.",
     format:
-      "Live online (or onsite). A short multi-session program, often two to six sessions depending on headcount and groups.",
+      "Sessions run over live video, or onsite if you prefer. A short multi-session program, often two to six sessions depending on headcount and groups.",
     leave: "One set of fundamentals the firm can build on, plus recordings and materials.",
   },
   {
     title: "Advanced / power users",
     who: "People ready to go past chat: custom projects and agents, skills, document and deliverable design, and advanced features for work they have not figured out yet.",
-    format: "Live online (or onsite). Shorter focused sessions with real Q&A.",
+    format: "Sessions run over live video, or onsite if you prefer. Shorter focused sessions with room for questions.",
     leave: "Workflows your power users can run again.",
   },
   {
     title: "Focused-team packages",
     who: "Teams that need their own session on their own work: sales or leasing brokerages, asset managers, operations and marketing staff, and asset-class specialists.",
-    format: "Live online (or onsite), split by group and by level.",
+    format: "Sessions run over live video, or onsite if you prefer, split by group and by level.",
     leave: "Demos on that team's documents and the use cases they care about most.",
   },
 ];

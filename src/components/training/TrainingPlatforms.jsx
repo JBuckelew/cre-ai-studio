@@ -29,7 +29,7 @@ export default function TrainingPlatforms() {
               className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm overflow-hidden"
             >
               <span className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${p.tone}`} />
-              <h3 className="font-serif text-xl font-bold text-slate-900 mb-1.5 pl-2">{p.name}</h3>
+              <h3 className="font-serif text-xl font-bold text-slate-900 mb-1.5 pl-2">{p.name} training</h3>
               <p className="text-sm text-slate-600 leading-relaxed pl-2">{p.features}</p>
             </div>
           ))}

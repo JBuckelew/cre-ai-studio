@@ -14,7 +14,7 @@ const STEPS = [
   {
     n: "03",
     title: "Demos on your work",
-    body: "Wherever possible, demos use your templates and workflows.",
+    body: "Each feature is shown on the deal work your team does every day.",
   },
   {
     n: "04",

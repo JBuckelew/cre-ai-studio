@@ -14,7 +14,8 @@ export default function TrainingPlatforms() {
           <p className="text-slate-600 leading-relaxed text-lg mb-4">
             Claude (Projects, Artifacts, Skills), ChatGPT (custom GPTs and projects), Gemini (app and
             Workspace side panels), or Microsoft Copilot (Chat, agents, and Microsoft 365). We teach
-            the features your seats include.
+            the features your seats include. That is the core of our CRE AI training: your stack, not
+            a generic demo environment.
           </p>
           <p className="text-sm text-slate-600">
             See the work these sessions target in our{" "}

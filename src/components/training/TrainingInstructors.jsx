@@ -10,13 +10,13 @@ const FOUNDERS = [
     name: "Topher Stephenson",
     image: TOPHER_PRESENTING,
     objectPosition: "center",
-    bio: "11+ years in commercial real estate technology and brokerage. Nationwide AI educator for CRE professionals.",
+    bio: "11+ years in commercial real estate technology and brokerage. Trains CRE professionals on AI tools.",
   },
   {
     name: "Jonathan Buckelew",
     image: JONATHAN_PRESENTING,
     objectPosition: "left center",
-    bio: "10+ years in real estate private equity. Investment, asset management, and finance perspective on real deals.",
+    bio: "10+ years in real estate private equity. Investment, asset management, and finance perspective from deal work.",
   },
 ];
 
@@ -26,10 +26,10 @@ export default function TrainingInstructors() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
-            Who delivers it
+            Instructors
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
-            Who delivers it
+            Who teaches CRE AI training
           </h2>
           <p className="text-slate-600 leading-relaxed text-lg">
             Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training

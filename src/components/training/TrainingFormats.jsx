@@ -17,7 +17,7 @@ const ITEMS = [
 
 export default function TrainingFormats() {
   return (
-    <section id="formats" className="bg-white py-16 lg:py-20">
+    <section id="formats" className="bg-white py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">

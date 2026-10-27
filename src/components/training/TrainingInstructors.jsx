@@ -34,7 +34,7 @@ export default function TrainingInstructors() {
           sub="Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training practice. Sessions are taught by our training team."
         />
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {FOUNDERS.map((f) => (
             <div key={f.name} className="grid sm:grid-cols-5 gap-5 items-start rounded-3xl bg-slate-50 border border-slate-200 p-5 shadow-sm">
               <div className="sm:col-span-2 rounded-2xl overflow-hidden border-2 border-slate-100 shadow-sm aspect-[4/5] w-full max-w-[260px] sm:max-w-none bg-slate-100">

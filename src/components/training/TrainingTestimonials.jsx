@@ -26,12 +26,6 @@ const GRID = [
     quote:
       'Instead of vague "use AI for everything" advice, we got concrete guidance on what to focus on. We left the sessions with a detailed outline of what we\'re doing now, and an executive summary on what to do next.',
   },
-  {
-    name: "Allison Weiss",
-    role: "Executive Vice President, Sunstone Real Estate Advisors / Sunstone Commercial",
-    quote:
-      "He's helped us to creatively solve business challenges using a variety of AI tools, and has made our entire team more technologically savvy and confident through our work together.",
-  },
 ];
 
 export default function TrainingTestimonials() {
@@ -58,7 +52,7 @@ export default function TrainingTestimonials() {
           </footer>
         </blockquote>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+        <div className="grid lg:grid-cols-3 gap-x-10 gap-y-10">
           {GRID.map((t) => (
             <blockquote key={t.name} className="border-t border-slate-200 pt-6">
               <p className="text-slate-700 leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>

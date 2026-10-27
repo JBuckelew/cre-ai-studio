@@ -25,25 +25,29 @@ export const FAQ_ITEMS = [
     q: "What do we leave with?",
     a: "The recording, a session outline, and a prompt library.",
   },
+  {
+    q: "What makes a good AI training partner for a CRE firm?",
+    a: "Look for trainers who already work in commercial real estate, confirm your platform and seats before they build, and teach on your real documents and workflows. CRE AI Studio has trained CRE teams on AI since March 2024, for brokerages, owner/operators, associations, and investment firms.",
+  },
 ];
 
 export default function TrainingFAQ() {
   return (
-    <section id="faq" className="bg-slate-50 py-12 lg:py-14">
+    <section id="faq" className="bg-white py-16 lg:py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="mb-8">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
+        <div className="mb-10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
             Questions
-          </span>
+          </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
             FAQ
           </h2>
         </div>
-        <dl className="divide-y divide-slate-200 border-y border-slate-200">
+        <dl className="divide-y divide-slate-200">
           {FAQ_ITEMS.map((item) => (
-            <div key={item.q} className="py-5">
-              <dt className="font-semibold text-slate-900 mb-1.5">{item.q}</dt>
-              <dd className="text-sm text-slate-600 leading-relaxed">{item.a}</dd>
+            <div key={item.q} className="py-6">
+              <dt className="font-semibold text-slate-900 mb-2">{item.q}</dt>
+              <dd className="text-slate-600 leading-relaxed">{item.a}</dd>
             </div>
           ))}
         </dl>

@@ -100,7 +100,7 @@ export default function TrainingForm() {
 
   if (success) {
     return (
-      <section id="request" className="bg-slate-50 py-20">
+      <section id="request" className="bg-slate-50 py-12">
         <div className="max-w-md mx-auto text-center rounded-2xl bg-white border-2 border-slate-100 shadow-sm p-10">
           <CheckCircle className="w-12 h-12 text-blue-600 mx-auto mb-4" />
           <p className="text-slate-900 text-lg font-semibold">Thanks. Your request is in.</p>
@@ -111,7 +111,7 @@ export default function TrainingForm() {
   }
 
   return (
-    <section id="request" className="bg-white py-20">
+    <section id="request" className="bg-white py-12 lg:py-14">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12">
           <div>

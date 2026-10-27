@@ -1,6 +1,7 @@
 import React from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import TrainingHero from "@/components/training/TrainingHero";
+import TrainingWho from "@/components/training/TrainingWho";
 import TrainingDifference from "@/components/training/TrainingDifference";
 import TrainingHow from "@/components/training/TrainingHow";
 import TrainingPlatforms from "@/components/training/TrainingPlatforms";
@@ -9,6 +10,7 @@ import TrainingByTeam from "@/components/training/TrainingByTeam";
 import TrainingInstructors from "@/components/training/TrainingInstructors";
 import TrainingTestimonials from "@/components/training/TrainingTestimonials";
 import TrainingFAQ, { FAQ_ITEMS } from "@/components/training/TrainingFAQ";
+import TrainingSupportingQuotes from "@/components/training/TrainingSupportingQuotes";
 import TrainingForm from "@/components/training/TrainingForm";
 import TrainingBridge from "@/components/training/TrainingBridge";
 
@@ -31,7 +33,7 @@ const serviceSchema = {
   serviceType: "Corporate AI training for commercial real estate firms",
   name: "AI training for commercial real estate teams",
   description:
-    "Corporate AI training for CRE firms, built around your platform, your subscription, and your team's real work. Onsite or virtual, led by both founders.",
+    "Corporate AI training for CRE firms, built around your platform, your tools, and your team's real work. Live online (or onsite). Led by both founders.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -63,7 +65,7 @@ const courseSchema = {
   "@type": "Course",
   name: "Corporate AI training for commercial real estate teams",
   description:
-    "Firm-built AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Survey-led, delivered by both founders, onsite or virtual.",
+    "Firm-built AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Live online by default, delivered by both founders.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -78,7 +80,7 @@ export default function Training() {
   usePageMeta({
     title: "AI Training for Commercial Real Estate Teams | CRE AI Studio",
     description:
-      "Corporate AI training for CRE firms, built around your platform, your subscription, and your team's real work. Onsite or virtual, led by both founders.",
+      "Corporate AI training for CRE firms, built around your platform, your tools, and your team's real work. Live online (or onsite). Led by both founders.",
     path: "/training",
     appendSiteName: false,
     noindex: false,
@@ -91,10 +93,17 @@ export default function Training() {
     document.getElementById("request")?.scrollIntoView({ behavior: "smooth" });
   const scrollToHow = () =>
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToTestimonials = () =>
+    document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <TrainingHero onRequestClick={scrollToRequest} onHowClick={scrollToHow} />
+      <TrainingHero
+        onRequestClick={scrollToRequest}
+        onHowClick={scrollToHow}
+        onTestimonialsClick={scrollToTestimonials}
+      />
+      <TrainingWho />
       <TrainingDifference />
       <TrainingHow />
       <TrainingPlatforms />
@@ -103,6 +112,7 @@ export default function Training() {
       <TrainingInstructors />
       <TrainingTestimonials />
       <TrainingFAQ />
+      <TrainingSupportingQuotes />
       <TrainingForm />
       <TrainingBridge />
 

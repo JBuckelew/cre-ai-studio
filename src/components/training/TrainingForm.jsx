@@ -6,8 +6,6 @@ const TOPHER_HEADSHOT =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/411ec6d87_topher-headshot.jpg";
 const JONATHAN_HEADSHOT =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ec13d5946_jonathan-headshot.jpg";
-const JONATHAN_PRESENTING =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/e9990578e_jonathan-presenting.jpg";
 
 const TEAM_SIZE_OPTIONS = [
   "Not sure yet",
@@ -22,7 +20,7 @@ const PLATFORM_OPTIONS = [
   "Microsoft 365 Copilot",
   "ChatGPT",
   "Claude",
-  "Gemini and NotebookLM",
+  "Gemini",
   "A mix of tools",
 ];
 
@@ -84,7 +82,11 @@ export default function TrainingForm() {
         message: formData.message,
       };
       await base44.entities.TrainingInquiry.create(inquiry);
-      await base44.functions.invoke("notifyTrainingInquiry", { inquiry });
+      try {
+        await base44.functions.invoke("notifyTrainingInquiry", { inquiry });
+      } catch (notifyErr) {
+        console.error("Training notify error:", notifyErr);
+      }
       setSuccess(true);
     } catch (err) {
       console.error("Training inquiry error:", err);
@@ -114,20 +116,11 @@ export default function TrainingForm() {
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
-              Tell us about{" "}
-              <span className="italic bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                your team
-              </span>
+              Request a training
             </h2>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Which platform your firm is on, roughly how many people you want trained, and what
-              you&apos;re hoping they walk away able to do. We answer within one business day —
-              either with a scoping call or a straight answer on whether we are the right fit.
-            </p>
             <p className="text-slate-600 leading-relaxed mb-8">
-              Both founders deliver every session together, so we hold a limited number of training
-              dates each month. Tell us your window and we will tell you straight away whether it
-              works.
+              Tell us which platform your firm is on, roughly how many people you want trained, and
+              what you want them doing differently afterward. We reply within one business day.
             </p>
 
             <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6 shadow-sm mb-8">
@@ -146,15 +139,6 @@ export default function TrainingForm() {
               </ul>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
-              <img
-                src={JONATHAN_PRESENTING}
-                alt="Jonathan Buckelew delivering an AI training session for a commercial real estate team"
-                className="w-full aspect-video object-cover"
-                loading="lazy"
-              />
-            </div>
-
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
                 <img
@@ -171,7 +155,7 @@ export default function TrainingForm() {
               <p className="text-sm text-slate-500">
                 Prefer email?{" "}
                 <a
-                  href="mailto:topher@creaistudio.com"
+                  href="mailto:topher@creaistudio.com?subject=CRE%20AI%20Studio%20team%20training"
                   className="text-blue-600 hover:text-blue-700 font-medium"
                 >
                   topher@creaistudio.com
@@ -292,7 +276,7 @@ export default function TrainingForm() {
                   value={formData.message}
                   onChange={handleChange}
                   className={inputClass + " min-h-[120px] resize-y"}
-                  placeholder="Who is in the room, what is eating their time, what a win looks like..."
+                  placeholder="Who is joining, what is eating their time, what a win looks like..."
                   required
                 />
               </div>
@@ -311,7 +295,7 @@ export default function TrainingForm() {
                 )}
               </button>
               <p className="text-xs text-slate-400 text-center">
-                One business day. No pitch deck ambush.
+                We reply within one business day.
               </p>
             </form>
           </div>

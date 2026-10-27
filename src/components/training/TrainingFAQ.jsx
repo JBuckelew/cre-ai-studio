@@ -3,35 +3,35 @@ import React from "react";
 export const FAQ_ITEMS = [
   {
     q: "Which AI platforms do you train on?",
-    a: "Claude, ChatGPT, Gemini, and Microsoft Copilot. We teach the platform your firm has chosen, in the features your subscription actually unlocks — not a generic tour of all four. If different teams are on different tools, we scope that per team.",
+    a: "Claude, ChatGPT, Gemini, and Microsoft Copilot. We teach the platform your firm uses, in the features your subscription includes. If teams are on different tools, we scope per team.",
   },
   {
     q: "How do you customize the training to our firm?",
-    a: "We start from your platform, your subscription tier, your enabled features and connections, and your AI policy. We survey your teams on how they use AI and want to, then build the demos on your own documents and workflows wherever your policy allows. The session reinforces what your team already wants to do and trains them on the advanced features for the work they haven't cracked yet.",
+    a: "We start from your platform, subscription, enabled features, and connections. We survey your teams on how they use AI and how they want to, then build demos on your documents and workflows. The session reinforces what your team already wants to do, and trains them on advanced features for the work they have not figured out yet.",
   },
   {
-    q: "Do we need an AI survey, and what if we don't have one?",
-    a: "A short survey is the fastest way for us to tailor the agenda — the free-text answers alone usually reshape it. If you already run one, we'll work from your data (department-tagged is ideal). If you don't, we'll help you create one. For a small group, a conversation can stand in for it.",
+    q: "Do we need an AI survey?",
+    a: "A short survey is the fastest way to shape the agenda. If you have one, we use it. If not, we help you create one. For a small group, a conversation can stand in.",
   },
   {
-    q: "What's the difference between a one-time training and a package?",
-    a: "A one-time training gives a team or firm a strong, customized baseline in a single session. A package is a structured, multi-session program — basics for the whole firm, an advanced track for power users, or focused sessions split across teams — so content can go deeper and stay relevant to each group.",
+    q: "What is the difference between a one-time training and a package?",
+    a: "A one-time training gives a team a customized baseline in a single session. A package is a multi-session program: basics for the firm, an advanced track for power users, or focused sessions across teams.",
   },
   {
-    q: "Is the training onsite or virtual?",
-    a: "Either. We deliver both, and we'll recommend the format that fits your group size, location, and goals.",
+    q: "Is training online or onsite?",
+    a: "Live online is the default. Onsite when your group size, location, and goals call for it.",
   },
   {
     q: "Who delivers the training?",
-    a: "Both founders, Topher Stephenson and Jonathan Buckelew, are on every training.",
+    a: "Both founders, Topher Stephenson and Jonathan Buckelew.",
   },
   {
     q: "What do we leave with?",
-    a: "A recording of the session, a session outline, and a saved prompt library — surfaced up front, not buried under \"resources\" — so your team can put the training to work immediately.",
+    a: "The recording, a session outline, and a prompt library.",
   },
   {
     q: "How do we get started?",
-    a: "Request a training below. We'll set up a short call to confirm your platform, seats, enabled features, and goals, then scope an engagement built around your firm.",
+    a: "Request a training below. We confirm your platform, seats, features, and goals on a short call, then scope the engagement around your firm.",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function TrainingFAQ() {
             FAQ
           </span>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-            Frequently asked questions
+            FAQ
           </h2>
         </div>
         <dl className="space-y-4">

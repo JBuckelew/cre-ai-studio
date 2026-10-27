@@ -100,7 +100,7 @@ const courseSchema = {
   "@type": "Course",
   name: "Corporate AI training for commercial real estate teams",
   description:
-    "AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Built around your firm's platform and workflows. Sessions run over live video, or onsite if you prefer. Reusable recordings to share across your team.",
+    "AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Built around your firm's platform and workflows. Sessions run over live video, or onsite if you prefer, with dedicated time for Q&A. Reusable recordings to share across your team.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -135,7 +135,7 @@ export default function Training() {
   const scrollToHow = () =>
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   const scrollToTestimonials = () =>
-    document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("who-weve-trained")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -144,9 +144,9 @@ export default function Training() {
         onHowClick={scrollToHow}
         onTestimonialsClick={scrollToTestimonials}
       />
+      <TrainingDifference />
       <TrainingWho />
       <TrainingTestimonials />
-      <TrainingDifference />
       <TrainingHow />
       <TrainingPlatforms />
       <TrainingFormats />

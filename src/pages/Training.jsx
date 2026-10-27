@@ -121,7 +121,7 @@ export default function Training() {
   usePageMeta({
     title: "AI Training for Commercial Real Estate Teams | CRE AI Studio",
     description:
-      "AI training for commercial real estate teams on ChatGPT, Copilot, Claude, or Gemini. CRE AI Studio is a commercial real estate AI training company built around your platform and workflows. Training CRE teams on AI since March 2024.",
+      "CRE AI training for commercial real estate teams, built around your firm's AI platform. CRE AI Studio has trained CRE teams since March 2024.",
     path: "/training",
     appendSiteName: false,
     noindex: false,

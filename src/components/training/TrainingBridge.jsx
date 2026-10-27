@@ -4,13 +4,13 @@ import { createPageUrl } from "@/utils";
 
 export default function TrainingBridge() {
   return (
-    <section className="bg-slate-50 py-12 lg:py-14">
+    <section className="bg-slate-50 py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 md:px-14 py-10 text-center">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight mb-3">
+        <div className="rounded-3xl bg-slate-900 px-8 md:px-14 py-12 text-center">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
             Stay in the loop
           </h2>
-          <p className="text-white/90 leading-relaxed mb-6 max-w-xl mx-auto text-sm md:text-base">
+          <p className="text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto">
             Not ready to book a team training? Membership and the newsletter cover practical AI for
             CRE. Firm trainings are separate from community membership. Or see{" "}
             <a href="/consulting" className="underline underline-offset-2 hover:text-white">

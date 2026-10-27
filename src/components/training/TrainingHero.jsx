@@ -1,8 +1,8 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
-const TOPHER_PRESENTING =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ddd6f4855_topher-presenting.jpg";
+const HERO_DUAL =
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/6001223af_hero-dual-presenters-a.jpg";
 
 export default function TrainingHero({ onRequestClick, onHowClick, onTestimonialsClick }) {
   return (
@@ -65,13 +65,16 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden border border-slate-200 w-full max-w-lg shadow-sm md:justify-self-end">
+          <div className="rounded-2xl overflow-hidden border border-slate-200 w-full max-w-lg shadow-sm md:justify-self-end bg-white">
             <img
-              src={TOPHER_PRESENTING}
-              alt="Topher Stephenson delivering AI training for a commercial real estate team"
-              className="w-full aspect-[4/3] object-cover"
+              src={HERO_DUAL}
+              alt="Topher Stephenson and Jonathan Buckelew delivering CRE AI training"
+              className="w-full aspect-[16/10] object-cover"
               loading="eager"
             />
+            <p className="px-4 py-3 text-xs text-slate-500 border-t border-slate-100">
+              Both founders deliver every session — live online by default.
+            </p>
           </div>
         </div>
       </div>

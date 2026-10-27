@@ -100,8 +100,8 @@ export default function TrainingForm() {
 
   if (success) {
     return (
-      <section id="request" className="bg-slate-50 py-12">
-        <div className="max-w-md mx-auto text-center rounded-2xl bg-white border-2 border-slate-100 shadow-sm p-10">
+      <section id="request" className="bg-white py-16 lg:py-20">
+        <div className="max-w-md mx-auto text-center rounded-2xl bg-slate-50 border-2 border-slate-100 p-10">
           <CheckCircle className="w-12 h-12 text-blue-600 mx-auto mb-4" />
           <p className="text-slate-900 text-lg font-semibold">Thanks. Your request is in.</p>
           <p className="text-slate-600 text-sm mt-2">We will be in touch within one business day.</p>
@@ -111,9 +111,9 @@ export default function TrainingForm() {
   }
 
   return (
-    <section id="request" className="bg-white py-12 lg:py-14">
+    <section id="request" className="bg-white py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
               Request a training
@@ -123,21 +123,16 @@ export default function TrainingForm() {
               what you want them doing differently afterward. We reply within one business day.
             </p>
 
-            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6 shadow-sm mb-8">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
-                How we work
-              </p>
-              <ul className="space-y-3">
-                {CHECKLIST.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-blue-600" />
-                    </span>
-                    <span className="text-slate-700 text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="space-y-3 mb-10">
+              {CHECKLIST.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="mt-0.5 w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                    <Check className="w-3 h-3 text-blue-600" />
+                  </span>
+                  <span className="text-slate-700 text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
@@ -164,7 +159,7 @@ export default function TrainingForm() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white border-2 border-slate-100 shadow-sm p-8">
+          <div className="rounded-2xl bg-slate-50 border-2 border-slate-100 p-7 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="text-sm text-slate-900 font-medium mb-1.5 block">Your name *</label>
@@ -202,7 +197,7 @@ export default function TrainingForm() {
                   required
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm text-slate-900 font-medium mb-1.5 block">
                     How many people?
@@ -284,7 +279,7 @@ export default function TrainingForm() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3.5 rounded-full hover:shadow-lg transition-all duration-300 disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3.5 rounded-full transition-all duration-300 disabled:opacity-60 inline-flex items-center justify-center gap-2"
               >
                 {submitting ? (
                   <>

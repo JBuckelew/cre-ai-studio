@@ -35,7 +35,7 @@ const FORMAT_OPTIONS = [
 const CHECKLIST = [
   "Live instruction from the CRE AI Studio team",
   "Scoped to your platform, seats, and enabled features before we build",
-  "Demos built on your own documents and workflows",
+  "Your subscription's strongest features, shown on your everyday deal work",
   "Reusable recordings to share across your team, plus a session outline and prompt library",
 ];
 

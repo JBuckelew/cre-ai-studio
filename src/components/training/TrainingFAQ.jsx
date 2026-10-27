@@ -3,19 +3,15 @@ import React from "react";
 export const FAQ_ITEMS = [
   {
     q: "Which AI platforms do you train on?",
-    a: "Claude, ChatGPT, Gemini, and Microsoft Copilot. We teach the platform your firm uses, in the features your subscription includes. If teams are on different tools, we scope per team.",
+    a: "Claude, ChatGPT, Gemini, and Microsoft Copilot. We teach the platform and features your firm already has. If teams use different tools, we scope per team.",
   },
   {
-    q: "How do you customize the training to our firm?",
-    a: "We start from your platform, subscription, enabled features, and connections. We survey your teams on how they use AI and how they want to, then build demos on your documents and workflows. The session reinforces what your team already wants to do, and covers advanced features for work they have not figured out yet.",
+    q: "How do you customize the training?",
+    a: "We review your platform, seats, and enabled features, survey your teams, then build demos on your documents and workflows.",
   },
   {
     q: "Do we need an AI survey?",
-    a: "A short survey is the fastest way to shape the agenda. If you have one, we use it. If not, we help you create one. For a small group, a conversation can stand in.",
-  },
-  {
-    q: "What is the difference between a one-time training and a package?",
-    a: "A one-time training gives a team a customized baseline in a single session. A package is a multi-session program: basics for the firm, an advanced track for power users, or focused sessions across teams.",
+    a: "A short survey is the fastest way to shape the agenda. If you do not have one, we help you create it. For a small group, a conversation can stand in.",
   },
   {
     q: "Is training online or onsite?",
@@ -29,31 +25,24 @@ export const FAQ_ITEMS = [
     q: "What do we leave with?",
     a: "The recording, a session outline, and a prompt library.",
   },
-  {
-    q: "How do we get started?",
-    a: "Request a training below. We confirm your platform, seats, features, and goals on a short call, then scope the engagement around your firm.",
-  },
 ];
 
 export default function TrainingFAQ() {
   return (
-    <section id="faq" className="bg-slate-50 py-20">
+    <section id="faq" className="bg-slate-50 py-12 lg:py-14">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-5">
-            FAQ
+        <div className="mb-8">
+          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
+            Questions
           </span>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
             FAQ
           </h2>
         </div>
-        <dl className="space-y-4">
+        <dl className="divide-y divide-slate-200 border-y border-slate-200">
           {FAQ_ITEMS.map((item) => (
-            <div
-              key={item.q}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <dt className="font-semibold text-slate-900 mb-2">{item.q}</dt>
+            <div key={item.q} className="py-5">
+              <dt className="font-semibold text-slate-900 mb-1.5">{item.q}</dt>
               <dd className="text-sm text-slate-600 leading-relaxed">{item.a}</dd>
             </div>
           ))}

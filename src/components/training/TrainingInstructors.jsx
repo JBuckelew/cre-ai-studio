@@ -3,17 +3,19 @@ import React from "react";
 const TOPHER_PRESENTING =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/cb29a120e_instructor-topher.jpg";
 const JONATHAN_PRESENTING =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/812f30337_instructor-jonathan.jpg";
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/9f33e88bd_instructor-jonathan.jpg";
 
 const FOUNDERS = [
   {
     name: "Topher Stephenson",
     image: TOPHER_PRESENTING,
+    objectPosition: "center",
     bio: "11+ years in commercial real estate technology and brokerage. Nationwide AI educator for CRE professionals.",
   },
   {
     name: "Jonathan Buckelew",
     image: JONATHAN_PRESENTING,
+    objectPosition: "left center",
     bio: "10+ years in real estate private equity. Investment, asset management, and finance perspective on real deals.",
   },
 ];
@@ -43,6 +45,7 @@ export default function TrainingInstructors() {
                   src={f.image}
                   alt={`${f.name}, CRE AI Studio`}
                   className="w-full h-full object-cover"
+                  style={{ objectPosition: f.objectPosition || "center" }}
                   loading="lazy"
                 />
               </div>

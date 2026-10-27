@@ -9,7 +9,7 @@ CRE AI Studio teaches commercial real estate professionals to use AI tools in th
 - [Home](https://creaistudio.com/): AI training for commercial real estate pros. Weekly hands-on tutorials and templates, live Q&A, and a community of hundreds of CRE pros.
 - [Newsletter](https://creaistudio.com/Newsletter): Free weekly AI tutorials, prompt libraries, and real CRE workflows delivered to your inbox.
 - [Speaking](https://creaistudio.com/speaking): Book Topher Stephenson, AI keynote speaker and trainer for commercial real estate, for keynotes, workshops and webinars at CRE conferences and associations.
-- [Training](https://creaistudio.com/training): Custom AI training for CRE brokerages, asset managers, and associations, with demos built on your own workflows. Recording and prompt pack included.
+- [Training](https://creaistudio.com/training): Custom AI training for CRE brokerages, asset managers, and associations, with demos built on your own workflows. Reusable recordings to share across your team, plus a prompt library.
 - [Workshops](https://creaistudio.com/Workshops): Live, hands-on AI workshops built specifically for CRE professionals. Learn to build, automate, and deploy AI tools for your commercial real estate business.
 - [Consulting](https://creaistudio.com/Consulting): Custom AI consulting for CRE firms: Claude skills and agents, document intelligence, workflow automation, and AI strategy roadmapping.
 - [Articles](https://creaistudio.com/Articles): AI articles and videos for commercial real estate professionals: NotebookLM, Gemini vs. Copilot, and the top AI tools every CRE pro should know.

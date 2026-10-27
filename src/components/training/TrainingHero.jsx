@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 
 const HERO_DUAL =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/46850fa06_hero-dual-presenters-a.jpg";
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ee6f67917_hero-dual-presenters-a.jpg";
 
 export default function TrainingHero({ onRequestClick, onHowClick, onTestimonialsClick }) {
   return (

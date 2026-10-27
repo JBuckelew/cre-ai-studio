@@ -1,7 +1,7 @@
 import React from "react";
 
 const ORGS = [
-  "SVN",
+  "SVN International",
   "CORFAC International",
   "CBRE Canada",
   "CREDA",
@@ -11,8 +11,7 @@ const ORGS = [
   "Texas REALTORS",
   "CCIM",
   "Sitings Realty",
-  "Sunstone Commercial",
-  "Legend Partners / X TEAM",
+  "X Team",
 ];
 
 export default function TrainingWho() {
@@ -27,10 +26,10 @@ export default function TrainingWho() {
           management · associations
         </p>
         <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-5xl">
-          Teams and members at{" "}
+          We&apos;ve trained teams at{" "}
           {ORGS.map((name, i) => (
             <React.Fragment key={name}>
-              {i > 0 && (i === ORGS.length - 1 ? ", and " : ", ")}
+              {i > 0 && ", "}
               <strong className="text-slate-900 font-semibold">{name}</strong>
             </React.Fragment>
           ))}

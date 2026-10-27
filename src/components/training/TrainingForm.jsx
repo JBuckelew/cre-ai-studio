@@ -26,9 +26,9 @@ const PLATFORM_OPTIONS = [
 
 const FORMAT_OPTIONS = [
   "Not sure yet",
-  "One-time training for one team",
-  "Basics or advanced package",
-  "Focused-team package across several groups",
+  "The Core AI Training",
+  "Multi-Team AI Training Packages",
+  "Enterprise Training Packages",
 ];
 
 const CHECKLIST = [

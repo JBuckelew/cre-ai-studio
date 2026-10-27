@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TrainingPlatforms() {
   return (
-    <section id="platforms" className="bg-slate-50 py-16 lg:py-20">
+    <section id="platforms" className="bg-slate-50 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">

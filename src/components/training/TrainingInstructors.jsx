@@ -9,46 +9,43 @@ const FOUNDERS = [
   {
     name: "Topher Stephenson",
     image: TOPHER_PRESENTING,
-    bio: "11+ years in commercial real estate technology and brokerage, including leasing, marketing, and operations at a multi-office brokerage. Nationwide AI educator for CRE professionals.",
+    bio: "11+ years in commercial real estate technology and brokerage. Nationwide AI educator for CRE professionals.",
   },
   {
     name: "Jonathan Buckelew",
     image: JONATHAN_PRESENTING,
-    bio: "10+ years in real estate private equity. Investment, asset management, and finance perspective on how these tools get used on real deals.",
+    bio: "10+ years in real estate private equity. Investment, asset management, and finance perspective on real deals.",
   },
 ];
 
 export default function TrainingInstructors() {
   return (
-    <section id="instructors" className="bg-white py-20">
+    <section id="instructors" className="bg-white py-12 lg:py-14">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-12">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-5">
+        <div className="max-w-3xl mb-8">
+          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
             Who delivers it
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
             Who delivers it
           </h2>
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 leading-relaxed text-sm md:text-base">
             Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training
             practice. Sessions are taught by our training team.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
           {FOUNDERS.map((f) => (
-            <div
-              key={f.name}
-              className="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden shadow-sm"
-            >
+            <div key={f.name} className="flex gap-4 items-start">
               <img
                 src={f.image}
                 alt={`${f.name}, CRE AI Studio`}
-                className="w-full aspect-[4/3] object-cover"
+                className="w-24 h-24 rounded-xl object-cover shrink-0 border border-slate-200"
                 loading="lazy"
               />
-              <div className="p-7">
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{f.name}</h3>
+              <div>
+                <h3 className="font-bold text-slate-900 mb-1">{f.name}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">{f.bio}</p>
               </div>
             </div>

@@ -7,7 +7,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "How do you customize the training?",
-    a: "We review your platform, seats, and enabled features, survey your teams, then build demos on your documents and workflows.",
+    a: "We review your platform, seats, and enabled features, survey your teams, then build each session around the deal work they do every day.",
   },
   {
     q: "Do we need an AI survey?",

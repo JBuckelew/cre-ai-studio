@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionHead } from "@/components/training/TrainingQuoteKit";
 
 const TOPHER_PRESENTING =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/91db4f179_instructor-topher-v2.jpg";
@@ -24,24 +25,18 @@ const FOUNDERS = [
 
 export default function TrainingInstructors() {
   return (
-    <section id="instructors" className="bg-white py-12 md:py-16 lg:py-20">
+    <section id="instructors" className="bg-white py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-12">
-          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
-            Instructors
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
-            Who teaches CRE AI training
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-lg">
-            Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training
-            practice. Sessions are taught by our training team.
-          </p>
-        </div>
+        <SectionHead
+          chip="Instructors"
+          title="Who teaches"
+          accent="CRE AI training"
+          sub="Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training practice. Sessions are taught by our training team."
+        />
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl">
           {FOUNDERS.map((f) => (
-            <div key={f.name} className="grid sm:grid-cols-5 gap-5 items-start">
+            <div key={f.name} className="grid sm:grid-cols-5 gap-5 items-start rounded-3xl bg-slate-50 border border-slate-200 p-5 shadow-sm">
               <div className="sm:col-span-2 rounded-2xl overflow-hidden border-2 border-slate-100 shadow-sm aspect-[4/5] w-full max-w-[260px] sm:max-w-none bg-slate-100">
                 <img
                   src={f.image}
@@ -59,7 +54,7 @@ export default function TrainingInstructors() {
                     href={f.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                    className="inline-flex items-center gap-2 mt-4 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
                     aria-label={`${f.name} on LinkedIn`}
                   >
                     <svg aria-hidden="true" viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">

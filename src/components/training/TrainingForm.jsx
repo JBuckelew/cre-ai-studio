@@ -100,7 +100,7 @@ export default function TrainingForm() {
 
   if (success) {
     return (
-      <section id="request" className="bg-white py-12 md:py-16 lg:py-20">
+      <section id="request" className="bg-white py-14 md:py-20 scroll-mt-40 md:scroll-mt-24">
         <div className="max-w-md mx-auto text-center rounded-2xl bg-slate-50 border-2 border-slate-100 p-10">
           <CheckCircle className="w-12 h-12 text-blue-600 mx-auto mb-4" />
           <p className="text-slate-900 text-lg font-semibold">Thanks. Your request is in.</p>
@@ -111,7 +111,7 @@ export default function TrainingForm() {
   }
 
   return (
-    <section id="request" className="bg-white py-12 md:py-16 lg:py-20">
+    <section id="request" className="bg-white py-14 md:py-20 scroll-mt-40 md:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           <div>
@@ -159,7 +159,7 @@ export default function TrainingForm() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-slate-50 border-2 border-slate-100 p-7 md:p-8">
+          <div className="rounded-3xl bg-slate-50 border border-slate-200 shadow-xl shadow-slate-200/70 p-7 md:p-9">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="text-sm text-slate-900 font-medium mb-1.5 block">Your name *</label>

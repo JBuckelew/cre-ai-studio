@@ -7,7 +7,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "How do you customize the training to our firm?",
-    a: "We start from your platform, subscription, enabled features, and connections. We survey your teams on how they use AI and how they want to, then build demos on your documents and workflows. The session reinforces what your team already wants to do, and trains them on advanced features for the work they have not figured out yet.",
+    a: "We start from your platform, subscription, enabled features, and connections. We survey your teams on how they use AI and how they want to, then build demos on your documents and workflows. The session reinforces what your team already wants to do, and covers advanced features for work they have not figured out yet.",
   },
   {
     q: "Do we need an AI survey?",
@@ -19,11 +19,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Is training online or onsite?",
-    a: "Live online is the default. Onsite when your group size, location, and goals call for it.",
+    a: "Sessions run over live video, or onsite if you prefer.",
   },
   {
     q: "Who delivers the training?",
-    a: "Both founders, Topher Stephenson and Jonathan Buckelew.",
+    a: "Founders Topher Stephenson and Jonathan Buckelew lead the practice, alongside our training team.",
   },
   {
     q: "What do we leave with?",

@@ -36,37 +36,37 @@ const GRID = [
 
 export default function TrainingTestimonials() {
   return (
-    <section id="testimonials" className="bg-slate-50 py-12 lg:py-14">
+    <section id="testimonials" className="bg-slate-50 py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-8">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
             From CRE leaders
-          </span>
+          </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
             What CRE leaders say
           </h2>
         </div>
 
-        <blockquote className="rounded-2xl bg-slate-900 text-white p-8 md:p-10 mb-8 max-w-4xl">
-          <p className="text-lg md:text-xl leading-relaxed mb-6">
+        <blockquote className="rounded-3xl bg-slate-900 text-white px-8 py-10 md:px-14 md:py-14 mb-12">
+          <p className="font-serif text-2xl md:text-3xl font-medium leading-snug mb-8 max-w-4xl">
             &ldquo;{FEATURED.quote}&rdquo;
           </p>
-          <footer className="text-sm text-white/70">
+          <footer className="text-sm text-slate-400">
             <span className="font-semibold text-white">{FEATURED.name}</span>
             {" · "}
             {FEATURED.role}
           </footer>
         </blockquote>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
           {GRID.map((t) => (
-            <div key={t.name} className="border-t border-slate-200 pt-4">
-              <p className="text-slate-700 leading-relaxed text-sm mb-3">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <p className="font-semibold text-slate-900 text-sm">{t.name}</p>
-              <p className="text-xs text-slate-500 mt-0.5">{t.role}</p>
-            </div>
+            <blockquote key={t.name} className="border-t border-slate-200 pt-6">
+              <p className="text-slate-700 leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>
+              <footer>
+                <p className="font-semibold text-slate-900 text-sm">{t.name}</p>
+                <p className="text-xs text-slate-500 mt-0.5">{t.role}</p>
+              </footer>
+            </blockquote>
           ))}
         </div>
       </div>

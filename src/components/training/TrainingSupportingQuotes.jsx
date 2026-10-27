@@ -19,12 +19,6 @@ const SUPPORTING = [
     quote:
       "He showed us how to use AI to move faster on marketing, and explored in detail how to build custom AI bots that can handle repetitive tasks in our business.",
   },
-  {
-    name: "Tanner Olson",
-    role: "Managing Partner, Legend Partners Utah, X TEAM",
-    quote:
-      "What sets Topher apart is his ability to distill complex industry trends and tools into practical, real-world applications. Something incredibly rare in a space often full of buzzwords.",
-  },
 ];
 
 export default function TrainingSupportingQuotes() {
@@ -34,7 +28,7 @@ export default function TrainingSupportingQuotes() {
         <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-8">
           More from CRE leaders
         </p>
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl">
+        <div className="grid lg:grid-cols-3 gap-x-10 gap-y-8">
           {SUPPORTING.map((t) => (
             <figure key={t.name} className="border-l-2 border-blue-200 pl-5">
               <blockquote className="text-slate-600 leading-relaxed mb-3">

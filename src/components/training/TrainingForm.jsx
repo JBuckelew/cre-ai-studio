@@ -36,7 +36,7 @@ const CHECKLIST = [
   "Live instruction from the CRE AI Studio team",
   "Scoped to your platform, seats, and enabled features before we build",
   "Demos built on your own documents and workflows",
-  "Recording, session outline, and prompt library included",
+  "Reusable recordings to share across your team, plus a session outline and prompt library",
 ];
 
 export default function TrainingForm() {
@@ -104,7 +104,7 @@ export default function TrainingForm() {
         <div className="max-w-md mx-auto text-center rounded-2xl bg-slate-50 border-2 border-slate-100 p-10">
           <CheckCircle className="w-12 h-12 text-blue-600 mx-auto mb-4" />
           <p className="text-slate-900 text-lg font-semibold">Thanks. Your request is in.</p>
-          <p className="text-slate-600 text-sm mt-2">We will be in touch within one business day.</p>
+          <p className="text-slate-600 text-sm mt-2">We aim to reply within one business day.</p>
         </div>
       </section>
     );
@@ -120,7 +120,7 @@ export default function TrainingForm() {
             </h2>
             <p className="text-slate-600 leading-relaxed mb-8">
               Tell us which platform your firm is on, roughly how many people you want trained, and
-              what you want them doing differently afterward. We reply within one business day.
+              what you want them doing differently afterward. We aim to reply within one business day.
             </p>
 
             <ul className="space-y-3 mb-10">
@@ -200,7 +200,7 @@ export default function TrainingForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm text-slate-900 font-medium mb-1.5 block">
-                    How many people?
+                    About how many people?
                   </label>
                   <select
                     name="team_size"
@@ -217,7 +217,7 @@ export default function TrainingForm() {
                 </div>
                 <div>
                   <label className="text-sm text-slate-900 font-medium mb-1.5 block">
-                    What are they on?
+                    Which AI platform?
                   </label>
                   <select
                     name="platform"
@@ -252,7 +252,7 @@ export default function TrainingForm() {
               </div>
               <div>
                 <label className="text-sm text-slate-900 font-medium mb-1.5 block">
-                  When are you thinking?
+                  Target timeline
                 </label>
                 <input
                   name="timeline"
@@ -290,7 +290,7 @@ export default function TrainingForm() {
                 )}
               </button>
               <p className="text-xs text-slate-400 text-center">
-                We reply within one business day.
+                We aim to reply within one business day.
               </p>
             </form>
           </div>

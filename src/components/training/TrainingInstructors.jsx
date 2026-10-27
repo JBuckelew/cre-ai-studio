@@ -1,9 +1,9 @@
 import React from "react";
 
 const TOPHER_PRESENTING =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ddd6f4855_topher-presenting.jpg";
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/cb29a120e_instructor-topher.jpg";
 const JONATHAN_PRESENTING =
-  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/e9990578e_jonathan-presenting.jpg";
+  "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/9ca16f1e9_instructor-jonathan.jpg";
 
 const FOUNDERS = [
   {

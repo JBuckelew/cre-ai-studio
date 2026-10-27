@@ -27,8 +27,8 @@ export default function TrainingDifference() {
             Built around your firm
           </h2>
           <p className="text-slate-600 leading-relaxed">
-            Others teach a standard AI curriculum. We build the training around your commercial real
-            estate firm.
+            Each engagement is built around your commercial real estate firm: your platform, your
+            subscription, and how your teams already work.
           </p>
         </div>
 

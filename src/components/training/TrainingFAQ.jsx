@@ -33,7 +33,7 @@ export const FAQ_ITEMS = [
 
 export default function TrainingFAQ() {
   return (
-    <section id="faq" className="bg-white py-16 lg:py-20">
+    <section id="faq" className="bg-white py-12 md:py-16 lg:py-20">
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-10">
           <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">

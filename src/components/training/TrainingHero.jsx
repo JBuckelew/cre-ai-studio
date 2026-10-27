@@ -6,7 +6,7 @@ const HERO_DUAL =
 
 export default function TrainingHero({ onRequestClick, onHowClick, onTestimonialsClick }) {
   return (
-    <section className="bg-slate-50 py-12 lg:py-20">
+    <section className="bg-slate-50 py-10 md:py-14 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
@@ -33,10 +33,10 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
               materials.
             </p>
 
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6">
               <button
                 onClick={onRequestClick}
-                className="bg-slate-900 text-white hover:bg-slate-800 font-semibold px-7 py-3.5 rounded-full transition-all duration-300 inline-flex items-center gap-2"
+                className="bg-slate-900 text-white hover:bg-slate-800 font-semibold px-7 py-3.5 rounded-full transition-all duration-300 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 Request a training
                 <ArrowRight className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
               <img
                 src={HERO_DUAL}
                 alt="Topher Stephenson and Jonathan Buckelew, founders of CRE AI Studio"
-                className="w-full aspect-[4/5] md:aspect-[3/4] object-cover object-center"
+                className="w-full aspect-[4/3] object-cover object-center"
                 loading="eager"
               />
             </div>

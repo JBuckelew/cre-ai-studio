@@ -33,7 +33,7 @@ const serviceSchema = {
   serviceType: "Corporate AI training for commercial real estate firms",
   name: "AI training for commercial real estate teams",
   description:
-    "Corporate AI training for CRE firms on Claude, ChatGPT, Gemini, or Copilot. Built around your platform, subscription, and workflows. Sessions run over live video, or onsite if you prefer.",
+    "CRE AI training for commercial real estate firms on Claude, ChatGPT, Gemini, or Copilot. Built around your platform, subscription, and workflows. Sessions run over live video, or onsite if you prefer. Training CRE teams on AI since March 2024.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -80,7 +80,7 @@ export default function Training() {
   usePageMeta({
     title: "AI Training for Commercial Real Estate Teams | CRE AI Studio",
     description:
-      "Corporate AI training for CRE firms on Claude, ChatGPT, Gemini, or Copilot. Built around your platform, subscription, and workflows. Sessions run over live video, or onsite if you prefer.",
+      "CRE AI training for commercial real estate firms and teams on Claude, ChatGPT, Gemini, or Copilot. A commercial real estate AI training company built around your platform and workflows. Training CRE teams on AI since March 2024.",
     path: "/training",
     appendSiteName: false,
     noindex: false,

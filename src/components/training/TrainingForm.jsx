@@ -115,7 +115,7 @@ export default function TrainingForm() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
-              Request a training
+              Request AI training for your commercial real estate team
             </h2>
             <p className="text-slate-600 leading-relaxed mb-8">
               Tell us which platform your firm is on, roughly how many people you want trained, and

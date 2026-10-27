@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionHead } from "@/components/training/TrainingQuoteKit";
 
 export const FAQ_ITEMS = [
   {
@@ -33,20 +34,16 @@ export const FAQ_ITEMS = [
 
 export default function TrainingFAQ() {
   return (
-    <section id="faq" className="bg-white py-12 md:py-16 lg:py-20">
+    <section id="faq" className="bg-slate-50 py-14 md:py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
-            Questions
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-            Common questions about CRE AI training
-          </h2>
-        </div>
-        <dl className="divide-y divide-slate-200">
+        <SectionHead chip="Questions" title="Common questions about" accent="CRE AI training" />
+        <dl className="space-y-4">
           {FAQ_ITEMS.map((item) => (
-            <div key={item.q} className="py-6">
-              <dt className="font-semibold text-slate-900 mb-2">{item.q}</dt>
+            <div
+              key={item.q}
+              className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6 md:p-7"
+            >
+              <dt className="font-serif font-bold text-lg text-slate-900 mb-2">{item.q}</dt>
               <dd className="text-slate-600 leading-relaxed">{item.a}</dd>
             </div>
           ))}

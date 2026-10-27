@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 
 export default function TrainingByTeam() {
   return (
-    <section id="by-team" className="bg-slate-50 py-16 lg:py-20">
+    <section id="by-team" className="bg-slate-50 py-12 md:py-16 lg:py-20">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <Quote className="w-10 h-10 text-blue-600 mb-6 mx-auto" />
         <blockquote>

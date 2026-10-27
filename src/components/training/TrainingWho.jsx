@@ -17,16 +17,16 @@ const ORGS = [
 
 export default function TrainingWho() {
   return (
-    <section id="who-weve-trained" className="bg-white py-10 border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="who-weve-trained" className="bg-white border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6 py-10 lg:py-12">
         <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
           Who we&apos;ve trained
         </p>
-        <p className="text-sm text-slate-500 mb-4 max-w-3xl">
+        <p className="text-sm text-slate-500 mb-5 max-w-3xl">
           Brokerages · investment and private equity · owner/operators · developers · property
           management · associations · lenders · REITs
         </p>
-        <p className="text-slate-700 leading-relaxed max-w-5xl text-sm md:text-base">
+        <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-5xl">
           Teams and members at{" "}
           {ORGS.map((name, i) => (
             <React.Fragment key={name}>

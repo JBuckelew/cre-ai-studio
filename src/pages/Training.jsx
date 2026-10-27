@@ -19,7 +19,7 @@ const topherPerson = {
   name: "Topher Stephenson",
   jobTitle: "Co-founder, CRE AI Studio",
   worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
-  sameAs: ["https://www.linkedin.com/in/topherstephenson/", "https://x.com/TopherNow"],
+  sameAs: ["https://www.linkedin.com/in/tophernow/", "https://x.com/TopherNow"],
   url: "https://creaistudio.com/training",
 };
 
@@ -28,6 +28,7 @@ const jonathanPerson = {
   name: "Jonathan Buckelew",
   jobTitle: "Co-founder, CRE AI Studio",
   worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
+  sameAs: ["https://www.linkedin.com/in/jonathan-buckelew/"],
   url: "https://creaistudio.com/training",
 };
 
@@ -47,7 +48,7 @@ const topherPersonSchema = {
   name: "Topher Stephenson",
   jobTitle: "Co-founder, CRE AI Studio",
   worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
-  sameAs: ["https://www.linkedin.com/in/topherstephenson/", "https://x.com/TopherNow"],
+  sameAs: ["https://www.linkedin.com/in/tophernow/", "https://x.com/TopherNow"],
   url: "https://creaistudio.com/training",
 };
 
@@ -57,6 +58,7 @@ const jonathanPersonSchema = {
   name: "Jonathan Buckelew",
   jobTitle: "Co-founder, CRE AI Studio",
   worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
+  sameAs: ["https://www.linkedin.com/in/jonathan-buckelew/"],
   url: "https://creaistudio.com/training",
 };
 
@@ -124,7 +126,7 @@ export default function Training() {
     appendSiteName: false,
     noindex: false,
     image:
-      "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ee6f67917_hero-dual-presenters-a.jpg",
+      "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/296225da6_hero-dual-presenters-v2.jpg",
     ogImageAlt: "Topher Stephenson and Jonathan Buckelew, founders of CRE AI Studio",
   });
 

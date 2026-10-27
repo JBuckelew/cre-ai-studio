@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TrainingDifference() {
   return (
-    <section id="built-around" className="bg-slate-50 py-16 lg:py-20">
+    <section id="built-around" className="bg-slate-50 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-5">

@@ -20,27 +20,18 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
 
             <p className="text-lg text-slate-600 leading-relaxed mb-4 max-w-xl">
               Corporate AI training for CRE firms, built around the platform you already run. We
-              train on your stack, your subscription, the features you have turned on, and your
-              team&apos;s real work.
+              train on your stack, your subscription, the features you have turned on, and the work
+              your people already do.
             </p>
 
-            <p className="text-sm font-semibold text-slate-800 mb-6 max-w-xl">
+            <p className="text-sm font-semibold text-slate-800 mb-4 max-w-xl">
               Training CRE teams on AI since March 2024.
             </p>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 mb-8 max-w-xl shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-                Short answer
-              </p>
-              <p className="text-sm text-slate-700 leading-relaxed">
-                CRE AI Studio trains commercial real estate teams on the AI platform your firm
-                already uses: Claude, ChatGPT, Gemini, or Copilot. We start from your subscription
-                and enabled features, learn how your teams use AI today and how they want to, then
-                build the session on your own documents and workflows. Both founders deliver it live
-                — online by default, onsite when that fits. You keep the recording and the
-                materials.
-              </p>
-            </div>
+            <p className="text-sm text-slate-600 leading-relaxed mb-8 max-w-xl">
+              We train on Claude, ChatGPT, Gemini, or Copilot, whichever your firm uses. Sessions run
+              over live video, or onsite if you prefer. You keep the recording and the materials.
+            </p>
 
             <div className="flex flex-wrap items-center gap-6">
               <button
@@ -68,13 +59,10 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
           <div className="rounded-2xl overflow-hidden border border-slate-200 w-full max-w-lg shadow-sm md:justify-self-end bg-white">
             <img
               src={HERO_DUAL}
-              alt="Topher Stephenson and Jonathan Buckelew delivering CRE AI training"
+              alt="Topher Stephenson and Jonathan Buckelew, founders of CRE AI Studio"
               className="w-full aspect-[16/10] object-cover"
               loading="eager"
             />
-            <p className="px-4 py-3 text-xs text-slate-500 border-t border-slate-100">
-              Both founders deliver every session — live online by default.
-            </p>
           </div>
         </div>
       </div>

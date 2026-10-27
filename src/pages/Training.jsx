@@ -85,7 +85,7 @@ export default function Training() {
     appendSiteName: false,
     noindex: false,
     image:
-      "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ddd6f4855_topher-presenting.jpg",
+      "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/6001223af_hero-dual-presenters-a.jpg",
     ogImageAlt: "Topher Stephenson delivering AI training for a commercial real estate team",
   });
 

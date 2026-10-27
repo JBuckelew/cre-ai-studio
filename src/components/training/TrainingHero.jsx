@@ -19,9 +19,9 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
             </h1>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-4 max-w-xl">
-              CRE AI training built around the AI platform your firm already runs: Claude, ChatGPT,
-              Gemini, or Copilot. We train on your subscription, the features you have turned on, and
-              the work your people already do.
+              CRE AI training for commercial real estate teams on the AI platform your firm already
+              runs: Claude, ChatGPT, Gemini, or Copilot. We train on your subscription, the features
+              your seats include, and the day-to-day workflows on your desks.
             </p>
 
             <p className="text-sm font-semibold text-slate-800 mb-3 max-w-xl">
@@ -29,8 +29,8 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
             </p>
 
             <p className="text-sm text-slate-600 leading-relaxed mb-8 max-w-xl">
-              Sessions run over live video, or onsite if you prefer. You keep the recording and the
-              materials.
+              Sessions run over live video, or onsite if you prefer. Reusable recordings to share
+              across your team.
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6">

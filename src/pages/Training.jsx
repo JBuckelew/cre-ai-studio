@@ -14,6 +14,23 @@ import TrainingSupportingQuotes from "@/components/training/TrainingSupportingQu
 import TrainingForm from "@/components/training/TrainingForm";
 import TrainingBridge from "@/components/training/TrainingBridge";
 
+const topherPerson = {
+  "@type": "Person",
+  name: "Topher Stephenson",
+  jobTitle: "Co-founder, CRE AI Studio",
+  worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
+  sameAs: ["https://www.linkedin.com/in/topherstephenson/", "https://x.com/TopherNow"],
+  url: "https://creaistudio.com/training",
+};
+
+const jonathanPerson = {
+  "@type": "Person",
+  name: "Jonathan Buckelew",
+  jobTitle: "Co-founder, CRE AI Studio",
+  worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
+  url: "https://creaistudio.com/training",
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -21,10 +38,26 @@ const organizationSchema = {
   url: "https://creaistudio.com",
   email: "topher@creaistudio.com",
   logo: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/68a7d83d574299e5af5ccbd3/4da799a0b_CREAIStudioLogoDesign.png?width=1200&height=630&resize=contain",
-  founder: [
-    { "@type": "Person", name: "Topher Stephenson" },
-    { "@type": "Person", name: "Jonathan Buckelew" },
-  ],
+  founder: [topherPerson, jonathanPerson],
+};
+
+const topherPersonSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Topher Stephenson",
+  jobTitle: "Co-founder, CRE AI Studio",
+  worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
+  sameAs: ["https://www.linkedin.com/in/topherstephenson/", "https://x.com/TopherNow"],
+  url: "https://creaistudio.com/training",
+};
+
+const jonathanPersonSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Jonathan Buckelew",
+  jobTitle: "Co-founder, CRE AI Studio",
+  worksFor: { "@type": "Organization", name: "CRE AI Studio", url: "https://creaistudio.com" },
+  url: "https://creaistudio.com/training",
 };
 
 const serviceSchema = {
@@ -65,7 +98,7 @@ const courseSchema = {
   "@type": "Course",
   name: "Corporate AI training for commercial real estate teams",
   description:
-    "AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Built around your firm's platform and workflows. Sessions run over live video, or onsite if you prefer.",
+    "AI training for commercial real estate teams on Claude, ChatGPT, Gemini, or Copilot. Built around your firm's platform and workflows. Sessions run over live video, or onsite if you prefer. Reusable recordings to share across your team.",
   provider: {
     "@type": "Organization",
     name: "CRE AI Studio",
@@ -74,13 +107,19 @@ const courseSchema = {
   educationalLevel: "Professional",
   teaches: "AI tools and workflows for commercial real estate teams",
   url: "https://creaistudio.com/training",
+  offers: {
+    "@type": "Offer",
+    category: "Inquiry",
+    url: "https://creaistudio.com/training#request",
+    availability: "https://schema.org/InStock",
+  },
 };
 
 export default function Training() {
   usePageMeta({
     title: "AI Training for Commercial Real Estate Teams | CRE AI Studio",
     description:
-      "CRE AI training for commercial real estate firms and teams on Claude, ChatGPT, Gemini, or Copilot. A commercial real estate AI training company built around your platform and workflows. Training CRE teams on AI since March 2024.",
+      "AI training for commercial real estate teams on ChatGPT, Copilot, Claude, or Gemini. CRE AI Studio is a commercial real estate AI training company built around your platform and workflows. Training CRE teams on AI since March 2024.",
     path: "/training",
     appendSiteName: false,
     noindex: false,
@@ -131,6 +170,14 @@ export default function Training() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(topherPersonSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jonathanPersonSchema) }}
       />
     </div>
   );

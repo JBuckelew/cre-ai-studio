@@ -12,11 +12,15 @@ export default function TrainingBridge() {
           </h2>
           <p className="text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto">
             Not ready to book a team training? Membership and the newsletter cover practical AI for
-            CRE. Firm trainings are separate from community membership. Or see{" "}
+            CRE. Firm trainings are separate from community membership. Or see the{" "}
+            <a href="/" className="underline underline-offset-2 hover:text-white">
+              homepage
+            </a>
+            ,{" "}
             <a href="/consulting" className="underline underline-offset-2 hover:text-white">
               consulting
-            </a>{" "}
-            and{" "}
+            </a>
+            , and{" "}
             <a href="/use-cases" className="underline underline-offset-2 hover:text-white">
               AI use cases
             </a>

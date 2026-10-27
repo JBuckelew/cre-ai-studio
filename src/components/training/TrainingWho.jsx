@@ -1,13 +1,14 @@
 import React from "react";
+import { SectionHead } from "@/components/training/TrainingQuoteKit";
 
 const ORGS = [
   "SVN International",
-  "CORFAC International",
   "CBRE Canada",
-  "CREDA",
-  "NewMark Merrill Companies",
-  "Coldwell Banker Commercial",
   "RE/MAX Commercial",
+  "Coldwell Banker Commercial",
+  "CREDA",
+  "CORFAC International",
+  "NewMark Merrill Companies",
   "Texas REALTORS",
   "CCIM",
   "Sitings Realty",
@@ -16,25 +17,30 @@ const ORGS = [
 
 export default function TrainingWho() {
   return (
-    <section id="who-weve-trained" className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 py-10 lg:py-12">
-        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-          Who we&apos;ve trained
-        </p>
-        <p className="text-sm text-slate-500 mb-5 max-w-3xl">
-          Brokerages · investment and private equity · owner/operators · developers · property
-          management · associations
-        </p>
-        <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-5xl">
-          We&apos;ve trained teams at{" "}
+    <section id="who-weve-trained" className="bg-white py-14 md:py-20 border-b border-slate-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHead
+          chip="Who we've trained"
+          title="We've trained teams at"
+          sub="Brokerages · investment and private equity · owner/operators · developers · property management · associations"
+        />
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {ORGS.map((name, i) => (
-            <React.Fragment key={name}>
-              {i > 0 && ", "}
-              <strong className="text-slate-900 font-semibold">{name}</strong>
-            </React.Fragment>
+            <li
+              key={name}
+              className={`rounded-xl border px-4 py-5 md:py-6 text-center flex items-center justify-center font-serif font-bold tracking-tight leading-tight text-base md:text-lg ${
+                i < 5
+                  ? "bg-white border-slate-300 text-slate-900 shadow-sm"
+                  : "bg-slate-50 border-slate-200 text-slate-600"
+              }`}
+            >
+              {name}
+            </li>
           ))}
-          , and others.
-        </p>
+          <li className="rounded-xl border border-dashed border-slate-300 px-4 py-5 md:py-6 text-center flex items-center justify-center italic text-slate-500 text-base md:text-lg font-serif">
+            and others
+          </li>
+        </ul>
       </div>
     </section>
   );

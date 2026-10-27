@@ -29,9 +29,9 @@ export default function TrainingInstructors() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHead
           chip="Instructors"
-          title="Who teaches"
-          accent="CRE AI training"
-          sub="Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training practice. Sessions are taught by our training team."
+          title="Who Leads Our"
+          accent="CRE AI Training"
+          sub="Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training practice. Training sessions are delivered by the co-founders along with our CRE AI training team."
         />
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">

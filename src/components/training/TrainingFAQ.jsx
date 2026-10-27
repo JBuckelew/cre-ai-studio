@@ -20,7 +20,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Who delivers the training?",
-    a: "Founders Topher Stephenson and Jonathan Buckelew lead the practice, alongside our training team.",
+    a: "Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training practice. Training sessions are delivered by the co-founders along with our CRE AI training team.",
+  },
+  {
+    q: "Can people ask questions during the training?",
+    a: "Questions can be answered throughout the training session, with dedicated time for Q&A built in at the end. Every question is answered by commercial real estate professionals with over a decade of industry experience.",
   },
   {
     q: "What do we leave with?",

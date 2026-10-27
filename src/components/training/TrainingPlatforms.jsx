@@ -20,7 +20,7 @@ export default function TrainingPlatforms() {
           chip="Platforms"
           title="AI training for commercial real estate firms,"
           accent="on your platform"
-          sub="We teach the features your seats include, on the stack your firm already pays for."
+          sub="You've invested in an AI platform for your team. We help your team put AI to work. CRE AI Studio has trained commercial real estate teams and individuals across the country on every core AI platform available."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {PLATFORMS.map((p) => (
@@ -34,16 +34,6 @@ export default function TrainingPlatforms() {
             </div>
           ))}
         </div>
-        <p className="text-sm text-slate-600 mt-8">
-          See the work these sessions target in our{" "}
-          <a
-            href="/use-cases"
-            className="text-blue-600 hover:text-blue-700 font-medium underline-offset-2 hover:underline"
-          >
-            AI use cases for commercial real estate
-          </a>
-          .
-        </p>
       </div>
     </section>
   );

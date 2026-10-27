@@ -23,6 +23,10 @@ export const FAQ_ITEMS = [
     a: "Topher Stephenson and Jonathan Buckelew founded CRE AI Studio and lead the training practice. Training sessions are delivered by the co-founders along with our CRE AI training team.",
   },
   {
+    q: "What CRE AI training packages do you offer?",
+    a: "The Core AI Training is a one-time session for your team. Multi-Team AI Training Packages are structured multi-session programs built around how your teams operate and their proficiency with AI. Enterprise Training Packages are bespoke programs for large organizations, delivered across multiple cohorts and built with your stakeholders and IT team.",
+  },
+  {
     q: "Can people ask questions during the training?",
     a: "Questions can be answered throughout the training session, with dedicated time for Q&A built in at the end. Every question is answered by commercial real estate professionals with over a decade of industry experience.",
   },

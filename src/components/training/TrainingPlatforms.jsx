@@ -2,16 +2,16 @@ import React from "react";
 
 export default function TrainingPlatforms() {
   return (
-    <section id="platforms" className="bg-slate-50 py-12 lg:py-14">
+    <section id="platforms" className="bg-slate-50 py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl">
-          <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
             Platforms
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
-            Built around your platform
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
+            AI training for commercial real estate firms, on your platform
           </h2>
-          <p className="text-slate-600 leading-relaxed mb-3">
+          <p className="text-slate-600 leading-relaxed text-lg mb-4">
             Claude (Projects, Artifacts, Skills), ChatGPT (custom GPTs and projects), Gemini (app and
             Workspace side panels), or Microsoft Copilot (Chat, agents, and Microsoft 365). We teach
             the features your seats include.

@@ -17,9 +17,8 @@ export default function TrainingDifference() {
             <p className="text-slate-600 leading-relaxed text-lg mb-10">
               We confirm your platform, subscription, seats, and enabled features before we build
               anything. A short survey (yours, or one we help you write) shows how people use AI now
-              and where they want to go. Demos use your documents and workflows. The session covers
-              the work your team already wants to do, then the advanced features they have not figured
-              out yet.
+              and where they want to go. Demos use your documents and workflows. Sessions cover the
+              tasks your team needs done, then the advanced features they have not figured out yet.
             </p>
 
             <blockquote className="rounded-2xl bg-white border-2 border-slate-100 p-6 md:p-8 shadow-sm">

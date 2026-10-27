@@ -6,34 +6,34 @@ const HERO_DUAL =
 
 export default function TrainingHero({ onRequestClick, onHowClick, onTestimonialsClick }) {
   return (
-    <section className="bg-slate-50 py-12 lg:py-20">
+    <section className="bg-slate-50 py-10 lg:py-14">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-14 items-start">
           <div>
-            <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-6">
+            <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-purple-500 mb-5">
               Corporate AI training for CRE firms
             </span>
 
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight mb-5">
               AI Training for Commercial Real Estate Teams
             </h1>
 
-            <p className="text-lg text-slate-600 leading-relaxed mb-4 max-w-xl">
-              Corporate AI training for CRE firms, built around the platform you already run. We
-              train on your stack, your subscription, the features you have turned on, and the work
+            <p className="text-lg text-slate-600 leading-relaxed mb-3 max-w-xl">
+              Built around the AI platform your firm already runs: Claude, ChatGPT, Gemini, or
+              Copilot. We train on your subscription, the features you have turned on, and the work
               your people already do.
             </p>
 
-            <p className="text-sm font-semibold text-slate-800 mb-4 max-w-xl">
+            <p className="text-sm font-semibold text-slate-800 mb-3 max-w-xl">
               Training CRE teams on AI since March 2024.
             </p>
 
-            <p className="text-sm text-slate-600 leading-relaxed mb-8 max-w-xl">
-              We train on Claude, ChatGPT, Gemini, or Copilot, whichever your firm uses. Sessions run
-              over live video, or onsite if you prefer. You keep the recording and the materials.
+            <p className="text-sm text-slate-600 leading-relaxed mb-7 max-w-xl">
+              Sessions run over live video, or onsite if you prefer. You keep the recording and the
+              materials.
             </p>
 
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-wrap items-center gap-5">
               <button
                 onClick={onRequestClick}
                 className="bg-slate-900 text-white hover:bg-slate-800 font-semibold px-7 py-3.5 rounded-full transition-all duration-300 inline-flex items-center gap-2"

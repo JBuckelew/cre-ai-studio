@@ -24,7 +24,7 @@ export default function TrainingWho() {
         </p>
         <p className="text-sm text-slate-500 mb-5 max-w-3xl">
           Brokerages · investment and private equity · owner/operators · developers · property
-          management · associations · lenders · REITs
+          management · associations
         </p>
         <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-5xl">
           Teams and members at{" "}

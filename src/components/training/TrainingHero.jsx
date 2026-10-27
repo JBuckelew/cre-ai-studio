@@ -4,13 +4,6 @@ import { ArrowRight } from "lucide-react";
 const HERO_DUAL =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/296225da6_hero-dual-presenters-v2.jpg";
 
-const STATS = [
-  { v: "Since March 2024", l: "Training CRE teams on AI" },
-  { v: "4", l: "AI platforms: Claude, ChatGPT, Gemini, and Copilot" },
-  { v: "11+", l: "Firms and associations named below" },
-  { v: "Reusable", l: "Recordings to share across your team" },
-];
-
 export default function TrainingHero({ onRequestClick, onHowClick, onTestimonialsClick }) {
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white">
@@ -18,7 +11,7 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
         aria-hidden="true"
         className="absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_20%,rgba(59,130,246,0.28),transparent),radial-gradient(40%_50%_at_10%_90%,rgba(168,85,247,0.18),transparent)]"
       />
-      <div className="relative max-w-7xl mx-auto px-6 pt-12 md:pt-16 lg:pt-20">
+      <div className="relative max-w-7xl mx-auto px-6 pt-12 md:pt-16 lg:pt-20 pb-14 md:pb-20 lg:pb-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           <div className="lg:col-span-6">
             <span className="inline-block rounded-full bg-white/10 ring-1 ring-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-blue-200 mb-6">
@@ -36,6 +29,9 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
               your seats include, and the day-to-day workflows on your desks.
             </p>
 
+            <p className="text-base font-semibold text-slate-100 leading-relaxed mb-2 max-w-xl">
+              Training CRE teams on AI since March 2024.
+            </p>
             <p className="text-base text-slate-400 leading-relaxed mb-9 max-w-xl">
               Sessions run over live video, or onsite if you prefer. Reusable recordings to share
               across your team.
@@ -89,23 +85,6 @@ export default function TrainingHero({ onRequestClick, onHowClick, onTestimonial
           </div>
         </div>
 
-        <dl className="grid grid-cols-2 lg:grid-cols-4 mt-12 md:mt-16 border-t border-white/10">
-          {STATS.map((s, i) => (
-            <div
-              key={s.l}
-              className={`py-6 md:py-8 pr-4 ${i % 2 === 1 ? "pl-4" : ""} ${
-                i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""
-              } ${i >= 2 ? "border-t border-white/10 lg:border-t-0" : ""} ${
-                i % 2 === 1 ? "border-l border-white/10" : ""
-              }`}
-            >
-              <dt className="font-serif text-2xl md:text-3xl font-bold text-white leading-tight">
-                {s.v}
-              </dt>
-              <dd className="text-sm text-slate-400 mt-1.5 leading-snug">{s.l}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

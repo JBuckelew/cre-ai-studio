@@ -85,7 +85,7 @@ export default function Training() {
     appendSiteName: false,
     noindex: false,
     image:
-      "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/46850fa06_hero-dual-presenters-a.jpg",
+      "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/ee6f67917_hero-dual-presenters-a.jpg",
     ogImageAlt: "Topher Stephenson and Jonathan Buckelew, founders of CRE AI Studio",
   });
 

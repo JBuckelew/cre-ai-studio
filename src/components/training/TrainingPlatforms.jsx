@@ -1,32 +1,49 @@
 import React from "react";
+import { SectionHead } from "@/components/training/TrainingQuoteKit";
+
+const PLATFORMS = [
+  { name: "Claude", features: "Projects, Artifacts, Skills", tone: "from-orange-400 to-amber-500" },
+  { name: "ChatGPT", features: "Custom GPTs and projects", tone: "from-emerald-500 to-teal-500" },
+  { name: "Gemini", features: "App and Workspace side panels", tone: "from-blue-500 to-indigo-500" },
+  {
+    name: "Microsoft Copilot",
+    features: "Chat, agents, and Microsoft 365",
+    tone: "from-sky-500 to-cyan-500",
+  },
+];
 
 export default function TrainingPlatforms() {
   return (
-    <section id="platforms" className="bg-slate-50 py-12 md:py-16 lg:py-20">
+    <section id="platforms" className="bg-white py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4">
-            Platforms
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-5">
-            AI training for commercial real estate firms, on your platform
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-lg mb-4">
-            Claude (Projects, Artifacts, Skills), ChatGPT (custom GPTs and projects), Gemini (app and
-            Workspace side panels), or Microsoft Copilot (Chat, agents, and Microsoft 365). We teach
-            the features your seats include, on the stack your firm already pays for.
-          </p>
-          <p className="text-sm text-slate-600">
-            See the work these sessions target in our{" "}
-            <a
-              href="/use-cases"
-              className="text-blue-600 hover:text-blue-700 font-medium underline-offset-2 hover:underline"
+        <SectionHead
+          chip="Platforms"
+          title="AI training for commercial real estate firms,"
+          accent="on your platform"
+          sub="We teach the features your seats include, on the stack your firm already pays for."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {PLATFORMS.map((p) => (
+            <div
+              key={p.name}
+              className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm overflow-hidden"
             >
-              AI use cases for commercial real estate
-            </a>
-            .
-          </p>
+              <span className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${p.tone}`} />
+              <h3 className="font-serif text-xl font-bold text-slate-900 mb-1.5 pl-2">{p.name}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed pl-2">{p.features}</p>
+            </div>
+          ))}
         </div>
+        <p className="text-sm text-slate-600 mt-8">
+          See the work these sessions target in our{" "}
+          <a
+            href="/use-cases"
+            className="text-blue-600 hover:text-blue-700 font-medium underline-offset-2 hover:underline"
+          >
+            AI use cases for commercial real estate
+          </a>
+          .
+        </p>
       </div>
     </section>
   );

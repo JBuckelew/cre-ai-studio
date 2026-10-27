@@ -1,7 +1,7 @@
 import React from "react";
-import { QUOTES, QuoteCard, SectionHead } from "@/components/training/TrainingQuoteKit";
+import { withLine, QuoteCard, SectionHead } from "@/components/training/TrainingQuoteKit";
 
-const LAST = [QUOTES.salk, QUOTES.knight];
+const LAST = ["salk", "eric"];
 
 export default function TrainingSupportingQuotes() {
   return (
@@ -9,8 +9,8 @@ export default function TrainingSupportingQuotes() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHead chip="Testimonials" title="More from" accent="CRE leaders" />
         <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-          {LAST.map((q) => (
-            <QuoteCard key={q.name} q={q} />
+          {LAST.map((k) => (
+            <QuoteCard key={k} q={withLine(k)} />
           ))}
         </div>
       </div>

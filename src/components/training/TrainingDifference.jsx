@@ -17,7 +17,8 @@ export default function TrainingDifference() {
             <p className="text-slate-600 leading-relaxed text-lg mb-10">
               We confirm your platform, subscription, seats, and enabled features before we build
               anything. A short survey (yours, or one we help you write) shows how people use AI now
-              and where they want to go. Demos use your documents and workflows. Sessions cover the
+              and where they want to go. We show your team how to use the most powerful features in your AI subscription on the
+              same deal work they do every day. Sessions cover the
               tasks your team needs done, then the advanced features they have not figured out yet.
             </p>
 

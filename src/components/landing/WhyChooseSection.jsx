@@ -29,7 +29,7 @@ export default function WhyChooseSection() {
       iconColor: "text-white",
       bgColor: "from-green-500 to-teal-600",
       title: "24/7 Access to the Founders",
-      description: "Direct access to Jonathan, Topher, and Nadine through our Circle Community - get answers and insights whenever you need them.",
+      description: "Direct access to Jonathan and Topher through our Circle Community - get answers and insights whenever you need them.",
       highlight: "24/7 Support"
     }
   ];

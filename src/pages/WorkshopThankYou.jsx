@@ -116,7 +116,7 @@ export default function WorkshopThankYou() {
                       Join Circle Community
                     </div>
                     <p className="text-slate-600">
-                      Your invitation to our private Circle community will arrive tomorrow. This is where you'll connect with your cohort and get async Q&A access to Nadine.
+                      Your invitation to our private Circle community will arrive tomorrow. This is where you'll connect with your cohort and get async Q&A access.
                     </p>
                   </div>
                 </div>

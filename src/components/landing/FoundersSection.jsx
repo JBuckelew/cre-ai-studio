@@ -12,12 +12,6 @@ export default function FoundersSection() {
       details: ["10+ Years Real Estate Private Equity", "LinkedIn AI Voice"],
     },
     {
-      name: "Nadine Ezzie", 
-      role: "Co-Founder",
-      image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/cd96f15c9_Nadine.png",
-      details: ["20-Year CRE Attorney", "Former Tech Executive", "National AI Speaker"],
-    },
-    {
       name: "Topher Stephenson",
       role: "Co-Founder", 
       image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/ea324b7b8_Topher.png",
@@ -68,7 +62,7 @@ export default function FoundersSection() {
             Led by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">CRE AI Experts</span> Across Multiple Real Estate Fields
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Three visionary professionals bringing decades of commercial real estate 
+            Two visionary professionals bringing decades of commercial real estate 
             and technology expertise to revolutionize how the industry works.
           </p>
         </motion.div>
@@ -78,7 +72,7 @@ export default function FoundersSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 lg:gap-12"
+          className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto"
         >
           {founders.map((founder, index) => (
             <motion.div
@@ -155,15 +149,11 @@ export default function FoundersSection() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12 text-left">
+          <div className="grid md:grid-cols-2 gap-8 mb-12 text-left max-w-4xl mx-auto">
             {[
               {
                 title: "Asset + Property Management",
                 description: "Jonathan has spent over a decade at both large and small PE groups helping build Asset Management teams and infusing them with technology from LLMs to AI Agents. He's developed a big following on LinkedIn where he shares a lot about his AM journey and the AI that helps him daily",
-              },
-              {
-                title: "Law, Compliance + Tech",
-                description: "Nadine is a seasoned CRE attorney and founder of an AI-first law firm reimagining how the industry works. As Chair of Legal Policy & Innovation at the U.S. Proptech Council and co-host of the CRE Unplugged podcast, she brings a bold voice to the future of real estate. Nadine is a sought-after keynote speaker known for making the complex intersection of AI, policy, and the built environment both clear and compelling.",
               },
               {
                 title: "Operations + Marketing",

@@ -3,7 +3,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CheckCircle, Calendar, Users, Award, ArrowRight } from "lucide-react";
+import { CheckCircle, Calendar, Users, ArrowRight } from "lucide-react";
 import { enhanceStripeUrl } from "@/lib/stripeAttribution";
 
 export default function WorkshopPayment() {
@@ -64,7 +64,6 @@ export default function WorkshopPayment() {
                       <div className="text-sm text-slate-600">Small cohort for personalized attention</div>
                     </div>
                   </div>
-
                 </div>
 
                 <div className="border-t border-slate-200 pt-6 mt-6">

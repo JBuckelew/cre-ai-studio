@@ -54,6 +54,7 @@ import UseCasePropertyManagementFees from './pages/UseCasePropertyManagementFees
 import UseCasePropertyManagementReporting from './pages/UseCasePropertyManagementReporting';
 import UseCaseMultifamilyAcquisitions from './pages/UseCaseMultifamilyAcquisitions';
 import UseCaseAICommercialRealEstateBrokers from './pages/UseCaseAICommercialRealEstateBrokers';
+import UseCaseLeaseRenewalWorkflow from './pages/UseCaseLeaseRenewalWorkflow';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -294,6 +295,11 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/ai-for-commercial-real-estate-brokers-grok-bot-admin" element={
         <LayoutWrapper currentPageName="UseCaseAICommercialRealEstateBrokers">
           <UseCaseAICommercialRealEstateBrokers />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/lease-renewal-workflow-ai-one-word-reply" element={
+        <LayoutWrapper currentPageName="UseCaseLeaseRenewalWorkflow">
+          <UseCaseLeaseRenewalWorkflow />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

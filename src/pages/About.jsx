@@ -53,8 +53,15 @@ const organization = {
   name: "CRE AI Studio",
   url: SITE,
   email: "hello@creaistudio.com",
+  foundingDate: "2025",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "New York",
+    addressRegion: "NY",
+    addressCountry: "US",
+  },
   description:
-    "AI learning community, team training and consulting for commercial real estate professionals and teams.",
+    "AI learning community, team training and consulting for commercial real estate professionals.",
   sameAs: [NEWSLETTER_URL],
   founder: [
     {
@@ -155,7 +162,7 @@ export default function About() {
         <header>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-5">About CRE AI Studio</h1>
           <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
-            CRE AI Studio teaches commercial real estate professionals and teams how to use AI in their daily work,
+            CRE AI Studio teaches commercial real estate professionals how to use AI in their daily work,
             through an online community, team training, consulting, a weekly newsletter and conference talks.
           </p>
         </header>
@@ -200,15 +207,13 @@ export default function About() {
             <li>We are two practitioners: Jonathan comes from real estate private equity and asset management, and Topher from CRE technology and brokerage.</li>
             <li>Lessons are step by step, so you can use them on your next deal.</li>
             <li>The founders answer questions themselves. At Level 3, members get a direct channel to us, with answers within 24 hours.</li>
-            <li>We have been training CRE teams on AI since March 2024.</li>
             <li>One place covers it all: learn on your own in the community, train your team, or bring us in to build.</li>
           </ul>
         </Section>
 
         <Section title="Who it's for">
           <p className="text-slate-700 leading-relaxed">
-            CRE brokers, investors, asset managers, property managers, analysts and developers, and the teams and
-            firms they work in.
+            CRE brokers, asset managers, developers and owners, and analysts.
           </p>
         </Section>
 
@@ -240,8 +245,7 @@ export default function About() {
             <li>
               <strong>Community membership.</strong> Three levels: Level 1 The Basics Plan ($50 a month or $480 a
               year), Level 2 The Achiever Plan ($75 a month or $720 a year) and Level 3 The Super Growth Plan ($100 a
-              month or $960 a year). Every level starts with a 7-day free trial. A card is needed to start it.
-              We don't refund payments after the trial ends.{" "}
+              month or $960 a year). Every level starts with a 7-day free trial. A card is needed to start it.{" "}
               <Link to="/FreeTrialPayment" className={linkClass}>Start your free trial</Link>.
             </li>
             <li>
@@ -258,11 +262,11 @@ export default function About() {
         <Section title="Key facts">
           <dl className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm grid gap-3 text-slate-700">
             <div><dt className="font-bold text-slate-900 inline">Company name: </dt><dd className="inline">CRE AI Studio</dd></div>
-            <div><dt className="font-bold text-slate-900 inline">Founded: </dt><dd className="inline">[Topher to confirm]</dd></div>
+            <div><dt className="font-bold text-slate-900 inline">Founded: </dt><dd className="inline">2025</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Founders: </dt><dd className="inline">Topher Stephenson and Jonathan Buckelew</dd></div>
-            <div><dt className="font-bold text-slate-900 inline">Headquarters: </dt><dd className="inline">[Topher to confirm]</dd></div>
+            <div><dt className="font-bold text-slate-900 inline">Headquarters: </dt><dd className="inline">New York City</dd></div>
             <div><dt className="font-bold text-slate-900 inline">What we offer: </dt><dd className="inline">Online AI learning community, AI training for CRE teams and companies, consulting, a weekly newsletter, and speaking and workshops</dd></div>
-            <div><dt className="font-bold text-slate-900 inline">Who it's for: </dt><dd className="inline">CRE brokers, investors, asset managers, property managers, analysts, developers and their teams</dd></div>
+            <div><dt className="font-bold text-slate-900 inline">Who it's for: </dt><dd className="inline">CRE brokers, asset managers, developers and owners, and analysts</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Pricing: </dt><dd className="inline">Community membership from $50 a month, $75 or $100 for higher levels, or $480, $720 or $960 a year. 7-day free trial on all levels.</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Newsletter: </dt><dd className="inline">Free, weekly, 6,000+ readers (<a href={NEWSLETTER_URL} className={linkClass}>creaistudio.beehiiv.com</a>)</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Website: </dt><dd className="inline"><a href={SITE} className={linkClass}>creaistudio.com</a></dd></div>

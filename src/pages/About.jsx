@@ -12,6 +12,13 @@ const TOPHER_IMG =
 const JONATHAN_IMG =
   "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/8c4abcfa5_instructor-jonathan-v2.jpg";
 
+const COMMUNITY_AUDIENCE =
+  "brokers, investors, lenders, developers, owners, asset managers, property managers, analysts and operators";
+const TRAINING_AUDIENCE =
+  "brokers, investors and acquisitions teams, developers, owners, asset managers, property managers, analysts, capital markets teams, private equity teams, lenders, and executives and firm leaders";
+const CONSULTING_AUDIENCE =
+  "brokerages, owners, developers, asset managers, investment firms and funds, REITs, lenders (including debt funds and bank and life company credit teams), and analysts";
+
 const PAGE_TITLE = "About CRE AI Studio | AI Training for Commercial Real Estate";
 const PAGE_DESCRIPTION =
   "CRE AI Studio is an AI learning community, team training and consulting company for commercial real estate, run by Topher Stephenson and Jonathan Buckelew.";
@@ -26,12 +33,24 @@ const FAQS = [
     a: "Members get weekly step-by-step video lessons and AI skills built for CRE, monthly office hours, and a community of hundreds of CRE professionals. Level 2 adds live monthly VIP training sessions with Q&A. Level 3 adds direct access to the founders, with questions answered within 24 hours.",
   },
   {
+    q: "Who is the community for?",
+    a: `The community is for ${COMMUNITY_AUDIENCE}.`,
+  },
+  {
     q: "Do you train teams?",
     a: "Yes. We train CRE teams and companies on AI, delivered by Jonathan and Topher. Clients include SVN International, CREDA and X Team. Team training is a separate service from the community membership.",
   },
   {
+    q: "Who is team training for?",
+    a: `Team training is for ${TRAINING_AUDIENCE}.`,
+  },
+  {
     q: "Do you do consulting?",
     a: "Yes. We work with CRE firms on AI strategy and on building AI into their workflows. You can start with a call about what your team needs.",
+  },
+  {
+    q: "Who is consulting for?",
+    a: `Consulting is for ${CONSULTING_AUDIENCE}.`,
   },
   {
     q: "Do you speak at conferences?",
@@ -170,18 +189,19 @@ export default function About() {
         <Section title="What we offer">
           <div className="grid md:grid-cols-2 gap-5">
             <Offer title="The online community">
-              Our paid community is where CRE professionals learn AI together. Members get weekly step-by-step video
-              lessons, AI skills built for CRE, monthly office hours and a community of hundreds of peers.{" "}
+              Our paid community is where CRE professionals learn AI together. It is for {COMMUNITY_AUDIENCE}.
+              Members get weekly step-by-step video lessons, AI skills built for CRE, monthly office hours and a
+              community of hundreds of peers.{" "}
               <Link to="/#whats-included" className={linkClass}>See the membership levels</Link>.
             </Offer>
             <Offer title="AI training for CRE teams and companies">
               We train whole teams on the AI tools they already have, using their own documents and CRE workflows.
-              Sessions are delivered by Jonathan and Topher.{" "}
+              It is for {TRAINING_AUDIENCE}. Sessions are delivered by Jonathan and Topher.{" "}
               <Link to="/training" className={linkClass}>Learn about team training</Link>.
             </Offer>
             <Offer title="Consulting">
-              We help CRE firms decide where AI fits and then build it into their workflows. You can start with a
-              call about what your team needs.{" "}
+              We help CRE firms decide where AI fits and then build it into their workflows. It is for{" "}
+              {CONSULTING_AUDIENCE}. You can start with a call about what your team needs.{" "}
               <Link to="/Consulting" className={linkClass}>Learn about consulting</Link>.
             </Offer>
             <Offer title="The newsletter">
@@ -207,14 +227,17 @@ export default function About() {
             <li>We are two practitioners: Jonathan comes from real estate private equity and asset management, and Topher from CRE technology and brokerage.</li>
             <li>Lessons are step by step, so you can use them on your next deal.</li>
             <li>The founders answer questions themselves. At Level 3, members get a direct channel to us, with answers within 24 hours.</li>
+            <li>Our founders have trained CRE teams on AI since 2023.</li>
             <li>One place covers it all: learn on your own in the community, train your team, or bring us in to build.</li>
           </ul>
         </Section>
 
         <Section title="Who it's for">
-          <p className="text-slate-700 leading-relaxed">
-            CRE brokers, asset managers, developers and owners, and analysts.
-          </p>
+          <ul className="list-disc pl-6 space-y-2 text-slate-700 leading-relaxed">
+            <li><strong>The community:</strong> {COMMUNITY_AUDIENCE}.</li>
+            <li><strong>Team training:</strong> {TRAINING_AUDIENCE}.</li>
+            <li><strong>Consulting:</strong> {CONSULTING_AUDIENCE}.</li>
+          </ul>
         </Section>
 
         <Section title="The people">
@@ -223,7 +246,7 @@ export default function About() {
               name="Topher Stephenson"
               image={TOPHER_IMG}
               linkedin={TOPHER_LINKEDIN}
-              bio="Topher has 11+ years in commercial real estate technology and brokerage. He trains CRE professionals on AI tools and speaks at industry events."
+              bio="Topher has 11+ years in commercial real estate technology and brokerage. He trains CRE professionals on AI tools and speaks at industry events. He has trained CRE teams on AI since 2023."
               extra={
                 <>
                   {" · "}
@@ -266,7 +289,7 @@ export default function About() {
             <div><dt className="font-bold text-slate-900 inline">Founders: </dt><dd className="inline">Topher Stephenson and Jonathan Buckelew</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Headquarters: </dt><dd className="inline">New York City</dd></div>
             <div><dt className="font-bold text-slate-900 inline">What we offer: </dt><dd className="inline">Online AI learning community, AI training for CRE teams and companies, consulting, a weekly newsletter, and speaking and workshops</dd></div>
-            <div><dt className="font-bold text-slate-900 inline">Who it's for: </dt><dd className="inline">CRE brokers, asset managers, developers and owners, and analysts</dd></div>
+            <div><dt className="font-bold text-slate-900 inline">Who it's for: </dt><dd className="inline">Community: {COMMUNITY_AUDIENCE}. Team training: {TRAINING_AUDIENCE}. Consulting: {CONSULTING_AUDIENCE}.</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Pricing: </dt><dd className="inline">Community membership from $50 a month, $75 or $100 for higher levels, or $480, $720 or $960 a year. 7-day free trial on all levels.</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Newsletter: </dt><dd className="inline">Free, weekly, 6,000+ readers (<a href={NEWSLETTER_URL} className={linkClass}>creaistudio.beehiiv.com</a>)</dd></div>
             <div><dt className="font-bold text-slate-900 inline">Website: </dt><dd className="inline"><a href={SITE} className={linkClass}>creaistudio.com</a></dd></div>

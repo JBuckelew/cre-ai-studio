@@ -55,6 +55,7 @@ import UseCasePropertyManagementReporting from './pages/UseCasePropertyManagemen
 import UseCaseMultifamilyAcquisitions from './pages/UseCaseMultifamilyAcquisitions';
 import UseCaseAICommercialRealEstateBrokers from './pages/UseCaseAICommercialRealEstateBrokers';
 import UseCaseLeaseRenewalWorkflow from './pages/UseCaseLeaseRenewalWorkflow';
+import UseCaseAiMarketResearchPodcasts from './pages/UseCaseAiMarketResearchPodcasts';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -300,6 +301,11 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/lease-renewal-workflow-ai-one-word-reply" element={
         <LayoutWrapper currentPageName="UseCaseLeaseRenewalWorkflow">
           <UseCaseLeaseRenewalWorkflow />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/ai-market-research-claude-500-podcasts" element={
+        <LayoutWrapper currentPageName="UseCaseAiMarketResearchPodcasts">
+          <UseCaseAiMarketResearchPodcasts />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

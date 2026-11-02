@@ -106,24 +106,32 @@ export const BANNER_TESTIMONIAL = {
 
 export const FAQS = [
   {
-    q: "What does an AI speaker for commercial real estate actually cover?",
-    a: "Live demonstrations of AI tools applied to real CRE work: prospecting, lease abstraction, underwriting, marketing, and property management workflows. Every session is built around what attendees can implement the same week, not industry predictions.",
+    q: "Who are these sessions for?",
+    a: "Brokers, agents, marketers, analysts, and operations teams at brokerages, associations, and CRE firms. Sessions are built to work for day-one professionals and 30-year veterans in the same room.",
   },
   {
     q: "What formats does Topher offer?",
-    a: "Two core formats: a 60-minute conference keynote and a 2-4 hour hands-on workshop. Webinars and larger corporate training programs run through CRE AI Studio.",
+    a: "Two core formats: a 60-minute conference keynote and a 2-4 hour hands-on workshop. Webinars for teams anywhere are also available.",
   },
   {
-    q: "Who is the audience for these sessions?",
-    a: "Brokers, agents, marketers, analysts, and operations teams at brokerages, associations, and CRE firms. Sessions are built to land with day-one professionals and 30-year veterans in the same room.",
+    q: "Is it in person or virtual?",
+    a: "Both. Keynotes and workshops are usually in person at conferences and company events. Topher also runs sessions by webinar for teams and chapters that cannot meet in one place.",
   },
   {
-    q: "How is this different from a generic AI keynote?",
-    a: "Topher spent 11 years in commercial real estate operations and now teaches AI to CRE professionals weekly through CRE AI Studio. The demos use real CRE workflows and documents, so the audience sees their own job on screen.",
+    q: "How long is a session?",
+    a: "A keynote runs 60 minutes, with Q&A built in. A hands-on workshop runs 2 to 4 hours, depending on how much your group wants to build during the session.",
+  },
+  {
+    q: "How custom is the session?",
+    a: "Every session is built for the audience in the room. Topher uses real CRE workflows and documents, such as leases, rent rolls, and marketing, and shapes the examples around your group's roles and the AI tools they already use.",
   },
   {
     q: "Does Topher travel for events?",
-    a: "Yes. Based on the East Coast, speaking nationwide, with webinars available for teams anywhere.",
+    a: "Yes. Topher is based in New York City and speaks at events across the country. Travel details are worked out with the organizer when you book.",
+  },
+  {
+    q: "How do I book Topher?",
+    a: "Fill out the booking form on this page or email topher@creaistudio.com with your event, date, audience size, and the format you have in mind.",
   },
 ];
 
@@ -145,5 +153,25 @@ export const PODCASTS = [
     title: "Deep Research, Skills, and the AI Stack for Brokers",
     url: "https://podcasts.apple.com/us/podcast/deep-research-skills-and-the-ai-stack-for-brokers/id1632649892?i=1000767272351",
     image: "https://media.base44.com/images/public/68a7d83d574299e5af5ccbd3/8b2632180_podcast-3-thumb.jpg",
+  },
+];
+export const CLIENT_QUOTES = [
+  {
+    org: "SVN International",
+    quote: "Topher has a unique ability to translate complex concepts into practical, relevant insights for commercial real estate professionals at all levels. The feedback from our Advisors was overwhelmingly positive.",
+    author: "Sarah Vincent",
+    title: "Chief Growth Officer, SVN International Public Benefit Corporation",
+  },
+  {
+    org: "CREDA",
+    quote: "Partnering with CRE AI Studio to develop and deliver our AI in Commercial Real Estate course has been an exceptional experience.",
+    author: "Erin Horan, Ph.D.",
+    title: "Sr. Manager E-learning and Education Content, Commercial Real Estate Development Association (CREDA)",
+  },
+  {
+    org: "X TEAM",
+    quote: "What sets Topher apart is his ability to distill complex industry trends and tools into practical, real-world applications. Something incredibly rare in a space often full of buzzwords.",
+    author: "Tanner Olson",
+    title: "Managing Partner, X TEAM",
   },
 ];

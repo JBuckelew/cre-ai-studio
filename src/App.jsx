@@ -14,7 +14,6 @@ import FacebookAdLanding from './pages/FacebookAdLanding';
 import Newsletter from './pages/Newsletter';
 import Speaking from './pages/Speaking';
 import Training from './pages/Training';
-import About from './pages/About';
 import Workshops from './pages/Workshops';
 import WorkshopDashboard from './pages/WorkshopDashboard';
 import UseCases from './pages/UseCases';
@@ -56,7 +55,6 @@ import UseCasePropertyManagementReporting from './pages/UseCasePropertyManagemen
 import UseCaseMultifamilyAcquisitions from './pages/UseCaseMultifamilyAcquisitions';
 import UseCaseAICommercialRealEstateBrokers from './pages/UseCaseAICommercialRealEstateBrokers';
 import UseCaseLeaseRenewalWorkflow from './pages/UseCaseLeaseRenewalWorkflow';
-import UseCaseAiMarketResearchPodcasts from './pages/UseCaseAiMarketResearchPodcasts';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -102,11 +100,6 @@ const AuthenticatedApp = () => {
       <Route path="/training" element={
         <LayoutWrapper currentPageName="Training">
           <Training />
-        </LayoutWrapper>
-      } />
-      <Route path="/about" element={
-        <LayoutWrapper currentPageName="About">
-          <About />
         </LayoutWrapper>
       } />
       <Route path="/Workshops" element={
@@ -307,11 +300,6 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/lease-renewal-workflow-ai-one-word-reply" element={
         <LayoutWrapper currentPageName="UseCaseLeaseRenewalWorkflow">
           <UseCaseLeaseRenewalWorkflow />
-        </LayoutWrapper>
-      } />
-      <Route path="/use-cases/ai-market-research-claude-500-podcasts" element={
-        <LayoutWrapper currentPageName="UseCaseAiMarketResearchPodcasts">
-          <UseCaseAiMarketResearchPodcasts />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

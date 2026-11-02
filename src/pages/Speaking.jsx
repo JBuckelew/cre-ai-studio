@@ -8,7 +8,9 @@ import SpeakingTestimonials from "@/components/speaking/SpeakingTestimonials";
 import BookingForm from "@/components/speaking/BookingForm";
 import RecentAppearances from "@/components/speaking/RecentAppearances";
 import StudioBridge from "@/components/speaking/StudioBridge";
-import { SCARCITY, IMAGES, VIDEO } from "@/components/speaking/speakingData";
+import SpeakingFAQ from "@/components/speaking/SpeakingFAQ";
+import SpeakingClients from "@/components/speaking/SpeakingClients";
+import { SCARCITY, IMAGES, VIDEO, FAQS } from "@/components/speaking/speakingData";
 
 const OG_IMAGE = IMAGES.heroStage;
 
@@ -28,11 +30,21 @@ const serviceSchema = {
   provider: { "@type": "Person", name: "Topher Stephenson" },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function Speaking() {
   usePageMeta({
     title: "AI Speaker for Commercial Real Estate | Topher Stephenson | CRE AI Studio",
     description:
-      "Book Topher Stephenson, AI keynote speaker and trainer for commercial real estate. Practical keynotes, hands-on workshops, and webinars for CRE conferences, associations, and brokerage teams.",
+      "Book Topher Stephenson, an AI speaker for commercial real estate. Practical keynotes and hands-on workshops for CRE conferences, associations and firms.",
     path: "/speaking",
     image: OG_IMAGE,
     type: "website",
@@ -64,6 +76,7 @@ export default function Speaking() {
       <FormatsSection onRequestFormat={handleRequestFormat} />
       <WhyTopher portraitImage={IMAGES.speakerPortrait} />
       <SpeakingTestimonials bannerImage={IMAGES.audienceHero} />
+      <SpeakingClients />
       <div id="booking">
         <BookingForm
           scarcity={SCARCITY}
@@ -72,6 +85,7 @@ export default function Speaking() {
         />
       </div>
       <RecentAppearances />
+      <SpeakingFAQ faqs={FAQS} />
       <StudioBridge />
 
       <section className="bg-slate-900 text-white py-10 border-t border-white/10">
@@ -116,6 +130,10 @@ export default function Speaking() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

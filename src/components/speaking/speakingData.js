@@ -52,7 +52,7 @@ export const FORMATS = [
 export const STATS = [
   { value: "11", label: "years in CRE operations" },
   { value: "20+", label: "conferences, associations, and brokerages served" },
-  { value: "5,100+", label: "newsletter readers" },
+  { value: "6,000+", label: "newsletter readers" },
   { value: "Weekly", label: "live AI trainings inside CRE AI Studio" },
 ];
 
@@ -89,7 +89,7 @@ export const TESTIMONIALS = [
   {
     quote: "What sets Topher apart is his ability to distill complex industry trends and tools into practical, real-world applications. Something incredibly rare in a space often full of buzzwords.",
     author: "Tanner Olson",
-    role: "Managing Partner, Legend Partners Utah, X TEAM",
+    role: "Managing Partner, X Team and Legends",
   },
   {
     quote: "A unique combination of CRE and technology experience gives Topher an outstanding ability to speak to technology platforms in a way commercial real estate professionals can easily understand.",
@@ -172,6 +172,6 @@ export const CLIENT_QUOTES = [
     org: "X TEAM",
     quote: "What sets Topher apart is his ability to distill complex industry trends and tools into practical, real-world applications. Something incredibly rare in a space often full of buzzwords.",
     author: "Tanner Olson",
-    title: "Managing Partner, X TEAM",
+    title: "Managing Partner, X Team and Legends",
   },
 ];

@@ -107,7 +107,7 @@ export const BANNER_TESTIMONIAL = {
 export const FAQS = [
   {
     q: "Who are these sessions for?",
-    a: "Brokers, agents, marketers, analysts, and operations teams at brokerages, associations, and CRE firms. Sessions are built to work for day-one professionals and 30-year veterans in the same room.",
+    a: "Commercial real estate teams and conferences of every kind: brokerage conferences and in-house brokerage teams, general real estate associations, development and investment groups, and retail and industry events. Past audiences include SVN International's annual conference, the CCIM SWFL Outlook Conference, the Texas REALTORS Conference, the National Association of REALTORS, the Econic Retail Summit, CREDA, Coldwell Banker Commercial, and NewMark Merrill Companies. Sessions work for brokers, agents, analysts, marketers, asset managers, and operations teams, from day-one professionals to 30-year veterans in the same room.",
   },
   {
     q: "What formats does Topher offer?",
@@ -123,11 +123,11 @@ export const FAQS = [
   },
   {
     q: "How custom is the session?",
-    a: "Every session is built for the audience in the room. Topher uses real CRE workflows and documents, such as leases, rent rolls, and marketing, and shapes the examples around your group's roles and the AI tools they already use.",
+    a: "Every session is built for the audience in the room. Topher builds the workflows around your group's roles, the AI tools they already use, and the tools that work best for the kind of commercial real estate work they do.",
   },
   {
     q: "Does Topher travel for events?",
-    a: "Yes. Topher is based in New York City and speaks at events across the country. Travel details are worked out with the organizer when you book.",
+    a: "Yes. Topher travels to speak at events across the country. Travel details are worked out with the organizer when you book.",
   },
   {
     q: "How do I book Topher?",

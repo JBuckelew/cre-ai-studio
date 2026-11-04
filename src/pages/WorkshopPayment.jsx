@@ -3,7 +3,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CheckCircle, Calendar, Users, Award, ArrowRight } from "lucide-react";
+import { CheckCircle, Calendar, Users, ArrowRight } from "lucide-react";
 import { enhanceStripeUrl } from "@/lib/stripeAttribution";
 
 export default function WorkshopPayment() {
@@ -62,14 +62,6 @@ export default function WorkshopPayment() {
                     <div>
                       <div className="font-bold text-slate-900">Limited to 35 Attorneys</div>
                       <div className="text-sm text-slate-600">Small cohort for personalized attention</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Award className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-bold text-slate-900">Taught by Nadine Ezzie</div>
-                      <div className="text-sm text-slate-600">20-year CRE Attorney, AI Speaker</div>
                     </div>
                   </div>
                 </div>

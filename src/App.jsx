@@ -14,6 +14,7 @@ import FacebookAdLanding from './pages/FacebookAdLanding';
 import Newsletter from './pages/Newsletter';
 import Speaking from './pages/Speaking';
 import Training from './pages/Training';
+import About from './pages/About';
 import Workshops from './pages/Workshops';
 import WorkshopDashboard from './pages/WorkshopDashboard';
 import UseCases from './pages/UseCases';
@@ -101,6 +102,11 @@ const AuthenticatedApp = () => {
       <Route path="/training" element={
         <LayoutWrapper currentPageName="Training">
           <Training />
+        </LayoutWrapper>
+      } />
+      <Route path="/about" element={
+        <LayoutWrapper currentPageName="About">
+          <About />
         </LayoutWrapper>
       } />
       <Route path="/Workshops" element={

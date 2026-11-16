@@ -45,7 +45,12 @@ export default function HeroSection() {
       console.error('Free trial signup error:', err);
     }
     setFreeTrialSubmitting(false);
-    window.location.href = createPageUrl('FreeTrialPayment');
+    const pricingEl = document.getElementById('pricing');
+    if (pricingEl) {
+      pricingEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.location.href = createPageUrl('FreeTrialPayment');
+    }
   };
 
   const handleSubmit = async (e) => {

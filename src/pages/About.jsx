@@ -30,7 +30,7 @@ const FAQS = [
   },
   {
     q: "What do members get?",
-    a: "Members get weekly step-by-step video lessons and AI skills built for CRE, monthly office hours, and a community of hundreds of CRE professionals. Level 2 adds live monthly VIP training sessions with Q&A. Level 3 adds direct access to the founders, with questions answered within 24 hours.",
+    a: "One membership covers everything: weekly step-by-step video lessons and AI skills built for CRE, live monthly training sessions with Q&A, monthly office hours, direct access to the founders with questions answered within 24 hours, and a community of hundreds of CRE professionals. New members also get a complimentary 1:1 call with us, then one every quarter, and a free seat in the January 2027 Claude Cohort.",
   },
   {
     q: "Who is the community for?",
@@ -226,7 +226,7 @@ export default function About() {
             <li>Everything we teach is built around CRE work, not general AI.</li>
             <li>We are two practitioners: Jonathan comes from real estate private equity and asset management, and Topher from CRE technology and brokerage.</li>
             <li>Lessons are step by step, so you can use them on your next deal.</li>
-            <li>The founders answer questions themselves. At Level 3, members get a direct channel to us, with answers within 24 hours.</li>
+            <li>The founders answer questions themselves. Every member gets a direct channel to us, with answers within 24 hours, plus a 1:1 call with us every quarter.</li>
             <li>Our founders have trained CRE teams on AI since 2023.</li>
             <li>One place covers it all: learn on your own in the community, train your team, or bring us in to build.</li>
           </ul>
@@ -266,9 +266,8 @@ export default function About() {
         <Section title="How to join">
           <ul className="list-disc pl-6 space-y-2 text-slate-700 leading-relaxed">
             <li>
-              <strong>Community membership.</strong> Three levels: Level 1 The Basics Plan ($50 a month or $480 a
-              year), Level 2 The Achiever Plan ($75 a month or $720 a year) and Level 3 The Super Growth Plan ($100 a
-              month or $960 a year). Every level starts with a 7-day free trial. A card is needed to start it.{" "}
+              <strong>Community membership.</strong> One plan: $100 a month, or $960 a year billed annually (20% off).
+              It starts with a 7-day free trial. A card is needed to start it.{" "}
               <Link to="/FreeTrialPayment" className={linkClass}>Start your free trial</Link>.
             </li>
             <li>

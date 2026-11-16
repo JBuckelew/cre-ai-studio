@@ -50,6 +50,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
   const plan = isAnnual ? pricing.annual : pricing.monthly;
 
   const handleCheckout = () => {
+    if (!plan.stripe_url) return;
     setIsProcessing(true);
     try {
       goToStripe(plan.stripe_url);
@@ -162,7 +163,9 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                       )}
                     </div>
                     <p className={`mt-2 font-semibold ${accent}`}>
-                      Billed monthly
+                      {pricing.monthly.durationMonths
+                        ? `For your first ${pricing.monthly.durationMonths} months, then $${pricing.monthly.listPrice}/month`
+                        : "Billed monthly"}
                       <span className="text-slate-400 font-normal"> (switch to annual and save {pricing.annual.discountPct}%)</span>
                     </p>
                   </>
@@ -172,7 +175,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
               <Button
                 size="lg"
                 onClick={handleCheckout}
-                disabled={isProcessing}
+                disabled={isProcessing || !plan.stripe_url}
                 className={`mt-7 h-14 w-full rounded-full text-base sm:text-lg font-bold group disabled:opacity-70 ${
                   isAnnual
                     ? "bg-yellow-400 text-black hover:bg-yellow-300"
@@ -195,7 +198,9 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                 {pricing.trialDays} days free, then{" "}
                 {isAnnual
                   ? `$${pricing.annual.yearlyTotal.toLocaleString()}/year. 12-month commitment.`
-                  : `$${pricing.monthly.price}/month. Cancel anytime.`}
+                  : pricing.monthly.durationMonths
+                    ? `$${pricing.monthly.price}/month for ${pricing.monthly.durationMonths} months, then $${pricing.monthly.listPrice}/month. Cancel anytime.`
+                    : `$${pricing.monthly.price}/month. Cancel anytime.`}
               </p>
             </div>
 

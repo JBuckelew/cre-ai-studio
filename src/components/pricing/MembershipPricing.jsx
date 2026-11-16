@@ -88,7 +88,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
 
           {promo && (
             <div className="relative bg-yellow-400 text-black text-center text-sm sm:text-base font-bold px-4 py-2.5">
-              {promo.label}: {promo.annual.discountPct}% off annual, {promo.monthly.discountPct}% off monthly. Ends Monday 11/30.
+              {promo.label}: {promo.annual.discountPct}% off annual, {promo.monthly.discountPct}% off monthly. {promo.endsLabel}
             </div>
           )}
 

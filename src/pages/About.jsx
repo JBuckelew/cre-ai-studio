@@ -30,7 +30,7 @@ const FAQS = [
   },
   {
     q: "What do members get?",
-    a: "One membership covers everything: weekly step-by-step video lessons and AI skills built for CRE, live monthly training sessions with Q&A, monthly office hours, direct access to the founders with questions answered within 24 hours, and a community of hundreds of CRE professionals. New members also get a complimentary 1:1 call with us, then one every quarter, and a free seat in the January 2027 Claude Cohort.",
+    a: "One membership covers everything: weekly step-by-step video lessons and AI skills built for CRE, live monthly training sessions with Q&A, monthly office hours, direct access to the founders with questions answered within 24 hours, and a community of hundreds of CRE professionals. New members also get a complimentary 1:1 call with us, then one every quarter. Annual members also get a free seat in the January 2027 Claude Cohort.",
   },
   {
     q: "Who is the community for?",

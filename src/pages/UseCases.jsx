@@ -177,7 +177,7 @@ export default function UseCases() {
               kicker={uc.kicker.replace(/^AI Use Case · /, "")}
               title={uc.h1}
               excerpt={uc.metaDescription}
-              credit={`Credit: ${uc.creatorHandle} · ${uc.bylineDate} · ${uc.readMins} min read`}
+              credit={`Credit: ${uc.cardCredit || uc.creatorHandle} · ${uc.bylineDate} · ${uc.readMins} min read`}
               titleAs="h3"
             />
           ))}

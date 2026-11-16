@@ -29,8 +29,8 @@ export const PROMOS = [
     ends: "2026-12-01T00:00:00-05:00", // through end of Monday 11/30 ET
     // $85/mo for the first 12 months (Stripe coupon on the $100 price), then $100.
     monthly: { price: 85, discountPct: 15, durationMonths: 12, stripe_url: null },
-    // 35% off the $1,200 list, replacing the standard 20%.
-    annual: { yearlyTotal: 780, perMonth: 65, discountPct: 35, stripe_url: null },
+    // 35% off the $1,200 list for the first year ($180 coupon on the $960 price), then $960/yr.
+    annual: { yearlyTotal: 780, perMonth: 65, discountPct: 35, firstYearOnly: true, stripe_url: null },
   },
 ];
 
@@ -66,6 +66,8 @@ export function getPricing(now = new Date()) {
       yearlyTotal: promo ? promo.annual.yearlyTotal : BASE_PLAN.annual.yearlyTotal,
       perMonth: promo ? promo.annual.perMonth : BASE_PLAN.annual.perMonth,
       discountPct: promo ? promo.annual.discountPct : BASE_PLAN.annualDiscountPct,
+      firstYearOnly: promo ? !!promo.annual.firstYearOnly : false,
+      renewalYearly: BASE_PLAN.annual.yearlyTotal,
       stripe_url: promo ? promo.annual.stripe_url : BASE_PLAN.annual.stripe_url,
     },
     trialDays: BASE_PLAN.trialDays,

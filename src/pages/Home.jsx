@@ -7,6 +7,7 @@ import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
 import WhyChooseSection from "../components/landing/WhyChooseSection";
 import AISurveySection from "../components/landing/AISurveySection";
+import MembershipPricing from "../components/pricing/MembershipPricing";
 export default function Home() {
   usePageMeta({
     title: "CRE AI Studio | Learn to Use AI for Commercial Real Estate",
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <HeroSection />
+      <MembershipPricing id="pricing" className="pb-12 sm:pb-16" />
       <TestimonialsSection />
       <ValuePropositionSection />
       <WhyChooseSection />

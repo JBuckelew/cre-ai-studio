@@ -24,6 +24,7 @@ export const PROMOS = [
     key: "black_friday_2026",
     enabled: false,
     label: "Black Friday",
+    endsLabel: "Ends Monday 11/30.",
     starts: "2026-11-27T00:00:00-05:00",
     ends: "2026-12-01T00:00:00-05:00", // through end of Monday 11/30 ET
     monthly: { price: null, discountPct: 15, stripe_url: null },

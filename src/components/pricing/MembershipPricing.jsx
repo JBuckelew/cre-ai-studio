@@ -23,9 +23,10 @@ const PERKS = [
   },
   {
     icon: GraduationCap,
-    eyebrow: "Free for new members",
+    annualOnly: true,
+    eyebrow: "Free with annual membership",
     title: "Your seat in the January 2027 Claude Cohort",
-    body: "Three live 90-minute sessions starting January 14, 2027, from beginner to Claude for CRE teams. A $599 value, included free.",
+    body: "Three live 90-minute sessions starting January 14, 2027, from beginner to Claude for CRE teams. A $599 value, included free with an annual membership.",
   },
 ];
 
@@ -89,7 +90,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
 
           {promo && (
             <div className="relative bg-yellow-400 text-black text-center text-sm sm:text-base font-bold px-4 py-2.5">
-              {promo.label}: {promo.annual.discountPct}% off annual, {promo.monthly.discountPct}% off monthly. {promo.endsLabel}
+              {promo.label}: {promo.annual.discountPct}% off annual, plus a free seat in the January Claude Cohort. {promo.monthly.discountPct}% off monthly. {promo.endsLabel}
             </div>
           )}
 
@@ -222,21 +223,45 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
 
           {/* Bonus perks */}
           <div className="relative grid sm:grid-cols-2 gap-4 px-6 pb-6 sm:px-10 sm:pb-10">
-            {PERKS.map(({ icon: Icon, eyebrow, title, body }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-yellow-400/30 bg-gradient-to-br from-yellow-400/10 to-purple-500/10 p-5 sm:p-6"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-yellow-400 text-black">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <p className="text-xs font-bold uppercase tracking-widest text-yellow-300">{eyebrow}</p>
+            {PERKS.map(({ icon: Icon, eyebrow, title, body, annualOnly }) => {
+              const locked = annualOnly && !isAnnual;
+              return (
+                <div
+                  key={title}
+                  data-perk={annualOnly ? "cohort" : "call"}
+                  data-locked={locked ? "true" : "false"}
+                  className={`rounded-2xl border p-5 sm:p-6 transition-opacity ${
+                    locked
+                      ? "border-white/10 bg-white/5 opacity-70"
+                      : "border-yellow-400/30 bg-gradient-to-br from-yellow-400/10 to-purple-500/10"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-10 w-10 flex-none items-center justify-center rounded-full ${
+                        locked ? "bg-white/15 text-slate-300" : "bg-yellow-400 text-black"
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <p className={`text-xs font-bold uppercase tracking-widest ${locked ? "text-slate-400" : "text-yellow-300"}`}>
+                      {locked ? "Annual plans only" : eyebrow}
+                    </p>
+                  </div>
+                  <h4 className="mt-4 text-lg sm:text-xl font-bold leading-snug">{title}</h4>
+                  <p className="mt-2 text-sm sm:text-base text-slate-300 leading-relaxed">{body}</p>
+                  {locked && (
+                    <button
+                      type="button"
+                      onClick={() => setCycle("annual")}
+                      className="mt-4 text-sm font-semibold text-yellow-300 underline underline-offset-4 hover:text-yellow-200"
+                    >
+                      Switch to annual to include it
+                    </button>
+                  )}
                 </div>
-                <h4 className="mt-4 text-lg sm:text-xl font-bold leading-snug">{title}</h4>
-                <p className="mt-2 text-sm sm:text-base text-slate-300 leading-relaxed">{body}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
       </div>

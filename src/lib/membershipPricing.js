@@ -25,10 +25,12 @@ export const PROMOS = [
     enabled: false,
     label: "Black Friday",
     endsLabel: "Ends Monday 11/30.",
-    starts: "2026-11-27T00:00:00-05:00",
+    starts: "2026-11-23T00:00:00-05:00", // Monday of Thanksgiving week
     ends: "2026-12-01T00:00:00-05:00", // through end of Monday 11/30 ET
-    monthly: { price: null, discountPct: 15, stripe_url: null },
-    annual: { yearlyTotal: null, perMonth: null, discountPct: 35, stripe_url: null },
+    // $85/mo for the first 12 months (Stripe coupon on the $100 price), then $100.
+    monthly: { price: 85, discountPct: 15, durationMonths: 12, stripe_url: null },
+    // 35% off the $1,200 list, replacing the standard 20%.
+    annual: { yearlyTotal: 780, perMonth: 65, discountPct: 35, stripe_url: null },
   },
 ];
 
@@ -37,8 +39,10 @@ export function getActivePromo(now = new Date()) {
   const forced = params ? params.get("promo") : null; // ?promo=black_friday_2026 to preview
   return (
     PROMOS.find((p) => {
-      if (!p.monthly.stripe_url || !p.annual.stripe_url) return false;
+      // ?promo=<key> previews a promo even before its links exist (checkout stays disabled).
       if (forced && forced === p.key) return true;
+      // Never show promo prices to real visitors unless both promo checkout links are set.
+      if (!p.monthly.stripe_url || !p.annual.stripe_url) return false;
       if (!p.enabled) return false;
       const t = now.getTime();
       return t >= new Date(p.starts).getTime() && t < new Date(p.ends).getTime();
@@ -54,6 +58,7 @@ export function getPricing(now = new Date()) {
       listPrice: BASE_PLAN.monthly.price,
       price: promo ? promo.monthly.price : BASE_PLAN.monthly.price,
       discountPct: promo ? promo.monthly.discountPct : 0,
+      durationMonths: promo ? promo.monthly.durationMonths || null : null,
       stripe_url: promo ? promo.monthly.stripe_url : BASE_PLAN.monthly.stripe_url,
     },
     annual: {

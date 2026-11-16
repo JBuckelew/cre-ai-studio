@@ -57,6 +57,8 @@ import UseCaseMultifamilyAcquisitions from './pages/UseCaseMultifamilyAcquisitio
 import UseCaseAICommercialRealEstateBrokers from './pages/UseCaseAICommercialRealEstateBrokers';
 import UseCaseLeaseRenewalWorkflow from './pages/UseCaseLeaseRenewalWorkflow';
 import UseCaseAiMarketResearchPodcasts from './pages/UseCaseAiMarketResearchPodcasts';
+import UseCaseCamReconciliationCowork from './pages/UseCaseCamReconciliationCowork';
+import UseCaseGrokBotRealEstateInvestors from './pages/UseCaseGrokBotRealEstateInvestors';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -312,6 +314,16 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/ai-market-research-claude-500-podcasts" element={
         <LayoutWrapper currentPageName="UseCaseAiMarketResearchPodcasts">
           <UseCaseAiMarketResearchPodcasts />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/cam-reconciliation-claude-cowork" element={
+        <LayoutWrapper currentPageName="UseCaseCamReconciliationCowork">
+          <UseCaseCamReconciliationCowork />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/grok-bot-for-real-estate-investors" element={
+        <LayoutWrapper currentPageName="UseCaseGrokBotRealEstateInvestors">
+          <UseCaseGrokBotRealEstateInvestors />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

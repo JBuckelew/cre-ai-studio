@@ -149,13 +149,6 @@ export default function Navigation() {
             <Button
               variant="ghost"
               asChild
-              className="text-orange-600 hover:text-orange-700 font-bold text-sm px-2"
-            >
-              <Link to="/Workshops">Workshops</Link>
-            </Button>
-            <Button
-              variant="ghost"
-              asChild
               className="text-slate-700 hover:text-blue-600 font-medium text-sm px-2"
             >
               <a href="https://cre-ai-studio.circle.so/getting-started" target="_blank" rel="noopener noreferrer">Login</a>
@@ -250,14 +243,6 @@ export default function Navigation() {
               className="text-slate-700 hover:text-blue-600 font-medium text-xs px-2 h-7"
             >
               <Link to="/use-cases">AI Use Cases</Link>
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              asChild
-              className="text-orange-600 hover:text-orange-700 font-bold text-xs px-2 h-7"
-            >
-              <Link to="/Workshops">Workshops</Link>
             </Button>
             <Button
               variant="ghost"

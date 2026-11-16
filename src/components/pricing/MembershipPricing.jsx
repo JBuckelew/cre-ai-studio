@@ -197,7 +197,9 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
               <p className="mt-3 text-center text-sm text-slate-400">
                 {pricing.trialDays} days free, then{" "}
                 {isAnnual
-                  ? `$${pricing.annual.yearlyTotal.toLocaleString()}/year. 12-month commitment.`
+                  ? pricing.annual.firstYearOnly
+                    ? `$${pricing.annual.yearlyTotal.toLocaleString()} for your first year, $${pricing.annual.renewalYearly.toLocaleString()}/year after. 12-month commitment.`
+                    : `$${pricing.annual.yearlyTotal.toLocaleString()}/year. 12-month commitment.`
                   : pricing.monthly.durationMonths
                     ? `$${pricing.monthly.price}/month for ${pricing.monthly.durationMonths} months and $${pricing.monthly.listPrice}/month after. Cancel anytime.`
                     : `$${pricing.monthly.price}/month. Cancel anytime.`}

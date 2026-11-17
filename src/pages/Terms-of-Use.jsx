@@ -19,7 +19,7 @@ export default function TermsOfUse() {
           </CardHeader>
           <CardContent className="prose max-w-none space-y-6">
             <p className="text-slate-600 leading-relaxed">
-              Last updated: 8/26/25
+              Last updated: 11/16/26
             </p>
             
             <p className="text-slate-600 leading-relaxed">

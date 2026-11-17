@@ -18,7 +18,7 @@ import { goToPricing } from "@/lib/goToPricing";
 import TextTestimonials from "./TextTestimonials";
 
 // Screenshots of the Studio on Circle. Member names and photos are hidden before capture.
-// A null image falls back to a neutral placeholder layout.
+// Source PNGs: Community/Studio Screenshots/ in the workspace. A null image falls back to a placeholder.
 const ASSET_BASE = "https://base44.app/api/apps/68a7d83d574299e5af5ccbd3/files/mp/public/68a7d83d574299e5af5ccbd3";
 const STUDIO_IMAGES = {
   lessons: `${ASSET_BASE}/012703d67_studio-lessons.webp`,
@@ -36,7 +36,7 @@ const TABS = [
     title: "Step-by-step AI lessons for CRE work",
     body: "Short video lessons that walk through one real task with one specific AI tool, from screening an OM to marketing a listing to building an automation. Start with the Quickstart course, then pick up a new lesson every week.",
     points: ["Built around CRE tasks, not generic AI tips", "Follow along at your own pace"],
-    path: "cre-ai-studio.circle.so/c/weekly-ai-lessons",
+    path: "cre-ai-studio.circle.so/c/cre-i-ai-studio-learn-ai-in-cre-course",
     alt: "The AI lessons area inside CRE AI Studio",
   },
   {
@@ -56,9 +56,9 @@ const TABS = [
     icon: Wand2,
     tag: "Ready to use",
     title: "AI skills built for CRE",
-    body: "Ready-to-run Claude skills for the work you already do: T12 analysis, property ownership research, prospecting pipelines and more. Set one up once and reuse it on every deal.",
+    body: "Ready-to-run Claude skills for the work you already do: rent roll and T12 analysis, monthly variance reviews, delinquency tracking, investor reports, due diligence checklists and more. Set one up once and reuse it on every deal.",
     points: ["Install once, reuse on every deal", "Built and tested by CRE operators"],
-    path: "cre-ai-studio.circle.so/c/skills-library",
+    path: "cre-ai-studio.circle.so/c/cre-ai-studio-skills-library",
     alt: "The Skill Library inside CRE AI Studio",
   },
   {

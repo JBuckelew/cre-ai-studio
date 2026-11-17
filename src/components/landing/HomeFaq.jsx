@@ -40,16 +40,26 @@ export const homeFaqJsonLd = {
   })),
 };
 
+function hasFaqPageJsonLd() {
+  if (typeof document === "undefined") return false;
+  return Array.from(document.querySelectorAll('script[type="application/ld+json"]')).some((el) => {
+    try {
+      const data = JSON.parse(el.textContent || "");
+      const items = Array.isArray(data) ? data : [data];
+      return items.some((d) => d && d["@type"] === "FAQPage");
+    } catch {
+      return false;
+    }
+  });
+}
+
 function injectHomeFaqJsonLd() {
-  if (typeof document === "undefined") return;
-  let script = document.head.querySelector('script[data-home-faq-ld]');
-  if (!script) {
-    script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.setAttribute("data-home-faq-ld", "true");
-    document.head.appendChild(script);
-  }
+  if (typeof document === "undefined" || hasFaqPageJsonLd()) return;
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.setAttribute("data-home-faq-ld", "true");
   script.text = JSON.stringify(homeFaqJsonLd);
+  document.head.appendChild(script);
 }
 
 function clearHomeFaqJsonLd() {
@@ -80,9 +90,8 @@ function Answer({ item }) {
 }
 
 export default function HomeFaq() {
-  // Inject during render so prerenderers capture FAQPage JSON-LD on first paint.
-  injectHomeFaqJsonLd();
-
+  // index.html already has FAQPage JSON-LD for no-JS and first paint.
+  // Inject only if missing (client-side navigation to the homepage).
   useEffect(() => {
     injectHomeFaqJsonLd();
     return () => clearHomeFaqJsonLd();
@@ -90,7 +99,6 @@ export default function HomeFaq() {
 
   return (
     <section id="faq" className="py-16 lg:py-24 bg-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqJsonLd) }} />
       <div className="max-w-3xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-10 tracking-tight text-center">
           Common questions about AI training for commercial real estate

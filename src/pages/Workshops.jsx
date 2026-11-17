@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkles, Zap, Code2 } from "lucide-react";
-import { createPageUrl } from '@/utils';
+import { goToPricing } from "@/lib/goToPricing";
 import { base44 } from "@/api/base44Client";
 import VibeCodeWorkshopCard from "@/components/workshops/VibeCodeWorkshopCard";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -20,7 +20,7 @@ export default function Workshops() {
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
 
   const handleJoinClick = () => {
-    window.location.href = createPageUrl('FreeTrialPayment');
+    goToPricing();
   };
 
   const handleWaitlistSubmit = async (e) => {

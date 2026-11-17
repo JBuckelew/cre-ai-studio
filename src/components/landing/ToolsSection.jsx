@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { goToPricing } from "@/lib/goToPricing";
 
 export default function ToolsSection() {
   return (
@@ -61,7 +62,7 @@ export default function ToolsSection() {
           className="text-center"
         >
           <Button
-            onClick={() => window.location.href = '/FreeTrialPayment'}
+            onClick={goToPricing}
             className="bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-semibold rounded-full px-12 py-4 text-lg transition-all duration-300 group"
           >
             Join for Free

@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge"; 
 import { Button } from "@/components/ui/button";
 import { Brain, Zap, Building2, Image, ArrowRight } from "lucide-react";
-import { createPageUrl } from '@/utils';
+import { goToPricing } from "@/lib/goToPricing";
 
 export default function MissionSection() {
   const courseModules = [
@@ -35,7 +35,7 @@ export default function MissionSection() {
   ];
 
   const handleJoinClick = () => {
-    window.location.href = createPageUrl('FreeTrialPayment');
+    goToPricing();
   };
 
   return (

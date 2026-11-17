@@ -1,6 +1,5 @@
 import React from "react";
 import { ArrowRight, BookOpen } from "lucide-react";
-import { createPageUrl } from "@/utils";
 
 export default function StudioBridge() {
   return (
@@ -15,7 +14,7 @@ export default function StudioBridge() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href={createPageUrl("FreeTrialPayment")}
+            href="/#pricing"
             className="bg-amber-50 text-black hover:bg-amber-100 font-semibold px-7 py-3.5 rounded-full transition-all duration-300 inline-flex items-center gap-2"
           >
             Explore the membership

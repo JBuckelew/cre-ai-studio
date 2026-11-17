@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { goToPricing } from "@/lib/goToPricing";
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -143,7 +144,7 @@ export default function TestimonialsSection() {
             Join hundreds of CRE professionals already transforming their business with AI
           </p>
           <button
-            onClick={() => window.location.href = '/FreeTrialPayment'}
+            onClick={goToPricing}
             className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             Start Your 7-Day Free Trial

@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, BookOpen, Play } from 'lucide-react';
 import PromptLibrary from '../components/resources/PromptLibrary';
+import { goToPricing } from "@/lib/goToPricing";
 
 export default function ArticlesPage() {
   usePageMeta({
@@ -215,7 +216,7 @@ export default function ArticlesPage() {
               Join the CRE AI Studio to get access to exclusive video lessons, tutorials, and live Q&A sessions.
             </p>
             <Button
-              onClick={() => window.location.href = '/FreeTrialPayment'}
+              onClick={goToPricing}
               className="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
             >
               Start Your Free Trial

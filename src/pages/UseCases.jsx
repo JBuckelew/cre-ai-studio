@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useCases, useCasesIndex, categories } from "@/data/useCases";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
+import { goToPricing } from "@/lib/goToPricing";
 import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
 const FEATURED = useCasesIndex.featuredSlug;
@@ -211,12 +212,13 @@ export default function UseCases() {
           </p>
           <p className="text-slate-300 mb-[18px]">{useCasesIndex.cta.body}</p>
           <div className="flex flex-wrap gap-2.5">
-            <Link
-              to="/FreeTrialPayment"
+            <a
+              href="/#pricing"
+              onClick={goToPricing}
               className="rounded-md px-5 py-3 text-[15px] font-semibold bg-amber-50 text-slate-900"
             >
               Start Your 7-Day Free Trial
-            </Link>
+            </a>
             <a
               href="https://creaistudio.beehiiv.com/"
               className="rounded-md px-5 py-3 text-[15px] font-medium bg-blue-600 text-white"

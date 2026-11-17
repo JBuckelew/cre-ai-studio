@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Zap, Clock, Trophy, Video, Users, MessageCircle } from "lucide-react";
-import { createPageUrl } from '@/utils';
+import { goToPricing } from "@/lib/goToPricing";
 
 export default function WhyChooseSection() {
   const includedFeatures = [
@@ -35,7 +35,7 @@ export default function WhyChooseSection() {
   ];
 
   const handleJoinClick = () => {
-    window.location.href = createPageUrl('FreeTrialPayment');
+    goToPricing();
   };
 
   return (

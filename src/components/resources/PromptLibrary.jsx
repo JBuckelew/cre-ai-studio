@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, FileCode } from "lucide-react";
 import { motion } from "framer-motion";
+import { goToPricing } from "@/lib/goToPricing";
 
 export default function PromptLibrary() {
   const prompts = [
@@ -133,7 +134,7 @@ export default function PromptLibrary() {
           </p>
           <Button
             size="lg"
-            onClick={() => window.location.href = '/FreeTrialPayment'}
+            onClick={goToPricing}
             className="bg-purple-600 hover:bg-purple-700 text-white text-lg px-8 py-6 rounded-xl"
           >
             Start Free Trial

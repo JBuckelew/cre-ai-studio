@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-export const CHECKOUT_URL = "https://creaistudio.com/FreeTrialPayment";
+export const CHECKOUT_URL = "https://creaistudio.com/#pricing";
 
 export default function CTAButton({
   label = "Start Your 7-Day Free Trial",

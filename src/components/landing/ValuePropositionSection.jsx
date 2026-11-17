@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, LineChart, Cuboid, Scale, Zap, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { createPageUrl } from '@/utils';
+import { goToPricing } from "@/lib/goToPricing";
 import TextTestimonials from "./TextTestimonials";
 
 export default function ValuePropositionSection() {
@@ -32,7 +32,7 @@ export default function ValuePropositionSection() {
   ];
 
   const handleJoinClick = () => {
-    window.location.href = createPageUrl('FreeTrialPayment');
+    goToPricing();
   };
 
   return (

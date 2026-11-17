@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
+import { goToPricing } from "@/lib/goToPricing";
 import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
 
 export default function FreeTrialPopup() {
@@ -57,8 +58,8 @@ export default function FreeTrialPopup() {
         console.error('EmailSignup save error:', dbError);
       }
 
-      // Redirect to Free Trial payment page
-      window.location.href = '/FreeTrialPayment';
+      // Send them to the pricing section on the home page
+      goToPricing();
     } catch (error) {
       console.error('Popup error:', error);
       alert(`Error: ${error.message || "There was an error. Please try again."}`);

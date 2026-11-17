@@ -5,7 +5,7 @@ import { getCategory } from "@/data/useCases";
 import { setNotFoundFlag } from "@/lib/notFoundFlag";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { createPageUrl } from "@/utils";
+import { goToPricing } from "@/lib/goToPricing";
 import UseCaseCard from "@/components/usecases/UseCaseCard";
 import { clearUseCaseJsonLd, injectUseCaseJsonLd, breadcrumbJsonLd } from "@/lib/useCaseJsonLd";
 
@@ -186,9 +186,7 @@ export default function UseCaseCategoryPage({ type, slug }) {
               <Button
                 size="lg"
                 className="bg-white text-blue-600 hover:bg-slate-100 font-bold rounded-full px-10 py-5 text-lg shadow-xl transition-all duration-300 group"
-                onClick={() =>
-                  (window.location.href = createPageUrl("FreeTrialPayment"))
-                }
+                onClick={goToPricing}
               >
                 Start Your 7-Day Free Trial
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

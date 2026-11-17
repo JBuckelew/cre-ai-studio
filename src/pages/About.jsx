@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { goToPricing } from "@/lib/goToPricing";
 
 const SITE = "https://creaistudio.com";
 const NEWSLETTER_URL = "https://creaistudio.beehiiv.com";
@@ -268,7 +269,7 @@ export default function About() {
             <li>
               <strong>Community membership.</strong> One plan: $100 a month, or $960 a year billed annually (20% off).
               It starts with a 7-day free trial. A card is needed to start it.{" "}
-              <Link to="/FreeTrialPayment" className={linkClass}>Start your free trial</Link>.
+              <a href="/#pricing" onClick={goToPricing} className={linkClass}>Start your free trial</a>.
             </li>
             <li>
               <strong>Teams buying several community seats.</strong> Contact us at{" "}

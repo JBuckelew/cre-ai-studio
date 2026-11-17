@@ -6,6 +6,7 @@ import { createPageUrl } from '@/utils';
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
+import { goToPricing } from "@/lib/goToPricing";
 import {
   Dialog,
   DialogContent,
@@ -161,7 +162,7 @@ export default function Navigation() {
               asChild
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4"
             >
-              <Link to="/FreeTrialPayment">Get My Free Trial</Link>
+              <a href="/#pricing" onClick={goToPricing}>Get My Free Trial</a>
             </Button>
             <Button
               onClick={openNewsletter}
@@ -191,7 +192,7 @@ export default function Navigation() {
               asChild
               className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs px-3"
             >
-              <Link to="/FreeTrialPayment">Get My Free Trial</Link>
+              <a href="/#pricing" onClick={goToPricing}>Get My Free Trial</a>
             </Button>
             <Button
               onClick={openNewsletter}

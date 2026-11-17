@@ -21,10 +21,10 @@ import TextTestimonials from "./TextTestimonials";
 // Source PNGs: Community/Studio Screenshots/ in the workspace. A null image falls back to a placeholder.
 const ASSET_BASE = "https://base44.app/api/apps/68a7d83d574299e5af5ccbd3/files/mp/public/68a7d83d574299e5af5ccbd3";
 const STUDIO_IMAGES = {
-  lessons: `${ASSET_BASE}/edc8cf77c_studio2-lessons.webp`,
-  events: `${ASSET_BASE}/16c66b2c5_studio2-events.webp`,
-  skills: `${ASSET_BASE}/a41abfd15_studio2-skills.webp`,
-  prompts: `${ASSET_BASE}/c5946822b_studio2-prompts.webp`,
+  lessons: `${ASSET_BASE}/012703d67_studio-lessons.webp`,
+  events: `${ASSET_BASE}/67064f474_studio-events.webp`,
+  skills: `${ASSET_BASE}/2e8c7c72f_studio-skills.webp`,
+  prompts: `${ASSET_BASE}/8f2286d80_studio-prompts.webp`,
 };
 
 const TABS = [
@@ -36,8 +36,8 @@ const TABS = [
     title: "Step-by-step AI lessons for CRE work",
     body: "Short video lessons that walk through one real task with one specific AI tool, from screening an OM to marketing a listing to building an automation. Start with the Quickstart course, then pick up a new lesson every week.",
     points: ["Built around CRE tasks, not generic AI tips", "Follow along at your own pace"],
-    path: "cre-ai-studio.circle.so/feed",
-    alt: "The CRE AI Studio feed with a new lesson post and the upcoming live events",
+    path: "cre-ai-studio.circle.so/c/cre-i-ai-studio-learn-ai-in-cre-course",
+    alt: "The AI lessons area inside CRE AI Studio",
   },
   {
     key: "events",
@@ -47,8 +47,8 @@ const TABS = [
     title: "Live training with the founders",
     body: "A monthly live training session with open Q&A, plus monthly office hours. Bring your questions, your workflow, or the deal you're stuck on, and work through it live.",
     points: ["Monthly live training with Q&A", "Monthly office hours"],
-    path: "cre-ai-studio.circle.so/c/community-wide-events",
-    alt: "The Monthly Claude Update Call event page inside CRE AI Studio",
+    path: "cre-ai-studio.circle.so/events",
+    alt: "The live events calendar inside CRE AI Studio",
   },
   {
     key: "skills",
@@ -59,7 +59,7 @@ const TABS = [
     body: "Ready-to-run Claude skills for the work you already do: rent roll and T12 analysis, monthly variance reviews, delinquency tracking, investor reports, due diligence checklists and more. Set one up once and reuse it on every deal.",
     points: ["Install once, reuse on every deal", "Built and tested by CRE operators"],
     path: "cre-ai-studio.circle.so/c/cre-ai-studio-skills-library",
-    alt: "The Monthly Financial Variance Analysis skill in the CRE AI Studio Skill Library",
+    alt: "The Skill Library inside CRE AI Studio",
   },
   {
     key: "prompts",
@@ -70,7 +70,7 @@ const TABS = [
     body: "Tested prompts for underwriting, leasing, marketing, asset management and legal review. Paste one into ChatGPT, Claude or Gemini and get to a solid first draft in minutes. New prompts are added every week.",
     points: ["Works in ChatGPT, Claude and Gemini", "New prompts added weekly"],
     path: "cre-ai-studio.circle.so/c/prompt-library",
-    alt: "The First-Pass Underwriting Prompt in the CRE AI Studio Prompt Library",
+    alt: "The Prompt Library inside CRE AI Studio",
   },
   {
     key: "calls",
@@ -113,19 +113,19 @@ function BookingMockup() {
   const days = Array.from({ length: 28 }, (_, i) => i + 1);
   const open = new Set([3, 4, 10, 11, 12, 17, 18, 24, 25]);
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-3 sm:p-6" aria-hidden="true">
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-4 sm:p-8" aria-hidden="true">
       <div className="grid w-full max-w-2xl grid-cols-1 sm:grid-cols-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
-        <div className="sm:col-span-2 sm:border-r border-slate-200 p-4 sm:p-5">
+        <div className="sm:col-span-2 border-b sm:border-b-0 sm:border-r border-slate-200 p-5">
           <div className="flex -space-x-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-blue-500 to-purple-600 text-sm font-bold text-white">JB</div>
             <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-amber-500 to-orange-600 text-sm font-bold text-white">TS</div>
           </div>
-          <p className="mt-3 sm:mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">CRE AI Studio</p>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">CRE AI Studio</p>
           <p className="mt-1 text-lg font-bold leading-snug text-slate-900">Member 1:1 Strategy Call</p>
-          <p className="mt-2 text-sm text-slate-600">20 min · Video call</p>
-          <p className="mt-3 hidden text-sm leading-relaxed text-slate-600 sm:block">Map where AI fits your work, then come back every quarter to keep building.</p>
+          <p className="mt-2 text-sm text-slate-600">30 min · Video call</p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">Map where AI fits your work, then come back every quarter to keep building.</p>
         </div>
-        <div className="hidden sm:block sm:col-span-3 p-4 sm:p-5">
+        <div className="sm:col-span-3 p-5">
           <p className="text-sm font-semibold text-slate-900">Pick a day</p>
           <div className="mt-3 grid grid-cols-7 gap-1.5 text-center text-xs">
             {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
@@ -179,7 +179,7 @@ function BrowserFrame({ tab }) {
           <span className="truncate">{tab.path}</span>
         </div>
       </div>
-      <div className="relative aspect-video bg-slate-50">
+      <div className="relative aspect-[16/10] bg-slate-50">
         <AnimatePresence mode="wait">
           <motion.div
             key={tab.key}

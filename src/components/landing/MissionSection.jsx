@@ -100,6 +100,13 @@ export default function MissionSection() {
           ))}
         </motion.div>
 
+        <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed text-center mb-16">
+          CRE professionals also use AI for commercial{" "}
+          <a href="/use-cases/ai-for-property-management-grok-bot-staff" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">property management</a>
+          {" and "}
+          <a href="/use-cases/ai-lease-abstraction-claude-chatgpt-template" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">lease abstraction</a>.
+        </p>
+
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -6,19 +6,16 @@ import { goToPricing } from "@/lib/goToPricing";
 
 const PATHS = [
   {
-    index: "01",
     title: "Membership",
     detail: "Courses, tools, and a community of CRE professionals",
     primary: true,
   },
   {
-    index: "02",
     title: "Team Training",
     detail: "Private AI workshops built for your company",
     href: "/training",
   },
   {
-    index: "03",
     title: "Consulting",
     detail: "AI built into the way your firm already works",
     href: "/Consulting",
@@ -28,7 +25,7 @@ const PATHS = [
 export default function HeroPaths() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-      {PATHS.map(({ index, title, detail, href, primary }, i) => {
+      {PATHS.map(({ title, detail, href, primary }, i) => {
         const cardClassName = `group relative flex h-full flex-col justify-between gap-8 overflow-hidden rounded-2xl border p-5 text-left transition-all duration-500 hover:-translate-y-1 ${
           primary
             ? "border-blue-300/50 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white shadow-[0_18px_45px_-18px_rgba(37,99,235,0.85)] hover:shadow-[0_28px_60px_-18px_rgba(37,99,235,1)]"
@@ -37,16 +34,6 @@ export default function HeroPaths() {
 
         const content = (
           <>
-            {/* oversized watermark numeral */}
-            <span
-              aria-hidden="true"
-              className={`pointer-events-none absolute -top-7 right-1 select-none text-[104px] font-extrabold leading-none tracking-tighter transition-all duration-700 group-hover:-translate-y-1 group-hover:scale-105 ${
-                primary ? "text-white/15" : "text-white/[0.05] group-hover:text-blue-300/10"
-              }`}
-            >
-              {index}
-            </span>
-
             {/* rising blue glow */}
             <span
               aria-hidden="true"
@@ -65,20 +52,12 @@ export default function HeroPaths() {
               }`}
             />
 
-            <div className="relative flex items-center gap-3">
-              <span
-                className={`text-[10px] font-semibold tracking-[0.24em] ${
-                  primary ? "text-white/70" : "text-slate-500 group-hover:text-blue-200"
-                }`}
-              >
-                {index}
-              </span>
-              <span
-                className={`h-px w-6 transition-all duration-500 group-hover:w-12 ${
-                  primary ? "bg-white/40" : "bg-white/15 group-hover:bg-blue-300/70"
-                }`}
-              />
-            </div>
+            <span
+              aria-hidden="true"
+              className={`block h-px w-10 transition-all duration-500 group-hover:w-16 ${
+                primary ? "bg-white/50" : "bg-white/20 group-hover:bg-blue-300/70"
+              }`}
+            />
 
             <div className="relative">
               <p className="text-xl font-semibold leading-tight tracking-tight">{title}</p>

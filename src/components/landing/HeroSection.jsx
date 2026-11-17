@@ -3,9 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { goToPricing } from "@/lib/goToPricing";
+import HeroPaths from "@/components/landing/HeroPaths";
 import {
   Dialog,
   DialogContent,
@@ -146,33 +145,9 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                    className="flex flex-col items-start gap-5 sm:gap-6"
+                    className="w-full sm:max-w-md lg:max-w-none"
                   >
-                    <button
-                      onClick={goToPricing}
-                      className="group inline-flex items-center justify-center h-12 sm:h-14 rounded-full bg-amber-50 text-black hover:bg-amber-100 font-semibold px-8 text-base sm:text-lg transition-all duration-300"
-                      style={{ animation: 'flash 4s ease-in-out infinite' }}
-                    >
-                      Explore Membership
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm sm:text-base font-semibold">
-                      <Link
-                        to="/training"
-                        className="inline-flex items-center gap-2 text-white hover:text-amber-200 transition-colors"
-                      >
-                        Explore Team Training
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                      <Link
-                        to="/Consulting"
-                        className="inline-flex items-center gap-2 text-white hover:text-amber-200 transition-colors"
-                      >
-                        Explore Consulting
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
+                    <HeroPaths />
                   </motion.div>
                 </div>
 

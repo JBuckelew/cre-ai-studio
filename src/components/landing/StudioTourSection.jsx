@@ -328,7 +328,7 @@ export default function StudioTourSection() {
           <div className="grid gap-5 sm:grid-cols-3">
             {[
               { icon: Users, text: "A community of hundreds of CRE pros putting AI to work" },
-              { icon: MessageCircle, text: "Questions answered by the founders within 24 hours" },
+              { icon: MessageCircle, text: "Questions answered by the founders" },
               { icon: ShieldCheck, text: "7-day free trial. Cancel anytime." },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-start gap-3">

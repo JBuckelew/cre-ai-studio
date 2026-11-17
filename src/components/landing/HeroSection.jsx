@@ -206,7 +206,7 @@ export default function HeroSection() {
                     {newsletterStatus === "error" ? (
                       <p className="text-sm text-amber-200 mt-2">Something went wrong. Please try again.</p>
                     ) : (
-                      <p className="text-sm text-slate-400 mt-2">AI news, tools, and use cases for CRE. Free, no spam.</p>
+                      <p className="text-sm text-slate-400 mt-2">AI news, tools, and use cases for CRE.</p>
                     )}
                   </motion.div>
                 </div>

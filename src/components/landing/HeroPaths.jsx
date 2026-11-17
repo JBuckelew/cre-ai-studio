@@ -1,18 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, Presentation, Compass } from "lucide-react";
 import { motion } from "framer-motion";
 import { goToPricing } from "@/lib/goToPricing";
 
 const PATHS = [
   {
     title: "Membership",
+    icon: Users,
     detail: "Courses, tools, and a community of CRE professionals",
     primary: true,
     cta: "Explore",
   },
   {
     title: "Team Training",
+    icon: Presentation,
     detail: "Private AI workshops built for your company",
     href: "/training",
     tone: "mid",
@@ -20,6 +22,7 @@ const PATHS = [
   },
   {
     title: "Consulting",
+    icon: Compass,
     detail: "AI built into the way your firm already works",
     href: "/Consulting",
     tone: "light",
@@ -30,7 +33,13 @@ const PATHS = [
 export default function HeroPaths() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-      {PATHS.map(({ title, detail, href, primary, tone, cta }, i) => {
+      <style>{`
+        @keyframes hero-card-shine {
+          0%, 70% { transform: translateX(-120%) skewX(-20deg); }
+          100% { transform: translateX(320%) skewX(-20deg); }
+        }
+      `}</style>
+      {PATHS.map(({ title, icon: Icon, detail, href, primary, tone, cta }, i) => {
         const cardClassName = `group relative flex h-full flex-col justify-between gap-8 overflow-hidden rounded-2xl border p-5 text-left transition-all duration-500 hover:-translate-y-1 ${
           primary
             ? "border-blue-300/50 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white shadow-[0_18px_45px_-18px_rgba(37,99,235,0.85)] hover:shadow-[0_28px_60px_-18px_rgba(37,99,235,1)]"
@@ -59,12 +68,22 @@ export default function HeroPaths() {
               }`}
             />
 
+            {/* periodic shine across the primary card */}
+            {primary && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-[hero-card-shine_6s_ease-in-out_infinite] motion-reduce:hidden"
+              />
+            )}
+
             <span
               aria-hidden="true"
-              className={`block h-px w-10 transition-all duration-500 group-hover:w-16 ${
-                primary ? "bg-white/50" : "bg-blue-300/60 group-hover:bg-blue-200"
+              className={`relative flex h-10 w-10 items-center justify-center rounded-xl transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110 ${
+                primary ? "bg-white/20 text-white" : "bg-blue-400/15 text-blue-200 ring-1 ring-inset ring-blue-300/25 group-hover:text-white"
               }`}
-            />
+            >
+              <Icon className="h-5 w-5" />
+            </span>
 
             <div className="relative">
               <p className="text-xl font-semibold leading-tight tracking-tight">{title}</p>
@@ -93,9 +112,9 @@ export default function HeroPaths() {
         return (
           <motion.div
             key={title}
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.06 * i, ease: "easeOut" }}
+            transition={{ duration: 0.55, delay: 0.45 + 0.12 * i, ease: "easeOut" }}
             className="h-full"
           >
             {href ? (

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import HeroPaths from "@/components/landing/HeroPaths";
 import {
@@ -13,7 +13,51 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
+// Slow-drifting color glows, a faded dot grid and a cursor spotlight behind the hero content.
+function HeroBackdrop({ reduceMotion }) {
+  const orbs = [
+    { className: "-top-32 -left-24 h-[26rem] w-[26rem] bg-blue-600/35", x: [0, 70, -20, 0], y: [0, 40, -30, 0], duration: 22 },
+    { className: "top-10 -right-32 h-[24rem] w-[24rem] bg-purple-600/30", x: [0, -60, 30, 0], y: [0, 50, -20, 0], duration: 26 },
+    { className: "bottom-0 left-1/3 h-[20rem] w-[20rem] bg-orange-500/15", x: [0, 40, -50, 0], y: [0, -40, 20, 0], duration: 30 },
+  ];
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      {orbs.map((o, i) => (
+        <motion.div
+          key={i}
+          className={`absolute rounded-full blur-3xl ${o.className}`}
+          animate={reduceMotion ? undefined : { x: o.x, y: o.y }}
+          transition={{ duration: o.duration, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ))}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage: "radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 75%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 transition-opacity duration-500"
+        style={{
+          background: "radial-gradient(520px circle at var(--mx, 50%) var(--my, 25%), rgba(99,102,241,0.16), transparent 60%)",
+        }}
+      />
+    </div>
+  );
+}
+
 export default function HeroSection() {
+  const reduceMotion = useReducedMotion();
+  const heroRef = useRef(null);
+  const handlePointerMove = (e) => {
+    if (e.pointerType !== "mouse" || !heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    heroRef.current.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    heroRef.current.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
@@ -22,16 +66,6 @@ export default function HeroSection() {
     company: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [currentWord, setCurrentWord] = useState(0);
-  const words = ["Skills", "Company", "Future"];
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -75,7 +109,12 @@ export default function HeroSection() {
 
   return (
     <section className="bg-slate-50 py-8 sm:py-12 lg:py-16">
-      <div className="relative overflow-hidden bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white/10 shadow-2xl shadow-blue-500/20">
+      <div
+        ref={heroRef}
+        onPointerMove={handlePointerMove}
+        className="relative overflow-hidden bg-slate-900 text-white rounded-3xl lg:rounded-[2.5rem] mx-auto max-w-7xl xl:max-w-screen-xl border-2 border-white/10 shadow-2xl shadow-blue-500/20"
+      >
+        <HeroBackdrop reduceMotion={reduceMotion} />
 
         
         <style>{`
@@ -86,6 +125,10 @@ export default function HeroSection() {
           @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+          }
+          @keyframes hero-sheen {
+            0% { background-position: 0% center; }
+            100% { background-position: 100% center; }
           }
           @keyframes flash {
             0%, 85%, 100% { opacity: 1; box-shadow: none; }
@@ -105,6 +148,20 @@ export default function HeroSection() {
 
                 {/* Left-Aligned Content */}
                 <div>
+                  {/* Eyebrow */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-200 backdrop-blur-sm"
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping motion-reduce:animate-none" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                    </span>
+                    Hundreds of CRE pros learning AI together
+                  </motion.div>
+
                 {/* Headline */}
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -112,8 +169,43 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8"
                   >
-                    Your <span className="text-blue-500">Partner</span> in{' '}
-                    <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">AI</span>{' '}
+                    Your{' '}
+                    <span className="relative inline-block text-blue-500">
+                      Partner
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 120 12"
+                        preserveAspectRatio="none"
+                        className="absolute -bottom-1.5 left-0 h-2.5 w-full sm:-bottom-2 sm:h-3"
+                      >
+                        <motion.path
+                          d="M3 9 C 30 3, 70 2, 117 6"
+                          fill="none"
+                          stroke="url(#hero-underline)"
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                          initial={{ pathLength: reduceMotion ? 1 : 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ duration: 0.9, delay: 0.7, ease: "easeInOut" }}
+                        />
+                        <defs>
+                          <linearGradient id="hero-underline" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0%" stopColor="#3b82f6" />
+                            <stop offset="100%" stopColor="#a855f7" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>{' '}
+                    in{' '}
+                    <span
+                      className="bg-clip-text text-transparent animate-[hero-sheen_4s_ease-in-out_infinite_alternate] motion-reduce:animate-none"
+                      style={{
+                        backgroundImage: "linear-gradient(90deg, #a855f7, #ec4899, #f97316, #ec4899, #a855f7)",
+                        backgroundSize: "300% auto",
+                      }}
+                    >
+                      AI
+                    </span>{' '}
                     for the Commercial Real Estate Industry.
                   </motion.h1>
 
@@ -214,7 +306,13 @@ export default function HeroSection() {
             className="mt-20 pt-8 border-t-2 border-white/10 w-full overflow-hidden"
           >
             <p className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-widest mb-6 text-center">Organizations Represented by Our Members</p>
-            <div className="relative overflow-hidden">
+            <div
+              className="relative overflow-hidden"
+              style={{
+                maskImage: "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
+                WebkitMaskImage: "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
+              }}
+            >
               <div className="animate-[scroll_10s_linear_infinite] md:animate-[scroll_20s_linear_infinite] flex gap-12 whitespace-nowrap">
                 {[...Array(2)].map((_, index) => (
                   <div key={index} className="flex gap-12 items-center">

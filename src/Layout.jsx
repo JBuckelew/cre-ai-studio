@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import FreeTrialPopup from "./components/BlackFridayPopup";
 import { captureFirstTouchAttribution } from "./lib/attribution";
 import { setMeta } from "./hooks/usePageMeta";
 import { setNotFoundFlag, getNotFoundFlag } from "./lib/notFoundFlag";
@@ -334,7 +333,6 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-                {currentPageName !== 'FreeTrialPayment' && currentPageName !== 'Payment' && currentPageName !== 'BlackFridayPayment' && currentPageName !== 'PaymentSuccess' && <FreeTrialPopup />}
                 <Navigation />
       <main className="flex-1">
         {children}

@@ -1,11 +1,10 @@
 import React from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import HeroSection from "../components/landing/HeroSection";
-import ValuePropositionSection from "../components/landing/ValuePropositionSection";
+import StudioTourSection from "../components/landing/StudioTourSection";
 import ToolsSection from "../components/landing/ToolsSection";
 import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
-import WhyChooseSection from "../components/landing/WhyChooseSection";
 import AISurveySection from "../components/landing/AISurveySection";
 import MembershipPricing from "../components/pricing/MembershipPricing";
 export default function Home() {
@@ -20,8 +19,7 @@ export default function Home() {
       <HeroSection />
       <MembershipPricing id="pricing" className="pb-12 sm:pb-16" />
       <TestimonialsSection />
-      <ValuePropositionSection />
-      <WhyChooseSection />
+      <StudioTourSection />
       <MissionSection />
       <AISurveySection />
     </div>

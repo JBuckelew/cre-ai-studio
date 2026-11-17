@@ -155,7 +155,7 @@ export default function Navigation() {
             </Button>
             <Button
               onClick={openNewsletter}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
+              className="ml-6 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
             >
               Join the Newsletter
             </Button>

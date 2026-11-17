@@ -40,8 +40,6 @@ const OFFERS = [
   },
 ];
 
-const FIRMS = ["SVN International", "RE/MAX Commercial", "Coldwell Banker Commercial"];
-
 export default function MissionSection() {
   return (
     <section
@@ -126,24 +124,6 @@ export default function MissionSection() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-10 md:mt-12 text-center"
-        >
-          <p className="text-sm font-semibold uppercase tracking-wider text-slate-500">
-            Training CRE teams since March 2024, including
-          </p>
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {FIRMS.map((firm) => (
-              <span key={firm} className="text-lg md:text-xl font-bold text-slate-700">
-                {firm}
-              </span>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

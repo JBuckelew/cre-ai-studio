@@ -112,7 +112,9 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8"
                   >
-                    Your <span className="text-blue-500">Partner</span> in AI for Commercial Real Estate.
+                    Your <span className="text-blue-500">Partner</span> in{' '}
+                    <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">AI</span>{' '}
+                    for Commercial Real Estate.
                   </motion.h1>
 
                   {/* Description */}

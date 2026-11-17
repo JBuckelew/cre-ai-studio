@@ -4,8 +4,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
-import { createPageUrl } from '@/utils';
-import { subscribeToBeehiiv } from "@/functions/subscribeToBeehiiv";
+import { getAttribution } from "@/lib/attribution";
 import {
   Dialog,
   DialogContent,
@@ -16,8 +15,8 @@ import {
 
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [freeTrialEmail, setFreeTrialEmail] = useState("");
-  const [freeTrialSubmitting, setFreeTrialSubmitting] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState("idle");
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -35,21 +34,33 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleFreeTrialSubmit = async (e) => {
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    if (!freeTrialEmail) return;
-    setFreeTrialSubmitting(true);
+    if (!newsletterEmail) return;
+    setNewsletterStatus("loading");
     try {
-      await subscribeToBeehiiv({ email: freeTrialEmail, source: "free_trial" });
+      const attr = getAttribution();
+      await base44.functions.invoke("subscribeToBeehiiv", {
+        email: newsletterEmail,
+        source: "hero_newsletter",
+        utm_source: attr?.utm_source,
+        utm_medium: attr?.utm_medium,
+        utm_campaign: attr?.utm_campaign,
+        utm_term: attr?.utm_term,
+        utm_content: attr?.utm_content,
+        referring_site: attr?.referrer,
+      });
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "newsletter_signup", {
+          method: "hero",
+          signup_page: window.location.pathname,
+        });
+      }
+      setNewsletterEmail("");
+      setNewsletterStatus("success");
     } catch (err) {
-      console.error('Free trial signup error:', err);
-    }
-    setFreeTrialSubmitting(false);
-    const pricingEl = document.getElementById('pricing');
-    if (pricingEl) {
-      pricingEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      window.location.href = createPageUrl('FreeTrialPayment');
+      console.error('Newsletter signup error:', err);
+      setNewsletterStatus("error");
     }
   };
 
@@ -167,25 +178,36 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
-                    <form onSubmit={handleFreeTrialSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email"
-                      value={freeTrialEmail}
-                      onChange={(e) => setFreeTrialEmail(e.target.value)}
-                      required
-                      className="h-11 rounded-full bg-white/10 border-white/20 text-white placeholder:text-slate-400 px-5 flex-1"
-                    />
-                    <Button
-                      type="submit"
-                      disabled={freeTrialSubmitting}
-                      className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-6 text-sm sm:text-base transition-all duration-300 whitespace-nowrap disabled:opacity-60"
-                      style={{ animation: 'flash 4s ease-in-out infinite' }}
-                    >
-                      {freeTrialSubmitting ? "Starting..." : "Start My Free Trial"}
-                    </Button>
-                  </form>
-                  <p className="text-sm text-slate-400 mt-2">Cancel anytime. No commitment required.</p>
+                    {newsletterStatus === "success" ? (
+                      <div className="flex items-center gap-2 text-amber-100 font-semibold">
+                        <CheckCircle className="w-5 h-5" />
+                        You're subscribed! Check your inbox.
+                      </div>
+                    ) : (
+                      <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          value={newsletterEmail}
+                          onChange={(e) => setNewsletterEmail(e.target.value)}
+                          required
+                          className="h-11 rounded-full bg-white/10 border-white/20 text-white placeholder:text-slate-400 px-5 flex-1"
+                        />
+                        <Button
+                          type="submit"
+                          disabled={newsletterStatus === "loading"}
+                          className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-6 text-sm sm:text-base transition-all duration-300 whitespace-nowrap disabled:opacity-60"
+                          style={{ animation: 'flash 4s ease-in-out infinite' }}
+                        >
+                          {newsletterStatus === "loading" ? "Subscribing..." : "Join the Newsletter"}
+                        </Button>
+                      </form>
+                    )}
+                    {newsletterStatus === "error" ? (
+                      <p className="text-sm text-amber-200 mt-2">Something went wrong. Please try again.</p>
+                    ) : (
+                      <p className="text-sm text-slate-400 mt-2">AI news, tools, and use cases for CRE. Free, no spam.</p>
+                    )}
                   </motion.div>
                 </div>
 

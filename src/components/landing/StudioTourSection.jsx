@@ -238,9 +238,9 @@ export default function StudioTourSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10">
           {/* Tabs: a scrolling chip row on mobile, a vertical list on desktop */}
-          <div className="lg:col-span-4">
+          <div className="min-w-0 lg:col-span-4">
             <div
               role="tablist"
               aria-label="What's inside the Studio"
@@ -289,7 +289,7 @@ export default function StudioTourSection() {
             id="studio-tabpanel"
             role="tabpanel"
             aria-labelledby={`studio-tab-${active.key}`}
-            className="lg:col-span-8"
+            className="min-w-0 lg:col-span-8"
           >
             <BrowserFrame tab={active} />
             <AnimatePresence mode="wait">

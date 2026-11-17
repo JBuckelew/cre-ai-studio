@@ -100,7 +100,7 @@ export default function HeroSection() {
 
           <div className="flex-1 flex items-center justify-start w-full">
             {/* Content Container - Left Aligned */}
-            <div className="relative max-w-full lg:max-w-xl">
+            <div className="relative max-w-full lg:max-w-3xl">
               <div className="relative">
 
                 {/* Left-Aligned Content */}
@@ -114,7 +114,7 @@ export default function HeroSection() {
                   >
                     Your <span className="text-blue-500">Partner</span> in{' '}
                     <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">AI</span>{' '}
-                    for Commercial Real Estate.
+                    for the Commercial Real Estate Industry.
                   </motion.h1>
 
                   {/* Description */}

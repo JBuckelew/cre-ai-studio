@@ -98,9 +98,9 @@ export default function Navigation() {
     <nav className="bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] items-center h-16 gap-4">
+        <div className="hidden md:flex items-center justify-center h-16 gap-6">
           {/* Logo */}
-          <div className="justify-self-start">
+          <div>
             <span
               className="text-lg font-bold bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text text-transparent cursor-pointer"
               onClick={handleHomeClick}
@@ -155,7 +155,7 @@ export default function Navigation() {
             </Button>
             <Button
               onClick={openNewsletter}
-              className="ml-2 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
             >
               Join the Newsletter
             </Button>

@@ -6,7 +6,6 @@ import { createPageUrl } from '@/utils';
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { captureFirstTouchAttribution, getAttribution } from "@/lib/attribution";
-import { goToPricing } from "@/lib/goToPricing";
 import {
   Dialog,
   DialogContent,
@@ -159,12 +158,6 @@ export default function Navigation() {
           {/* Join Now and Log In Buttons */}
           <div className="justify-self-end flex items-center gap-2">
             <Button
-              asChild
-              className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-sm px-4"
-            >
-              <a href="/#pricing" onClick={goToPricing}>Get My Free Trial</a>
-            </Button>
-            <Button
               onClick={openNewsletter}
               className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
             >
@@ -187,13 +180,6 @@ export default function Navigation() {
 
           {/* Top row: Buttons */}
           <div className="flex items-center justify-center gap-2 mb-2 pb-2 border-b border-slate-200">
-            <Button
-              size="sm"
-              asChild
-              className="bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600 text-white font-semibold text-xs px-3"
-            >
-              <a href="/#pricing" onClick={goToPricing}>Get My Free Trial</a>
-            </Button>
             <Button
               onClick={openNewsletter}
               size="sm"

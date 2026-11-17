@@ -11,7 +11,7 @@ export const HOME_FAQS = [
   },
   {
     q: "Is there an AI course or community for CRE professionals?",
-    a: "Yes. CRE AI Studio offers a membership community of hundreds of CRE pros, with weekly hands-on tutorials, templates and live Q&A; customized corporate AI training for teams; and strategic AI consulting for firms. Membership starts with a 7-day free trial, then $100 a month, or $960 a year (save 20%) with a 12-month commitment. It includes the Claude for Commercial Real Estate Cohort: annual members get free access to the live workshops, and monthly members get the recordings once the cohort ends.",
+    a: "Yes. CRE AI Studio offers a membership community of hundreds of CRE pros, with weekly hands-on tutorials, templates and live Q&A; customized corporate AI training for teams; and strategic AI consulting for firms. Membership starts with a 7-day free trial, then $100 a month, or $960 a year (save 20%) with a 12-month commitment. It includes the Claude for Commercial Real Estate Cohort: annual members get free access to the live AI workshops, and monthly members get the recordings once the cohort ends.",
   },
   {
     q: "How do CRE pros use Claude and ChatGPT?",
@@ -25,6 +25,9 @@ export const HOME_FAQS = [
 
 const PM_HREF = "/use-cases/ai-for-property-management-grok-bot-staff";
 const LEASE_HREF = "/use-cases/ai-lease-abstraction-claude-chatgpt-template";
+const UW_HREF = "/use-cases/task/underwriting";
+const WORKSHOPS_HREF = "/Workshops";
+const FAQ_LINK_CLASS = "text-blue-700 underline underline-offset-2 hover:text-blue-800";
 
 export const homeFaqJsonLd = {
   "@context": "https://schema.org",
@@ -68,6 +71,26 @@ function clearHomeFaqJsonLd() {
 }
 
 function Answer({ item }) {
+  if (item.q === "How do I use AI for commercial real estate?") {
+    const [before, after] = item.a.split("underwriting");
+    return (
+      <>
+        {before}
+        <a href={UW_HREF} className={FAQ_LINK_CLASS}>underwriting</a>
+        {after}
+      </>
+    );
+  }
+  if (item.q === "Is there an AI course or community for CRE professionals?") {
+    const [before, after] = item.a.split("live AI workshops");
+    return (
+      <>
+        {before}
+        <a href={WORKSHOPS_HREF} className={FAQ_LINK_CLASS}>live AI workshops</a>
+        {after}
+      </>
+    );
+  }
   if (item.q !== "Can AI help with commercial property management and lease abstraction?") {
     return item.a;
   }

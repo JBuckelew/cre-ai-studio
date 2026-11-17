@@ -33,13 +33,13 @@ export default function TermsOfUse() {
             <section>
               <h3 className="text-xl font-semibold text-slate-800 mb-3">1. Studio Access and Membership</h3>
               <p className="text-slate-600 leading-relaxed mb-3">
-                Access to the Studio is subscription-based. You agree to pay all applicable fees for the membership tier you select.
+                Access to the Studio is subscription-based. There is one membership, billed monthly or annually, and you agree to pay all applicable fees for the billing option you select.
               </p>
-              <p className="text-slate-600 leading-relaxed mb-3">Membership tiers include:</p>
+              <p className="text-slate-600 leading-relaxed mb-3">The membership includes:</p>
               <ul className="text-slate-600 leading-relaxed list-disc list-inside mb-3">
-                <li>Level 1: Weekly video lessons.</li>
-                <li>Level 2: Level 1 + monthly live training with Q&A.</li>
-                <li>Level 3: Level 2 + direct access to founders through a private channel with 24-hour guaranteed response.</li>
+                <li>Weekly video lessons.</li>
+                <li>Monthly live training with Q&A.</li>
+                <li>Direct access to founders through a private channel with 24-hour guaranteed response.</li>
               </ul>
               <p className="text-slate-600 leading-relaxed">
                 Access is limited to the individual Subscriber. You may not share your login credentials or permit others to access your account.

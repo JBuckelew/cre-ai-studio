@@ -7,12 +7,12 @@
 export const BASE_PLAN = {
   monthly: {
     price: 100,
-    stripe_url: "https://buy.stripe.com/7sYfZid8r6uW64V6jkcV20b",
+    stripe_url: "https://buy.stripe.com/9B6eVe8Sb8D40KB6jkcV20x",
   },
   annual: {
     yearlyTotal: 960, // 20% off 12 x $100
     perMonth: 80,
-    stripe_url: "https://buy.stripe.com/bJedRa4BV06y78Z4bccV20f",
+    stripe_url: "https://buy.stripe.com/6oUbJ2c4n5qSgJzcHIcV20w",
   },
   annualDiscountPct: 20,
   trialDays: 7,

@@ -1,5 +1,6 @@
 // Single source of truth for CRE AI Studio membership pricing.
-// One plan, billed monthly or annually. Annual is the default view.
+// One membership, one level of access for everyone. The only choice is
+// monthly or annual billing. Annual is the default view.
 // A promo (e.g. Black Friday) swaps in its own prices and Stripe links
 // only while the current time is inside its window.
 

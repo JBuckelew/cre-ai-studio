@@ -148,20 +148,6 @@ export default function HeroSection() {
 
                 {/* Left-Aligned Content */}
                 <div>
-                  {/* Eyebrow */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-200 backdrop-blur-sm"
-                  >
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping motion-reduce:animate-none" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                    </span>
-                    Hundreds of CRE pros learning AI together
-                  </motion.div>
-
                 {/* Headline */}
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}

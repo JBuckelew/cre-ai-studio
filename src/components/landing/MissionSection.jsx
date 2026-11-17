@@ -12,7 +12,8 @@ export default function MissionSection() {
       icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/383e9fd9c_image.png",
       title: "Claude for Commercial Real Estate",
       description: "Master Claude for daily commercial real estate tasks, along with ChatGPT and Gemini.",
-      isImage: true
+      isImage: true,
+      href: "/use-cases/tool/claude"
     },
     {
       icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/7c86f2176_image.png",
@@ -84,7 +85,13 @@ export default function MissionSection() {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{module.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                      {module.href ? (
+                        <a href={module.href} className="text-blue-700 underline underline-offset-2 hover:text-blue-800">{module.title}</a>
+                      ) : (
+                        module.title
+                      )}
+                    </h3>
                     <p className="text-slate-600 leading-relaxed">{module.description}</p>
                   </div>
                 </div>

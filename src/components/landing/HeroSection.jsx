@@ -98,9 +98,9 @@ export default function HeroSection() {
           
 
 
-          <div className="flex-1 flex items-center justify-start w-full">
-            {/* Content Container - Left Aligned */}
-            <div className="relative max-w-full lg:max-w-3xl">
+          <div className="flex-1 flex items-center justify-center w-full">
+            {/* Content Container - Centered */}
+            <div className="relative max-w-full lg:max-w-3xl mx-auto text-center">
               <div className="relative">
 
                 {/* Left-Aligned Content */}

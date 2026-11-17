@@ -79,7 +79,7 @@ const TABS = [
     title: "1:1 calls with the founders",
     body: "Every new member starts with a complimentary 1:1 call with Jonathan and Topher to map where AI fits your work. Then book a call with us every quarter to keep building.",
     points: ["A complimentary call when you join", "Then one call every quarter"],
-    path: "cal.com/cre-ai-studio",
+    path: "Member 1:1 booking",
     alt: "Booking a 1:1 call with the CRE AI Studio founders",
   },
 ];
@@ -122,7 +122,7 @@ function BookingMockup() {
           <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">CRE AI Studio</p>
           <p className="mt-1 text-lg font-bold leading-snug text-slate-900">Member 1:1 Strategy Call</p>
           <p className="mt-2 text-sm text-slate-600">30 min · Video call</p>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">Map where AI fits your work and leave with your next three builds.</p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">Map where AI fits your work, then come back every quarter to keep building.</p>
         </div>
         <div className="sm:col-span-3 p-5">
           <p className="text-sm font-semibold text-slate-900">Pick a day</p>

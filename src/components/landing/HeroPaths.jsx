@@ -9,25 +9,28 @@ const PATHS = [
     title: "Membership",
     detail: "Courses, tools, and a community of CRE professionals",
     primary: true,
+    cta: "Explore",
   },
   {
     title: "Team Training",
     detail: "Private AI workshops built for your company",
     href: "/training",
     tone: "mid",
+    cta: "Inquire",
   },
   {
     title: "Consulting",
     detail: "AI built into the way your firm already works",
     href: "/Consulting",
     tone: "light",
+    cta: "Inquire",
   },
 ];
 
 export default function HeroPaths() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-      {PATHS.map(({ title, detail, href, primary, tone }, i) => {
+      {PATHS.map(({ title, detail, href, primary, tone, cta }, i) => {
         const cardClassName = `group relative flex h-full flex-col justify-between gap-8 overflow-hidden rounded-2xl border p-5 text-left transition-all duration-500 hover:-translate-y-1 ${
           primary
             ? "border-blue-300/50 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white shadow-[0_18px_45px_-18px_rgba(37,99,235,0.85)] hover:shadow-[0_28px_60px_-18px_rgba(37,99,235,1)]"
@@ -80,7 +83,7 @@ export default function HeroPaths() {
               }`}
             >
               <span className={`border-b pb-0.5 ${primary ? "border-white/40" : "border-blue-300/40 group-hover:border-blue-200/80"}`}>
-                Explore
+                {cta}
               </span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1.5" />
             </div>

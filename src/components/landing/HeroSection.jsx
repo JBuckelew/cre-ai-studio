@@ -200,9 +200,18 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-base sm:text-lg lg:text-2xl text-slate-300 leading-relaxed mb-8 sm:mb-10"
+                    className="text-base sm:text-lg lg:text-2xl text-slate-300 leading-relaxed mb-3 sm:mb-4"
                   >
-                    CRE AI Studio provides AI training and consulting for commercial real estate professionals and firms, through an industry-focused membership community, customized corporate AI training, and strategic AI consulting.
+                    CRE AI Studio provides AI training and consulting for commercial real estate professionals and firms, through an industry-focused membership community,{" "}
+                    <a href="/training" className="text-blue-300 underline underline-offset-2 hover:text-blue-200">customized corporate AI training</a>, and strategic AI consulting.
+                  </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+                    className="text-sm sm:text-base lg:text-lg text-slate-400 leading-relaxed mb-8 sm:mb-10"
+                  >
+                    <a href="/About" className="text-blue-300 underline underline-offset-2 hover:text-blue-200">Learn more about CRE AI Studio</a>.
                   </motion.p>
 
                 </div>

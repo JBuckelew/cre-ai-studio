@@ -30,8 +30,8 @@ export default function HeroPaths() {
       {PATHS.map(({ title, detail, icon: Icon, href, primary }) => {
         const cardClassName = `group relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-2xl border p-4 sm:p-5 text-left transition-all duration-300 hover:-translate-y-1 ${
           primary
-            ? "border-amber-200/70 bg-gradient-to-br from-amber-50 via-amber-100 to-amber-200 text-slate-900 shadow-[0_14px_40px_-16px_rgba(251,191,36,0.6)] hover:shadow-[0_22px_50px_-16px_rgba(251,191,36,0.8)]"
-            : "border-white/15 bg-white/[0.05] text-white hover:border-amber-200/50 hover:bg-white/[0.09] hover:shadow-[0_22px_45px_-20px_rgba(0,0,0,0.95)]"
+            ? "border-blue-400/40 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white shadow-[0_14px_40px_-16px_rgba(37,99,235,0.75)] hover:shadow-[0_22px_50px_-16px_rgba(37,99,235,0.9)]"
+            : "border-white/15 bg-white/[0.05] text-white hover:border-blue-400/50 hover:bg-white/[0.09] hover:shadow-[0_22px_45px_-20px_rgba(37,99,235,0.55)]"
         }`;
 
         const content = (
@@ -39,15 +39,15 @@ export default function HeroPaths() {
             {/* soft corner glow on hover */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-amber-300/40 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-blue-400/40 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
 
             <div className="relative flex items-start justify-between gap-2">
               <span
                 className={`inline-flex h-10 w-10 items-center justify-center rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-105 ${
                   primary
-                    ? "bg-slate-900 text-amber-200"
-                    : "bg-gradient-to-br from-amber-200 to-orange-400 text-slate-900"
+                    ? "bg-white/15 text-white"
+                    : "bg-gradient-to-br from-blue-400 to-indigo-600 text-white"
                 }`}
               >
                 <Icon className="h-[18px] w-[18px]" />
@@ -55,8 +55,8 @@ export default function HeroPaths() {
               <span
                 className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all duration-300 group-hover:translate-x-1 ${
                   primary
-                    ? "border-slate-900/15 text-slate-900 group-hover:border-slate-900/30"
-                    : "border-white/20 text-slate-300 group-hover:border-amber-200/60 group-hover:text-amber-200"
+                    ? "border-white/25 text-white group-hover:border-white/50"
+                    : "border-white/20 text-slate-300 group-hover:border-blue-400/60 group-hover:text-blue-200"
                 }`}
               >
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -65,7 +65,7 @@ export default function HeroPaths() {
 
             <div className="relative">
               <p className="text-[15px] font-bold leading-tight tracking-tight">{title}</p>
-              <p className={`mt-1.5 text-xs leading-snug ${primary ? "text-slate-700" : "text-slate-400"}`}>
+              <p className={`mt-1.5 text-xs leading-snug ${primary ? "text-blue-100" : "text-slate-400"}`}>
                 {detail}
               </p>
             </div>

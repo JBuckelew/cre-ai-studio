@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { getAttribution } from "@/lib/attribution";
+import { goToPricing } from "@/lib/goToPricing";
 import {
   Dialog,
   DialogContent,
@@ -15,8 +16,6 @@ import {
 
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterStatus, setNewsletterStatus] = useState("idle");
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -33,36 +32,6 @@ export default function HeroSection() {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleNewsletterSubmit = async (e) => {
-    e.preventDefault();
-    if (!newsletterEmail) return;
-    setNewsletterStatus("loading");
-    try {
-      const attr = getAttribution();
-      await base44.functions.invoke("subscribeToBeehiiv", {
-        email: newsletterEmail,
-        source: "hero_newsletter",
-        utm_source: attr?.utm_source,
-        utm_medium: attr?.utm_medium,
-        utm_campaign: attr?.utm_campaign,
-        utm_term: attr?.utm_term,
-        utm_content: attr?.utm_content,
-        referring_site: attr?.referrer,
-      });
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "newsletter_signup", {
-          method: "hero",
-          signup_page: window.location.pathname,
-        });
-      }
-      setNewsletterEmail("");
-      setNewsletterStatus("success");
-    } catch (err) {
-      console.error('Newsletter signup error:', err);
-      setNewsletterStatus("error");
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -172,42 +141,38 @@ export default function HeroSection() {
                     <span className="lg:whitespace-nowrap">of CRE professionals.</span>
                   </motion.p>
 
-                  {/* CTA Button */}
+                  {/* CTAs */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                    className="flex flex-col items-start gap-5 sm:gap-6"
                   >
-                    {newsletterStatus === "success" ? (
-                      <div className="flex items-center gap-2 text-amber-100 font-semibold">
-                        <CheckCircle className="w-5 h-5" />
-                        You're subscribed! Check your inbox.
-                      </div>
-                    ) : (
-                      <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
-                        <Input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={newsletterEmail}
-                          onChange={(e) => setNewsletterEmail(e.target.value)}
-                          required
-                          className="h-11 rounded-full bg-white/10 border-white/20 text-white placeholder:text-slate-400 px-5 flex-1"
-                        />
-                        <Button
-                          type="submit"
-                          disabled={newsletterStatus === "loading"}
-                          className="h-11 bg-amber-50 text-black hover:bg-amber-100 font-semibold rounded-full px-6 text-sm sm:text-base transition-all duration-300 whitespace-nowrap disabled:opacity-60"
-                          style={{ animation: 'flash 4s ease-in-out infinite' }}
-                        >
-                          {newsletterStatus === "loading" ? "Subscribing..." : "Join the Newsletter"}
-                        </Button>
-                      </form>
-                    )}
-                    {newsletterStatus === "error" ? (
-                      <p className="text-sm text-amber-200 mt-2">Something went wrong. Please try again.</p>
-                    ) : (
-                      <p className="text-sm text-slate-400 mt-2">AI news, tools, and use cases for CRE.</p>
-                    )}
+                    <button
+                      onClick={goToPricing}
+                      className="group inline-flex items-center justify-center h-12 sm:h-14 rounded-full bg-amber-50 text-black hover:bg-amber-100 font-semibold px-8 text-base sm:text-lg transition-all duration-300"
+                      style={{ animation: 'flash 4s ease-in-out infinite' }}
+                    >
+                      Explore Membership
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm sm:text-base font-semibold">
+                      <Link
+                        to="/training"
+                        className="inline-flex items-center gap-2 text-white hover:text-amber-200 transition-colors"
+                      >
+                        Explore Team Training
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                      <Link
+                        to="/Consulting"
+                        className="inline-flex items-center gap-2 text-white hover:text-amber-200 transition-colors"
+                      >
+                        Explore Consulting
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
                   </motion.div>
                 </div>
 

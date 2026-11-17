@@ -5,7 +5,6 @@ import StudioTourSection from "../components/landing/StudioTourSection";
 import ToolsSection from "../components/landing/ToolsSection";
 import MissionSection from "../components/landing/MissionSection";
 import TestimonialsSection from "../components/landing/TestimonialsSection";
-import AISurveySection from "../components/landing/AISurveySection";
 import HomeFaq from "../components/landing/HomeFaq";
 import MembershipPricing from "../components/pricing/MembershipPricing";
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
       <TestimonialsSection />
       <StudioTourSection />
       <MissionSection />
-      <AISurveySection />
       <HomeFaq />
     </div>
   );

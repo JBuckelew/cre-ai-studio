@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 
 export const HOME_FAQS = [
   {
@@ -126,19 +127,25 @@ export default function HomeFaq() {
         <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-10 tracking-tight text-center">
           Common questions about AI training for commercial real estate
         </h2>
-        <dl className="space-y-4">
+        <div className="space-y-4">
           {HOME_FAQS.map((item) => (
-            <div
+            <details
               key={item.q}
-              className="rounded-2xl bg-slate-50 border border-slate-200 shadow-sm p-6 md:p-7"
+              className="group rounded-2xl bg-slate-50 border border-slate-200 shadow-sm p-6 md:p-7"
             >
-              <dt className="font-bold text-lg text-slate-900 mb-2">{item.q}</dt>
-              <dd className="text-slate-600 leading-relaxed">
+              <summary className="flex items-start justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-bold text-lg text-slate-900">
+                <span>{item.q}</span>
+                <ChevronDown
+                  aria-hidden="true"
+                  className="w-5 h-5 mt-1 flex-shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180"
+                />
+              </summary>
+              <div className="text-slate-600 leading-relaxed mt-3">
                 <Answer item={item} />
-              </dd>
-            </div>
+              </div>
+            </details>
           ))}
-        </dl>
+        </div>
       </div>
     </section>
   );

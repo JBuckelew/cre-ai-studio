@@ -19,11 +19,12 @@ import TextTestimonials from "./TextTestimonials";
 
 // Screenshots of the Studio on Circle. Member names and photos are hidden before capture.
 // A null image falls back to a neutral placeholder layout.
+const ASSET_BASE = "https://base44.app/api/apps/68a7d83d574299e5af5ccbd3/files/mp/public/68a7d83d574299e5af5ccbd3";
 const STUDIO_IMAGES = {
-  lessons: null,
-  events: null,
-  skills: null,
-  prompts: null,
+  lessons: `${ASSET_BASE}/012703d67_studio-lessons.webp`,
+  events: `${ASSET_BASE}/67064f474_studio-events.webp`,
+  skills: `${ASSET_BASE}/2e8c7c72f_studio-skills.webp`,
+  prompts: `${ASSET_BASE}/8f2286d80_studio-prompts.webp`,
 };
 
 const TABS = [
@@ -35,7 +36,7 @@ const TABS = [
     title: "Step-by-step AI lessons for CRE work",
     body: "Short video lessons that walk through one real task with one specific AI tool, from screening an OM to marketing a listing to building an automation. Start with the Quickstart course, then pick up a new lesson every week.",
     points: ["Built around CRE tasks, not generic AI tips", "Follow along at your own pace"],
-    path: "cre-ai-studio.circle.so/courses",
+    path: "cre-ai-studio.circle.so/c/weekly-ai-lessons",
     alt: "The AI lessons area inside CRE AI Studio",
   },
   {
@@ -57,7 +58,7 @@ const TABS = [
     title: "AI skills built for CRE",
     body: "Ready-to-run Claude skills for the work you already do: T12 analysis, property ownership research, prospecting pipelines and more. Set one up once and reuse it on every deal.",
     points: ["Install once, reuse on every deal", "Built and tested by CRE operators"],
-    path: "cre-ai-studio.circle.so/skills",
+    path: "cre-ai-studio.circle.so/c/skills-library",
     alt: "The Skill Library inside CRE AI Studio",
   },
   {

@@ -10,8 +10,8 @@ export default function MissionSection() {
   const courseModules = [
     {
       icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68a7d83d574299e5af5ccbd3/383e9fd9c_image.png",
-      title: "Learn How to Use the LLMs",
-      description: "Master ChatGPT, Claude, & Gemini for daily Commercial Real Estate tasks and decision-making",
+      title: "Claude for Commercial Real Estate",
+      description: "Master Claude for daily commercial real estate tasks, along with ChatGPT and Gemini.",
       isImage: true
     },
     {
@@ -57,7 +57,7 @@ export default function MissionSection() {
             What's Inside
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-8 tracking-tight leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 to-amber-500 bg-clip-text text-transparent">What You'll Learn</span> by Joining
+            <span className="bg-gradient-to-r from-blue-600 to-amber-500 bg-clip-text text-transparent">AI training and courses</span> for commercial real estate professionals
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
             Comprehensive AI training designed specifically for CRE professionals, covering everything from basic tools to enterprise implementation.
@@ -92,6 +92,13 @@ export default function MissionSection() {
             </Card>
           ))}
         </motion.div>
+
+        <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed text-center mb-16">
+          CRE professionals also use AI for commercial{" "}
+          <a href="/use-cases/ai-for-property-management-grok-bot-staff" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">property management</a>
+          {" and "}
+          <a href="/use-cases/ai-lease-abstraction-claude-chatgpt-template" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">lease abstraction</a>.
+        </p>
 
         {/* Call to Action */}
         <motion.div

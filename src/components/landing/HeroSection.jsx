@@ -140,15 +140,6 @@ export default function HeroSection() {
                     <span className="lg:whitespace-nowrap">of CRE professionals.</span>
                   </motion.p>
 
-                  {/* CTAs */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                    className="w-full sm:max-w-md lg:max-w-none"
-                  >
-                    <HeroPaths />
-                  </motion.div>
                 </div>
 
                 {/* Popup Dialog */}
@@ -216,6 +207,16 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+
+          {/* Pathways */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+            className="mt-10 sm:mt-12 w-full max-w-3xl mx-auto"
+          >
+            <HeroPaths />
+          </motion.div>
 
           {/* Organizations Represented Section */}
           <motion.div

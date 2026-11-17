@@ -112,20 +112,9 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8"
                   >
-                    <span className="text-3xl sm:text-5xl lg:text-6xl lg:whitespace-nowrap">AI Training that <span className="italic text-blue-600">transforms</span> your</span>
-                    <br />
-                    <span className="text-3xl sm:text-5xl lg:text-6xl lg:whitespace-nowrap">Commercial Real Estate{' '}
-                    <motion.span
-                      key={currentWord}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5 }}
-                      className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent pb-1"
-                    >
-                      {words[currentWord]}
-                    </motion.span>
-                    </span>
+                    Your Partner in{' '}
+                    <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">AI</span>{' '}
+                    for Commercial Real Estate.
                   </motion.h1>
 
                   {/* Description */}
@@ -135,9 +124,8 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     className="text-base sm:text-lg lg:text-2xl text-slate-300 leading-relaxed mb-8 sm:mb-10"
                   >
-                    <span className="lg:whitespace-nowrap">Learn to integrate AI tools into your daily CRE workflows through</span><br className="hidden lg:block" />{' '}
-                    <span className="lg:whitespace-nowrap">hands-on training, live workshops, and a community of hundreds</span><br className="hidden lg:block" />{' '}
-                    <span className="lg:whitespace-nowrap">of CRE professionals.</span>
+                    We help CRE professionals and organizations navigate and implement AI through an
+                    industry-focused membership community, customized corporate training, and strategic consulting.
                   </motion.p>
 
                 </div>

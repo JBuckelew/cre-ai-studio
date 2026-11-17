@@ -98,7 +98,7 @@ export default function Navigation() {
     <nav className="bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-[auto_1fr_auto] items-center h-16 gap-4">
+        <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] items-center h-16 gap-4">
           {/* Logo */}
           <div className="justify-self-start">
             <span
@@ -153,13 +153,9 @@ export default function Navigation() {
             >
               <a href="https://cre-ai-studio.circle.so/getting-started" target="_blank" rel="noopener noreferrer">Login</a>
             </Button>
-          </div>
-
-          {/* Join Now and Log In Buttons */}
-          <div className="justify-self-end flex items-center gap-2">
             <Button
               onClick={openNewsletter}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
+              className="ml-2 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
             >
               Join the Newsletter
             </Button>

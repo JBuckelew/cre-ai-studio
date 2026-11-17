@@ -111,7 +111,7 @@ export default function MissionSection() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8 pt-2 lg:mt-auto">
+                  <div className="mt-auto pt-8">
                     <a
                       href={offer.href}
                       className="group inline-flex items-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"

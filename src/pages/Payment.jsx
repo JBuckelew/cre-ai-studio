@@ -1,2 +1,2 @@
-// Legacy three-tier page. Now shows the single membership plan.
+// Old pricing URL. Shows the single membership.
 export { default } from './FreeTrialPayment';

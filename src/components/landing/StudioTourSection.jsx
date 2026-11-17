@@ -122,7 +122,7 @@ function BookingMockup() {
           </div>
           <p className="mt-3 sm:mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">CRE AI Studio</p>
           <p className="mt-1 text-lg font-bold leading-snug text-slate-900">Member 1:1 Strategy Call</p>
-          <p className="mt-2 text-sm text-slate-600">30 min · Video call</p>
+          <p className="mt-2 text-sm text-slate-600">20 min · Video call</p>
           <p className="mt-3 hidden text-sm leading-relaxed text-slate-600 sm:block">Map where AI fits your work, then come back every quarter to keep building.</p>
         </div>
         <div className="hidden sm:block sm:col-span-3 p-4 sm:p-5">

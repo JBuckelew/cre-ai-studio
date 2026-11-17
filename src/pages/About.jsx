@@ -193,7 +193,7 @@ export default function About() {
               Our paid community is where CRE professionals learn AI together. It is for {COMMUNITY_AUDIENCE}.
               Members get weekly step-by-step video lessons, AI skills built for CRE, monthly office hours and a
               community of hundreds of peers.{" "}
-              <Link to="/#whats-included" className={linkClass}>See the membership levels</Link>.
+              <Link to="/#whats-included" className={linkClass}>See what's in the membership</Link>.
             </Offer>
             <Offer title="AI training for CRE teams and companies">
               We train whole teams on the AI tools they already have, using their own documents and CRE workflows.

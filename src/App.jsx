@@ -59,6 +59,7 @@ import UseCaseLeaseRenewalWorkflow from './pages/UseCaseLeaseRenewalWorkflow';
 import UseCaseAiMarketResearchPodcasts from './pages/UseCaseAiMarketResearchPodcasts';
 import UseCaseCamReconciliationCowork from './pages/UseCaseCamReconciliationCowork';
 import UseCaseGrokBotRealEstateInvestors from './pages/UseCaseGrokBotRealEstateInvestors';
+import UseCaseZoningAnalysisChatgpt from './pages/UseCaseZoningAnalysisChatgpt';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -324,6 +325,11 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/grok-bot-for-real-estate-investors" element={
         <LayoutWrapper currentPageName="UseCaseGrokBotRealEstateInvestors">
           <UseCaseGrokBotRealEstateInvestors />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/zoning-analysis-chatgpt-code-library" element={
+        <LayoutWrapper currentPageName="UseCaseZoningAnalysisChatgpt">
+          <UseCaseZoningAnalysisChatgpt />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

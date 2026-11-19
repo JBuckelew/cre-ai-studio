@@ -194,7 +194,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
               <p className="mt-3 text-center text-sm text-slate-400">
                 {pricing.trialDays} days free, then{" "}
                 {isAnnual
-                  ? `$${pricing.annual.yearlyTotal.toLocaleString()} for your first year. 12-month commitment.`
+                  ? `$${pricing.annual.yearlyTotal.toLocaleString()} for your first year.`
                   : `$${pricing.monthly.price}/month.`}
               </p>
             </div>

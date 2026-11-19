@@ -128,11 +128,6 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                   }`}
                 >
                   Monthly
-                  {promo && pricing.monthly.discountPct > 0 && (
-                    <span className="ml-2 rounded-full bg-blue-400/20 px-2 py-0.5 text-xs font-bold text-blue-200">
-                      Save {pricing.monthly.discountPct}%
-                    </span>
-                  )}
                 </button>
               </div>
 
@@ -161,9 +156,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                       )}
                     </div>
                     <p className={`mt-2 font-semibold ${accent}`}>
-                      {pricing.monthly.durationMonths
-                        ? `For your first ${pricing.monthly.durationMonths} months, then $${pricing.monthly.listPrice}/month`
-                        : "Billed monthly"}
+                      Billed monthly
                       <span className="text-slate-400 font-normal">
                         {promo
                           ? " (go annual for the free Claude Cohort seat)"
@@ -191,7 +184,9 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                   </>
                 ) : (
                   <>
-                    Start My {pricing.trialDays}-Day Free Trial
+                    {isAnnual && promo
+                      ? `Get My ${pricing.annual.discountPct}% Off Annual Discount`
+                      : `Start My ${pricing.trialDays}-Day Free Trial`}
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </>
                 )}
@@ -200,9 +195,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                 {pricing.trialDays} days free, then{" "}
                 {isAnnual
                   ? `$${pricing.annual.yearlyTotal.toLocaleString()} for your first year. 12-month commitment.`
-                  : pricing.monthly.durationMonths
-                    ? `$${pricing.monthly.price}/month for ${pricing.monthly.durationMonths} months and $${pricing.monthly.listPrice}/month after. Cancel anytime.`
-                    : `$${pricing.monthly.price}/month. Cancel anytime.`}
+                  : `$${pricing.monthly.price}/month.`}
               </p>
             </div>
 

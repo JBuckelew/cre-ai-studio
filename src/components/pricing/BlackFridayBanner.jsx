@@ -49,8 +49,8 @@ export default function BlackFridayBanner({ promo }) {
           <div className="hidden h-12 w-px bg-slate-900/20 sm:block" />
 
           <p className="text-sm font-medium leading-snug text-slate-900/85">
-            Monthly and annual.{" "}
-            <span className="font-bold text-slate-900">Annual adds a free seat</span> in the
+            Annual membership.{" "}
+            <span className="font-bold text-slate-900">Includes a free seat</span> in the
             January Claude Cohort.
           </p>
         </div>

@@ -26,25 +26,22 @@ export const PROMOS = [
     enabled: true,
     label: "Black Friday",
     endsLabel: "Ends Sunday 11/29 at 1pm ET.",
-    bannerText: "Black Friday: 40% off monthly and annual. Annual adds a free seat in the January Claude Cohort. Ends Sunday 11/29 at 1pm ET.",
+    bannerText: "Black Friday: 40% off annual membership, plus a free seat in the January Claude Cohort. Ends Sunday 11/29 at 1pm ET.",
     starts: "2026-11-18T00:00:00-05:00",
     ends: "2026-11-29T13:00:00-05:00", // Sunday 11/29, 1pm ET. Stripe promo codes expire at the same moment.
-    // 40% off: $60/mo for the first 12 months (Stripe coupon BLACKFRIDAY40M on the $100 price), then $100.
-    // Same checkout links as BASE_PLAN with the code prefilled. The discount applies only once the
-    // Stripe promo codes exist and "Allow promotion codes" is on for each link (pending as of 11-19-2026).
+    // Monthly is unchanged during the promo: $100/month, same checkout link as BASE_PLAN.
     monthly: {
-      price: 60,
-      discountPct: 40,
-      durationMonths: 12,
-      stripe_url: "https://buy.stripe.com/9B6eVe8Sb8D40KB6jkcV20x?prefilled_promo_code=BLACKFRIDAY40M",
+      price: 100,
+      discountPct: 0,
+      stripe_url: "https://buy.stripe.com/9B6eVe8Sb8D40KB6jkcV20x",
     },
-    // 40% off the $1,200 list for the first year ($240 coupon BLACKFRIDAY40 on the $960 price), then $960/yr.
+    // Annual: 40% off for the first year, $720 instead of $960, via a dedicated Stripe link.
     annual: {
       yearlyTotal: 720,
       perMonth: 60,
       discountPct: 40,
       firstYearOnly: true,
-      stripe_url: "https://buy.stripe.com/6oUbJ2c4n5qSgJzcHIcV20w?prefilled_promo_code=BLACKFRIDAY40",
+      stripe_url: "https://buy.stripe.com/28EcN6b0jdXodxncHIcV20y",
     },
   },
 ];

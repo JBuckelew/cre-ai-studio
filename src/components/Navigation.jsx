@@ -155,7 +155,7 @@ export default function Navigation() {
             </Button>
             <Button
               onClick={openNewsletter}
-              className="ml-6 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4"
+              className="ml-6 bg-[linear-gradient(90deg,#a855f7,#ec4899,#f97316)] hover:opacity-90 text-white font-medium text-sm px-4 border-0"
             >
               Join the Newsletter
             </Button>
@@ -179,7 +179,7 @@ export default function Navigation() {
             <Button
               onClick={openNewsletter}
               size="sm"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs px-4"
+              className="bg-[linear-gradient(90deg,#a855f7,#ec4899,#f97316)] hover:opacity-90 text-white font-medium text-xs px-4 border-0"
             >
               Join the Newsletter
             </Button>

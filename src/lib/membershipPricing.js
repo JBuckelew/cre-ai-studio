@@ -23,15 +23,16 @@ export const BASE_PLAN = {
 export const PROMOS = [
   {
     key: "black_friday_2026",
-    enabled: false,
+    enabled: true,
     label: "Black Friday",
-    endsLabel: "Ends Monday 11/30.",
-    starts: "2026-11-23T00:00:00-05:00", // Monday of Thanksgiving week
-    ends: "2026-12-01T00:00:00-05:00", // through end of Monday 11/30 ET
-    // $85/mo for the first 12 months (Stripe coupon on the $100 price), then $100.
-    monthly: { price: 85, discountPct: 15, durationMonths: 12, stripe_url: null },
-    // 35% off the $1,200 list for the first year ($180 coupon on the $960 price), then $960/yr.
-    annual: { yearlyTotal: 780, perMonth: 65, discountPct: 35, firstYearOnly: true, stripe_url: null },
+    endsLabel: "Ends Sunday 11/29 at 1pm ET.",
+    bannerText: "Black Friday: 40% off monthly and annual. Annual adds a free seat in the January Claude Cohort. Ends Sunday 11/29 at 1pm ET.",
+    starts: "2026-11-18T00:00:00-05:00",
+    ends: "2026-11-29T13:00:00-05:00", // Sunday 11/29, 1pm ET. Stripe promo codes expire at the same moment.
+    // 40% off: $60/mo for the first 12 months (Stripe coupon BLACKFRIDAY40M on the $100 price), then $100.
+    monthly: { price: 60, discountPct: 40, durationMonths: 12, stripe_url: null },
+    // 40% off the $1,200 list for the first year ($240 coupon BLACKFRIDAY40 on the $960 price), then $960/yr.
+    annual: { yearlyTotal: 720, perMonth: 60, discountPct: 40, firstYearOnly: true, stripe_url: null },
   },
 ];
 

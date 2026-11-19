@@ -24,7 +24,10 @@
     </script>
   </head>
   <body>
+    <script>document.documentElement.classList.add("js-ready");</script>
+    <style>.js-ready #seo-fallback { display: none; }</style>
     <div id="root">
+      <div id="seo-fallback">
       <header>
         <h1>Your Partner in AI for the Commercial Real Estate Industry.</h1>
         <p>CRE AI Studio provides AI training and consulting for commercial real estate professionals and firms, through an industry-focused membership community, <a href="/training">customized corporate AI training</a>, and <a href="/Consulting">strategic AI consulting</a>.</p>
@@ -48,6 +51,7 @@
         <h3>Can AI help with commercial property management and lease abstraction?</h3>
         <p>Yes. Property managers use AI for fee audits, owner reporting, maintenance routing and running bots like staff. Lease abstraction is another common workflow: filling your own abstract template with Claude or ChatGPT. See the <a href="/use-cases/ai-for-property-management-grok-bot-staff">property management</a> and <a href="/use-cases/ai-lease-abstraction-claude-chatgpt-template">lease abstraction</a> use cases on CRE AI Studio. These are the kinds of real workflows covered in the membership community, corporate AI training and consulting.</p>
       </section>
+      </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

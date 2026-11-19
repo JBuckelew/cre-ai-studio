@@ -90,7 +90,8 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
 
           {promo && (
             <div className="relative bg-yellow-400 text-black text-center text-sm sm:text-base font-bold px-4 py-2.5">
-              {promo.label}: {promo.annual.discountPct}% off annual, plus a free seat in the January Claude Cohort. {promo.monthly.discountPct}% off monthly. {promo.endsLabel}
+              {promo.bannerText ||
+                `${promo.label}: ${promo.annual.discountPct}% off annual, plus a free seat in the January Claude Cohort. ${promo.monthly.discountPct}% off monthly. ${promo.endsLabel}`}
             </div>
           )}
 
@@ -167,7 +168,11 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
                       {pricing.monthly.durationMonths
                         ? `For your first ${pricing.monthly.durationMonths} months, then $${pricing.monthly.listPrice}/month`
                         : "Billed monthly"}
-                      <span className="text-slate-400 font-normal"> (switch to annual and save {pricing.annual.discountPct}%)</span>
+                      <span className="text-slate-400 font-normal">
+                        {promo
+                          ? " (go annual for the free Claude Cohort seat)"
+                          : ` (switch to annual and save ${pricing.annual.discountPct}%)`}
+                      </span>
                     </p>
                   </>
                 )}

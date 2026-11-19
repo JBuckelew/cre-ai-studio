@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, Loader2, PhoneCall, GraduationCap } from "lucide-react";
 import { getPricing } from "@/lib/membershipPricing";
+import BlackFridayBanner from "@/components/pricing/BlackFridayBanner";
 import { getStripeSafeClientId } from "@/lib/stripeAttribution";
 
 const INCLUDED = [
@@ -88,12 +89,7 @@ export default function MembershipPricing({ id = "pricing", showHeading = true, 
           <div className="absolute -top-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
 
-          {promo && (
-            <div className="relative bg-yellow-400 text-black text-center text-sm sm:text-base font-bold px-4 py-2.5">
-              {promo.bannerText ||
-                `${promo.label}: ${promo.annual.discountPct}% off annual, plus a free seat in the January Claude Cohort. ${promo.monthly.discountPct}% off monthly. ${promo.endsLabel}`}
-            </div>
-          )}
+          {promo && <BlackFridayBanner promo={promo} />}
 
           <div className="relative grid md:grid-cols-2 gap-8 md:gap-10 p-6 sm:p-10">
             {/* Price column */}

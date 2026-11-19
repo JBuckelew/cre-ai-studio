@@ -157,6 +157,21 @@ button:focus-visible {
   }
 }
 
+@keyframes promo-shine {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(420%); }
+}
+
+.promo-shine {
+  animation: promo-shine 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-shine {
+    animation: none;
+  }
+}
+
 @keyframes speaking-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

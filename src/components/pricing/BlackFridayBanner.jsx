@@ -30,52 +30,52 @@ export default function BlackFridayBanner({ promo }) {
     : [];
 
   return (
-    <div className="relative overflow-hidden border-b border-yellow-400/30 bg-[linear-gradient(110deg,#0f172a,#1e293b,#0f172a)]">
-      <div className="pointer-events-none absolute -left-16 top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-yellow-400/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-amber-500/20 blur-3xl" />
-      <div className="promo-shine pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <div className="relative overflow-hidden bg-[linear-gradient(110deg,#facc15,#fbbf24,#fb923c)]">
+      <div className="pointer-events-none absolute -left-16 top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-white/40 blur-3xl" />
+      <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-red-500/20 blur-3xl" />
+      <div className="promo-shine pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
       <div className="relative flex flex-col gap-4 px-4 py-4 sm:px-6 sm:py-5 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
           <div className="shrink-0">
-            <p className="bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-300 bg-clip-text text-3xl font-black leading-none text-transparent sm:text-4xl">
+            <p className="text-3xl font-black leading-none text-slate-900 sm:text-4xl">
               {discount}% OFF
             </p>
-            <p className="mt-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-yellow-400">
+            <p className="mt-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-slate-900/70">
               {promo.label}
             </p>
           </div>
 
-          <div className="hidden h-12 w-px bg-white/10 sm:block" />
+          <div className="hidden h-12 w-px bg-slate-900/20 sm:block" />
 
-          <p className="text-sm leading-snug text-slate-300">
+          <p className="text-sm font-medium leading-snug text-slate-900/85">
             Monthly and annual.{" "}
-            <span className="font-semibold text-white">Annual adds a free seat</span> in the
+            <span className="font-bold text-slate-900">Annual adds a free seat</span> in the
             January Claude Cohort.
           </p>
         </div>
 
         {timeLeft ? (
           <div className="flex items-center gap-2">
-            <span className="mr-1 text-[10px] font-bold uppercase tracking-widest text-yellow-400/80">
+            <span className="mr-1 text-[10px] font-bold uppercase tracking-widest text-slate-900/70">
               Ends in
             </span>
             {units.map((unit) => (
               <div
                 key={unit.label}
-                className="min-w-[46px] rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-center"
+                className="min-w-[46px] rounded-lg border border-slate-900/15 bg-white/40 px-2 py-1.5 text-center"
               >
-                <p className="text-lg font-bold leading-none tabular-nums text-white">
+                <p className="text-lg font-bold leading-none tabular-nums text-slate-900">
                   {String(unit.value).padStart(2, "0")}
                 </p>
-                <p className="mt-1 text-[9px] uppercase tracking-wider text-slate-400">
+                <p className="mt-1 text-[9px] uppercase tracking-wider text-slate-900/60">
                   {unit.label}
                 </p>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-xs font-semibold uppercase tracking-widest text-yellow-400">
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-900">
             {promo.endsLabel || "Final hours"}
           </p>
         )}

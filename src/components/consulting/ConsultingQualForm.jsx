@@ -8,6 +8,7 @@ import { notifyConsultingApplication } from "@/functions/notifyConsultingApplica
 
 const FIRM_TYPES = ["Law Firm", "Brokerage", "Investment / PE", "Asset Management", "Developer", "REIT", "Other"];
 const TEAM_SIZES = ["Just me", "2–5", "6–20", "21–50", "50+"];
+const AUM_OPTIONS = ["$100M or less", "$100M–$500M", "$500M–$1B", "$1B–$5B", "$5B–$10B", "$10B+"];
 const TIMELINES = ["Immediately", "Within 3 months", "3–6 months", "Just exploring"];
 
 const OptionButton = ({ label, selected, onClick }) => (
@@ -30,14 +31,14 @@ export default function ConsultingQualForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [form, setForm] = useState({
     first_name: "", last_name: "", email: "", company: "", website: "",
-    firm_type: "", team_size: "", timeline: "", biggest_challenge: ""
+    firm_type: "", team_size: "", aum: "", timeline: "", biggest_challenge: ""
   });
 
   const set = (key, val) => setForm(f => ({ ...f, [key]: val }));
 
   const canProceed = () => {
     if (step === 1) return form.first_name && form.last_name && form.email && form.company;
-    if (step === 2) return form.firm_type && form.team_size;
+    if (step === 2) return form.firm_type && form.team_size && form.aum;
     if (step === 3) return form.timeline;
     return true;
   };
@@ -109,8 +110,12 @@ export default function ConsultingQualForm() {
               {FIRM_TYPES.map(t => <OptionButton key={t} label={t} selected={form.firm_type === t} onClick={() => set("firm_type", t)} />)}
             </div>
             <p className="text-xs text-slate-500 uppercase tracking-wide mb-2 font-semibold">Team Size</p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2 mb-5">
               {TEAM_SIZES.map(s => <OptionButton key={s} label={s} selected={form.team_size === s} onClick={() => set("team_size", s)} />)}
+            </div>
+            <p className="text-xs text-slate-500 uppercase tracking-wide mb-2 font-semibold">Assets Under Management</p>
+            <div className="grid grid-cols-2 gap-2">
+              {AUM_OPTIONS.map(a => <OptionButton key={a} label={a} selected={form.aum === a} onClick={() => set("aum", a)} />)}
             </div>
           </motion.div>
         )}

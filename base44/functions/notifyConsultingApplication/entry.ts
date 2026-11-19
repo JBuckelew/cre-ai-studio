@@ -18,6 +18,7 @@ Deno.serve(async (req) => {
         <tr><td style="padding:8px 12px;font-weight:bold;background:#f3f4f6;border:1px solid #e5e7eb;">Website</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${application.website || '—'}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:bold;background:#f3f4f6;border:1px solid #e5e7eb;">Firm Type</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${application.firm_type}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:bold;background:#f3f4f6;border:1px solid #e5e7eb;">Team Size</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${application.team_size}</td></tr>
+        <tr><td style="padding:8px 12px;font-weight:bold;background:#f3f4f6;border:1px solid #e5e7eb;">AUM</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${application.aum || '—'}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:bold;background:#f3f4f6;border:1px solid #e5e7eb;">Timeline</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${application.timeline}</td></tr>
         <tr><td style="padding:8px 12px;font-weight:bold;background:#f3f4f6;border:1px solid #e5e7eb;">Biggest Challenge</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${application.biggest_challenge || '—'}</td></tr>
       </table>

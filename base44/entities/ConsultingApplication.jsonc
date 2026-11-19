@@ -47,6 +47,18 @@
       ],
       "description": "Team size"
     },
+    "aum": {
+      "type": "string",
+      "enum": [
+        "$100M or less",
+        "$100M\u2013$500M",
+        "$500M\u2013$1B",
+        "$1B\u2013$5B",
+        "$5B\u2013$10B",
+        "$10B+"
+      ],
+      "description": "Assets under management"
+    },
     "timeline": {
       "type": "string",
       "enum": [
@@ -79,6 +91,7 @@
     "company",
     "firm_type",
     "team_size",
+    "aum",
     "timeline"
   ],
   "rls": {

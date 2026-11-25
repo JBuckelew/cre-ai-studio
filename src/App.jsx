@@ -60,7 +60,7 @@ import UseCaseAiMarketResearchPodcasts from './pages/UseCaseAiMarketResearchPodc
 import UseCaseCamReconciliationCowork from './pages/UseCaseCamReconciliationCowork';
 import UseCaseGrokBotRealEstateInvestors from './pages/UseCaseGrokBotRealEstateInvestors';
 import UseCaseZoningAnalysisChatgpt from './pages/UseCaseZoningAnalysisChatgpt';
-import UseCaseMcpServersCommercialRealEstate from './pages/UseCaseMcpServersCommercialRealEstate';
+import UseCaseMcpsForCommercialRealEstate from './pages/UseCaseMcpsForCommercialRealEstate';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -333,9 +333,9 @@ const AuthenticatedApp = () => {
           <UseCaseZoningAnalysisChatgpt />
         </LayoutWrapper>
       } />
-      <Route path="/use-cases/mcp-servers-for-commercial-real-estate" element={
-        <LayoutWrapper currentPageName="UseCaseMcpServersCommercialRealEstate">
-          <UseCaseMcpServersCommercialRealEstate />
+      <Route path="/use-cases/mcps-for-commercial-real-estate" element={
+        <LayoutWrapper currentPageName="UseCaseMcpsForCommercialRealEstate">
+          <UseCaseMcpsForCommercialRealEstate />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

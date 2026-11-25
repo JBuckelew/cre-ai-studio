@@ -44,32 +44,7 @@ export const homeFaqJsonLd = {
   })),
 };
 
-function hasFaqPageJsonLd() {
-  if (typeof document === "undefined") return false;
-  return Array.from(document.querySelectorAll('script[type="application/ld+json"]')).some((el) => {
-    try {
-      const data = JSON.parse(el.textContent || "");
-      const items = Array.isArray(data) ? data : [data];
-      return items.some((d) => d && d["@type"] === "FAQPage");
-    } catch {
-      return false;
-    }
-  });
-}
-
-function injectHomeFaqJsonLd() {
-  if (typeof document === "undefined" || hasFaqPageJsonLd()) return;
-  const script = document.createElement("script");
-  script.type = "application/ld+json";
-  script.setAttribute("data-home-faq-ld", "true");
-  script.text = JSON.stringify(homeFaqJsonLd);
-  document.head.appendChild(script);
-}
-
-function clearHomeFaqJsonLd() {
-  if (typeof document === "undefined") return;
-  document.querySelectorAll('script[data-home-faq-ld]').forEach((s) => s.remove());
-}
+const HOME_FAQ_SCRIPT_ID = "creaistudio-home-faqpage";
 
 function Answer({ item }) {
   if (item.q === "How do I use AI for commercial real estate?") {
@@ -114,11 +89,18 @@ function Answer({ item }) {
 }
 
 export default function HomeFaq() {
-  // index.html already has FAQPage JSON-LD for no-JS and first paint.
-  // Inject only if missing (client-side navigation to the homepage).
+  // The homepage owns its FAQPage JSON-LD: injected on mount and removed on
+  // unmount so no other route ever carries it.
   useEffect(() => {
-    injectHomeFaqJsonLd();
-    return () => clearHomeFaqJsonLd();
+    document.getElementById(HOME_FAQ_SCRIPT_ID)?.remove();
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = HOME_FAQ_SCRIPT_ID;
+    script.text = JSON.stringify(homeFaqJsonLd);
+    document.head.appendChild(script);
+    return () => {
+      document.getElementById(HOME_FAQ_SCRIPT_ID)?.remove();
+    };
   }, []);
 
   return (

@@ -166,7 +166,7 @@ export default function UseCaseArticle({ slug: slugProp }) {
           <img
             src={uc.heroImageSrc}
             alt={uc.ogImageAlt}
-            className="w-full rounded-2xl shadow-lg"
+            className="w-full rounded-2xl shadow-lg object-contain"
           />
           <figcaption className="text-sm text-slate-500 mt-3 text-center italic">
             {uc.imageCaption}

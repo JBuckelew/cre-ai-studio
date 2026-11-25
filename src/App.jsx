@@ -61,6 +61,7 @@ import UseCaseCamReconciliationCowork from './pages/UseCaseCamReconciliationCowo
 import UseCaseGrokBotRealEstateInvestors from './pages/UseCaseGrokBotRealEstateInvestors';
 import UseCaseZoningAnalysisChatgpt from './pages/UseCaseZoningAnalysisChatgpt';
 import UseCaseMcpsForCommercialRealEstate from './pages/UseCaseMcpsForCommercialRealEstate';
+import UseCaseBuildiumApiClaudePropertyManagement from './pages/UseCaseBuildiumApiClaudePropertyManagement';
 
 const { Pages, Layout, mainPage } = pagesConfig;
 const mainPageKey = mainPage ?? Object.keys(Pages)[0];
@@ -336,6 +337,11 @@ const AuthenticatedApp = () => {
       <Route path="/use-cases/mcps-for-commercial-real-estate" element={
         <LayoutWrapper currentPageName="UseCaseMcpsForCommercialRealEstate">
           <UseCaseMcpsForCommercialRealEstate />
+        </LayoutWrapper>
+      } />
+      <Route path="/use-cases/buildium-api-claude-property-management" element={
+        <LayoutWrapper currentPageName="UseCaseBuildiumApiClaudePropertyManagement">
+          <UseCaseBuildiumApiClaudePropertyManagement />
         </LayoutWrapper>
       } />
       <Route path="/use-cases/:slug" element={

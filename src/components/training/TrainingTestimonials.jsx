@@ -9,10 +9,10 @@ export default function TrainingTestimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHead chip="Testimonials" title="What" accent="CRE leaders say about our AI training" />
         <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          <QuoteCard q={QUOTES.josh} className="bg-slate-50 md:col-span-2" />
           {MORE.map((k) => (
             <QuoteCard key={k} q={withLine(k)} className="bg-slate-50" />
           ))}
-          <QuoteCard q={QUOTES.josh} className="bg-slate-50" />
         </div>
       </div>
     </section>

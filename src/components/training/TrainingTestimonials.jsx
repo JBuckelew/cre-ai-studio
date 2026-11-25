@@ -1,5 +1,5 @@
 import React from "react";
-import { withLine, QuoteCard, SectionHead } from "@/components/training/TrainingQuoteKit";
+import { withLine, QuoteCard, SectionHead, QUOTES } from "@/components/training/TrainingQuoteKit";
 
 const MORE = ["erin", "murphy"];
 
@@ -12,6 +12,7 @@ export default function TrainingTestimonials() {
           {MORE.map((k) => (
             <QuoteCard key={k} q={withLine(k)} className="bg-slate-50" />
           ))}
+          <QuoteCard q={QUOTES.josh} className="bg-slate-50" />
         </div>
       </div>
     </section>

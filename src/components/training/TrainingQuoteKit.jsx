@@ -51,6 +51,13 @@ export const QUOTES = {
     quote:
       'Instead of vague "use AI for everything" advice, we got concrete guidance on what to focus on. We left the sessions with a detailed outline of what we\'re doing now, and an executive summary on what to do next.',
   },
+  josh: {
+    name: "Josh Weiner",
+    title: "Principal",
+    firm: "KLNB",
+    quote:
+      "We chose CRE AI Studio because we didn't want another AI training where everyone walks away impressed by the technology, but then goes right back to working the same way. Jonathan and Topher understand both AI and commercial real estate, and that made all the difference. Whether someone on our team was opening Copilot for the first time or already using it regularly, they walked away with practical ideas to save time, improve workflows, and work more efficiently. That's exactly what we wanted out of the training. They nailed it.",
+  },
   eric: {
     name: "Eric Edwards",
     title: "2026 Florida CCIM SW District President",

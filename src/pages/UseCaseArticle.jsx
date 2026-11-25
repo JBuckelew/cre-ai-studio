@@ -174,6 +174,7 @@ export default function UseCaseArticle({ slug: slugProp }) {
         </figure>
 
         {/* Credit Box */}
+        {!uc.hideCreditBlock && (
         <div className="use-case-credit-box text-sm text-slate-500 mb-10 pb-6 border-b border-slate-200">
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">
             Use case credit
@@ -221,6 +222,7 @@ export default function UseCaseArticle({ slug: slugProp }) {
             ))}
           </div>
         </div>
+        )}
 
         {/* Filed Under Chips */}
         {hasChips && (

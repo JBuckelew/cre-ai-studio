@@ -19,6 +19,7 @@ CRE AI Studio teaches commercial real estate professionals to use AI tools in th
 ## AI use cases
 
 - [AI Use Cases for Commercial Real Estate](https://creaistudio.com/use-cases): AI use cases for commercial real estate: real CRE workflows in Claude, ChatGPT and Grok Bot, credited to their creators, with copyable prompts and checks.
+- [Buildium API for AI: Connect Claude to Your PMS](https://creaistudio.com/use-cases/buildium-api-claude-property-management): Buildium API access lets Claude read leases, ledgers and work orders. How one multifamily owner runs 11 scoped keys, and which other PMS systems allow it.
 - [MCPs for Commercial Real Estate](https://creaistudio.com/use-cases/mcps-for-commercial-real-estate): MCPs for commercial real estate are Model Context Protocol connectors for CRE data. A credited list of 33 MCP and AI connectors, by use case.
 - [How to Rebuild a Real Estate Proforma in Claude for Excel](https://creaistudio.com/use-cases/claude-for-excel-real-estate-proforma): Rebuild a sponsor proforma in Claude for Excel from screenshots and a rent roll in about 10 minutes. Workflow, copyable prompt, and what to check.
 - [Zoning Analysis by Address With a ChatGPT Code Library](https://creaistudio.com/use-cases/zoning-analysis-chatgpt-code-library): Zoning analysis with ChatGPT: load your city's zoning and building code, ask by address for by-right units, bonus density and ADUs, then verify each answer.
